@@ -1,0 +1,84 @@
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csprojAssemblyReference.cache
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Menu.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.Properties.Resources.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.GenerateResource.cache
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.CoreCompileInputs.cache
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\GestionDeStockC.exe.config
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\GestionDeStockC.exe
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\GestionDeStockC.pdb
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.dll
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.xml
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.CopyComplete
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.exe
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.pdb
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Connexion.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Client.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajoute_Modifier_Client.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Produit.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajouter_Modifier_Porduit.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Categorie.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajoute_Modifier_Categorie.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Commande.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Detail_Commande.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Client_Commande.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Produit_Commande.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\GestionDeStockC.exe.config
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\GestionDeStockC.exe
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\GestionDeStockC.pdb
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.dll
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.xml
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csprojAssemblyReference.cache
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajouter_Modifier_Porduit.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajoute_Modifier_Categorie.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajoute_Modifier_Client.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Client_Commande.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Detail_Commande.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Menu.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Produit_Commande.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Categorie.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Client.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Commande.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Produit.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.Properties.Resources.resources
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.GenerateResource.cache
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.CoreCompileInputs.cache
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.CopyComplete
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.exe
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.pdb
+C:\Users\loicp\Documents\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.Form1.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\GestionDeStockC.exe.config
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\GestionDeStockC.exe
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\GestionDeStockC.pdb
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.dll
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.xml
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csprojAssemblyReference.cache
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.Form1.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajouter_Modifier_Porduit.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajoute_Modifier_Categorie.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajoute_Modifier_Client.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Client_Commande.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Detail_Commande.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Menu.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Produit_Commande.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Categorie.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Client.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Commande.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Produit.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.Properties.Resources.resources
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.GenerateResource.cache
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.CoreCompileInputs.cache
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.CopyComplete
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.exe
+C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.pdb
