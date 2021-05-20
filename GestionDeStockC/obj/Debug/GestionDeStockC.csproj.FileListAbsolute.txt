@@ -14,7 +14,6 @@ C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\fr\EntityF
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.CopyComplete
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.exe
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.pdb
-C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Connexion.resources
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Client.resources
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajoute_Modifier_Client.resources
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Produit.resources
@@ -82,3 +81,4 @@ C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDe
 C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.CopyComplete
 C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.exe
 C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.pdb
+C:\Users\loicp\Source\Repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.Form1.resources

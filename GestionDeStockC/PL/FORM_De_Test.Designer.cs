@@ -1,7 +1,7 @@
 ﻿
 namespace GestionDeStockC.PL
 {
-    partial class Form1
+    partial class FORM_De_Test
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GestionDeStockC.PL
 {
-    public partial class Form1 : Form
+    public partial class FORM_De_Test : Form
     {
-        public Form1()
+        public FORM_De_Test()
         {
             InitializeComponent();
         }
