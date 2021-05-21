@@ -81,4 +81,4 @@ C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDe
 C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csproj.CopyComplete
 C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.exe
 C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.pdb
-C:\Users\loicp\Source\Repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.Form1.resources
+C:\Users\loicp\Source\Repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FORM_De_Test.resources

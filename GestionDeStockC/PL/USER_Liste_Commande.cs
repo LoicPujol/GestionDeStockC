@@ -65,19 +65,19 @@ namespace GestionDeStockC.PL
 
         private void txtNumCde_TextChanged(object sender, EventArgs e)
         {
-            db = new dbStockContext();
+            int NumCde = 0;
+            NumCde = Int32.Parse(txtNumCde.Text);
 
-            var listerecherche = db.Details_Commande.ToList();//liste de recherche = liste detail commande
-            int Num = Int32.Parse(txtNumCde.Text);
-            listerecherche = listerecherche.Where(s => s.ID_Commande.CompareTo(Num) != -1).ToList();
-            //vide datagrid
-            dvgDetailCde.Rows.Clear();
-            foreach (var l in listerecherche)
-            {
-              dvgDetailCde.Rows.Add(l.ID_Produit, l.Nom_Produit, l.Quantite, l.Remise);
-               
-            }
-            
+            var detailcommande = db.Details_Commande.ToList();
+                if(txtNumCde.Text != "")
+                {
+                detailcommande = detailcommande.Where(s => s.ID_Commande == NumCde).ToList();
+                dvgDetailCde.Rows.Clear();
+                foreach (var l in detailcommande)
+                {
+                    dvgDetailCde.Rows.Add(l.ID_Produit, l.Nom_Produit, l.Quantite, l.Remise);
+                }
+                }
         }
  
     }
