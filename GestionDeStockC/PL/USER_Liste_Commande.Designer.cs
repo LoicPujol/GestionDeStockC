@@ -46,7 +46,6 @@ namespace GestionDeStockC.PL
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvgDetailCde = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,8 +53,8 @@ namespace GestionDeStockC.PL
             this.detailsCommandeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gESTION_DE_STOCKDataSet = new GestionDeStockC.GESTION_DE_STOCKDataSet();
             this.txtNumCde = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.details_CommandeTableAdapter = new GestionDeStockC.GESTION_DE_STOCKDataSetTableAdapters.Details_CommandeTableAdapter();
+            this.txtrecherche = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCommande)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDetailCde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsCommandeBindingSource)).BeginInit();
@@ -101,6 +100,8 @@ namespace GestionDeStockC.PL
             // dvgCommande
             // 
             this.dvgCommande.AllowUserToAddRows = false;
+            this.dvgCommande.AllowUserToDeleteRows = false;
+            this.dvgCommande.AllowUserToResizeRows = false;
             this.dvgCommande.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -133,6 +134,7 @@ namespace GestionDeStockC.PL
             this.dvgCommande.DefaultCellStyle = dataGridViewCellStyle2;
             this.dvgCommande.EnableHeadersVisualStyles = false;
             this.dvgCommande.Location = new System.Drawing.Point(15, 57);
+            this.dvgCommande.MultiSelect = false;
             this.dvgCommande.Name = "dvgCommande";
             this.dvgCommande.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -148,7 +150,7 @@ namespace GestionDeStockC.PL
             this.dvgCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgCommande.Size = new System.Drawing.Size(618, 641);
             this.dvgCommande.TabIndex = 33;
-            this.dvgCommande.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCommande_CellContentClick);
+            this.dvgCommande.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCommande_CellClick);
             // 
             // Column9
             // 
@@ -204,7 +206,6 @@ namespace GestionDeStockC.PL
             this.dvgDetailCde.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dvgDetailCde.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgDetailCde.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
@@ -213,12 +214,14 @@ namespace GestionDeStockC.PL
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgDetailCde.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dvgDetailCde.Enabled = false;
             this.dvgDetailCde.EnableHeadersVisualStyles = false;
             this.dvgDetailCde.Location = new System.Drawing.Point(649, 57);
+            this.dvgDetailCde.MultiSelect = false;
             this.dvgDetailCde.Name = "dvgDetailCde";
             this.dvgDetailCde.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -235,15 +238,9 @@ namespace GestionDeStockC.PL
             this.dvgDetailCde.Size = new System.Drawing.Size(474, 641);
             this.dvgDetailCde.TabIndex = 34;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id Com";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Id Prod.";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
@@ -279,33 +276,37 @@ namespace GestionDeStockC.PL
             // 
             this.txtNumCde.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumCde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumCde.Location = new System.Drawing.Point(719, 26);
+            this.txtNumCde.Location = new System.Drawing.Point(730, 16);
             this.txtNumCde.Multiline = true;
             this.txtNumCde.Name = "txtNumCde";
             this.txtNumCde.Size = new System.Drawing.Size(107, 29);
             this.txtNumCde.TabIndex = 35;
+            this.txtNumCde.Visible = false;
             this.txtNumCde.TextChanged += new System.EventHandler(this.txtNumCde_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(706, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 20);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Detail commande ";
             // 
             // details_CommandeTableAdapter
             // 
             this.details_CommandeTableAdapter.ClearBeforeFill = true;
             // 
+            // txtrecherche
+            // 
+            this.txtrecherche.BackColor = System.Drawing.SystemColors.Control;
+            this.txtrecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtrecherche.ForeColor = System.Drawing.Color.DimGray;
+            this.txtrecherche.Location = new System.Drawing.Point(15, 14);
+            this.txtrecherche.Multiline = true;
+            this.txtrecherche.Name = "txtrecherche";
+            this.txtrecherche.Size = new System.Drawing.Size(292, 31);
+            this.txtrecherche.TabIndex = 36;
+            this.txtrecherche.Text = "Recherche";
+            this.txtrecherche.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtrecherche.Enter += new System.EventHandler(this.txtrecherche_Enter);
+            // 
             // USER_Liste_Commande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtrecherche);
             this.Controls.Add(this.txtNumCde);
             this.Controls.Add(this.dvgDetailCde);
             this.Controls.Add(this.dvgCommande);
@@ -336,14 +337,13 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridView dvgDetailCde;
         private System.Windows.Forms.TextBox txtNumCde;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.BindingSource detailsCommandeBindingSource;
+        private GESTION_DE_STOCKDataSet gESTION_DE_STOCKDataSet;
+        private GESTION_DE_STOCKDataSetTableAdapters.Details_CommandeTableAdapter details_CommandeTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.BindingSource detailsCommandeBindingSource;
-        private GESTION_DE_STOCKDataSet gESTION_DE_STOCKDataSet;
-        private GESTION_DE_STOCKDataSetTableAdapters.Details_CommandeTableAdapter details_CommandeTableAdapter;
+        private System.Windows.Forms.TextBox txtrecherche;
     }
 }

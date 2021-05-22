@@ -47,6 +47,8 @@ namespace GestionDeStockC.PL
             // dvgclient
             // 
             this.dvgclient.AllowUserToAddRows = false;
+            this.dvgclient.AllowUserToDeleteRows = false;
+            this.dvgclient.AllowUserToResizeRows = false;
             this.dvgclient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvgclient.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dvgclient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;

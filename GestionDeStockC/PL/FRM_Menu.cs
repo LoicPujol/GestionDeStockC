@@ -23,7 +23,7 @@ namespace GestionDeStockC.PL
         {
             if (panel1.Width==200)
             {
-                panel1.Size = new Size(75, 666);
+                panel1.Size = new Size(60, 666);
             }else
             {
                 panel1.Size = new Size(200, 666);

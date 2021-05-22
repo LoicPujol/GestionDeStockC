@@ -60,7 +60,7 @@ namespace GestionDeStockC.PL
             // pnlBut
             // 
             this.pnlBut.BackColor = System.Drawing.Color.Gray;
-            this.pnlBut.Location = new System.Drawing.Point(3, 80);
+            this.pnlBut.Location = new System.Drawing.Point(0, 80);
             this.pnlBut.Name = "pnlBut";
             this.pnlBut.Size = new System.Drawing.Size(10, 45);
             this.pnlBut.TabIndex = 6;
@@ -87,9 +87,9 @@ namespace GestionDeStockC.PL
             this.btncommande.ForeColor = System.Drawing.Color.Gray;
             this.btncommande.Image = global::GestionDeStockC.Properties.Resources.shopping_icon;
             this.btncommande.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btncommande.Location = new System.Drawing.Point(3, 404);
+            this.btncommande.Location = new System.Drawing.Point(0, 270);
             this.btncommande.Name = "btncommande";
-            this.btncommande.Size = new System.Drawing.Size(194, 45);
+            this.btncommande.Size = new System.Drawing.Size(188, 45);
             this.btncommande.TabIndex = 12;
             this.btncommande.Text = "          Commande";
             this.btncommande.UseVisualStyleBackColor = true;
@@ -104,9 +104,9 @@ namespace GestionDeStockC.PL
             this.btnproduit.ForeColor = System.Drawing.Color.Gray;
             this.btnproduit.Image = global::GestionDeStockC.Properties.Resources.shop_cart_add_icon;
             this.btnproduit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnproduit.Location = new System.Drawing.Point(3, 188);
+            this.btnproduit.Location = new System.Drawing.Point(0, 143);
             this.btnproduit.Name = "btnproduit";
-            this.btnproduit.Size = new System.Drawing.Size(194, 45);
+            this.btnproduit.Size = new System.Drawing.Size(188, 45);
             this.btnproduit.TabIndex = 11;
             this.btnproduit.Text = "   Produit";
             this.btnproduit.UseVisualStyleBackColor = true;
@@ -121,9 +121,9 @@ namespace GestionDeStockC.PL
             this.btnclient.ForeColor = System.Drawing.Color.Gray;
             this.btnclient.Image = global::GestionDeStockC.Properties.Resources.Office_Client_Male_Light_icon;
             this.btnclient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnclient.Location = new System.Drawing.Point(3, 80);
+            this.btnclient.Location = new System.Drawing.Point(0, 80);
             this.btnclient.Name = "btnclient";
-            this.btnclient.Size = new System.Drawing.Size(194, 45);
+            this.btnclient.Size = new System.Drawing.Size(188, 45);
             this.btnclient.TabIndex = 9;
             this.btnclient.Text = " Client";
             this.btnclient.UseVisualStyleBackColor = true;
@@ -138,9 +138,9 @@ namespace GestionDeStockC.PL
             this.btncategorie.ForeColor = System.Drawing.Color.Gray;
             this.btncategorie.Image = global::GestionDeStockC.Properties.Resources.Categorie;
             this.btncategorie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btncategorie.Location = new System.Drawing.Point(3, 296);
+            this.btncategorie.Location = new System.Drawing.Point(0, 205);
             this.btncategorie.Name = "btncategorie";
-            this.btncategorie.Size = new System.Drawing.Size(194, 45);
+            this.btncategorie.Size = new System.Drawing.Size(188, 45);
             this.btncategorie.TabIndex = 10;
             this.btncategorie.Text = "       Categorie";
             this.btncategorie.UseVisualStyleBackColor = true;

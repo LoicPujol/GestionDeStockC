@@ -57,12 +57,6 @@ namespace GestionDeStockC.PL
         {
             Actualisedatagrid();
         }
-
-        private void dvgCommande_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           txtNumCde.Text = dvgCommande.CurrentRow.Cells[0].Value.ToString();
-        }
-
         private void txtNumCde_TextChanged(object sender, EventArgs e)
         {
             int NumCde = 0;
@@ -79,6 +73,20 @@ namespace GestionDeStockC.PL
                 }
                 }
         }
- 
+
+        private void dvgCommande_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtNumCde.Text = dvgCommande.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void txtrecherche_Enter(object sender, EventArgs e)
+        {
+            if (txtrecherche.Text == "Recherche")
+            {
+                txtrecherche.Text = "";
+                txtrecherche.ForeColor = Color.Black;
+            }
+        }
+
     }
 }

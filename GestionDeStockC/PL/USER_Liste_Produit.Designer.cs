@@ -39,7 +39,6 @@ namespace GestionDeStockC.PL
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.txtrecherche = new System.Windows.Forms.TextBox();
             this.btnsupprimer = new System.Windows.Forms.Button();
             this.btnmodifier = new System.Windows.Forms.Button();
@@ -52,6 +51,8 @@ namespace GestionDeStockC.PL
             // dvgProduit
             // 
             this.dvgProduit.AllowUserToAddRows = false;
+            this.dvgProduit.AllowUserToDeleteRows = false;
+            this.dvgProduit.AllowUserToResizeRows = false;
             this.dvgProduit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -83,7 +84,8 @@ namespace GestionDeStockC.PL
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle2;
             this.dvgProduit.EnableHeadersVisualStyles = false;
-            this.dvgProduit.Location = new System.Drawing.Point(3, 57);
+            this.dvgProduit.Location = new System.Drawing.Point(18, 57);
+            this.dvgProduit.MultiSelect = false;
             this.dvgProduit.Name = "dvgProduit";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -96,7 +98,7 @@ namespace GestionDeStockC.PL
             this.dvgProduit.RowHeadersVisible = false;
             this.dvgProduit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dvgProduit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgProduit.Size = new System.Drawing.Size(1131, 660);
+            this.dvgProduit.Size = new System.Drawing.Size(1097, 645);
             this.dvgProduit.TabIndex = 16;
             // 
             // Column1
@@ -134,21 +136,12 @@ namespace GestionDeStockC.PL
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            this.panel3.Location = new System.Drawing.Point(3, 48);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(292, 3);
-            this.panel3.TabIndex = 13;
-            // 
             // txtrecherche
             // 
             this.txtrecherche.BackColor = System.Drawing.SystemColors.Control;
-            this.txtrecherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtrecherche.ForeColor = System.Drawing.Color.DimGray;
-            this.txtrecherche.Location = new System.Drawing.Point(3, 20);
+            this.txtrecherche.Location = new System.Drawing.Point(18, 12);
             this.txtrecherche.Multiline = true;
             this.txtrecherche.Name = "txtrecherche";
             this.txtrecherche.Size = new System.Drawing.Size(292, 31);
@@ -226,7 +219,7 @@ namespace GestionDeStockC.PL
             this.btnexcel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnexcel.Image = global::GestionDeStockC.Properties.Resources.Excel_icon;
             this.btnexcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnexcel.Location = new System.Drawing.Point(1079, 3);
+            this.btnexcel.Location = new System.Drawing.Point(1060, 3);
             this.btnexcel.Name = "btnexcel";
             this.btnexcel.Size = new System.Drawing.Size(55, 48);
             this.btnexcel.TabIndex = 20;
@@ -259,7 +252,6 @@ namespace GestionDeStockC.PL
             this.Controls.Add(this.btnactualiser);
             this.Controls.Add(this.btnexcel);
             this.Controls.Add(this.dvgProduit);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.txtrecherche);
             this.Controls.Add(this.btnsupprimer);
             this.Controls.Add(this.btnmodifier);
@@ -275,7 +267,6 @@ namespace GestionDeStockC.PL
 
         #endregion
         private System.Windows.Forms.DataGridView dvgProduit;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtrecherche;
         private System.Windows.Forms.Button btnsupprimer;
         private System.Windows.Forms.Button btnmodifier;

@@ -191,6 +191,19 @@ namespace GestionDeStockC.PL
             {
                 cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
                 dvgProduit.Rows.Add(false, l.ID_Produit, l.Nom_Produit, l.Quantité_Produit, l.Prix_Produit, cat.Nom_Categorie);
+                
+                for (int i = 0; i < dvgProduit.Rows.Count; i++)
+                {
+                    if ((int)dvgProduit.Rows[i].Cells[3].Value == 0)
+                    {
+                        dvgProduit.Rows[i].Cells[3].Style.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        dvgProduit.Rows[i].Cells[3].Style.BackColor = Color.LightGreen;
+                    }
+                }
+
             }
         }
 

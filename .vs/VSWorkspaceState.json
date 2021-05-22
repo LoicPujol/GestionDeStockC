@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\GestionDeStockC"
+    "\\GestionDeStockC",
+    "\\GestionDeStockC\\PL"
   ],
-  "SelectedNode": "\\GestionDeStockC.sln",
+  "SelectedNode": "\\GestionDeStockC\\PL\\FORM_De_Test.Designer.cs",
   "PreviewInSolutionExplorer": false
 }

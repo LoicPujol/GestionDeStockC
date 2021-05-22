@@ -41,7 +41,6 @@ namespace GestionDeStockC.PL
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modifier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.btnajouter = new System.Windows.Forms.Button();
             this.txtrecherche = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCategorie)).BeginInit();
@@ -67,6 +66,8 @@ namespace GestionDeStockC.PL
             // dvgCategorie
             // 
             this.dvgCategorie.AllowUserToAddRows = false;
+            this.dvgCategorie.AllowUserToDeleteRows = false;
+            this.dvgCategorie.AllowUserToResizeRows = false;
             this.dvgCategorie.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -98,6 +99,7 @@ namespace GestionDeStockC.PL
             this.dvgCategorie.DefaultCellStyle = dataGridViewCellStyle4;
             this.dvgCategorie.EnableHeadersVisualStyles = false;
             this.dvgCategorie.Location = new System.Drawing.Point(19, 57);
+            this.dvgCategorie.MultiSelect = false;
             this.dvgCategorie.Name = "dvgCategorie";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -153,14 +155,6 @@ namespace GestionDeStockC.PL
             this.Supprimer.Text = "Supprimer";
             this.Supprimer.UseColumnTextForButtonValue = true;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            this.panel3.Location = new System.Drawing.Point(3, 48);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(292, 3);
-            this.panel3.TabIndex = 26;
-            // 
             // btnajouter
             // 
             this.btnajouter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -183,10 +177,9 @@ namespace GestionDeStockC.PL
             // txtrecherche
             // 
             this.txtrecherche.BackColor = System.Drawing.SystemColors.Control;
-            this.txtrecherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtrecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtrecherche.ForeColor = System.Drawing.Color.DimGray;
-            this.txtrecherche.Location = new System.Drawing.Point(3, 20);
+            this.txtrecherche.Location = new System.Drawing.Point(19, 12);
             this.txtrecherche.Multiline = true;
             this.txtrecherche.Name = "txtrecherche";
             this.txtrecherche.Size = new System.Drawing.Size(292, 31);
@@ -202,7 +195,6 @@ namespace GestionDeStockC.PL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnexcel);
             this.Controls.Add(this.dvgCategorie);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnajouter);
             this.Controls.Add(this.txtrecherche);
             this.Name = "USER_Liste_Categorie";
@@ -218,7 +210,6 @@ namespace GestionDeStockC.PL
 
         private System.Windows.Forms.Button btnexcel;
         private System.Windows.Forms.DataGridView dvgCategorie;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnajouter;
         private System.Windows.Forms.TextBox txtrecherche;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column3;
