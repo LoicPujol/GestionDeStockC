@@ -25,6 +25,15 @@ namespace GestionDeStockC.PL
             //pour filtrer seulement les nom de categorie
             combocategorie.DisplayMember = "Nom_Categorie";//afficher les nom des categorie
             combocategorie.ValueMember = "ID_Categorie";
+            combocategorie.SelectedIndex = -1;
+
+            //afficher type selon table dans combobox
+            combotype.DataSource = db.Types.ToList();
+            //pour filtrer seulement les nom de categorie
+            combotype.DisplayMember = "Nom_Type";//afficher les nom des categorie
+            combotype.ValueMember = "ID_Type";
+            combotype.SelectedIndex = -1;
+
         }
         //test champ obligatoire
         string testoblogatoire()
@@ -41,13 +50,17 @@ namespace GestionDeStockC.PL
             {
                 return "Entrer un prix";
             }
-            if(picProduit.Image==null)
+            if (picProduit.Image == null)
             {
                 return "Entrer l'image du produit";
             }
-            if(combocategorie.Text=="")
+            if (combocategorie.Text == "")
             {
                 return "entrer nom categorie";
+            }
+            if (combotype.Text == "")
+            {
+                return "entrer nom type";
             }
             return null;
         }
@@ -57,7 +70,9 @@ namespace GestionDeStockC.PL
             txtNomP.Text = "Nom Produit"; txtNomP.ForeColor = Color.Silver;
             txtQuantite.Text = "Quantite"; txtQuantite.ForeColor = Color.Silver;
             txtPrix.Text = "Prix"; txtPrix.ForeColor = Color.Silver;
-            combocategorie.Text = ""; // ATTENTION ICI LE COMBO BOX NE SE DECHARGE PAS
+            txtPrix.Text = "Stock Alerte"; txtPrix.ForeColor = Color.Silver;
+            combocategorie.SelectedIndex = -1;
+            combotype.SelectedIndex = -1;
             picProduit.Image = null;
         }
 
@@ -125,7 +140,7 @@ namespace GestionDeStockC.PL
             //Afficher fichier Image
             OpenFileDialog OP = new OpenFileDialog();
             OP.Filter = "|*.JPG;*.PNG;*.GIF;*.BMP"; //pour afficher seulement les fichier type image
-            if (OP.ShowDialog()==DialogResult.OK)
+            if (OP.ShowDialog() == DialogResult.OK)
             {
                 picProduit.Image = Image.FromFile(OP.FileName);
             }
@@ -162,7 +177,7 @@ namespace GestionDeStockC.PL
             if (testoblogatoire() != null)
             {
                 MessageBox.Show(testoblogatoire(), "Obligatoire", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }else
+            } else
             {
                 if (lblTitre.Text == "Ajouter Produit")
                 {
@@ -172,7 +187,7 @@ namespace GestionDeStockC.PL
                     MemoryStream MR = new MemoryStream();
                     picProduit.Image.Save(MR, picProduit.Image.RawFormat);
                     byte[] byteimageP = MR.ToArray();//convertir image en format bye[]
-                    if (clproduit.Ajouter_Produit(txtNomP.Text, int.Parse(txtQuantite.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue)) == true)
+                    if (clproduit.Ajouter_Produit(txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value) == true)
                     {
                         MessageBox.Show("Produit ajoute avec succe", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
@@ -191,7 +206,7 @@ namespace GestionDeStockC.PL
                     DialogResult RS = MessageBox.Show("Voulez vous modifier", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (RS == DialogResult.Yes)
                     {
-                        cLS_Produit.Modifier_Produit(IDPRODUIT, txtNomP.Text, int.Parse(txtQuantite.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue));
+                        cLS_Produit.Modifier_Produit(IDPRODUIT, txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value);
                         MessageBox.Show("Produit modifier", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         //Actualiser datagrid
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
@@ -203,6 +218,57 @@ namespace GestionDeStockC.PL
                     }
                 }
             }
+        }
+
+        private void txtStockAlerte_Enter(object sender, EventArgs e)
+        {
+            if (txtPrix.Text == "Stock Alerte")
+            {
+                txtPrix.Text = "";
+                txtPrix.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtStockAlerte_Leave(object sender, EventArgs e)
+        {
+            if (txtPrix.Text == "")
+            {
+                txtPrix.Text = "Stock Alerte";
+                txtPrix.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txtStockAlerte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //textbox numerique
+            if (e.KeyChar < 48 || e.KeyChar > 57)//code asci des numero de tel
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void combotype_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (combotype.Text == "Unitaire")
+            {
+                checkDate.Visible = true;
+            }
+            else
+            checkDate.Visible = false;
+            dateCtrl.Visible = false;
+        }
+
+        private void checkDate_Click(object sender, EventArgs e)
+        {
+            if (checkDate.Checked)
+            {
+                dateCtrl.Visible = true;
+            }else
+                dateCtrl.Visible = false;
         }
     }
 }

@@ -30,6 +30,7 @@ namespace GestionDeStockC
         public virtual DbSet<Commande> Commandes { get; set; }
         public virtual DbSet<Details_Commande> Details_Commande { get; set; }
         public virtual DbSet<Produit> Produits { get; set; }
+        public virtual DbSet<Type> Types { get; set; }
         public virtual DbSet<Utilisateur> Utilisateurs { get; set; }
     }
 }

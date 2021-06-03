@@ -106,7 +106,22 @@ namespace GestionDeStockC.PL
         }
         private void FRM_Menu_Load(object sender, EventArgs e)
         {
-            //desactiverForm();
-        }      
+            
+        }
+
+        private void btnalerte_Click(object sender, EventArgs e)
+        {
+            pnlBut.Top = btnalerte.Top;
+            if (!pnlaficher.Controls.Contains(USER_Alerte.Instance))
+            {
+                pnlaficher.Controls.Add(USER_Alerte.Instance);
+                USER_Alerte.Instance.Dock = DockStyle.Fill;
+                USER_Alerte.Instance.BringToFront();
+            }
+            else
+            {
+                USER_Alerte.Instance.BringToFront();
+            }
+        }
     }
 }

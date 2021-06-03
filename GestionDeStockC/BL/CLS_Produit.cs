@@ -11,14 +11,17 @@ namespace GestionDeStockC.BL
         private dbStockContext db = new dbStockContext();
         private Produit PR;
         //ajouter produit
-        public bool Ajouter_Produit(string NomP, int quantite, string prix, byte[] imageP, int idcategorie)//image pour sauvegarder dand base de donne doit etre au format byte
+        public bool Ajouter_Produit(string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, DateTime dateCtrl)//image pour sauvegarder dand base de donne doit etre au format byte
         {
             PR = new Produit();
             PR.Nom_Produit = NomP;
             PR.Quantité_Produit = quantite;
+            PR.Stock_Alerte = alerte;
             PR.Prix_Produit = prix;
             PR.Image_Produit = imageP;
             PR.ID_Categorie = idcategorie;
+            PR.ID_Type = idtype;
+            PR.Date_Controle = dateCtrl;
             //verifier si le produit existe
             if (db.Produits.SingleOrDefault(a => a.Nom_Produit == NomP) == null)//n'existe pas
             {
@@ -32,7 +35,7 @@ namespace GestionDeStockC.BL
             }
         }
         //Modifier  Produit
-        public void Modifier_Produit(int IDP, string NomP, int quantite, string prix, byte[] imageP, int idcategorie)
+        public void Modifier_Produit(int IDP, string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, DateTime dateCtrl)
         {
             PR = new Produit();
             PR = db.Produits.SingleOrDefault(s => s.ID_Produit == IDP);//verifier si id de client existe
@@ -40,9 +43,12 @@ namespace GestionDeStockC.BL
             {
                 PR.Nom_Produit = NomP;
                 PR.Quantité_Produit = quantite;
+                PR.Stock_Alerte = alerte;
                 PR.Prix_Produit = prix;
                 PR.Image_Produit = imageP;
                 PR.ID_Categorie = idcategorie;
+                PR.ID_Type = idtype;
+                PR.Date_Controle = dateCtrl;
                 db.SaveChanges();//sauver changement dans base donnee
             }
         }
@@ -59,7 +65,7 @@ namespace GestionDeStockC.BL
             }
         }
             //Supprimer produit
-            public void Supprimer_Produit(int id)
+        public void Supprimer_Produit(int id)
         {
             PR = new Produit();
             PR = db.Produits.SingleOrDefault(s => s.ID_Produit == id);

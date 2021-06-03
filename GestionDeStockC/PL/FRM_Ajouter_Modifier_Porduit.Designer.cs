@@ -44,6 +44,11 @@ namespace GestionDeStockC.PL
             this.btnparcourir = new System.Windows.Forms.Button();
             this.combocategorie = new System.Windows.Forms.ComboBox();
             this.btnquitter = new System.Windows.Forms.Button();
+            this.combotype = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateCtrl = new System.Windows.Forms.DateTimePicker();
+            this.txtStockAlerte = new System.Windows.Forms.TextBox();
+            this.checkDate = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picProduit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -85,7 +90,7 @@ namespace GestionDeStockC.PL
             // pictureBox7
             // 
             this.pictureBox7.Image = global::GestionDeStockC.Properties.Resources.prix_32;
-            this.pictureBox7.Location = new System.Drawing.Point(344, 309);
+            this.pictureBox7.Location = new System.Drawing.Point(342, 355);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(36, 36);
             this.pictureBox7.TabIndex = 43;
@@ -98,7 +103,7 @@ namespace GestionDeStockC.PL
             this.txtPrix.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtPrix.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrix.ForeColor = System.Drawing.Color.Silver;
-            this.txtPrix.Location = new System.Drawing.Point(386, 309);
+            this.txtPrix.Location = new System.Drawing.Point(384, 355);
             this.txtPrix.Multiline = true;
             this.txtPrix.Name = "txtPrix";
             this.txtPrix.Size = new System.Drawing.Size(230, 36);
@@ -164,7 +169,7 @@ namespace GestionDeStockC.PL
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(419, 108);
+            this.label2.Location = new System.Drawing.Point(439, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 24);
             this.label2.TabIndex = 44;
@@ -227,7 +232,7 @@ namespace GestionDeStockC.PL
             "Email",
             "Ville",
             "Pays"});
-            this.combocategorie.Location = new System.Drawing.Point(344, 144);
+            this.combocategorie.Location = new System.Drawing.Point(346, 73);
             this.combocategorie.Name = "combocategorie";
             this.combocategorie.Size = new System.Drawing.Size(270, 33);
             this.combocategorie.TabIndex = 48;
@@ -238,19 +243,94 @@ namespace GestionDeStockC.PL
             this.btnquitter.FlatAppearance.BorderSize = 0;
             this.btnquitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnquitter.Image = global::GestionDeStockC.Properties.Resources.Button_Delete_icon;
-            this.btnquitter.Location = new System.Drawing.Point(613, 3);
+            this.btnquitter.Location = new System.Drawing.Point(1078, 3);
             this.btnquitter.Name = "btnquitter";
             this.btnquitter.Size = new System.Drawing.Size(36, 36);
             this.btnquitter.TabIndex = 49;
             this.btnquitter.UseVisualStyleBackColor = true;
             this.btnquitter.Click += new System.EventHandler(this.btnquitter_Click);
             // 
+            // combotype
+            // 
+            this.combotype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combotype.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combotype.FormattingEnabled = true;
+            this.combotype.Items.AddRange(new object[] {
+            "Nom",
+            "Prenom",
+            "Telephone",
+            "Email",
+            "Ville",
+            "Pays"});
+            this.combotype.Location = new System.Drawing.Point(346, 147);
+            this.combotype.Name = "combotype";
+            this.combotype.Size = new System.Drawing.Size(270, 33);
+            this.combotype.TabIndex = 51;
+            this.combotype.SelectionChangeCommitted += new System.EventHandler(this.combotype_SelectionChangeCommitted);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(454, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 24);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "Type";
+            // 
+            // dateCtrl
+            // 
+            this.dateCtrl.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateCtrl.CustomFormat = "dd-MM-yyyy";
+            this.dateCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateCtrl.Location = new System.Drawing.Point(649, 181);
+            this.dateCtrl.Name = "dateCtrl";
+            this.dateCtrl.Size = new System.Drawing.Size(127, 29);
+            this.dateCtrl.TabIndex = 52;
+            this.dateCtrl.Visible = false;
+            // 
+            // txtStockAlerte
+            // 
+            this.txtStockAlerte.BackColor = System.Drawing.Color.White;
+            this.txtStockAlerte.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStockAlerte.Cursor = System.Windows.Forms.Cursors.Help;
+            this.txtStockAlerte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStockAlerte.ForeColor = System.Drawing.Color.Silver;
+            this.txtStockAlerte.Location = new System.Drawing.Point(384, 309);
+            this.txtStockAlerte.Multiline = true;
+            this.txtStockAlerte.Name = "txtStockAlerte";
+            this.txtStockAlerte.Size = new System.Drawing.Size(230, 36);
+            this.txtStockAlerte.TabIndex = 53;
+            this.txtStockAlerte.Text = "Stock Alerte";
+            this.txtStockAlerte.Enter += new System.EventHandler(this.txtStockAlerte_Enter);
+            this.txtStockAlerte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStockAlerte_KeyPress);
+            this.txtStockAlerte.Leave += new System.EventHandler(this.txtStockAlerte_Leave);
+            // 
+            // checkDate
+            // 
+            this.checkDate.AutoSize = true;
+            this.checkDate.Location = new System.Drawing.Point(637, 158);
+            this.checkDate.Name = "checkDate";
+            this.checkDate.Size = new System.Drawing.Size(139, 17);
+            this.checkDate.TabIndex = 54;
+            this.checkDate.Text = "Ajouter date de controle";
+            this.checkDate.UseVisualStyleBackColor = true;
+            this.checkDate.Visible = false;
+            this.checkDate.Click += new System.EventHandler(this.checkDate_Click);
+            // 
             // FRM_Ajouter_Modifier_Porduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(652, 500);
+            this.ClientSize = new System.Drawing.Size(1117, 491);
+            this.Controls.Add(this.checkDate);
+            this.Controls.Add(this.txtStockAlerte);
+            this.Controls.Add(this.dateCtrl);
+            this.Controls.Add(this.combotype);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnquitter);
             this.Controls.Add(this.combocategorie);
             this.Controls.Add(this.btnparcourir);
@@ -294,6 +374,11 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.Button btnparcourir;
         private System.Windows.Forms.Button btnquitter;
         public System.Windows.Forms.PictureBox picProduit;
+        public System.Windows.Forms.ComboBox combotype;
+        public System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox combocategorie;
+        public System.Windows.Forms.DateTimePicker dateCtrl;
+        public System.Windows.Forms.TextBox txtStockAlerte;
+        private System.Windows.Forms.CheckBox checkDate;
     }
 }

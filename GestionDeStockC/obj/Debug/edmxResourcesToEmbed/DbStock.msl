@@ -52,12 +52,23 @@
     <EntitySetMapping Name="Produits">
       <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Produit">
         <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="Date_Controle" ColumnName="Date_Controle" />
+          <ScalarProperty Name="Stock_Alerte" ColumnName="Stock_Alerte" />
+          <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
           <ScalarProperty Name="ID_Categorie" ColumnName="ID_Categorie" />
           <ScalarProperty Name="Image_Produit" ColumnName="Image_Produit" />
           <ScalarProperty Name="Prix_Produit" ColumnName="Prix_Produit" />
           <ScalarProperty Name="Quantité_Produit" ColumnName="Quantité_Produit" />
           <ScalarProperty Name="Nom_Produit" ColumnName="Nom_Produit" />
           <ScalarProperty Name="ID_Produit" ColumnName="ID_Produit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Type">
+        <MappingFragment StoreEntitySet="Type">
+          <ScalarProperty Name="Nom_Type" ColumnName="Nom_Type" />
+          <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

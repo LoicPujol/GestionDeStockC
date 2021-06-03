@@ -31,13 +31,14 @@ namespace GestionDeStockC.PL
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlBut = new System.Windows.Forms.Panel();
+            this.pnlparammetrer = new System.Windows.Forms.Panel();
+            this.pnlaficher = new System.Windows.Forms.Panel();
+            this.btnalerte = new System.Windows.Forms.Button();
             this.btnmenu = new System.Windows.Forms.Button();
             this.btncommande = new System.Windows.Forms.Button();
             this.btnproduit = new System.Windows.Forms.Button();
             this.btnclient = new System.Windows.Forms.Button();
             this.btncategorie = new System.Windows.Forms.Button();
-            this.pnlparammetrer = new System.Windows.Forms.Panel();
-            this.pnlaficher = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.pnlparammetrer.SuspendLayout();
             this.SuspendLayout();
@@ -45,6 +46,7 @@ namespace GestionDeStockC.PL
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.btnalerte);
             this.panel1.Controls.Add(this.pnlBut);
             this.panel1.Controls.Add(this.btnmenu);
             this.panel1.Controls.Add(this.btncommande);
@@ -64,6 +66,44 @@ namespace GestionDeStockC.PL
             this.pnlBut.Name = "pnlBut";
             this.pnlBut.Size = new System.Drawing.Size(10, 45);
             this.pnlBut.TabIndex = 6;
+            // 
+            // pnlparammetrer
+            // 
+            this.pnlparammetrer.Controls.Add(this.pnlaficher);
+            this.pnlparammetrer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlparammetrer.Location = new System.Drawing.Point(188, 0);
+            this.pnlparammetrer.Name = "pnlparammetrer";
+            this.pnlparammetrer.Size = new System.Drawing.Size(968, 619);
+            this.pnlparammetrer.TabIndex = 2;
+            // 
+            // pnlaficher
+            // 
+            this.pnlaficher.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlaficher.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlaficher.Location = new System.Drawing.Point(0, 0);
+            this.pnlaficher.Name = "pnlaficher";
+            this.pnlaficher.Size = new System.Drawing.Size(968, 619);
+            this.pnlaficher.TabIndex = 12;
+            // 
+            // btnalerte
+            // 
+            this.btnalerte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnalerte.FlatAppearance.BorderSize = 0;
+            this.btnalerte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.btnalerte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnalerte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnalerte.ForeColor = System.Drawing.Color.Gray;
+            this.btnalerte.Image = global::GestionDeStockC.Properties.Resources.Settings_32;
+            this.btnalerte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnalerte.Location = new System.Drawing.Point(-6, 562);
+            this.btnalerte.Name = "btnalerte";
+            this.btnalerte.Size = new System.Drawing.Size(188, 45);
+            this.btnalerte.TabIndex = 13;
+            this.btnalerte.Text = "   Alerte";
+            this.btnalerte.UseVisualStyleBackColor = true;
+            this.btnalerte.Click += new System.EventHandler(this.btnalerte_Click);
             // 
             // btnmenu
             // 
@@ -146,26 +186,6 @@ namespace GestionDeStockC.PL
             this.btncategorie.UseVisualStyleBackColor = true;
             this.btncategorie.Click += new System.EventHandler(this.btncategorie_Click);
             // 
-            // pnlparammetrer
-            // 
-            this.pnlparammetrer.Controls.Add(this.pnlaficher);
-            this.pnlparammetrer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlparammetrer.Location = new System.Drawing.Point(188, 0);
-            this.pnlparammetrer.Name = "pnlparammetrer";
-            this.pnlparammetrer.Size = new System.Drawing.Size(968, 619);
-            this.pnlparammetrer.TabIndex = 2;
-            // 
-            // pnlaficher
-            // 
-            this.pnlaficher.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlaficher.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlaficher.Location = new System.Drawing.Point(0, 0);
-            this.pnlaficher.Name = "pnlaficher";
-            this.pnlaficher.Size = new System.Drawing.Size(968, 619);
-            this.pnlaficher.TabIndex = 12;
-            // 
             // FRM_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,5 +214,6 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.Panel pnlBut;
         private System.Windows.Forms.Panel pnlparammetrer;
         private System.Windows.Forms.Panel pnlaficher;
+        internal System.Windows.Forms.Button btnalerte;
     }
 }

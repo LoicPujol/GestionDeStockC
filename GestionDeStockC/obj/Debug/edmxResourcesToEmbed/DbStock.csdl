@@ -6,6 +6,7 @@
     <EntitySet Name="Commandes" EntityType="GESTION_DE_STOCKModel.Commande" />
     <EntitySet Name="Details_Commande" EntityType="GESTION_DE_STOCKModel.Details_Commande" />
     <EntitySet Name="Produits" EntityType="GESTION_DE_STOCKModel.Produit" />
+    <EntitySet Name="Types" EntityType="GESTION_DE_STOCKModel.Type" />
     <EntitySet Name="Utilisateurs" EntityType="GESTION_DE_STOCKModel.Utilisateur" />
     <AssociationSet Name="FK_Produit_Categorie" Association="GESTION_DE_STOCKModel.FK_Produit_Categorie">
       <End Role="Categorie" EntitySet="Categories" />
@@ -22,6 +23,10 @@
     <AssociationSet Name="FK_Details_Commande_Produit" Association="GESTION_DE_STOCKModel.FK_Details_Commande_Produit">
       <End Role="Produit" EntitySet="Produits" />
       <End Role="Details_Commande" EntitySet="Details_Commande" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Produit_Type" Association="GESTION_DE_STOCKModel.FK_Produit_Type">
+      <End Role="Type" EntitySet="Types" />
+      <End Role="Produit" EntitySet="Produits" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Categorie">
@@ -84,8 +89,20 @@
     <Property Name="Prix_Produit" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Image_Produit" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="ID_Categorie" Type="Int32" Nullable="false" />
+    <Property Name="ID_Type" Type="Int32" />
+    <Property Name="Stock_Alerte" Type="Int32" />
+    <Property Name="Date_Controle" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Categorie" Relationship="GESTION_DE_STOCKModel.FK_Produit_Categorie" FromRole="Produit" ToRole="Categorie" />
     <NavigationProperty Name="Details_Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Produit" FromRole="Produit" ToRole="Details_Commande" />
+    <NavigationProperty Name="Type" Relationship="GESTION_DE_STOCKModel.FK_Produit_Type" FromRole="Produit" ToRole="Type" />
+  </EntityType>
+  <EntityType Name="Type">
+    <Key>
+      <PropertyRef Name="ID_Type" />
+    </Key>
+    <Property Name="ID_Type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom_Type" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Produits" Relationship="GESTION_DE_STOCKModel.FK_Produit_Type" FromRole="Type" ToRole="Produit" />
   </EntityType>
   <EntityType Name="Utilisateur">
     <Key>
@@ -147,6 +164,20 @@
       </Principal>
       <Dependent Role="Details_Commande">
         <PropertyRef Name="ID_Produit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Produit_Type">
+    <End Type="GESTION_DE_STOCKModel.Type" Role="Type" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GESTION_DE_STOCKModel.Produit" Role="Produit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type">
+        <PropertyRef Name="ID_Type" />
+      </Principal>
+      <Dependent Role="Produit">
+        <PropertyRef Name="ID_Type" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

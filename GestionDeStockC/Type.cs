@@ -12,27 +12,18 @@ namespace GestionDeStockC
     using System;
     using System.Collections.Generic;
     
-    public partial class Produit
+    public partial class Type
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Produit()
+        public Type()
         {
-            this.Details_Commande = new HashSet<Details_Commande>();
+            this.Produits = new HashSet<Produit>();
         }
     
-        public int ID_Produit { get; set; }
-        public string Nom_Produit { get; set; }
-        public int Quantité_Produit { get; set; }
-        public string Prix_Produit { get; set; }
-        public byte[] Image_Produit { get; set; }
-        public int ID_Categorie { get; set; }
-        public Nullable<int> ID_Type { get; set; }
-        public Nullable<int> Stock_Alerte { get; set; }
-        public Nullable<System.DateTime> Date_Controle { get; set; }
+        public int ID_Type { get; set; }
+        public string Nom_Type { get; set; }
     
-        public virtual Categorie Categorie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Details_Commande> Details_Commande { get; set; }
-        public virtual Type Type { get; set; }
+        public virtual ICollection<Produit> Produits { get; set; }
     }
 }

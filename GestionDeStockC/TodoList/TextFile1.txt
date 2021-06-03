@@ -1,0 +1,8 @@
+﻿Ajouter client = la verification pour faire un client a double ne fonctionne pas
+
+Point bloquant :
+Dans la recherche de liste produit, arriver a filtrer avec unez selection sur le ID produit.
+Dans l'ajout produit, ajouter un numero d'inventaire qui se complete soit manuelement soit par implementation de +1 par rapport a la plus petite valeur non utilise.
+Creer une table d'affectation du materiel ID client ID produit Quantite.
+Dans l'ajout commande, proposer l'expediteur et n'afficher que les articles disponibles.
+Dans la liste produit afficher la date de controle sans heure.
