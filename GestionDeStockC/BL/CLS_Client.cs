@@ -23,7 +23,7 @@ namespace GestionDeStockC.BL
             C.Ville_Client = Ville;
             C.Pays_Client = Pays;
             //verifier si client existe
-            if(db.Clients.SingleOrDefault(s=>s.Nom_Client==Nom && C.Prenom_Client==Prenom)==null)// si existe pas
+            if(db.Clients.SingleOrDefault(s=>s.Nom_Client==Nom && s.Prenom_Client==Prenom)==null)// si existe pas
             {
                 db.Clients.Add(C);//ajouter dans la table client
                 db.SaveChanges();//enregistrer dans la base de données
@@ -38,7 +38,7 @@ namespace GestionDeStockC.BL
         {
             C = new Client();
             C = db.Clients.SingleOrDefault(s => s.ID_Client == id);//verifier si id de client existe
-            if(C!=null)//existe
+            if(C != null)//existe
             {
                 C.Nom_Client = Nom;
                 C.Prenom_Client = Prenom;

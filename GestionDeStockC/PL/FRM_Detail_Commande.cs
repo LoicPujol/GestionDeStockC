@@ -96,20 +96,7 @@ namespace GestionDeStockC.PL
             }
         }
 
-        private void btnClient_Click(object sender, EventArgs e)
-        {
-            PL.FRM_Client_Commande frmC = new FRM_Client_Commande();
-            frmC.ShowDialog();
-            //afficher les info de client
-
-            IDCLIENT = (int) frmC.dvgclient.CurrentRow.Cells[0].Value; //on recupere l'ID client pour le mettre en variable puis utiliser a l'enregistrement de la commande
-            txtNom.Text = frmC.dvgclient.CurrentRow.Cells[1].Value.ToString();
-            txtPrenom.Text = frmC.dvgclient.CurrentRow.Cells[2].Value.ToString();
-            txtTelephone.Text = frmC.dvgclient.CurrentRow.Cells[4].Value.ToString();
-            txtEmail.Text = frmC.dvgclient.CurrentRow.Cells[5].Value.ToString();
-            txtVille.Text = frmC.dvgclient.CurrentRow.Cells[6].Value.ToString();
-            txtPays.Text = frmC.dvgclient.CurrentRow.Cells[7].Value.ToString();
-        }
+       
         private void dvgProduit_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             FRM_Produit_Commande frmp = new FRM_Produit_Commande(this);
@@ -121,6 +108,8 @@ namespace GestionDeStockC.PL
             else
             {
                 //afficher les info de larticle
+                frmp.txtIdClientAffect.Text = IDCLIENT.ToString();
+                frmp.txtIdExpediteur.Text = IDEXPEDITEUR.ToString();
                 frmp.lblid.Text = dvgProduit.CurrentRow.Cells[0].Value.ToString();
                 frmp.lblnom.Text = dvgProduit.CurrentRow.Cells[1].Value.ToString();
                 frmp.lblstock.Text = dvgProduit.CurrentRow.Cells[2].Value.ToString();
@@ -137,6 +126,7 @@ namespace GestionDeStockC.PL
             Produit PR = new Produit();
             if(dvgDetailCommande.CurrentRow!=null)
             {
+                frm.txtIdClientAffect.Text = IDCLIENT.ToString();
                 frm.grpproduit.Text = "Modifier Produit";
                 frm.lblid.Text = dvgDetailCommande.CurrentRow.Cells[0].Value.ToString();
                 frm.lblnom.Text = dvgDetailCommande.CurrentRow.Cells[1].Value.ToString();
@@ -157,9 +147,12 @@ namespace GestionDeStockC.PL
         {
             if(dvgDetailCommande.CurrentRow!=null)
             {
-                //supprimer ligne selectionne dans datagrid commande
+                //supprimer ligne selectionne dans datagrid commande + sur les 3 listedetail
                 int index = BL.D_Commande.listeDetail.FindIndex(s => s.Id == int.Parse(dvgDetailCommande.CurrentRow.Cells[0].Value.ToString()));
                 BL.D_Commande.listeDetail.RemoveAt(index);
+                BL.D_Affectation.listeDetail.RemoveAt(index);
+                BL.D_Affectation.listeDetailExpedition.RemoveAt(index);
+
                 Actualiser_Detail_Commande();
             }
         }
@@ -169,7 +162,8 @@ namespace GestionDeStockC.PL
             Actualiser_Detail_Commande();
         }
         //Id client
-        public int IDCLIENT;
+        
+        
      
     private void btnenregistrer_Click(object sender, EventArgs e)
         {
@@ -179,26 +173,60 @@ namespace GestionDeStockC.PL
                 MessageBox.Show("Ajouter un article dans la commande", "Enregistrer", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }else
             {
-                if(txtNom.Text=="")
+                if(txtNomDest.Text=="")
                 {
                     MessageBox.Show("Ajouter un client dans la commande", "Enregistrer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }else
                 {
                     //enregistrer commande
                     clscommande.Ajouter_Commande(commandedate.Value, IDCLIENT, txttotalht.Text, txttva.Text, txttotalttc.Text);
+                    
                     //enregistrer liste detail commande dans les tables
                     foreach(var LD in BL.D_Commande.listeDetail)
                     {
                         clscommande.Ajouter_Detail(LD.Id, LD.Nom, LD.Quantite, LD.Prix, LD.Remise, LD.Total);
                     }
-
+                    
+                    //enregistrer detail affectations
+                    foreach (var LD in BL.D_Affectation.listeDetail)
+                    {
+                        clscommande.Ajouter_Affectation(LD.Id_Client,LD.Id_Produit, LD.Quantite);
+                    }
+                    //enregistrer detail expedition (modification stock)
+                    foreach (var LD in BL.D_Affectation.listeDetailExpedition)
+                    {
+                        clscommande.Ajouter_Expedition(LD.Id_Client, LD.Id_Produit, LD.Quantite);
+                    }
                     (userCommande as USER_Liste_Commande).Actualisedatagrid();
                     BL.D_Commande.listeDetail.Clear();
+                    BL.D_Affectation.listeDetail.Clear();
+                    BL.D_Affectation.listeDetailExpedition.Clear();
                     Close();
                     MessageBox.Show("Ajouter ajoute", "Enregistrer", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
-        }
+            }
+        public int IDCLIENT;
+        private void btnDst_Click(object sender, EventArgs e)
+        {
+            PL.FRM_Client_Commande frmC = new FRM_Client_Commande();
+            frmC.ShowDialog();
+            //afficher les info de client
 
+            IDCLIENT = (int)frmC.dvgclient.CurrentRow.Cells[0].Value; //on recupere l'ID client pour le mettre en variable puis utiliser a l'enregistrement de la commande
+            txtNomDest.Text = frmC.dvgclient.CurrentRow.Cells[1].Value.ToString();
+            txtPrenomDest.Text = frmC.dvgclient.CurrentRow.Cells[2].Value.ToString();
+        }
+        public int IDEXPEDITEUR;
+        private void btnExp_Click(object sender, EventArgs e)
+        {
+            PL.FRM_Client_Commande frmC = new FRM_Client_Commande();
+            frmC.ShowDialog();
+            //afficher les info de client
+
+            IDEXPEDITEUR = (int)frmC.dvgclient.CurrentRow.Cells[0].Value; //on recupere l'ID client pour le mettre en variable puis utiliser a l'enregistrement de la commande
+            txtNomExp.Text = frmC.dvgclient.CurrentRow.Cells[1].Value.ToString();
+            txtPrenomExp.Text = frmC.dvgclient.CurrentRow.Cells[2].Value.ToString();
+        }
     }
 }

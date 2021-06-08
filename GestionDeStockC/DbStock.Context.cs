@@ -25,6 +25,7 @@ namespace GestionDeStockC
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Affectation> Affectations { get; set; }
         public virtual DbSet<Categorie> Categories { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Commande> Commandes { get; set; }

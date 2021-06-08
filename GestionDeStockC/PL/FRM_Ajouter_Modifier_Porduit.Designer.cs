@@ -49,6 +49,7 @@ namespace GestionDeStockC.PL
             this.dateCtrl = new System.Windows.Forms.DateTimePicker();
             this.txtStockAlerte = new System.Windows.Forms.TextBox();
             this.checkDate = new System.Windows.Forms.CheckBox();
+            this.txtInventaireProd = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picProduit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -100,7 +101,7 @@ namespace GestionDeStockC.PL
             // 
             this.txtPrix.BackColor = System.Drawing.Color.White;
             this.txtPrix.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPrix.Cursor = System.Windows.Forms.Cursors.Help;
+            this.txtPrix.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPrix.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrix.ForeColor = System.Drawing.Color.Silver;
             this.txtPrix.Location = new System.Drawing.Point(384, 355);
@@ -126,7 +127,7 @@ namespace GestionDeStockC.PL
             // 
             this.txtQuantite.BackColor = System.Drawing.Color.White;
             this.txtQuantite.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtQuantite.Cursor = System.Windows.Forms.Cursors.Help;
+            this.txtQuantite.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtQuantite.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantite.ForeColor = System.Drawing.Color.Silver;
             this.txtQuantite.Location = new System.Drawing.Point(386, 251);
@@ -152,7 +153,7 @@ namespace GestionDeStockC.PL
             // 
             this.txtNomP.BackColor = System.Drawing.Color.White;
             this.txtNomP.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNomP.Cursor = System.Windows.Forms.Cursors.Help;
+            this.txtNomP.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNomP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomP.ForeColor = System.Drawing.Color.Silver;
             this.txtNomP.Location = new System.Drawing.Point(384, 196);
@@ -282,7 +283,7 @@ namespace GestionDeStockC.PL
             // dateCtrl
             // 
             this.dateCtrl.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateCtrl.CustomFormat = "dd-MM-yyyy";
+            this.dateCtrl.CustomFormat = "dd/MM/yyyy";
             this.dateCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateCtrl.Location = new System.Drawing.Point(649, 181);
@@ -295,7 +296,7 @@ namespace GestionDeStockC.PL
             // 
             this.txtStockAlerte.BackColor = System.Drawing.Color.White;
             this.txtStockAlerte.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtStockAlerte.Cursor = System.Windows.Forms.Cursors.Help;
+            this.txtStockAlerte.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtStockAlerte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStockAlerte.ForeColor = System.Drawing.Color.Silver;
             this.txtStockAlerte.Location = new System.Drawing.Point(384, 309);
@@ -320,12 +321,30 @@ namespace GestionDeStockC.PL
             this.checkDate.Visible = false;
             this.checkDate.Click += new System.EventHandler(this.checkDate_Click);
             // 
+            // txtInventaireProd
+            // 
+            this.txtInventaireProd.BackColor = System.Drawing.Color.White;
+            this.txtInventaireProd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtInventaireProd.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtInventaireProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInventaireProd.ForeColor = System.Drawing.Color.Silver;
+            this.txtInventaireProd.Location = new System.Drawing.Point(31, 54);
+            this.txtInventaireProd.Multiline = true;
+            this.txtInventaireProd.Name = "txtInventaireProd";
+            this.txtInventaireProd.Size = new System.Drawing.Size(230, 36);
+            this.txtInventaireProd.TabIndex = 55;
+            this.txtInventaireProd.Text = "N° Inventaire";
+            this.txtInventaireProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtInventaireProd.Enter += new System.EventHandler(this.txtInventaireProd_Enter);
+            this.txtInventaireProd.Leave += new System.EventHandler(this.txtInventaireProd_Leave);
+            // 
             // FRM_Ajouter_Modifier_Porduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1117, 491);
+            this.Controls.Add(this.txtInventaireProd);
             this.Controls.Add(this.checkDate);
             this.Controls.Add(this.txtStockAlerte);
             this.Controls.Add(this.dateCtrl);
@@ -379,6 +398,7 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.ComboBox combocategorie;
         public System.Windows.Forms.DateTimePicker dateCtrl;
         public System.Windows.Forms.TextBox txtStockAlerte;
-        private System.Windows.Forms.CheckBox checkDate;
+        public System.Windows.Forms.TextBox txtInventaireProd;
+        public System.Windows.Forms.CheckBox checkDate;
     }
 }

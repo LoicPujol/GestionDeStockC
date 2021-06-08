@@ -45,6 +45,8 @@ namespace GestionDeStockC.PL
             this.lblid = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.grpproduit = new System.Windows.Forms.GroupBox();
+            this.txtIdClientAffect = new System.Windows.Forms.TextBox();
+            this.txtIdExpediteur = new System.Windows.Forms.TextBox();
             this.grpproduit.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -246,19 +248,47 @@ namespace GestionDeStockC.PL
             this.grpproduit.Controls.Add(this.label4);
             this.grpproduit.Controls.Add(this.label5);
             this.grpproduit.ForeColor = System.Drawing.Color.Black;
-            this.grpproduit.Location = new System.Drawing.Point(12, 12);
+            this.grpproduit.Location = new System.Drawing.Point(12, 47);
             this.grpproduit.Name = "grpproduit";
-            this.grpproduit.Size = new System.Drawing.Size(526, 430);
+            this.grpproduit.Size = new System.Drawing.Size(526, 434);
             this.grpproduit.TabIndex = 39;
             this.grpproduit.TabStop = false;
             this.grpproduit.Text = "Vendre Produit";
+            // 
+            // txtIdClientAffect
+            // 
+            this.txtIdClientAffect.BackColor = System.Drawing.Color.White;
+            this.txtIdClientAffect.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIdClientAffect.Cursor = System.Windows.Forms.Cursors.Help;
+            this.txtIdClientAffect.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdClientAffect.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txtIdClientAffect.Location = new System.Drawing.Point(318, 7);
+            this.txtIdClientAffect.Multiline = true;
+            this.txtIdClientAffect.Name = "txtIdClientAffect";
+            this.txtIdClientAffect.Size = new System.Drawing.Size(122, 34);
+            this.txtIdClientAffect.TabIndex = 40;
+            // 
+            // txtIdExpediteur
+            // 
+            this.txtIdExpediteur.BackColor = System.Drawing.Color.White;
+            this.txtIdExpediteur.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIdExpediteur.Cursor = System.Windows.Forms.Cursors.Help;
+            this.txtIdExpediteur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdExpediteur.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txtIdExpediteur.Location = new System.Drawing.Point(171, 7);
+            this.txtIdExpediteur.Multiline = true;
+            this.txtIdExpediteur.Name = "txtIdExpediteur";
+            this.txtIdExpediteur.Size = new System.Drawing.Size(122, 34);
+            this.txtIdExpediteur.TabIndex = 41;
             // 
             // FRM_Produit_Commande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(554, 457);
+            this.ClientSize = new System.Drawing.Size(554, 493);
+            this.Controls.Add(this.txtIdExpediteur);
+            this.Controls.Add(this.txtIdClientAffect);
             this.Controls.Add(this.grpproduit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FRM_Produit_Commande";
@@ -267,6 +297,7 @@ namespace GestionDeStockC.PL
             this.grpproduit.ResumeLayout(false);
             this.grpproduit.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -288,5 +319,7 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.Label lblid;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.GroupBox grpproduit;
+        public System.Windows.Forms.TextBox txtIdClientAffect;
+        public System.Windows.Forms.TextBox txtIdExpediteur;
     }
 }

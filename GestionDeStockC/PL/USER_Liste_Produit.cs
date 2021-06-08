@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.Office.Interop.Excel;
+using System.Globalization;
 
 namespace GestionDeStockC.PL
 {
@@ -50,7 +51,7 @@ namespace GestionDeStockC.PL
         //actualiser datagrid
         public void Actualiserdvg()
         {
-            
+            dvgProduit.Columns[9].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
             var listerecherche = db.Produits.ToList();//liste de recherche = liste des clients
 
@@ -64,11 +65,11 @@ namespace GestionDeStockC.PL
                 int IdTyp;
                 bool testTyp = Int32.TryParse(TypeRech, out IdTyp);
 
-                string IdRech = txtrechercheID.Text;
+                string IdRech = txtrechercheInvProd.Text;
                 int IdProd;
                 bool testProd = Int32.TryParse(IdRech, out IdProd);
 
-                listerecherche = listerecherche.Where(s => s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheID.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdTyp == s.ID_Type && IdCat == s.ID_Categorie).ToList();
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProd.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdTyp == s.ID_Type && IdCat == s.ID_Categorie).ToList();
             }
 
             if (combocategorie.SelectedItem != null)
@@ -77,7 +78,7 @@ namespace GestionDeStockC.PL
                 int IdCateg;
                 bool testCateg = Int32.TryParse(CategRecherche, out IdCateg);
 
-                listerecherche = listerecherche.Where(s => s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheID.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdCateg == s.ID_Categorie).ToList();
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProd.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdCateg == s.ID_Categorie).ToList();
             }
 
             if (combotype.SelectedItem != null)
@@ -86,11 +87,11 @@ namespace GestionDeStockC.PL
                 int IdType;
                 bool testType = Int32.TryParse(TypeRecherche, out IdType);
 
-                listerecherche = listerecherche.Where(s => s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheID.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdType == s.ID_Type).ToList();
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProd.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdType == s.ID_Type).ToList();
             }
             if (combocategorie.SelectedItem == null && combotype.SelectedItem == null)
 
-                listerecherche = listerecherche.Where(s => s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheID.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProd.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
                     //vide datagrid
                     dvgProduit.Rows.Clear();
                     //ajouter listerecherche dans datagridview client
@@ -101,23 +102,23 @@ namespace GestionDeStockC.PL
                     {
                         cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
                         typ = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);//ajout type
-                        dvgProduit.Rows.Add(false, l.ID_Produit, l.Nom_Produit, l.Quantité_Produit, l.Prix_Produit, cat.Nom_Categorie, typ.Nom_Type, l.Date_Controle, l.Stock_Alerte);
+                        dvgProduit.Rows.Add(false, l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit, l.Quantité_Produit, l.Stock_Alerte, l.Prix_Produit,  l.Date_Controle);
                     }
             //colorer stock vide en rouge
             for (int i = 0; i < dvgProduit.Rows.Count; i++)
             {
-                if ((int)dvgProduit.Rows[i].Cells[3].Value == 0)
+                if ((int)dvgProduit.Rows[i].Cells[6].Value == 0)
                 {
-                    dvgProduit.Rows[i].Cells[3].Style.BackColor = Color.Red;
+                    dvgProduit.Rows[i].Cells[6].Style.BackColor = Color.Red;
                 }
                 else
                 {
-                    dvgProduit.Rows[i].Cells[3].Style.BackColor = Color.LightGreen;
+                    dvgProduit.Rows[i].Cells[6].Style.BackColor = Color.LightGreen;
                 }
             }
         }
         
-        public string SelectVerif()
+        /**public string SelectVerif()
         {
             int Nombreligneselect = 0;
             for (int i = 0; i < dvgProduit.RowCount; i++)
@@ -136,7 +137,7 @@ namespace GestionDeStockC.PL
                 return "Selectionner seulement 1 seul Produit";
             }
             return null;
-        }
+        }**/
        
 
         private void btnajouter_Click(object sender, EventArgs e)
@@ -149,44 +150,47 @@ namespace GestionDeStockC.PL
         private void btnmodifier_Click(object sender, EventArgs e)
         {
             Produit PR = new Produit();
-            if (SelectVerif() != null)
+            PL.FRM_Ajouter_Modifier_Porduit frmproduit = new PL.FRM_Ajouter_Modifier_Porduit(this);
+
+            if (dvgProduit.CurrentRow != null)
             {
-                MessageBox.Show(SelectVerif(), "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                PL.FRM_Ajouter_Modifier_Porduit frmproduit = new PL.FRM_Ajouter_Modifier_Porduit(this);
                 frmproduit.lblTitre.Text = "Modifier Produit";
                 frmproduit.btnactualiser.Visible = false;
-                for (int i = 0; i < dvgProduit.Rows.Count; i++)//ferifie ligne seectionne
+                frmproduit.IDPRODUIT = (int)dvgProduit.CurrentRow.Cells[1].Value;
+                frmproduit.combocategorie.Text = dvgProduit.CurrentRow.Cells[2].Value.ToString();
+                frmproduit.combotype.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
+                frmproduit.combotype.Enabled = false;
+                frmproduit.txtInventaireProd.Text = dvgProduit.CurrentRow.Cells[4].Value.ToString();
+                frmproduit.txtInventaireProd.ForeColor = Color.Black;
+                frmproduit.txtInventaireProd.Enabled = false;
+                frmproduit.txtNomP.Text = dvgProduit.CurrentRow.Cells[5].Value.ToString();
+                frmproduit.txtNomP.ForeColor = Color.Black;
+                frmproduit.txtQuantite.Text = dvgProduit.CurrentRow.Cells[6].Value.ToString();
+                frmproduit.txtQuantite.ForeColor = Color.Black;
+                frmproduit.txtStockAlerte.Text = dvgProduit.CurrentRow.Cells[7].Value.ToString();
+                frmproduit.txtStockAlerte.ForeColor = Color.Black;
+                frmproduit.txtPrix.Text = dvgProduit.CurrentRow.Cells[8].Value.ToString();
+                frmproduit.txtPrix.ForeColor = Color.Black;
+                //Afficher date controle
+                if (dvgProduit.CurrentRow.Cells[9].Value != null)
                 {
-                    if ((bool)dvgProduit.Rows[i].Cells[0].Value == true)//si ligne selectionne
-                    {
-                        int MYIDSELECT = (int)dvgProduit.Rows[i].Cells[1].Value;
-                        PR = db.Produits.SingleOrDefault(s => s.ID_Produit == MYIDSELECT);
-                        if (PR != null)
-                        {
-                            frmproduit.combocategorie.Text = dvgProduit.Rows[i].Cells[5].Value.ToString();
-                            frmproduit.combotype.Text = dvgProduit.Rows[i].Cells[6].Value.ToString();
-                            frmproduit.txtStockAlerte.Text = dvgProduit.Rows[i].Cells[8].Value.ToString();
-                            frmproduit.txtStockAlerte.ForeColor = Color.Black;
-                            frmproduit.txtNomP.Text = dvgProduit.Rows[i].Cells[2].Value.ToString();
-                            frmproduit.txtNomP.ForeColor = Color.Black;
-                            frmproduit.txtQuantite.Text = dvgProduit.Rows[i].Cells[3].Value.ToString();
-                            frmproduit.txtQuantite.ForeColor = Color.Black;
-                            frmproduit.txtPrix.Text = dvgProduit.Rows[i].Cells[4].Value.ToString();
-                            frmproduit.txtPrix.ForeColor = Color.Black;
-                            frmproduit.IDPRODUIT = (int)dvgProduit.Rows[i].Cells[1].Value;
-                            //Afficher image de produit pour modifier
-                            MemoryStream MS = new MemoryStream(PR.Image_Produit);
-                            frmproduit.picProduit.Image = Image.FromStream(MS);
-                        }
-
-                    }
+                    frmproduit.checkDate.Visible = true;
+                    frmproduit.checkDate.Checked = true;
+                    frmproduit.dateCtrl.Visible = true;
+                    DateTime dtctrl = DateTime.ParseExact(dvgProduit.CurrentRow.Cells[9].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    frmproduit.dateCtrl.Value = dtctrl;
                 }
-                frmproduit.ShowDialog();
+                //Afficher image produit
+                int MYIDSELECT = (int)dvgProduit.CurrentRow.Cells[1].Value;
+                PR = db.Produits.SingleOrDefault(s => s.ID_Produit == MYIDSELECT);
+                if (PR != null)
+                {
+                    MemoryStream MS = new MemoryStream(PR.Image_Produit);
+                    frmproduit.picProduit.Image = Image.FromStream(MS);
+                }
+                
             }
-
+            frmproduit.ShowDialog();
         }
 
         private void USER_Liste_Produit_Load(object sender, EventArgs e)
@@ -195,36 +199,26 @@ namespace GestionDeStockC.PL
 
         }
 
+        
         private void btnsupprimer_Click(object sender, EventArgs e)
         {
-            if (SelectVerif() == "Selectionner le Produit a modifier")
+            DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer les supprimer", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (R == DialogResult.Yes)
             {
-                MessageBox.Show(SelectVerif(), "Suppresion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (dvgProduit.CurrentRow != null)
+                {
+                        BL.CLS_Produit clproduit = new BL.CLS_Produit();
+                        int idselect = (int)dvgProduit.CurrentRow.Cells[1].Value;// id de la ligne cocher
+                        clproduit.Supprimer_Produit(idselect);
+                    
+                }
+                //actualiser datagrid view
+                Actualiserdvg();
+                MessageBox.Show("suppression avec succe", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
-                DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer les supprimer", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (R == DialogResult.Yes)
-                {
-                    //verifier si 1 seul produit selectionne
-                    for (int i = 0; i < dvgProduit.Rows.Count; i++)
-                    {
-                        if ((bool)dvgProduit.Rows[i].Cells[0].Value == true)//si ligne cocher
-                        {
-                            BL.CLS_Produit clproduit = new BL.CLS_Produit();
-                            int idselect = (int)dvgProduit.Rows[i].Cells[1].Value;// id de la ligne cocher
-                            clproduit.Supprimer_Produit(idselect);
-                        }
-                    }
-                    //actualiser datagrid view
-                    Actualiserdvg();
-                    MessageBox.Show("suppression avec succe", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                }
-                else
-                {
-                    MessageBox.Show("suppression et annule", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
+                MessageBox.Show("suppression et annule", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -285,7 +279,7 @@ namespace GestionDeStockC.PL
             Actualiserdvg();
         }
 
-        private void txtrechercheID_TextChanged(object sender, EventArgs e)
+        private void txtrechercheInvProd_TextChanged(object sender, EventArgs e)
         {
             Actualiserdvg();
         }
@@ -298,5 +292,8 @@ namespace GestionDeStockC.PL
         {
             Actualiserdvg();
         }
+
+        
     }
+
 }

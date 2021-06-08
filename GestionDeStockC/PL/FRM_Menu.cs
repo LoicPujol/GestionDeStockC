@@ -123,5 +123,20 @@ namespace GestionDeStockC.PL
                 USER_Alerte.Instance.BringToFront();
             }
         }
+
+        private void btnaffectation_Click(object sender, EventArgs e)
+        {
+            pnlBut.Top = btnaffectation.Top;
+            if (!pnlaficher.Controls.Contains(USER_Affectation.Instance))
+            {
+                pnlaficher.Controls.Add(USER_Affectation.Instance);
+                USER_Affectation.Instance.Dock = DockStyle.Fill;
+                USER_Affectation.Instance.BringToFront();
+            }
+            else
+            {
+                USER_Affectation.Instance.BringToFront();
+            }
+        }
     }
 }

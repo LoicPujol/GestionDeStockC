@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="GESTION_DE_STOCKModelStoreContainer" CdmEntityContainer="dbStockContext">
+    <EntitySetMapping Name="Affectations">
+      <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Affectation">
+        <MappingFragment StoreEntitySet="Affectation">
+          <ScalarProperty Name="Quantite_affectee" ColumnName="Quantite_affectee" />
+          <ScalarProperty Name="ID_Produit" ColumnName="ID_Produit" />
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="ID_Affectation" ColumnName="ID_Affectation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Categorie">
         <MappingFragment StoreEntitySet="Categorie">
@@ -52,6 +62,7 @@
     <EntitySetMapping Name="Produits">
       <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Produit">
         <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="NumInventaire" ColumnName="NumInventaire" />
           <ScalarProperty Name="Date_Controle" ColumnName="Date_Controle" />
           <ScalarProperty Name="Stock_Alerte" ColumnName="Stock_Alerte" />
           <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />

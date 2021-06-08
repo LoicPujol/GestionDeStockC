@@ -115,8 +115,8 @@ namespace GestionDeStockC.PL
                     Remise = txtremise.Text,
                     Total = txttotal.Text
                 };
-                //Ajouter dans liste
-                if(grpproduit.Text == "Vendre Produit")
+                //Ajouter dans liste detail commande
+                if (grpproduit.Text == "Vendre Produit")
                 {
                     if (BL.D_Commande.listeDetail.SingleOrDefault(s => s.Id == DETAIL.Id) != null)
                     {
@@ -126,13 +126,63 @@ namespace GestionDeStockC.PL
                     {
                         BL.D_Commande.listeDetail.Add(DETAIL);
                     }
-                }else
+                } else
                 {
                     //Modifier dans liste avec recherche d'index
                     int index = BL.D_Commande.listeDetail.FindIndex(s => s.Id == int.Parse(lblid.Text));
                     BL.D_Commande.listeDetail[index] = DETAIL;
                 }
-                
+                //Ajouter dans liste detail affectation
+
+                BL.D_Affectation DetailDestinataire = new BL.D_Affectation
+                {
+                    Id_Client = int.Parse(txtIdClientAffect.Text),
+                    Id_Produit = int.Parse(lblid.Text),
+                    Quantite = int.Parse(txtquantite.Text),
+                };
+                if (grpproduit.Text == "Vendre Produit")
+                {
+                    if (BL.D_Affectation.listeDetail.SingleOrDefault(s => s.Id_Produit == DetailDestinataire.Id_Produit) != null)
+                    {
+                        MessageBox.Show("Produit deja ajoute dans commande", "Produit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    } else
+                    {
+                        BL.D_Affectation.listeDetail.Add(DetailDestinataire);
+                    }
+                }
+                else
+                {
+                    //Modifier dans liste avec recherche d'index
+                    int index = BL.D_Affectation.listeDetail.FindIndex(s => s.Id_Produit == int.Parse(lblid.Text));
+                    BL.D_Affectation.listeDetail[index] = DetailDestinataire;
+                }
+                //fin ajout table affectation
+
+                //Ajouter dans detail expedition
+                BL.D_Affectation DetailExpediteur = new BL.D_Affectation
+                {
+                    Id_Client = int.Parse(txtIdExpediteur.Text),
+                    Id_Produit = int.Parse(lblid.Text),
+                    Quantite = int.Parse(txtquantite.Text),
+                };
+                if (grpproduit.Text == "Vendre Produit")
+                {
+                    if (BL.D_Affectation.listeDetailExpedition.SingleOrDefault(s => s.Id_Produit == DetailExpediteur.Id_Produit) != null)
+                    {
+                        MessageBox.Show("Produit deja ajoute dans commande", "Produit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        BL.D_Affectation.listeDetailExpedition.Add(DetailExpediteur);
+                    }
+                }
+                else
+                {
+                    //Modifier dans liste avec recherche d'index
+                    int index = BL.D_Affectation.listeDetailExpedition.FindIndex(s => s.Id_Produit == int.Parse(lblid.Text));
+                    BL.D_Affectation.listeDetailExpedition[index] = DetailExpediteur;
+                }
+                //fin detail expedition
                 (frmdetail as FRM_Detail_Commande).Actualiser_Detail_Commande();
                 this.Close();
             }

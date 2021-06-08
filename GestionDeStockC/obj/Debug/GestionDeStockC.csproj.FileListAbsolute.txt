@@ -82,3 +82,4 @@ C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDe
 C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.exe
 C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.pdb
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Alerte.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Affectation.resources

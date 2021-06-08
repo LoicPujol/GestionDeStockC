@@ -11,6 +11,8 @@ namespace GestionDeStockC.BL
         private dbStockContext db = new dbStockContext();
         private Commande clscmd;
         private Details_Commande clsD;
+        private Affectation clsA;
+        private Affectation clsE;
         public int IDCommande;
         //Sauvegarder commande
         public void Ajouter_Commande(DateTime datecommande, int Idclient, string totalht, string tva, string totalttc)
@@ -38,6 +40,40 @@ namespace GestionDeStockC.BL
             clsD.Total = total;
             db.Details_Commande.Add(clsD);
             db.SaveChanges();
+        }
+        public void Ajouter_Affectation(int client, int produit, int quantite)
+        {
+            clsA = new Affectation();
+            clsA.ID_Client = client;
+            clsA.ID_Produit = produit;
+
+            if (db.Affectations.SingleOrDefault(s => s.ID_Client == client && s.ID_Produit == produit) == null)// si existe pas
+            {
+                clsA.Quantite_affectee = quantite;
+                db.Affectations.Add(clsA);
+                db.SaveChanges();
+            }
+            else
+            {
+                clsA = db.Affectations.SingleOrDefault(s => s.ID_Client == client && s.ID_Produit == produit);
+                clsA.Quantite_affectee = clsA.Quantite_affectee + quantite;
+                db.SaveChanges();
+
+            }
+            
+        }
+        public void Ajouter_Expedition(int client, int produit, int quantite)
+        {
+            clsE = new Affectation();
+            clsE.ID_Client = client;
+            clsE.ID_Produit = produit;
+            clsE = db.Affectations.SingleOrDefault(s => s.ID_Client == client && s.ID_Produit == produit);
+            if (clsE != null)
+            //if (db.Affectations.SingleOrDefault(s => s.ID_Client == client && s.ID_Produit == produit) != null)// si existe pas
+            {
+                clsE.Quantite_affectee = clsE.Quantite_affectee - quantite;
+                db.SaveChanges();
+            }
         }
     }
 }

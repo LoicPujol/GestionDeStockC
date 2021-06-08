@@ -17,6 +17,7 @@ namespace GestionDeStockC
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Produit()
         {
+            this.Affectations = new HashSet<Affectation>();
             this.Details_Commande = new HashSet<Details_Commande>();
         }
     
@@ -29,7 +30,10 @@ namespace GestionDeStockC
         public Nullable<int> ID_Type { get; set; }
         public Nullable<int> Stock_Alerte { get; set; }
         public Nullable<System.DateTime> Date_Controle { get; set; }
+        public string NumInventaire { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Affectation> Affectations { get; set; }
         public virtual Categorie Categorie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Details_Commande> Details_Commande { get; set; }

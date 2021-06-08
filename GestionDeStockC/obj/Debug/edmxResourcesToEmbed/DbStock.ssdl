@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="GESTION_DE_STOCKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Affectation">
+    <Key>
+      <PropertyRef Name="ID_Affectation" />
+    </Key>
+    <Property Name="ID_Affectation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Client" Type="int" Nullable="false" />
+    <Property Name="ID_Produit" Type="int" Nullable="false" />
+    <Property Name="Quantite_affectee" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Categorie">
     <Key>
       <PropertyRef Name="ID_Categorie" />
@@ -57,6 +66,7 @@
     <Property Name="ID_Type" Type="int" />
     <Property Name="Stock_Alerte" Type="int" />
     <Property Name="Date_Controle" Type="date" />
+    <Property Name="NumInventaire" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="Type">
     <Key>
@@ -72,6 +82,34 @@
     <Property Name="NomUtilisateur" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Mot_De_Passe" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Affectation_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Affectation" Type="Self.Affectation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID_Client" />
+      </Principal>
+      <Dependent Role="Affectation">
+        <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Affectation_Produit">
+    <End Role="Produit" Type="Self.Produit" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Affectation" Type="Self.Affectation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produit">
+        <PropertyRef Name="ID_Produit" />
+      </Principal>
+      <Dependent Role="Affectation">
+        <PropertyRef Name="ID_Produit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Commande_Client">
     <End Role="Client" Type="Self.Client" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -143,6 +181,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="GESTION_DE_STOCKModelStoreContainer">
+    <EntitySet Name="Affectation" EntityType="Self.Affectation" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
@@ -150,6 +189,14 @@
     <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Affectation_Client" Association="Self.FK_Affectation_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Affectation" EntitySet="Affectation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Affectation_Produit" Association="Self.FK_Affectation_Produit">
+      <End Role="Produit" EntitySet="Produit" />
+      <End Role="Affectation" EntitySet="Affectation" />
+    </AssociationSet>
     <AssociationSet Name="FK_Commande_Client" Association="Self.FK_Commande_Client">
       <End Role="Client" EntitySet="Client" />
       <End Role="Commande" EntitySet="Commande" />

@@ -17,6 +17,7 @@ namespace GestionDeStockC
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
+            this.Affectations = new HashSet<Affectation>();
             this.Commandes = new HashSet<Commande>();
         }
     
@@ -29,6 +30,8 @@ namespace GestionDeStockC
         public string Ville_Client { get; set; }
         public string Email_Client { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Affectation> Affectations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Commande> Commandes { get; set; }
     }

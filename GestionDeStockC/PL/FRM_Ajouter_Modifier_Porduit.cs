@@ -177,7 +177,8 @@ namespace GestionDeStockC.PL
             if (testoblogatoire() != null)
             {
                 MessageBox.Show(testoblogatoire(), "Obligatoire", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+            }
+            else
             {
                 if (lblTitre.Text == "Ajouter Produit")
                 {
@@ -187,7 +188,7 @@ namespace GestionDeStockC.PL
                     MemoryStream MR = new MemoryStream();
                     picProduit.Image.Save(MR, picProduit.Image.RawFormat);
                     byte[] byteimageP = MR.ToArray();//convertir image en format bye[]
-                    if (clproduit.Ajouter_Produit(txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value) == true)
+                    if (clproduit.Ajouter_Produit(txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value, txtInventaireProd.Text) == true)
                     {
                         MessageBox.Show("Produit ajoute avec succe", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
@@ -206,7 +207,7 @@ namespace GestionDeStockC.PL
                     DialogResult RS = MessageBox.Show("Voulez vous modifier", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (RS == DialogResult.Yes)
                     {
-                        cLS_Produit.Modifier_Produit(IDPRODUIT, txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value);
+                        cLS_Produit.Modifier_Produit(IDPRODUIT, txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value, txtInventaireProd.Text);
                         MessageBox.Show("Produit modifier", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         //Actualiser datagrid
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
@@ -222,19 +223,19 @@ namespace GestionDeStockC.PL
 
         private void txtStockAlerte_Enter(object sender, EventArgs e)
         {
-            if (txtPrix.Text == "Stock Alerte")
+            if (txtStockAlerte.Text == "Stock Alerte")
             {
-                txtPrix.Text = "";
-                txtPrix.ForeColor = Color.Black;
+                txtStockAlerte.Text = "";
+                txtStockAlerte.ForeColor = Color.Black;
             }
         }
 
         private void txtStockAlerte_Leave(object sender, EventArgs e)
         {
-            if (txtPrix.Text == "")
+            if (txtStockAlerte.Text == "")
             {
-                txtPrix.Text = "Stock Alerte";
-                txtPrix.ForeColor = Color.Silver;
+                txtStockAlerte.Text = "Stock Alerte";
+                txtStockAlerte.ForeColor = Color.Silver;
             }
         }
 
@@ -256,10 +257,24 @@ namespace GestionDeStockC.PL
             if (combotype.Text == "Unitaire")
             {
                 checkDate.Visible = true;
+                txtQuantite.Enabled = false;
+                txtQuantite.Text = "1";
+
             }
-            else
-            checkDate.Visible = false;
-            dateCtrl.Visible = false;
+            if (combotype.Text == "Lot")
+            {
+                checkDate.Visible = false;
+                dateCtrl.Visible = false;
+                txtQuantite.Enabled = true;
+                txtQuantite.Text = "Quantite";
+            }
+            if (combotype.Text == "Consomable")
+            {
+                checkDate.Visible = false;
+                dateCtrl.Visible = false;
+                txtQuantite.Enabled = true;
+                txtQuantite.Text = "Quantite";
+            }
         }
 
         private void checkDate_Click(object sender, EventArgs e)
@@ -267,8 +282,28 @@ namespace GestionDeStockC.PL
             if (checkDate.Checked)
             {
                 dateCtrl.Visible = true;
-            }else
+            }
+            else
                 dateCtrl.Visible = false;
+        }
+
+        private void txtInventaireProd_Enter(object sender, EventArgs e)
+        {
+            if (txtInventaireProd.Text == "N° Inventaire")
+            {
+                txtInventaireProd.Text = "";
+                txtInventaireProd.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtInventaireProd_Leave(object sender, EventArgs e)
+        {
+            if (txtInventaireProd.Text == "")
+            {
+                txtInventaireProd.Text = "N° Inventaire";
+                txtInventaireProd.ForeColor = Color.Silver;
+            }
+
         }
     }
 }

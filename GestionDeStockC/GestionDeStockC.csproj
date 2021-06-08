@@ -59,10 +59,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Affectation.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
     <Compile Include="BL\CLS_Categorie.cs" />
     <Compile Include="BL\CLS_Client.cs" />
     <Compile Include="BL\CLS_Commande_Detail.cs" />
     <Compile Include="BL\CLS_Produit.cs" />
+    <Compile Include="BL\D_Affectation.cs" />
     <Compile Include="BL\D_Commande.cs" />
     <Compile Include="Categorie.cs">
       <DependentUpon>DbStock.tt</DependentUpon>
@@ -138,6 +142,12 @@
     <Compile Include="PL\FRM_Produit_Commande.Designer.cs">
       <DependentUpon>FRM_Produit_Commande.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\USER_Affectation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\USER_Affectation.Designer.cs">
+      <DependentUpon>USER_Affectation.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\USER_Alerte.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -199,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_Produit_Commande.resx">
       <DependentUpon>FRM_Produit_Commande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\USER_Affectation.resx">
+      <DependentUpon>USER_Affectation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\USER_Alerte.resx">
       <DependentUpon>USER_Alerte.cs</DependentUpon>

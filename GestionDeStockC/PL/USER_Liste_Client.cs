@@ -205,5 +205,34 @@ namespace GestionDeStockC.PL
                 dvgclient.Rows.Add(false, l.ID_Client, l.Nom_Client, l.Prenom_Client, l.Adresse_Client, l.Telephone_Client, l.Email_Client, l.Ville_Client, l.Pays_Client);
                 }
         }
+
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PL.FRM_Ajoute_Modifier_Client frmclient = new PL.FRM_Ajoute_Modifier_Client(this);
+            Client CL = new Client();
+            if (dvgclient.CurrentRow != null)
+            { 
+                        frmclient.IDselect = (int)dvgclient.CurrentRow.Cells[1].Value;
+                        frmclient.txtNom.Text = dvgclient.CurrentRow.Cells[2].Value.ToString();
+                        frmclient.txtNom.ForeColor = Color.Black;
+                        frmclient.txtPrenom.Text = dvgclient.CurrentRow.Cells[3].Value.ToString();
+                        frmclient.txtPrenom.ForeColor = Color.Black;
+                        frmclient.txtAdresse.Text = dvgclient.CurrentRow.Cells[4].Value.ToString();
+                        frmclient.txtAdresse.ForeColor = Color.Black;
+                        frmclient.txtTelephone.Text = dvgclient.CurrentRow.Cells[5].Value.ToString();
+                        frmclient.txtTelephone.ForeColor = Color.Black;
+                        frmclient.txtEmail.Text = dvgclient.CurrentRow.Cells[6].Value.ToString();
+                        frmclient.txtEmail.ForeColor = Color.Black;
+                        frmclient.txtVille.Text = dvgclient.CurrentRow.Cells[7].Value.ToString();
+                        frmclient.txtVille.ForeColor = Color.Black;
+                        frmclient.txtPays.Text = dvgclient.CurrentRow.Cells[8].Value.ToString();
+                        frmclient.txtPays.ForeColor = Color.Black;
+                        frmclient.lblTitre.Text = "Modifier Client";
+                        frmclient.btnactualiser.Visible = false;
+                        frmclient.ShowDialog();
+            }
+            
+        }
+
     }
 }

@@ -36,13 +36,13 @@ namespace GestionDeStockC.PL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnexcel = new System.Windows.Forms.Button();
             this.dvgCategorie = new System.Windows.Forms.DataGridView();
+            this.btnajouter = new System.Windows.Forms.Button();
+            this.txtrecherche = new System.Windows.Forms.TextBox();
             this.Column3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modifier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnajouter = new System.Windows.Forms.Button();
-            this.txtrecherche = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCategorie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,8 +93,8 @@ namespace GestionDeStockC.PL
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgCategorie.DefaultCellStyle = dataGridViewCellStyle4;
             this.dvgCategorie.EnableHeadersVisualStyles = false;
@@ -105,7 +105,7 @@ namespace GestionDeStockC.PL
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dvgCategorie.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
@@ -115,45 +115,6 @@ namespace GestionDeStockC.PL
             this.dvgCategorie.Size = new System.Drawing.Size(1102, 644);
             this.dvgCategorie.TabIndex = 28;
             this.dvgCategorie.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCategorie_CellContentClick);
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Select";
-            this.Column3.Name = "Column3";
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Id";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nom Categorie";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Modifier
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
-            this.Modifier.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Modifier.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Modifier.HeaderText = "Modifier";
-            this.Modifier.Name = "Modifier";
-            this.Modifier.Text = "Modifier";
-            this.Modifier.UseColumnTextForButtonValue = true;
-            // 
-            // Supprimer
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Lime;
-            this.Supprimer.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Supprimer.HeaderText = "Supprimer";
-            this.Supprimer.Name = "Supprimer";
-            this.Supprimer.Text = "Supprimer";
-            this.Supprimer.UseColumnTextForButtonValue = true;
             // 
             // btnajouter
             // 
@@ -188,6 +149,46 @@ namespace GestionDeStockC.PL
             this.txtrecherche.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtrecherche.TextChanged += new System.EventHandler(this.txtrecherche_TextChanged);
             this.txtrecherche.Enter += new System.EventHandler(this.txtrecherche_Enter);
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Select";
+            this.Column3.Name = "Column3";
+            this.Column3.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Id";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Nom Categorie";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Modifier
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            this.Modifier.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Modifier.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Modifier.HeaderText = "Modifier";
+            this.Modifier.Name = "Modifier";
+            this.Modifier.Text = "Modifier";
+            this.Modifier.UseColumnTextForButtonValue = true;
+            // 
+            // Supprimer
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Lime;
+            this.Supprimer.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Supprimer.HeaderText = "Supprimer";
+            this.Supprimer.Name = "Supprimer";
+            this.Supprimer.Text = "Supprimer";
+            this.Supprimer.UseColumnTextForButtonValue = true;
             // 
             // USER_Liste_Categorie
             // 

@@ -11,7 +11,7 @@ namespace GestionDeStockC.BL
         private dbStockContext db = new dbStockContext();
         private Produit PR;
         //ajouter produit
-        public bool Ajouter_Produit(string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, DateTime dateCtrl)//image pour sauvegarder dand base de donne doit etre au format byte
+        public bool Ajouter_Produit(string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, DateTime dateCtrl, string inventaire)//image pour sauvegarder dand base de donne doit etre au format byte
         {
             PR = new Produit();
             PR.Nom_Produit = NomP;
@@ -22,8 +22,9 @@ namespace GestionDeStockC.BL
             PR.ID_Categorie = idcategorie;
             PR.ID_Type = idtype;
             PR.Date_Controle = dateCtrl;
+            PR.NumInventaire = inventaire;
             //verifier si le produit existe
-            if (db.Produits.SingleOrDefault(a => a.Nom_Produit == NomP) == null)//n'existe pas
+            if (db.Produits.SingleOrDefault(a => a.NumInventaire == inventaire) == null)//n'existe pas
             {
                 db.Produits.Add(PR);
                 db.SaveChanges();
@@ -35,7 +36,7 @@ namespace GestionDeStockC.BL
             }
         }
         //Modifier  Produit
-        public void Modifier_Produit(int IDP, string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, DateTime dateCtrl)
+        public void Modifier_Produit(int IDP, string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, DateTime dateCtrl, string inventaire)
         {
             PR = new Produit();
             PR = db.Produits.SingleOrDefault(s => s.ID_Produit == IDP);//verifier si id de client existe
@@ -49,10 +50,11 @@ namespace GestionDeStockC.BL
                 PR.ID_Categorie = idcategorie;
                 PR.ID_Type = idtype;
                 PR.Date_Controle = dateCtrl;
+                PR.NumInventaire = inventaire;
                 db.SaveChanges();//sauver changement dans base donnee
             }
         }
-
+        /**
         //Modifier stock produit
         public void Modifier_Stock_Produit(int id, int quantite)//verilfier que le produit existe
         {
@@ -64,6 +66,7 @@ namespace GestionDeStockC.BL
                 db.SaveChanges();
             }
         }
+        **/
             //Supprimer produit
         public void Supprimer_Produit(int id)
         {
