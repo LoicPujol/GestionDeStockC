@@ -127,6 +127,7 @@ namespace GestionDeStockC.PL
             if(dvgDetailCommande.CurrentRow!=null)
             {
                 frm.txtIdClientAffect.Text = IDCLIENT.ToString();
+                frm.txtIdExpediteur.Text = IDEXPEDITEUR.ToString();
                 frm.grpproduit.Text = "Modifier Produit";
                 frm.lblid.Text = dvgDetailCommande.CurrentRow.Cells[0].Value.ToString();
                 frm.lblnom.Text = dvgDetailCommande.CurrentRow.Cells[1].Value.ToString();

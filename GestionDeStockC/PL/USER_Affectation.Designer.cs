@@ -67,6 +67,7 @@ namespace GestionDeStockC.PL
             this.btnSupCombo.Size = new System.Drawing.Size(41, 33);
             this.btnSupCombo.TabIndex = 60;
             this.btnSupCombo.UseVisualStyleBackColor = false;
+            this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click);
             // 
             // combotype
             // 

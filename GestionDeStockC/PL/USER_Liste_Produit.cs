@@ -205,20 +205,26 @@ namespace GestionDeStockC.PL
             DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer les supprimer", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (R == DialogResult.Yes)
             {
+                BL.CLS_Produit clproduit = new BL.CLS_Produit();
                 if (dvgProduit.CurrentRow != null)
                 {
-                        BL.CLS_Produit clproduit = new BL.CLS_Produit();
-                        int idselect = (int)dvgProduit.CurrentRow.Cells[1].Value;// id de la ligne cocher
+                    int idselect = (int)dvgProduit.CurrentRow.Cells[1].Value;// id de la ligne cocher
+                    int NbreProd = db.Affectations.Count(s => s.ID_Produit == idselect);
+                    if (NbreProd == 0)
+                    {
                         clproduit.Supprimer_Produit(idselect);
-                    
+                        Actualiserdvg();
+                        MessageBox.Show("suppression avec succe", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        DialogResult PDR = MessageBox.Show("Il y a " + NbreProd + " affectatins pour ce produit vous ne pouvez pas le supprimer", "Supprime", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                //actualiser datagrid view
-                Actualiserdvg();
-                MessageBox.Show("suppression avec succe", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
-                MessageBox.Show("suppression et annule", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 MessageBox.Show("suppression et annule", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

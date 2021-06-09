@@ -38,10 +38,12 @@ namespace GestionDeStockC.PL
                 pnlaficher.Controls.Add(USER_Liste_Produit.Instance);
                 USER_Liste_Produit.Instance.Dock = DockStyle.Fill;
                 USER_Liste_Produit.Instance.BringToFront();
+                USER_Liste_Produit.Instance.Actualiserdvg();
             }
             else
             {
                 USER_Liste_Produit.Instance.BringToFront();
+                USER_Liste_Produit.Instance.Actualiserdvg();
             }
         }
 

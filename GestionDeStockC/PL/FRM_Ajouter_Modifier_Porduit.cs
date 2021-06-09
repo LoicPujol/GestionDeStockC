@@ -192,6 +192,7 @@ namespace GestionDeStockC.PL
                     {
                         MessageBox.Show("Produit ajoute avec succe", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
+                        Close();
                     }
                     else
                     {

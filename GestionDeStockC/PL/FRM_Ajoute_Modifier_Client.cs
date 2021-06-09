@@ -222,7 +222,9 @@ namespace GestionDeStockC.PL
                 {
                     MessageBox.Show("Client ajouté avec succés", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     (usclient as USER_Liste_Client).Actualisedatagrid();
-                }else
+                    Close();
+                }
+                else
                 {
                     MessageBox.Show("Nom et prénom éxistent déja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -236,7 +238,9 @@ namespace GestionDeStockC.PL
                     //pour actualiser datzgrid wiev
                     (usclient as USER_Liste_Client).Actualisedatagrid();
                     MessageBox.Show("Client modifie avec succe","Modification",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-                }else
+                    Close();
+                }
+                else
                 {
                     MessageBox.Show("Modification est annule", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }

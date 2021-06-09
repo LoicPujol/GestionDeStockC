@@ -54,54 +54,11 @@ namespace GestionDeStockC.PL
         }
         public void Actualiserdvg()
         {
+            dvgAffectationProduit.Rows.Clear();
             dvgAffectationProduit.Columns[8].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
-            var listerecherche = db.Affectations.ToList();//liste de recherche = liste des clients
-            /**
-            if (combocategorie.SelectedItem != null && combotype.SelectedItem != null)
-            {
-                string CategRech = combocategorie.SelectedValue.ToString();
-                int IdCat;
-                bool testCat = Int32.TryParse(CategRech, out IdCat);
-
-                string TypeRech = combotype.SelectedValue.ToString();
-                int IdTyp;
-                bool testTyp = Int32.TryParse(TypeRech, out IdTyp);
-
-                string IdRech = txtrechercheInvProd.Text;
-                int IdProd;
-                bool testProd = Int32.TryParse(IdRech, out IdProd);
-
-
-
-                listerecherche = listerecherche.Where(s => s.ID_Type && IdCat == s.ID_Categorie).ToList();
-            }
-            
-            if (combocategorie.SelectedItem != null)
-            {
-                string CategRecherche = combocategorie.SelectedValue.ToString();
-                int IdCateg;
-                bool testCateg = Int32.TryParse(CategRecherche, out IdCateg);
-
-                listerecherche = listerecherche.Where(s => s.ID_Produit != -1).ToList();
-            }
-
-            if (combotype.SelectedItem != null)
-            {
-                string TypeRecherche = combotype.SelectedValue.ToString();
-                int IdType;
-                bool testType = Int32.TryParse(TypeRecherche, out IdType);
-
-                listerecherche = listerecherche.Where(s => s.ID_Produit != -1).ToList();
-            }
-            if (combocategorie.SelectedItem == null && combotype.SelectedItem == null)
-                
-                listerecherche = listerecherche.Where(s => s.ID_Produit.IndexOf(txtrechercheInvProd.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
-            **/
-
-            dvgAffectationProduit.Rows.Clear();
-
-            
+            var listerecherche = db.Affectations.ToList();//liste de recherche = liste des affectations
+                       
             Produit Prod = new Produit();
             Produit CatProd = new Produit();
             Produit TypProd = new Produit();
@@ -118,51 +75,8 @@ namespace GestionDeStockC.PL
                 TypProd = db.Produits.SingleOrDefault(s => s.ID_Produit == l.ID_Produit);
                 NomType = db.Types.SingleOrDefault(s => s.ID_Type == TypProd.ID_Type);
                 DateCtrl = db.Produits.SingleOrDefault(s => s.ID_Produit == l.ID_Produit);
-
-                /**
-                if (combocategorie.SelectedItem != null && combotype.SelectedItem != null)
-                {
-                    string CategRech = combocategorie.SelectedValue.ToString();
-                    int IdCat;
-                    bool testCat = Int32.TryParse(CategRech, out IdCat);
-
-                    string TypeRech = combotype.SelectedValue.ToString();
-                    int IdTyp;
-                    bool testTyp = Int32.TryParse(TypeRech, out IdTyp);
-
-                    string IdRech = txtrechercheInvProd.Text;
-                    int IdProd;
-                    bool testProd = Int32.TryParse(IdRech, out IdProd);
-
-                    listerecherche = listerecherche.Where(s => IdTyp == NomType.ID_Type && IdCat == Nomcat.ID_Categorie).ToList();
-                }
-                **/
-                if (combocategorie.SelectedItem != null)
-                {
-                    
-                    string CategRecherche = combocategorie.SelectedValue.ToString();
-                    int IdCateg;
-                    bool testCateg = Int32.TryParse(CategRecherche, out IdCateg);
-
-                    string CTR = CatProd.ID_Categorie.ToString();
-                    int CT;
-                    bool testC = Int32.TryParse(CTR, out CT);
-
-
-                    MessageBox.Show(CategRecherche.ToString());
-                    MessageBox.Show(CTR.ToString());
-
-                    
-                    listerecherche = listerecherche.Where(s => IdCateg == CT).ToList();
-
-                    
-                        dvgAffectationProduit.Rows.Add(false, false, Clt.Prenom_Client, Nomcat.Nom_Categorie, NomType.Nom_Type, Prod.NumInventaire, Prod.Nom_Produit, l.Quantite_affectee, DateCtrl.Date_Controle);
-                    
-                }
-                else
-                {
-                    dvgAffectationProduit.Rows.Add(false, false, Clt.Prenom_Client, Nomcat.Nom_Categorie, NomType.Nom_Type, Prod.NumInventaire, Prod.Nom_Produit, l.Quantite_affectee, DateCtrl.Date_Controle);
-                }
+                                
+                dvgAffectationProduit.Rows.Add(false, false, Clt.Prenom_Client, Nomcat.Nom_Categorie, NomType.Nom_Type, Prod.NumInventaire, Prod.Nom_Produit, l.Quantite_affectee, DateCtrl.Date_Controle);
             }
         }
 
@@ -188,6 +102,13 @@ namespace GestionDeStockC.PL
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Actualiserdvg();
+        }
+
+        private void btnSupCombo_Click(object sender, EventArgs e)
+        {
+            combocategorie.SelectedIndex = -1;
+            combotype.SelectedIndex = -1;
             Actualiserdvg();
         }
     }

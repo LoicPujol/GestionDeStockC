@@ -57,6 +57,7 @@ namespace GestionDeStockC.PL
                     {
                         MessageBox.Show("Categorie ajoute", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         (usercat as USER_Liste_Categorie).Actualisedatagrid();
+                        Close();
                     }
                 }
                 if(lblTitre.Text == "Modifier Categorie")
@@ -68,6 +69,7 @@ namespace GestionDeStockC.PL
                         MessageBox.Show("Categorie modifier", "Modifier", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         //actualiser datagrid
                         (usercat as USER_Liste_Categorie).Actualisedatagrid();
+                        Close();
                     }
                     else
                     {
@@ -75,6 +77,7 @@ namespace GestionDeStockC.PL
                     }
                 }
             }
+            
         }
     }
 }
