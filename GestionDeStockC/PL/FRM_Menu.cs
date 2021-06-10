@@ -16,6 +16,7 @@ namespace GestionDeStockC.PL
         {
             InitializeComponent();
             panel1.Size=new Size(200, 666);
+            USER_Alerte.Instance.TestDemarageAlerte();
             
         }
         
@@ -90,27 +91,6 @@ namespace GestionDeStockC.PL
                 USER_Liste_Commande.Instance.BringToFront();
             }
         }
-
-        private void Button2_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        
-        private void Button1_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void pnlParamettrer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private void FRM_Menu_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnalerte_Click(object sender, EventArgs e)
         {
             pnlBut.Top = btnalerte.Top;

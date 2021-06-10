@@ -31,11 +31,12 @@ namespace GestionDeStockC.PL
         {
             InitializeComponent();
             db = new dbStockContext();
+            
         }
-        public void Actualiserdvg()
+        public void ActualiserdvgStock()
         {
             db = new dbStockContext();
-            dvgStock.Rows.Clear();
+            dgvStock.Rows.Clear();
             //Pour afficher le nom de categorie a partir de idcategorie
             Categorie Cat = new Categorie();
             Type Typ = new Type();//ajout pout type
@@ -45,26 +46,82 @@ namespace GestionDeStockC.PL
                 Typ = db.Types.SingleOrDefault(s => s.ID_Type == Lis.ID_Type);//ajout type
                 if (Cat != null & Typ != null & Lis.Quantité_Produit <= Lis.Stock_Alerte)//si existe
                 {
-                    dvgStock.Rows.Add(false, Lis.ID_Produit, Lis.Nom_Produit, Lis.Quantité_Produit, Cat.Nom_Categorie, Typ.Nom_Type, Lis.Stock_Alerte);//cat.Nom pour afficher nom de cagorie depuis table categorie
+                    dgvStock.Rows.Add(false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Quantité_Produit, Lis.Stock_Alerte);//cat.Nom pour afficher nom de cagorie depuis table categorie
                 }
             }
-            for (int i = 0; i < dvgStock.Rows.Count; i++)
+            for (int i = 0; i < dgvStock.Rows.Count; i++)
             {
-                if ((int)dvgStock.Rows[i].Cells[3].Value == 0)
+                if ((int)dgvStock.Rows[i].Cells[5].Value == 0)
                 {
-                    dvgStock.Rows[i].Cells[3].Style.BackColor = Color.Red;
+                    dgvStock.Rows[i].Cells[5].Style.BackColor = Color.Red;
                 }
                 else
                 {
-                    dvgStock.Rows[i].Cells[3].Style.BackColor = Color.Orange;
+                    dgvStock.Rows[i].Cells[5].Style.BackColor = Color.Orange;
                 }
-            dvgStock.ClearSelection();
+            dgvStock.ClearSelection();
+            }
+        }
+
+        public void ActualiserdvgAlerte()
+        {
+            dgvDate.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+            db = new dbStockContext();
+            dgvDate.Rows.Clear();
+            //Pour afficher le nom de categorie a partir de idcategorie
+            Categorie Cat = new Categorie();
+            Type Typ = new Type();//ajout pout type
+            Affectation IDAffect = new Affectation();
+            Client NomClient = new Client();
+            foreach (var Lis in db.Produits)
+            {
+                Cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == Lis.ID_Categorie);
+                Typ = db.Types.SingleOrDefault(s => s.ID_Type == Lis.ID_Type);//ajout type
+                
+                if (Lis.Date_Controle != null)
+                {
+                    DateTime date = Convert.ToDateTime(Lis.Date_Controle.Value.ToString());
+                    //DateTime date = Convert.ToDateTime(dgvDate.Rows[i].Cells[5].Value.ToString());
+                    DateTime dateDuJour = DateTime.Now;
+                    int nbJours = (date - dateDuJour).Days;
+
+                    if (Cat != null & Typ != null & nbJours <= 30)//si existe
+                    {
+                        IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
+                        NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
+                        dgvDate.Rows.Add(false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client );//cat.Nom pour afficher nom de cagorie depuis table categorie
+                                            
+                    }
+                }
+            }
+            for (int i = 0; i < dgvDate.Rows.Count; i++)
+            {
+                if ((int)dgvDate.Rows[i].Cells[6].Value <= 0)
+                {
+                    dgvDate.Rows[i].Cells[6].Style.BackColor = Color.Red;
+                }
+                else
+                {
+                    dgvDate.Rows[i].Cells[6].Style.BackColor = Color.Orange;
+                }
+                dgvDate.ClearSelection();
             }
         }
 
         private void USER_Alerte_Load(object sender, EventArgs e)
         {
-            Actualiserdvg();
+            ActualiserdvgStock();
+            ActualiserdvgAlerte();
+        }
+        public void TestDemarageAlerte()
+        {
+            ActualiserdvgStock();
+            ActualiserdvgAlerte();
+            if (dgvDate.Rows.Count != 0 && dgvDate.Rows != null && dgvStock.Rows.Count != 0 && dgvStock.Rows != null)
+            {
+                MessageBox.Show("Des articles sont en dessous du stock minimum et/ou arrive a terme de leur controle periodique", "Message d'alerte", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                
+            }
         }
     }
 }

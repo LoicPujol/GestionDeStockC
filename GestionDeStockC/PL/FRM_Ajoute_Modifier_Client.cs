@@ -258,5 +258,6 @@ namespace GestionDeStockC.PL
             txtPays.Text = "Pays Client"; txtPays.ForeColor = Color.Silver;
             txtVille.Text = "Ville Client"; txtVille.ForeColor = Color.Silver;
         }
+
     }
 }

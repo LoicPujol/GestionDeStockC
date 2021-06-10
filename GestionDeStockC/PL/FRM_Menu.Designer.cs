@@ -74,7 +74,7 @@ namespace GestionDeStockC.PL
             this.btnaffectation.Name = "btnaffectation";
             this.btnaffectation.Size = new System.Drawing.Size(187, 45);
             this.btnaffectation.TabIndex = 14;
-            this.btnaffectation.Text = "   Affectation";
+            this.btnaffectation.Text = "       Affectation";
             this.btnaffectation.UseVisualStyleBackColor = true;
             this.btnaffectation.Click += new System.EventHandler(this.btnaffectation_Click);
             // 
@@ -215,7 +215,6 @@ namespace GestionDeStockC.PL
             this.Name = "FRM_Menu";
             this.Text = "Gestion de stock";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FRM_Menu_Load);
             this.panel1.ResumeLayout(false);
             this.pnlparammetrer.ResumeLayout(false);
             this.ResumeLayout(false);

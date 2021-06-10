@@ -177,7 +177,8 @@ namespace GestionDeStockC.PL
                     frmproduit.checkDate.Visible = true;
                     frmproduit.checkDate.Checked = true;
                     frmproduit.dateCtrl.Visible = true;
-                    DateTime dtctrl = DateTime.ParseExact(dvgProduit.CurrentRow.Cells[9].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    //DateTime dtctrl = DateTime.ParseExact(dvgProduit.CurrentRow.Cells[9].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    DateTime dtctrl = Convert.ToDateTime(dvgProduit.CurrentRow.Cells[9].Value.ToString());
                     frmproduit.dateCtrl.Value = dtctrl;
                 }
                 //Afficher image produit

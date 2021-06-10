@@ -229,5 +229,6 @@ namespace GestionDeStockC.PL
             txtNomExp.Text = frmC.dvgclient.CurrentRow.Cells[1].Value.ToString();
             txtPrenomExp.Text = frmC.dvgclient.CurrentRow.Cells[2].Value.ToString();
         }
+                
     }
 }

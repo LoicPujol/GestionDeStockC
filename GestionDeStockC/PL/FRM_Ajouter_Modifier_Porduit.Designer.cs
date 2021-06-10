@@ -32,11 +32,8 @@ namespace GestionDeStockC.PL
             this.lblTitre = new System.Windows.Forms.Label();
             this.picProduit = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.txtPrix = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.txtQuantite = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txtNomP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnenregistrer = new System.Windows.Forms.Button();
@@ -50,10 +47,12 @@ namespace GestionDeStockC.PL
             this.txtStockAlerte = new System.Windows.Forms.TextBox();
             this.checkDate = new System.Windows.Forms.CheckBox();
             this.txtInventaireProd = new System.Windows.Forms.TextBox();
+            this.txtNumSerie = new System.Windows.Forms.TextBox();
+            this.txtPoids = new System.Windows.Forms.TextBox();
+            this.txtTarifAchat = new System.Windows.Forms.TextBox();
+            this.txtMarge = new System.Windows.Forms.TextBox();
+            this.btnIncrementer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picProduit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -70,32 +69,24 @@ namespace GestionDeStockC.PL
             // picProduit
             // 
             this.picProduit.BackColor = System.Drawing.Color.White;
-            this.picProduit.Location = new System.Drawing.Point(31, 144);
+            this.picProduit.Location = new System.Drawing.Point(31, 180);
             this.picProduit.Name = "picProduit";
-            this.picProduit.Size = new System.Drawing.Size(236, 143);
+            this.picProduit.Size = new System.Drawing.Size(262, 200);
             this.picProduit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picProduit.TabIndex = 7;
             this.picProduit.TabStop = false;
+            this.picProduit.Tag = "";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(45, 108);
+            this.label1.Location = new System.Drawing.Point(135, 148);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 24);
             this.label1.TabIndex = 8;
             this.label1.Text = "Image";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::GestionDeStockC.Properties.Resources.prix_32;
-            this.pictureBox7.Location = new System.Drawing.Point(342, 355);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(36, 36);
-            this.pictureBox7.TabIndex = 43;
-            this.pictureBox7.TabStop = false;
             // 
             // txtPrix
             // 
@@ -104,24 +95,15 @@ namespace GestionDeStockC.PL
             this.txtPrix.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPrix.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrix.ForeColor = System.Drawing.Color.Silver;
-            this.txtPrix.Location = new System.Drawing.Point(384, 355);
+            this.txtPrix.Location = new System.Drawing.Point(313, 353);
             this.txtPrix.Multiline = true;
             this.txtPrix.Name = "txtPrix";
-            this.txtPrix.Size = new System.Drawing.Size(230, 36);
+            this.txtPrix.Size = new System.Drawing.Size(230, 25);
             this.txtPrix.TabIndex = 42;
             this.txtPrix.Text = "Prix";
             this.txtPrix.Enter += new System.EventHandler(this.txtPrix_Enter);
             this.txtPrix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrix_KeyPress);
             this.txtPrix.Leave += new System.EventHandler(this.txtPrix_Leave);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::GestionDeStockC.Properties.Resources.Quantie_32;
-            this.pictureBox4.Location = new System.Drawing.Point(344, 251);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(36, 36);
-            this.pictureBox4.TabIndex = 41;
-            this.pictureBox4.TabStop = false;
             // 
             // txtQuantite
             // 
@@ -130,24 +112,15 @@ namespace GestionDeStockC.PL
             this.txtQuantite.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtQuantite.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantite.ForeColor = System.Drawing.Color.Silver;
-            this.txtQuantite.Location = new System.Drawing.Point(386, 251);
+            this.txtQuantite.Location = new System.Drawing.Point(311, 238);
             this.txtQuantite.Multiline = true;
             this.txtQuantite.Name = "txtQuantite";
-            this.txtQuantite.Size = new System.Drawing.Size(230, 36);
+            this.txtQuantite.Size = new System.Drawing.Size(230, 25);
             this.txtQuantite.TabIndex = 40;
             this.txtQuantite.Text = "Quantite";
             this.txtQuantite.Enter += new System.EventHandler(this.txtQuantite_Enter);
             this.txtQuantite.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantite_KeyPress);
             this.txtQuantite.Leave += new System.EventHandler(this.txtQuantite_Leave);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::GestionDeStockC.Properties.Resources.product_32;
-            this.pictureBox3.Location = new System.Drawing.Point(344, 196);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(36, 36);
-            this.pictureBox3.TabIndex = 39;
-            this.pictureBox3.TabStop = false;
             // 
             // txtNomP
             // 
@@ -156,10 +129,10 @@ namespace GestionDeStockC.PL
             this.txtNomP.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNomP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomP.ForeColor = System.Drawing.Color.Silver;
-            this.txtNomP.Location = new System.Drawing.Point(384, 196);
+            this.txtNomP.Location = new System.Drawing.Point(311, 180);
             this.txtNomP.Multiline = true;
             this.txtNomP.Name = "txtNomP";
-            this.txtNomP.Size = new System.Drawing.Size(230, 36);
+            this.txtNomP.Size = new System.Drawing.Size(230, 25);
             this.txtNomP.TabIndex = 38;
             this.txtNomP.Text = "Nom Produit";
             this.txtNomP.Enter += new System.EventHandler(this.txtNomP_Enter);
@@ -170,7 +143,7 @@ namespace GestionDeStockC.PL
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(439, 35);
+            this.label2.Location = new System.Drawing.Point(309, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 24);
             this.label2.TabIndex = 44;
@@ -183,9 +156,9 @@ namespace GestionDeStockC.PL
             this.btnenregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnenregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnenregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnenregistrer.Location = new System.Drawing.Point(344, 433);
+            this.btnenregistrer.Location = new System.Drawing.Point(573, 399);
             this.btnenregistrer.Name = "btnenregistrer";
-            this.btnenregistrer.Size = new System.Drawing.Size(230, 39);
+            this.btnenregistrer.Size = new System.Drawing.Size(230, 36);
             this.btnenregistrer.TabIndex = 46;
             this.btnenregistrer.Text = "Enregistrer";
             this.btnenregistrer.UseVisualStyleBackColor = false;
@@ -198,11 +171,11 @@ namespace GestionDeStockC.PL
             this.btnactualiser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnactualiser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnactualiser.ForeColor = System.Drawing.Color.Black;
-            this.btnactualiser.Location = new System.Drawing.Point(37, 433);
+            this.btnactualiser.Location = new System.Drawing.Point(311, 399);
             this.btnactualiser.Name = "btnactualiser";
-            this.btnactualiser.Size = new System.Drawing.Size(230, 39);
+            this.btnactualiser.Size = new System.Drawing.Size(230, 36);
             this.btnactualiser.TabIndex = 45;
-            this.btnactualiser.Text = "Actualiser";
+            this.btnactualiser.Text = "Vider tout les champs";
             this.btnactualiser.UseVisualStyleBackColor = false;
             this.btnactualiser.Click += new System.EventHandler(this.btnactualiser_Click);
             // 
@@ -213,9 +186,9 @@ namespace GestionDeStockC.PL
             this.btnparcourir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnparcourir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnparcourir.ForeColor = System.Drawing.Color.Black;
-            this.btnparcourir.Location = new System.Drawing.Point(37, 309);
+            this.btnparcourir.Location = new System.Drawing.Point(31, 399);
             this.btnparcourir.Name = "btnparcourir";
-            this.btnparcourir.Size = new System.Drawing.Size(230, 36);
+            this.btnparcourir.Size = new System.Drawing.Size(262, 36);
             this.btnparcourir.TabIndex = 47;
             this.btnparcourir.Text = "Parcourir";
             this.btnparcourir.UseVisualStyleBackColor = false;
@@ -233,9 +206,9 @@ namespace GestionDeStockC.PL
             "Email",
             "Ville",
             "Pays"});
-            this.combocategorie.Location = new System.Drawing.Point(346, 73);
+            this.combocategorie.Location = new System.Drawing.Point(313, 54);
             this.combocategorie.Name = "combocategorie";
-            this.combocategorie.Size = new System.Drawing.Size(270, 33);
+            this.combocategorie.Size = new System.Drawing.Size(232, 33);
             this.combocategorie.TabIndex = 48;
             // 
             // btnquitter
@@ -244,7 +217,7 @@ namespace GestionDeStockC.PL
             this.btnquitter.FlatAppearance.BorderSize = 0;
             this.btnquitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnquitter.Image = global::GestionDeStockC.Properties.Resources.Button_Delete_icon;
-            this.btnquitter.Location = new System.Drawing.Point(1078, 3);
+            this.btnquitter.Location = new System.Drawing.Point(812, 6);
             this.btnquitter.Name = "btnquitter";
             this.btnquitter.Size = new System.Drawing.Size(36, 36);
             this.btnquitter.TabIndex = 49;
@@ -263,9 +236,9 @@ namespace GestionDeStockC.PL
             "Email",
             "Ville",
             "Pays"});
-            this.combotype.Location = new System.Drawing.Point(346, 147);
+            this.combotype.Location = new System.Drawing.Point(313, 128);
             this.combotype.Name = "combotype";
-            this.combotype.Size = new System.Drawing.Size(270, 33);
+            this.combotype.Size = new System.Drawing.Size(232, 33);
             this.combotype.TabIndex = 51;
             this.combotype.SelectionChangeCommitted += new System.EventHandler(this.combotype_SelectionChangeCommitted);
             // 
@@ -274,7 +247,7 @@ namespace GestionDeStockC.PL
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(454, 109);
+            this.label3.Location = new System.Drawing.Point(309, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 24);
             this.label3.TabIndex = 50;
@@ -286,7 +259,7 @@ namespace GestionDeStockC.PL
             this.dateCtrl.CustomFormat = "dd/MM/yyyy";
             this.dateCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateCtrl.Location = new System.Drawing.Point(649, 181);
+            this.dateCtrl.Location = new System.Drawing.Point(622, 128);
             this.dateCtrl.Name = "dateCtrl";
             this.dateCtrl.Size = new System.Drawing.Size(127, 29);
             this.dateCtrl.TabIndex = 52;
@@ -299,10 +272,10 @@ namespace GestionDeStockC.PL
             this.txtStockAlerte.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtStockAlerte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStockAlerte.ForeColor = System.Drawing.Color.Silver;
-            this.txtStockAlerte.Location = new System.Drawing.Point(384, 309);
+            this.txtStockAlerte.Location = new System.Drawing.Point(573, 292);
             this.txtStockAlerte.Multiline = true;
             this.txtStockAlerte.Name = "txtStockAlerte";
-            this.txtStockAlerte.Size = new System.Drawing.Size(230, 36);
+            this.txtStockAlerte.Size = new System.Drawing.Size(230, 25);
             this.txtStockAlerte.TabIndex = 53;
             this.txtStockAlerte.Text = "Stock Alerte";
             this.txtStockAlerte.Enter += new System.EventHandler(this.txtStockAlerte_Enter);
@@ -312,7 +285,7 @@ namespace GestionDeStockC.PL
             // checkDate
             // 
             this.checkDate.AutoSize = true;
-            this.checkDate.Location = new System.Drawing.Point(637, 158);
+            this.checkDate.Location = new System.Drawing.Point(622, 88);
             this.checkDate.Name = "checkDate";
             this.checkDate.Size = new System.Drawing.Size(139, 17);
             this.checkDate.TabIndex = 54;
@@ -331,19 +304,95 @@ namespace GestionDeStockC.PL
             this.txtInventaireProd.Location = new System.Drawing.Point(31, 54);
             this.txtInventaireProd.Multiline = true;
             this.txtInventaireProd.Name = "txtInventaireProd";
-            this.txtInventaireProd.Size = new System.Drawing.Size(230, 36);
+            this.txtInventaireProd.Size = new System.Drawing.Size(262, 28);
             this.txtInventaireProd.TabIndex = 55;
             this.txtInventaireProd.Text = "N° Inventaire";
             this.txtInventaireProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtInventaireProd.Enter += new System.EventHandler(this.txtInventaireProd_Enter);
             this.txtInventaireProd.Leave += new System.EventHandler(this.txtInventaireProd_Leave);
             // 
+            // txtNumSerie
+            // 
+            this.txtNumSerie.BackColor = System.Drawing.Color.White;
+            this.txtNumSerie.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNumSerie.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNumSerie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumSerie.ForeColor = System.Drawing.Color.Silver;
+            this.txtNumSerie.Location = new System.Drawing.Point(573, 180);
+            this.txtNumSerie.Multiline = true;
+            this.txtNumSerie.Name = "txtNumSerie";
+            this.txtNumSerie.Size = new System.Drawing.Size(230, 25);
+            this.txtNumSerie.TabIndex = 56;
+            this.txtNumSerie.Text = "Numero de serie";
+            // 
+            // txtPoids
+            // 
+            this.txtPoids.BackColor = System.Drawing.Color.White;
+            this.txtPoids.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPoids.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPoids.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPoids.ForeColor = System.Drawing.Color.Silver;
+            this.txtPoids.Location = new System.Drawing.Point(573, 238);
+            this.txtPoids.Multiline = true;
+            this.txtPoids.Name = "txtPoids";
+            this.txtPoids.Size = new System.Drawing.Size(230, 25);
+            this.txtPoids.TabIndex = 57;
+            this.txtPoids.Text = "Poids en kilogramme";
+            // 
+            // txtTarifAchat
+            // 
+            this.txtTarifAchat.BackColor = System.Drawing.Color.White;
+            this.txtTarifAchat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTarifAchat.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTarifAchat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTarifAchat.ForeColor = System.Drawing.Color.Silver;
+            this.txtTarifAchat.Location = new System.Drawing.Point(311, 292);
+            this.txtTarifAchat.Multiline = true;
+            this.txtTarifAchat.Name = "txtTarifAchat";
+            this.txtTarifAchat.Size = new System.Drawing.Size(230, 25);
+            this.txtTarifAchat.TabIndex = 58;
+            this.txtTarifAchat.Text = "Tarif achat";
+            // 
+            // txtMarge
+            // 
+            this.txtMarge.BackColor = System.Drawing.Color.White;
+            this.txtMarge.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMarge.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMarge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMarge.ForeColor = System.Drawing.Color.Silver;
+            this.txtMarge.Location = new System.Drawing.Point(573, 353);
+            this.txtMarge.Multiline = true;
+            this.txtMarge.Name = "txtMarge";
+            this.txtMarge.Size = new System.Drawing.Size(230, 25);
+            this.txtMarge.TabIndex = 59;
+            this.txtMarge.Text = "Marge en %";
+            // 
+            // btnIncrementer
+            // 
+            this.btnIncrementer.BackColor = System.Drawing.Color.Gray;
+            this.btnIncrementer.FlatAppearance.BorderSize = 0;
+            this.btnIncrementer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIncrementer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncrementer.ForeColor = System.Drawing.Color.Black;
+            this.btnIncrementer.Location = new System.Drawing.Point(31, 88);
+            this.btnIncrementer.Name = "btnIncrementer";
+            this.btnIncrementer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnIncrementer.Size = new System.Drawing.Size(262, 36);
+            this.btnIncrementer.TabIndex = 60;
+            this.btnIncrementer.Text = "Incrementer";
+            this.btnIncrementer.UseVisualStyleBackColor = false;
+            // 
             // FRM_Ajouter_Modifier_Porduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(1117, 491);
+            this.ClientSize = new System.Drawing.Size(877, 516);
+            this.Controls.Add(this.btnIncrementer);
+            this.Controls.Add(this.txtMarge);
+            this.Controls.Add(this.txtTarifAchat);
+            this.Controls.Add(this.txtPoids);
+            this.Controls.Add(this.txtNumSerie);
             this.Controls.Add(this.txtInventaireProd);
             this.Controls.Add(this.checkDate);
             this.Controls.Add(this.txtStockAlerte);
@@ -356,11 +405,8 @@ namespace GestionDeStockC.PL
             this.Controls.Add(this.btnenregistrer);
             this.Controls.Add(this.btnactualiser);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.txtPrix);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.txtQuantite);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.txtNomP);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picProduit);
@@ -370,9 +416,6 @@ namespace GestionDeStockC.PL
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_Ajouter_Modifier_Porduit";
             ((System.ComponentModel.ISupportInitialize)(this.picProduit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,11 +424,8 @@ namespace GestionDeStockC.PL
         #endregion
         public System.Windows.Forms.Label lblTitre;
         public System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox7;
         public System.Windows.Forms.TextBox txtPrix;
-        private System.Windows.Forms.PictureBox pictureBox4;
         public System.Windows.Forms.TextBox txtQuantite;
-        private System.Windows.Forms.PictureBox pictureBox3;
         public System.Windows.Forms.TextBox txtNomP;
         public System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnenregistrer;
@@ -400,5 +440,10 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.TextBox txtStockAlerte;
         public System.Windows.Forms.TextBox txtInventaireProd;
         public System.Windows.Forms.CheckBox checkDate;
+        public System.Windows.Forms.TextBox txtNumSerie;
+        public System.Windows.Forms.TextBox txtPoids;
+        public System.Windows.Forms.TextBox txtTarifAchat;
+        public System.Windows.Forms.TextBox txtMarge;
+        public System.Windows.Forms.Button btnIncrementer;
     }
 }
