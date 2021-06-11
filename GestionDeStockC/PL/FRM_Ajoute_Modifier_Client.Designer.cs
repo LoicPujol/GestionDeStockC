@@ -50,7 +50,7 @@ namespace GestionDeStockC.PL
             this.lblTitre.AutoSize = true;
             this.lblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitre.ForeColor = System.Drawing.Color.Black;
-            this.lblTitre.Location = new System.Drawing.Point(26, 13);
+            this.lblTitre.Location = new System.Drawing.Point(15, 14);
             this.lblTitre.Name = "lblTitre";
             this.lblTitre.Size = new System.Drawing.Size(204, 33);
             this.lblTitre.TabIndex = 2;
@@ -63,7 +63,7 @@ namespace GestionDeStockC.PL
             this.btnactualiser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnactualiser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnactualiser.ForeColor = System.Drawing.Color.Black;
-            this.btnactualiser.Location = new System.Drawing.Point(32, 415);
+            this.btnactualiser.Location = new System.Drawing.Point(21, 382);
             this.btnactualiser.Name = "btnactualiser";
             this.btnactualiser.Size = new System.Drawing.Size(230, 39);
             this.btnactualiser.TabIndex = 20;
@@ -78,7 +78,7 @@ namespace GestionDeStockC.PL
             this.txtTelephone.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtTelephone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelephone.ForeColor = System.Drawing.Color.Silver;
-            this.txtTelephone.Location = new System.Drawing.Point(32, 270);
+            this.txtTelephone.Location = new System.Drawing.Point(21, 271);
             this.txtTelephone.Multiline = true;
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(230, 35);
@@ -95,7 +95,7 @@ namespace GestionDeStockC.PL
             this.txtPrenom.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrenom.ForeColor = System.Drawing.Color.Silver;
-            this.txtPrenom.Location = new System.Drawing.Point(32, 213);
+            this.txtPrenom.Location = new System.Drawing.Point(21, 214);
             this.txtPrenom.Multiline = true;
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(230, 35);
@@ -109,7 +109,7 @@ namespace GestionDeStockC.PL
             this.btnquitter.FlatAppearance.BorderSize = 0;
             this.btnquitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnquitter.Image = global::GestionDeStockC.Properties.Resources.Button_Delete_icon;
-            this.btnquitter.Location = new System.Drawing.Point(494, 10);
+            this.btnquitter.Location = new System.Drawing.Point(483, 11);
             this.btnquitter.Name = "btnquitter";
             this.btnquitter.Size = new System.Drawing.Size(36, 36);
             this.btnquitter.TabIndex = 12;
@@ -123,7 +123,7 @@ namespace GestionDeStockC.PL
             this.btnenregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnenregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnenregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnenregistrer.Location = new System.Drawing.Point(300, 415);
+            this.btnenregistrer.Location = new System.Drawing.Point(289, 382);
             this.btnenregistrer.Name = "btnenregistrer";
             this.btnenregistrer.Size = new System.Drawing.Size(230, 39);
             this.btnenregistrer.TabIndex = 21;
@@ -138,7 +138,7 @@ namespace GestionDeStockC.PL
             this.txtNom.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNom.ForeColor = System.Drawing.Color.Silver;
-            this.txtNom.Location = new System.Drawing.Point(32, 154);
+            this.txtNom.Location = new System.Drawing.Point(21, 155);
             this.txtNom.Multiline = true;
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(230, 35);
@@ -154,7 +154,7 @@ namespace GestionDeStockC.PL
             this.txtAdresse.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtAdresse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAdresse.ForeColor = System.Drawing.Color.Silver;
-            this.txtAdresse.Location = new System.Drawing.Point(300, 68);
+            this.txtAdresse.Location = new System.Drawing.Point(289, 69);
             this.txtAdresse.Multiline = true;
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.Size = new System.Drawing.Size(230, 121);
@@ -170,7 +170,7 @@ namespace GestionDeStockC.PL
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.Silver;
-            this.txtEmail.Location = new System.Drawing.Point(32, 325);
+            this.txtEmail.Location = new System.Drawing.Point(21, 326);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(230, 35);
@@ -186,7 +186,7 @@ namespace GestionDeStockC.PL
             this.txtVille.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtVille.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVille.ForeColor = System.Drawing.Color.Silver;
-            this.txtVille.Location = new System.Drawing.Point(300, 213);
+            this.txtVille.Location = new System.Drawing.Point(289, 214);
             this.txtVille.Multiline = true;
             this.txtVille.Name = "txtVille";
             this.txtVille.Size = new System.Drawing.Size(230, 35);
@@ -202,7 +202,7 @@ namespace GestionDeStockC.PL
             this.txtPays.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtPays.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPays.ForeColor = System.Drawing.Color.Silver;
-            this.txtPays.Location = new System.Drawing.Point(300, 270);
+            this.txtPays.Location = new System.Drawing.Point(289, 271);
             this.txtPays.Multiline = true;
             this.txtPays.Name = "txtPays";
             this.txtPays.Size = new System.Drawing.Size(230, 35);
@@ -218,7 +218,7 @@ namespace GestionDeStockC.PL
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Help;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Silver;
-            this.textBox1.Location = new System.Drawing.Point(300, 325);
+            this.textBox1.Location = new System.Drawing.Point(289, 326);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(230, 35);
@@ -232,7 +232,7 @@ namespace GestionDeStockC.PL
             this.btnIncrementer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIncrementer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIncrementer.ForeColor = System.Drawing.Color.Black;
-            this.btnIncrementer.Location = new System.Drawing.Point(32, 102);
+            this.btnIncrementer.Location = new System.Drawing.Point(21, 69);
             this.btnIncrementer.Name = "btnIncrementer";
             this.btnIncrementer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnIncrementer.Size = new System.Drawing.Size(230, 33);
@@ -247,7 +247,7 @@ namespace GestionDeStockC.PL
             this.txtInventaireProd.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtInventaireProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInventaireProd.ForeColor = System.Drawing.Color.Silver;
-            this.txtInventaireProd.Location = new System.Drawing.Point(32, 68);
+            this.txtInventaireProd.Location = new System.Drawing.Point(21, 113);
             this.txtInventaireProd.Multiline = true;
             this.txtInventaireProd.Name = "txtInventaireProd";
             this.txtInventaireProd.Size = new System.Drawing.Size(230, 28);
@@ -260,7 +260,7 @@ namespace GestionDeStockC.PL
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(572, 488);
+            this.ClientSize = new System.Drawing.Size(544, 442);
             this.Controls.Add(this.btnIncrementer);
             this.Controls.Add(this.txtInventaireProd);
             this.Controls.Add(this.textBox1);

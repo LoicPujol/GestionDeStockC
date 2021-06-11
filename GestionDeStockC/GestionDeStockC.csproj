@@ -154,6 +154,12 @@
     <Compile Include="PL\USER_Alerte.Designer.cs">
       <DependentUpon>USER_Alerte.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\USER_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\USER_Dashboard.Designer.cs">
+      <DependentUpon>USER_Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\USER_Liste_Categorie.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\USER_Alerte.resx">
       <DependentUpon>USER_Alerte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\USER_Dashboard.resx">
+      <DependentUpon>USER_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\USER_Liste_Categorie.resx">
       <DependentUpon>USER_Liste_Categorie.cs</DependentUpon>

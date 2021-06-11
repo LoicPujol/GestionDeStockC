@@ -42,7 +42,7 @@ namespace GestionDeStockC.PL
             this.lblnom = new System.Windows.Forms.Label();
             this.lblstock = new System.Windows.Forms.Label();
             this.lblprix = new System.Windows.Forms.Label();
-            this.lblid = new System.Windows.Forms.Label();
+            this.lblInv = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.grpproduit = new System.Windows.Forms.GroupBox();
             this.txtIdClientAffect = new System.Windows.Forms.TextBox();
@@ -147,7 +147,7 @@ namespace GestionDeStockC.PL
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(386, 24);
+            this.label4.Location = new System.Drawing.Point(378, 26);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 24);
             this.label4.TabIndex = 30;
@@ -208,16 +208,16 @@ namespace GestionDeStockC.PL
             this.lblprix.TabIndex = 35;
             this.lblprix.Text = "Ip";
             // 
-            // lblid
+            // lblInv
             // 
-            this.lblid.AutoSize = true;
-            this.lblid.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblid.ForeColor = System.Drawing.Color.Black;
-            this.lblid.Location = new System.Drawing.Point(126, 17);
-            this.lblid.Name = "lblid";
-            this.lblid.Size = new System.Drawing.Size(33, 33);
-            this.lblid.TabIndex = 37;
-            this.lblid.Text = "II";
+            this.lblInv.AutoSize = true;
+            this.lblInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInv.ForeColor = System.Drawing.Color.Black;
+            this.lblInv.Location = new System.Drawing.Point(126, 17);
+            this.lblInv.Name = "lblInv";
+            this.lblInv.Size = new System.Drawing.Size(33, 33);
+            this.lblInv.TabIndex = 37;
+            this.lblInv.Text = "II";
             // 
             // label8
             // 
@@ -226,15 +226,16 @@ namespace GestionDeStockC.PL
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(61, 16);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 33);
+            this.label8.Size = new System.Drawing.Size(75, 33);
             this.label8.TabIndex = 36;
-            this.label8.Text = "Id :";
+            this.label8.Text = "Inv :";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // grpproduit
             // 
             this.grpproduit.Controls.Add(this.label1);
             this.grpproduit.Controls.Add(this.btnenregistrer);
-            this.grpproduit.Controls.Add(this.lblid);
+            this.grpproduit.Controls.Add(this.lblInv);
             this.grpproduit.Controls.Add(this.txtquantite);
             this.grpproduit.Controls.Add(this.label8);
             this.grpproduit.Controls.Add(this.txtremise);
@@ -316,7 +317,7 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.Label lblnom;
         public System.Windows.Forms.Label lblstock;
         public System.Windows.Forms.Label lblprix;
-        public System.Windows.Forms.Label lblid;
+        public System.Windows.Forms.Label lblInv;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.GroupBox grpproduit;
         public System.Windows.Forms.TextBox txtIdClientAffect;

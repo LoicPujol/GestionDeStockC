@@ -45,18 +45,18 @@ namespace GestionDeStockC.PL
             db = new dbStockContext();
             foreach(var l in db.Produits)
             {
-                dvgProduit.Rows.Add(l.ID_Produit, l.Nom_Produit, l.Quantité_Produit, l.Prix_Produit);
+                dvgProduit.Rows.Add(l.ID_Produit, l.NumInventaire, false, false, l.Nom_Produit, l.Quantité_Produit, l.Prix_Produit, l.Date_Controle);
             }
             //colorer stock vide en rouge
             for (int i = 0; i < dvgProduit.Rows.Count; i++)
             {
-                if ((int)dvgProduit.Rows[i].Cells[2].Value == 0)
+                if ((int)dvgProduit.Rows[i].Cells[5].Value == 0)
                 {
-                    dvgProduit.Rows[i].Cells[2].Style.BackColor = Color.Red;
+                    dvgProduit.Rows[i].Cells[5].Style.BackColor = Color.Red;
                 }
                 else
                 {
-                    dvgProduit.Rows[i].Cells[2].Style.BackColor = Color.LightGreen;
+                    dvgProduit.Rows[i].Cells[5].Style.BackColor = Color.LightGreen;
                 }
             }
             //vider ligne selectionne
@@ -96,7 +96,6 @@ namespace GestionDeStockC.PL
             }
         }
 
-       
         private void dvgProduit_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             FRM_Produit_Commande frmp = new FRM_Produit_Commande(this);
@@ -110,14 +109,13 @@ namespace GestionDeStockC.PL
                 //afficher les info de larticle
                 frmp.txtIdClientAffect.Text = IDCLIENT.ToString();
                 frmp.txtIdExpediteur.Text = IDEXPEDITEUR.ToString();
-                frmp.lblid.Text = dvgProduit.CurrentRow.Cells[0].Value.ToString();
+                frmp.lblInv.Text = dvgProduit.CurrentRow.Cells[0].Value.ToString();
                 frmp.lblnom.Text = dvgProduit.CurrentRow.Cells[1].Value.ToString();
                 frmp.lblstock.Text = dvgProduit.CurrentRow.Cells[2].Value.ToString();
                 frmp.lblprix.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
                 frmp.txttotal.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
                 frmp.ShowDialog();
             }
-            
         }
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,7 +127,7 @@ namespace GestionDeStockC.PL
                 frm.txtIdClientAffect.Text = IDCLIENT.ToString();
                 frm.txtIdExpediteur.Text = IDEXPEDITEUR.ToString();
                 frm.grpproduit.Text = "Modifier Produit";
-                frm.lblid.Text = dvgDetailCommande.CurrentRow.Cells[0].Value.ToString();
+                frm.lblInv.Text = dvgDetailCommande.CurrentRow.Cells[0].Value.ToString();
                 frm.lblnom.Text = dvgDetailCommande.CurrentRow.Cells[1].Value.ToString();
                 ////Importer le stock de produit depuis le datagrid produit//////
                 int IDP = int.Parse(dvgDetailCommande.CurrentRow.Cells[0].Value.ToString());
