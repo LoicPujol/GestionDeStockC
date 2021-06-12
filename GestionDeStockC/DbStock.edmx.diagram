@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="62044fb018314ce08c7c243f43b2f229" Name="Diagram1">
         <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Affectation" Width="1.5" PointX="8.125" PointY="5.375" />
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Categorie" Width="1.5" PointX="0.625" PointY="6.75" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Categorie" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Client" Width="1.5" PointX="8.25" PointY="1.25" />
         <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Commande" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Details_Commande" Width="1.5" PointX="5.25" PointY="4.625" />

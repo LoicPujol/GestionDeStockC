@@ -32,7 +32,7 @@ namespace GestionDeStockC.PL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnSupCombo = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(USER_Affectation));
             this.combotype = new System.Windows.Forms.ComboBox();
             this.combocategorie = new System.Windows.Forms.ComboBox();
             this.txtrechercheNom = new System.Windows.Forms.TextBox();
@@ -48,26 +48,9 @@ namespace GestionDeStockC.PL
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtrechercheInvProd = new System.Windows.Forms.TextBox();
             this.comboclient = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSupCombo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAffectationProduit)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSupCombo
-            // 
-            this.btnSupCombo.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSupCombo.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnSupCombo.FlatAppearance.BorderSize = 0;
-            this.btnSupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupCombo.ForeColor = System.Drawing.Color.Gray;
-            this.btnSupCombo.Image = global::GestionDeStockC.Properties.Resources.Button_Delete_icon;
-            this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupCombo.Location = new System.Drawing.Point(947, 7);
-            this.btnSupCombo.Name = "btnSupCombo";
-            this.btnSupCombo.Size = new System.Drawing.Size(41, 33);
-            this.btnSupCombo.TabIndex = 60;
-            this.btnSupCombo.UseVisualStyleBackColor = false;
-            this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click);
             // 
             // combotype
             // 
@@ -235,31 +218,32 @@ namespace GestionDeStockC.PL
             this.comboclient.TabIndex = 61;
             this.comboclient.SelectionChangeCommitted += new System.EventHandler(this.comboclient_SelectionChangeCommitted);
             // 
-            // button1
+            // btnSupCombo
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Gray;
-            this.button1.Image = global::GestionDeStockC.Properties.Resources.Button_Delete_icon;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(1419, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 33);
-            this.button1.TabIndex = 62;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSupCombo.BackColor = System.Drawing.Color.White;
+            this.btnSupCombo.CausesValidation = false;
+            this.btnSupCombo.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnSupCombo.FlatAppearance.BorderSize = 0;
+            this.btnSupCombo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
+            this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
+            this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupCombo.Location = new System.Drawing.Point(953, 7);
+            this.btnSupCombo.Name = "btnSupCombo";
+            this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
+            this.btnSupCombo.TabIndex = 62;
+            this.btnSupCombo.UseVisualStyleBackColor = false;
+            this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click_1);
             // 
             // USER_Affectation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboclient);
             this.Controls.Add(this.btnSupCombo);
+            this.Controls.Add(this.comboclient);
             this.Controls.Add(this.combotype);
             this.Controls.Add(this.combocategorie);
             this.Controls.Add(this.txtrechercheNom);
@@ -275,8 +259,6 @@ namespace GestionDeStockC.PL
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSupCombo;
         public System.Windows.Forms.ComboBox combotype;
         public System.Windows.Forms.ComboBox combocategorie;
         private System.Windows.Forms.TextBox txtrechercheNom;
@@ -292,6 +274,6 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSupCombo;
     }
 }

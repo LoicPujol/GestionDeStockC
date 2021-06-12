@@ -92,9 +92,9 @@ namespace GestionDeStockC.PL
             if (combocategorie.SelectedItem == null && combotype.SelectedItem == null)
 
                 listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProd.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
-                    //vide datagrid
+                    
                     dvgProduit.Rows.Clear();
-                    //ajouter listerecherche dans datagridview client
+                    
                     Categorie cat = new Categorie();
                     Type typ = new Type();//ajout pout type
                     foreach (var l in listerecherche)
@@ -172,6 +172,15 @@ namespace GestionDeStockC.PL
                 frmproduit.txtStockAlerte.ForeColor = Color.Black;
                 frmproduit.txtPrix.Text = dvgProduit.CurrentRow.Cells[8].Value.ToString();
                 frmproduit.txtPrix.ForeColor = Color.Black;
+
+                if (dvgProduit.CurrentRow.Cells[3].Value.ToString() == "Unitaire")
+                {
+                    frmproduit.checkDate.Visible = true;
+                }
+                else
+                {
+                    frmproduit.checkDate.Visible = false;
+                }
                 //Afficher date controle
                 if (dvgProduit.CurrentRow.Cells[9].Value != null)
                 {
@@ -182,7 +191,7 @@ namespace GestionDeStockC.PL
                     DateTime dtctrl = Convert.ToDateTime(dvgProduit.CurrentRow.Cells[9].Value.ToString());
                     frmproduit.dateCtrl.Value = dtctrl;
                 }
-                //Afficher image produit
+                    //Afficher image produit
                 int MYIDSELECT = (int)dvgProduit.CurrentRow.Cells[1].Value;
                 PR = db.Produits.SingleOrDefault(s => s.ID_Produit == MYIDSELECT);
                 if (PR != null)

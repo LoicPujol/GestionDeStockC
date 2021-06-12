@@ -29,9 +29,9 @@ namespace GestionDeStockC.PL
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(USER_Liste_Produit));
             this.dvgProduit = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -69,14 +69,14 @@ namespace GestionDeStockC.PL
             this.dvgProduit.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dvgProduit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dvgProduit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dvgProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -89,30 +89,30 @@ namespace GestionDeStockC.PL
             this.Column8,
             this.Column4,
             this.Column7});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle2;
             this.dvgProduit.EnableHeadersVisualStyles = false;
-            this.dvgProduit.Location = new System.Drawing.Point(18, 62);
+            this.dvgProduit.Location = new System.Drawing.Point(18, 70);
             this.dvgProduit.MultiSelect = false;
             this.dvgProduit.Name = "dvgProduit";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgProduit.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgProduit.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dvgProduit.RowHeadersVisible = false;
             this.dvgProduit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dvgProduit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgProduit.Size = new System.Drawing.Size(1434, 640);
+            this.dvgProduit.Size = new System.Drawing.Size(1434, 632);
             this.dvgProduit.TabIndex = 16;
             // 
             // Column1
@@ -188,7 +188,6 @@ namespace GestionDeStockC.PL
             // 
             // btnsupprimer
             // 
-            this.btnsupprimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnsupprimer.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnsupprimer.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnsupprimer.FlatAppearance.BorderSize = 0;
@@ -198,7 +197,7 @@ namespace GestionDeStockC.PL
             this.btnsupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnsupprimer.ForeColor = System.Drawing.Color.White;
             this.btnsupprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsupprimer.Location = new System.Drawing.Point(1292, 11);
+            this.btnsupprimer.Location = new System.Drawing.Point(954, 15);
             this.btnsupprimer.Name = "btnsupprimer";
             this.btnsupprimer.Size = new System.Drawing.Size(122, 39);
             this.btnsupprimer.TabIndex = 10;
@@ -208,7 +207,6 @@ namespace GestionDeStockC.PL
             // 
             // btnmodifier
             // 
-            this.btnmodifier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnmodifier.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnmodifier.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnmodifier.FlatAppearance.BorderSize = 0;
@@ -218,7 +216,7 @@ namespace GestionDeStockC.PL
             this.btnmodifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnmodifier.ForeColor = System.Drawing.Color.White;
             this.btnmodifier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnmodifier.Location = new System.Drawing.Point(1152, 11);
+            this.btnmodifier.Location = new System.Drawing.Point(814, 15);
             this.btnmodifier.Name = "btnmodifier";
             this.btnmodifier.Size = new System.Drawing.Size(134, 39);
             this.btnmodifier.TabIndex = 9;
@@ -228,7 +226,6 @@ namespace GestionDeStockC.PL
             // 
             // btnajouter
             // 
-            this.btnajouter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnajouter.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnajouter.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnajouter.FlatAppearance.BorderSize = 0;
@@ -238,7 +235,7 @@ namespace GestionDeStockC.PL
             this.btnajouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnajouter.ForeColor = System.Drawing.Color.White;
             this.btnajouter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnajouter.Location = new System.Drawing.Point(1017, 11);
+            this.btnajouter.Location = new System.Drawing.Point(679, 15);
             this.btnajouter.Name = "btnajouter";
             this.btnajouter.Size = new System.Drawing.Size(129, 39);
             this.btnajouter.TabIndex = 8;
@@ -248,7 +245,6 @@ namespace GestionDeStockC.PL
             // 
             // btnexcel
             // 
-            this.btnexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnexcel.BackColor = System.Drawing.Color.White;
             this.btnexcel.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnexcel.FlatAppearance.BorderSize = 0;
@@ -259,7 +255,7 @@ namespace GestionDeStockC.PL
             this.btnexcel.ForeColor = System.Drawing.Color.LightGray;
             this.btnexcel.Image = ((System.Drawing.Image)(resources.GetObject("btnexcel.Image")));
             this.btnexcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnexcel.Location = new System.Drawing.Point(1419, 11);
+            this.btnexcel.Location = new System.Drawing.Point(1081, 15);
             this.btnexcel.Name = "btnexcel";
             this.btnexcel.Size = new System.Drawing.Size(33, 39);
             this.btnexcel.TabIndex = 20;
