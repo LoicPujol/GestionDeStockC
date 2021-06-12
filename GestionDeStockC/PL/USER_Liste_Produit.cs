@@ -109,11 +109,11 @@ namespace GestionDeStockC.PL
             {
                 if ((int)dvgProduit.Rows[i].Cells[6].Value == 0)
                 {
-                    dvgProduit.Rows[i].Cells[6].Style.BackColor = Color.Red;
+                    dvgProduit.Rows[i].Cells[6].Style.BackColor = Color.DimGray;
                 }
-                else
+                if ((int)dvgProduit.Rows[i].Cells[6].Value <= (int)dvgProduit.Rows[i].Cells[7].Value && (int)dvgProduit.Rows[i].Cells[6].Value > 0)
                 {
-                    dvgProduit.Rows[i].Cells[6].Style.BackColor = Color.LightGreen;
+                    dvgProduit.Rows[i].Cells[6].Style.BackColor = Color.DarkGray;
                 }
             }
         }

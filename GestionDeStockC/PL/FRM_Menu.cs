@@ -15,19 +15,19 @@ namespace GestionDeStockC.PL
         public FRM_Menu()
         {
             InitializeComponent();
-            panel1.Size=new Size(200, 666);
+            panel1.Size=new Size(180, 666);
             USER_Alerte.Instance.TestDemarageAlerte();
             
         }
         
         private void btnmenu_Click(object sender, EventArgs e)
         {
-            if (panel1.Width==200)
+            if (panel1.Width==180)
             {
-                panel1.Size = new Size(60, 666);
+                panel1.Size = new Size(50, 666);
             }else
             {
-                panel1.Size = new Size(200, 666);
+                panel1.Size = new Size(180, 666);
             }
         }
 
