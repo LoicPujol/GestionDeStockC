@@ -116,6 +116,7 @@ namespace GestionDeStockC.PL
                     dvgProduit.Rows[i].Cells[6].Style.BackColor = Color.DarkGray;
                 }
             }
+
         }
         
         /**public string SelectVerif()

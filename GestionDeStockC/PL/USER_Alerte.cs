@@ -59,8 +59,10 @@ namespace GestionDeStockC.PL
                 {
                     dgvStock.Rows[i].Cells[5].Style.BackColor = Color.Orange;
                 }
-            dgvStock.ClearSelection();
+                dgvStock.ClearSelection();
+            
             }
+
         }
 
         public void ActualiserdvgAlerte()

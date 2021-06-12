@@ -35,7 +35,7 @@ namespace GestionDeStockC.PL
         {
             lblHeure.Text = DateTime.Now.ToLongTimeString();
             lblDate.Text = DateTime.Now.ToShortDateString();
-        }
 
+        }
     }
 }
