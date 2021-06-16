@@ -91,8 +91,9 @@ namespace GestionDeStockC.PL
                     {
                         IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
                         NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
-                        dgvDate.Rows.Add(false, false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client );//cat.Nom pour afficher nom de cagorie depuis table categorie
-                                            
+                        {
+                            dgvDate.Rows.Add(false, false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client);//cat.Nom pour afficher nom de cagorie depuis table categorie
+                        }                    
                     }
                 }
             }

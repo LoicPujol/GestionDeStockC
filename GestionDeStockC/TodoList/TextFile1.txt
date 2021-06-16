@@ -14,18 +14,8 @@ SQL Table client :
 
 SQL : reprendre toutes les tables et verifier les champs obligation
 
-SQL Table Detail commande
---ajouter num inventaire produit
-
 FRM Produit_Commande :
 -- bloquer quantite a 1 si unitaire
-
-FRM_Detail_Commande : 
---modifier produit prend le stock dans la table produit a changer pour table affectation
-
-USER_Liste_Commande :
--Inventaire produit viens de table produit verifier si fixe
-
 
 User Liste commande :
 -- filtrer avec plus recente en haut
@@ -39,6 +29,10 @@ FRM Detail commande :
 --si changement expediteur alors clear les 3 listesdetails et clear les dgv
 --filtrer liste destintaire en fonction de expediteur selectionnee
 --avant selection destinataire demander selection expediteur
+	Puis :
+					FRM_Detail_Commande : 
+					--modifier produit prend le stock dans la table produit a changer pour table affectation
+
 
 Point bloquant :
 
@@ -48,3 +42,4 @@ Verifier :
 --ecriture dans table affectation
 --filtre DVG
 --critere d'erreur
+--cas de multiple utilisateur (IMPORTANT)

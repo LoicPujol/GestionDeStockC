@@ -24,7 +24,7 @@ namespace GestionDeStockC.BL
             PR.Date_Controle = dateCtrl;
             PR.NumInventaire = inventaire;
             //verifier si le produit existe
-            if (db.Produits.SingleOrDefault(a => a.NumInventaire == inventaire) == null)//n'existe pas
+            if (db.Produits.SingleOrDefault(a => a.NumInventaire.ToString() == inventaire.ToString()) == null)//n'existe pas
             {
                 db.Produits.Add(PR);
                 db.SaveChanges();
