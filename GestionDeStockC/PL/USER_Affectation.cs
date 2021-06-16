@@ -104,6 +104,22 @@ namespace GestionDeStockC.PL
                     }
                 }
             }
+            if (txtrechercheClient.Text.ToString() != "")
+            {
+                foreach (System.Windows.Forms.DataGridViewRow r in dvgAffectationProduit.Rows)
+                {
+                    if ((r.Cells[4].Value).ToString().ToUpper().Contains(txtrechercheClient.Text.ToString().ToUpper()))
+                    {
+                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgAffectationProduit.CurrentCell = null;
+                        dvgAffectationProduit.Rows[r.Index].Visible = false;
+                    }
+                }
+            }
             if (combocategorie.SelectedItem != null)
             {
                 foreach (System.Windows.Forms.DataGridViewRow r in dvgAffectationProduit.Rows)
@@ -163,6 +179,9 @@ namespace GestionDeStockC.PL
         {
             combocategorie.SelectedIndex = -1;
             combotype.SelectedIndex = -1;
+            txtrechercheClient.Text = "";
+            txtrechercheInvProd.Text = "";
+            txtrechercheNom.Text = "";
             Actualiserdvg();
         }
 
@@ -172,6 +191,11 @@ namespace GestionDeStockC.PL
         }
 
         private void txtrechercheNom_TextChanged(object sender, EventArgs e)
+        {
+            Actualiserdvg();
+        }
+
+        private void txtrechercheClient_TextChanged(object sender, EventArgs e)
         {
             Actualiserdvg();
         }
