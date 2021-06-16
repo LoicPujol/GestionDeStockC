@@ -108,7 +108,7 @@ namespace GestionDeStockC.PL
                 //Ajouter produit dans datagrid commande
                 BL.D_Commande DETAIL = new BL.D_Commande
                 {
-                    Id = int.Parse(lblInv.Text),
+                    Id = int.Parse(txtIdProduit.Text),
                     Nom = lblnom.Text,
                     Quantite = int.Parse(txtquantite.Text),
                     Prix = lblprix.Text,
@@ -129,7 +129,7 @@ namespace GestionDeStockC.PL
                 } else
                 {
                     //Modifier dans liste avec recherche d'index
-                    int index = BL.D_Commande.listeDetail.FindIndex(s => s.Id == int.Parse(lblInv.Text));
+                    int index = BL.D_Commande.listeDetail.FindIndex(s => s.Id == int.Parse(txtIdProduit.Text));
                     BL.D_Commande.listeDetail[index] = DETAIL;
                 }
                 //Ajouter dans liste detail affectation
@@ -137,7 +137,7 @@ namespace GestionDeStockC.PL
                 BL.D_Affectation DetailDestinataire = new BL.D_Affectation
                 {
                     Id_Client = int.Parse(txtIdClientAffect.Text),
-                    Id_Produit = int.Parse(lblInv.Text),
+                    Id_Produit = int.Parse(txtIdProduit.Text),
                     Quantite = int.Parse(txtquantite.Text),
                 };
                 if (grpproduit.Text == "Vendre Produit")
@@ -153,7 +153,7 @@ namespace GestionDeStockC.PL
                 else
                 {
                     //Modifier dans liste avec recherche d'index
-                    int index = BL.D_Affectation.listeDetail.FindIndex(s => s.Id_Produit == int.Parse(lblInv.Text));
+                    int index = BL.D_Affectation.listeDetail.FindIndex(s => s.Id_Produit == int.Parse(txtIdProduit.Text));
                     BL.D_Affectation.listeDetail[index] = DetailDestinataire;
                 }
                 //fin ajout table affectation
@@ -162,7 +162,7 @@ namespace GestionDeStockC.PL
                 BL.D_Affectation DetailExpediteur = new BL.D_Affectation
                 {
                     Id_Client = int.Parse(txtIdExpediteur.Text),
-                    Id_Produit = int.Parse(lblInv.Text),
+                    Id_Produit = int.Parse(txtIdProduit.Text),
                     Quantite = int.Parse(txtquantite.Text),
                 };
                 if (grpproduit.Text == "Vendre Produit")
@@ -179,7 +179,7 @@ namespace GestionDeStockC.PL
                 else
                 {
                     //Modifier dans liste avec recherche d'index
-                    int index = BL.D_Affectation.listeDetailExpedition.FindIndex(s => s.Id_Produit == int.Parse(lblInv.Text));
+                    int index = BL.D_Affectation.listeDetailExpedition.FindIndex(s => s.Id_Produit == int.Parse(txtIdProduit.Text));
                     BL.D_Affectation.listeDetailExpedition[index] = DetailExpediteur;
                 }
                 //fin detail expedition

@@ -13,7 +13,6 @@ using System.Globalization;
 
 namespace GestionDeStockC.PL
 {
-
     public partial class USER_Liste_Produit : UserControl
     {
         private static USER_Liste_Produit Userclient;
@@ -36,22 +35,19 @@ namespace GestionDeStockC.PL
             db = new dbStockContext();
             //afficher categorie selon table dans combobox
             combocategorie.DataSource = db.Categories.ToList();
-            //pour filtrer seulement les nom de categorie
-            combocategorie.DisplayMember = "Nom_Categorie";//afficher les nom des categorie
+            combocategorie.DisplayMember = "Nom_Categorie";
             combocategorie.ValueMember = "ID_Categorie";
             combocategorie.SelectedIndex = -1;
 
             //afficher type selon table dans combobox
             combotype.DataSource = db.Types.ToList();
-            //pour filtrer seulement les nom de categorie
-            combotype.DisplayMember = "Nom_Type";//afficher les nom des categorie
+            combotype.DisplayMember = "Nom_Type";
             combotype.ValueMember = "ID_Type";
             combotype.SelectedIndex = -1;
         }
-        //actualiser datagrid
         public void Actualiserdvg()
         {
-            dvgProduit.Columns[9].DefaultCellStyle.Format = "dd/MM/yyyy";
+            /**dvgProduit.Columns[9].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
             var listerecherche = db.Produits.ToList();//liste de recherche = liste des clients
 
@@ -115,109 +111,140 @@ namespace GestionDeStockC.PL
                 {
                     dvgProduit.Rows[i].Cells[6].Style.BackColor = Color.DarkGray;
                 }
+            }**/
+            dvgProduit.Columns[9].DefaultCellStyle.Format = "dd/MM/yyyy";
+            db = new dbStockContext();
+            var listerecherche = db.Produits.ToList();//liste de recherche = liste des clients
+
+            dvgProduit.Rows.Clear();
+
+            listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProd.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+
+                    Categorie cat = new Categorie();
+                    Type typ = new Type();//ajout pout type
+                    foreach (var l in listerecherche)
+                    {
+                        cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
+                        typ = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);//ajout type
+                        dvgProduit.Rows.Add(false, l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit, l.Quantité_Produit, l.Stock_Alerte, l.Prix_Produit,  l.Date_Controle);
+                    }
+
+            foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
+            {
+                if (combocategorie.SelectedItem == null && combotype.SelectedItem != null)
+                {
+                    if ((r.Cells[3].Value).ToString().ToUpper().Contains(combotype.Text.ToString().ToUpper()))
+                    {
+                        dvgProduit.Rows[r.Index].Visible = true;
+                        dvgProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgProduit.CurrentCell = null;
+                        dvgProduit.Rows[r.Index].Visible = false;
+                    }
+                }
+                if (combocategorie.SelectedItem != null && combotype.SelectedItem == null)
+                {
+                    if ((r.Cells[2].Value).ToString().ToUpper().Contains(combocategorie.Text.ToString().ToUpper()))
+                    {
+                        dvgProduit.Rows[r.Index].Visible = true;
+                        dvgProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgProduit.CurrentCell = null;
+                        dvgProduit.Rows[r.Index].Visible = false;
+                    }
+                }
+                if (combocategorie.SelectedItem != null && combotype.SelectedItem != null)
+                {
+                    if ((r.Cells[2].Value).ToString().ToUpper().Contains(combocategorie.Text.ToString().ToUpper()) && (r.Cells[3].Value).ToString().ToUpper().Contains(combotype.Text.ToString().ToUpper()))
+                    {
+                        dvgProduit.Rows[r.Index].Visible = true;
+                        dvgProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgProduit.CurrentCell = null;
+                        dvgProduit.Rows[r.Index].Visible = false;
+                    }
+                }
             }
 
         }
-        
-        /**public string SelectVerif()
-        {
-            int Nombreligneselect = 0;
-            for (int i = 0; i < dvgProduit.RowCount; i++)
-            {
-                if ((bool)dvgProduit.Rows[i].Cells[0].Value == true)//si ligne est selectionner
-                {
-                    Nombreligneselect++;//nombre ligne +1
-                }
-            }
-            if (Nombreligneselect == 0)
-            {
-                return "Selectionner le Produit a modifier";
-            }
-            if (Nombreligneselect > 1)
-            {
-                return "Selectionner seulement 1 seul Produit";
-            }
-            return null;
-        }**/
-       
-
         private void btnajouter_Click(object sender, EventArgs e)
         {
-            //afficher formulaire ajout produit
             PL.FRM_Ajouter_Modifier_Porduit frmProduit = new PL.FRM_Ajouter_Modifier_Porduit(this);
             frmProduit.ShowDialog();
         }
-
         private void btnmodifier_Click(object sender, EventArgs e)
         {
             Produit PR = new Produit();
             PL.FRM_Ajouter_Modifier_Porduit frmproduit = new PL.FRM_Ajouter_Modifier_Porduit(this);
+            if ((dvgProduit.CurrentRow != null) || (dvgProduit.Rows.Count != 0))
+            { 
+                    frmproduit.lblTitre.Text = "Modifier Produit";
+                    frmproduit.btnactualiser.Visible = false;
+                    frmproduit.IDPRODUIT = (int)dvgProduit.CurrentRow.Cells[1].Value;
+                    frmproduit.combocategorie.Text = dvgProduit.CurrentRow.Cells[2].Value.ToString();
+                    frmproduit.combotype.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
+                    frmproduit.combotype.Enabled = false;
+                    frmproduit.txtInventaireProd.Text = dvgProduit.CurrentRow.Cells[4].Value.ToString();
+                    frmproduit.txtInventaireProd.ForeColor = Color.Black;
+                    frmproduit.txtInventaireProd.Enabled = false;
+                    frmproduit.txtNomP.Text = dvgProduit.CurrentRow.Cells[5].Value.ToString();
+                    frmproduit.txtNomP.ForeColor = Color.Black;
+                    frmproduit.txtQuantite.Text = dvgProduit.CurrentRow.Cells[6].Value.ToString();
+                    frmproduit.txtQuantite.ForeColor = Color.Black;
+                    frmproduit.txtStockAlerte.Text = dvgProduit.CurrentRow.Cells[7].Value.ToString();
+                    frmproduit.txtStockAlerte.ForeColor = Color.Black;
+                    frmproduit.txtPrix.Text = dvgProduit.CurrentRow.Cells[8].Value.ToString();
+                    frmproduit.txtPrix.ForeColor = Color.Black;
 
-            if (dvgProduit.CurrentRow != null)
-            {
-                frmproduit.lblTitre.Text = "Modifier Produit";
-                frmproduit.btnactualiser.Visible = false;
-                frmproduit.IDPRODUIT = (int)dvgProduit.CurrentRow.Cells[1].Value;
-                frmproduit.combocategorie.Text = dvgProduit.CurrentRow.Cells[2].Value.ToString();
-                frmproduit.combotype.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
-                frmproduit.combotype.Enabled = false;
-                frmproduit.txtInventaireProd.Text = dvgProduit.CurrentRow.Cells[4].Value.ToString();
-                frmproduit.txtInventaireProd.ForeColor = Color.Black;
-                frmproduit.txtInventaireProd.Enabled = false;
-                frmproduit.txtNomP.Text = dvgProduit.CurrentRow.Cells[5].Value.ToString();
-                frmproduit.txtNomP.ForeColor = Color.Black;
-                frmproduit.txtQuantite.Text = dvgProduit.CurrentRow.Cells[6].Value.ToString();
-                frmproduit.txtQuantite.ForeColor = Color.Black;
-                frmproduit.txtStockAlerte.Text = dvgProduit.CurrentRow.Cells[7].Value.ToString();
-                frmproduit.txtStockAlerte.ForeColor = Color.Black;
-                frmproduit.txtPrix.Text = dvgProduit.CurrentRow.Cells[8].Value.ToString();
-                frmproduit.txtPrix.ForeColor = Color.Black;
-
-                if (dvgProduit.CurrentRow.Cells[3].Value.ToString() == "Unitaire")
-                {
-                    frmproduit.checkDate.Visible = true;
-                }
-                else
-                {
-                    frmproduit.checkDate.Visible = false;
-                }
-                //Afficher date controle
-                if (dvgProduit.CurrentRow.Cells[9].Value != null)
-                {
-                    frmproduit.checkDate.Visible = true;
-                    frmproduit.checkDate.Checked = true;
-                    frmproduit.dateCtrl.Visible = true;
-                    //DateTime dtctrl = DateTime.ParseExact(dvgProduit.CurrentRow.Cells[9].Value.ToString(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                    DateTime dtctrl = Convert.ToDateTime(dvgProduit.CurrentRow.Cells[9].Value.ToString());
-                    frmproduit.dateCtrl.Value = dtctrl;
-                }
-                    //Afficher image produit
-                int MYIDSELECT = (int)dvgProduit.CurrentRow.Cells[1].Value;
-                PR = db.Produits.SingleOrDefault(s => s.ID_Produit == MYIDSELECT);
-                if (PR != null)
-                {
-                    MemoryStream MS = new MemoryStream(PR.Image_Produit);
-                    frmproduit.picProduit.Image = Image.FromStream(MS);
-                }
-                
+                    if (dvgProduit.CurrentRow.Cells[3].Value.ToString() == "Unitaire")
+                    {
+                        frmproduit.checkDate.Visible = true;
+                    }
+                    else
+                    {
+                        frmproduit.checkDate.Visible = false;
+                    }
+                    //Afficher date controle
+                    if (dvgProduit.CurrentRow.Cells[9].Value != null)
+                    {
+                        frmproduit.checkDate.Visible = true;
+                        frmproduit.checkDate.Checked = true;
+                        frmproduit.dateCtrl.Visible = true;
+                        DateTime dtctrl = Convert.ToDateTime(dvgProduit.CurrentRow.Cells[9].Value.ToString());
+                        frmproduit.dateCtrl.Value = dtctrl;
+                    }
+                        //Afficher image produit
+                        int MYIDSELECT = (int)dvgProduit.CurrentRow.Cells[1].Value;
+                        PR = db.Produits.SingleOrDefault(s => s.ID_Produit == MYIDSELECT);
+                        if (PR != null)
+                    {
+                        MemoryStream MS = new MemoryStream(PR.Image_Produit);
+                        frmproduit.picProduit.Image = Image.FromStream(MS);
+                    }
+                    frmproduit.ShowDialog();
             }
-            frmproduit.ShowDialog();
+            else
+            {
+                MessageBox.Show("Aucun article selectionnee", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
-
         private void USER_Liste_Produit_Load(object sender, EventArgs e)
         {
             Actualiserdvg();
-
         }
-
-        
         private void btnsupprimer_Click(object sender, EventArgs e)
         {
-            DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer les supprimer", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer un produit", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (R == DialogResult.Yes)
             {
                 BL.CLS_Produit clproduit = new BL.CLS_Produit();
-                if (dvgProduit.CurrentRow != null)
+                if ((dvgProduit.CurrentRow != null) || (dvgProduit.Rows.Count != 0))
                 {
                     int idselect = (int)dvgProduit.CurrentRow.Cells[1].Value;// id de la ligne cocher
                     int NbreProd = db.Affectations.Count(s => s.ID_Produit == idselect);
@@ -238,7 +265,6 @@ namespace GestionDeStockC.PL
                  MessageBox.Show("suppression et annule", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
         private void btnexcel_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog SDF = new SaveFileDialog() { Filter = "Excel Workbook |*xlsx", ValidateNames = true })//filtrer seulement fichier excel
@@ -278,29 +304,25 @@ namespace GestionDeStockC.PL
                 }
             }
         }
-
         private void btnactualiser_Click(object sender, EventArgs e)
         {
             Actualiserdvg();
         }
-       
+
         private void btnSupCombo_Click(object sender, EventArgs e)
         {
             combocategorie.SelectedIndex = -1;
             combotype.SelectedIndex = -1;
             Actualiserdvg();
         }
-
         private void combotype_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Actualiserdvg();
         }
-
         private void txtrechercheInvProd_TextChanged(object sender, EventArgs e)
         {
             Actualiserdvg();
         }
-
         private void txtrechercheNom_TextChanged(object sender, EventArgs e)
         {
             Actualiserdvg();
@@ -308,9 +330,24 @@ namespace GestionDeStockC.PL
         private void combocategorie_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Actualiserdvg();
-        }
+            /**
+           foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
+            {
+                
+                if ((r.Cells[2].Value).ToString().ToUpper().Contains(combocategorie.Text.ToString().ToUpper()))
+                {
+                    dvgProduit.Rows[r.Index].Visible = true;
+                    dvgProduit.Rows[r.Index].Selected = true;
 
-        
+                }
+                else
+                {
+                    dvgProduit.CurrentCell = null;
+                    dvgProduit.Rows[r.Index].Visible = false;
+                }
+            }**/
+        }
+  
     }
 
 }

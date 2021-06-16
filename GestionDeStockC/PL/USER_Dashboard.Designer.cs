@@ -67,6 +67,7 @@ namespace GestionDeStockC.PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Menu;
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblHeure);
             this.Name = "USER_Dashboard";

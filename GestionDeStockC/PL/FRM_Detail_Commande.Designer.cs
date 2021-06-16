@@ -30,30 +30,13 @@ namespace GestionDeStockC.PL
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Detail_Commande));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dvgProduit = new System.Windows.Forms.DataGridView();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categorie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtrecherche = new System.Windows.Forms.TextBox();
-            this.dvgDetailCommande = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,11 +54,29 @@ namespace GestionDeStockC.PL
             this.txttva = new System.Windows.Forms.TextBox();
             this.txttotalttc = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dvgProduit = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSupCombo = new System.Windows.Forms.Button();
+            this.txtrechercheNom = new System.Windows.Forms.TextBox();
             this.combotype = new System.Windows.Forms.ComboBox();
             this.combocategorie = new System.Windows.Forms.ComboBox();
             this.txtrechercheInvProd = new System.Windows.Forms.TextBox();
             this.commandedate = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dvgDetailCommande = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnExp = new System.Windows.Forms.Button();
             this.txtPrenomExp = new System.Windows.Forms.TextBox();
@@ -83,229 +84,14 @@ namespace GestionDeStockC.PL
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgDetailCommande)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDetailCommande)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dvgProduit
-            // 
-            this.dvgProduit.AllowUserToAddRows = false;
-            this.dvgProduit.AllowUserToDeleteRows = false;
-            this.dvgProduit.AllowUserToResizeRows = false;
-            this.dvgProduit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dvgProduit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dvgProduit.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dvgProduit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dvgProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column9,
-            this.Column4,
-            this.Column5,
-            this.Categorie,
-            this.Column2,
-            this.Column7,
-            this.Column8,
-            this.Type});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dvgProduit.EnableHeadersVisualStyles = false;
-            this.dvgProduit.Location = new System.Drawing.Point(6, 59);
-            this.dvgProduit.MultiSelect = false;
-            this.dvgProduit.Name = "dvgProduit";
-            this.dvgProduit.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgProduit.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dvgProduit.RowHeadersVisible = false;
-            this.dvgProduit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            this.dvgProduit.RowsDefaultCellStyle = dataGridViewCellStyle15;
-            this.dvgProduit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgProduit.Size = new System.Drawing.Size(856, 629);
-            this.dvgProduit.TabIndex = 8;
-            this.dvgProduit.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Id";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Inventaire";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Categorie";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Categorie
-            // 
-            this.Categorie.HeaderText = "Type";
-            this.Categorie.Name = "Categorie";
-            this.Categorie.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Nom";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Quantite";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Prix";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.HeaderText = "Date Controle";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // txtrecherche
-            // 
-            this.txtrecherche.BackColor = System.Drawing.Color.White;
-            this.txtrecherche.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtrecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrecherche.ForeColor = System.Drawing.Color.Silver;
-            this.txtrecherche.Location = new System.Drawing.Point(485, 16);
-            this.txtrecherche.Multiline = true;
-            this.txtrecherche.Name = "txtrecherche";
-            this.txtrecherche.Size = new System.Drawing.Size(233, 29);
-            this.txtrecherche.TabIndex = 9;
-            this.txtrecherche.Text = "Recherche";
-            this.txtrecherche.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtrecherche.TextChanged += new System.EventHandler(this.txtrecherche_TextChanged);
-            this.txtrecherche.Enter += new System.EventHandler(this.txtrecherche_Enter);
-            // 
-            // dvgDetailCommande
-            // 
-            this.dvgDetailCommande.AllowUserToAddRows = false;
-            this.dvgDetailCommande.AllowUserToDeleteRows = false;
-            this.dvgDetailCommande.AllowUserToResizeRows = false;
-            this.dvgDetailCommande.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dvgDetailCommande.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dvgDetailCommande.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dvgDetailCommande.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgDetailCommande.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.dvgDetailCommande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgDetailCommande.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.Column1,
-            this.Column3});
-            this.dvgDetailCommande.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgDetailCommande.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dvgDetailCommande.EnableHeadersVisualStyles = false;
-            this.dvgDetailCommande.Location = new System.Drawing.Point(6, 61);
-            this.dvgDetailCommande.MultiSelect = false;
-            this.dvgDetailCommande.Name = "dvgDetailCommande";
-            this.dvgDetailCommande.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgDetailCommande.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.dvgDetailCommande.RowHeadersVisible = false;
-            this.dvgDetailCommande.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dvgDetailCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgDetailCommande.Size = new System.Drawing.Size(494, 627);
-            this.dvgDetailCommande.TabIndex = 11;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Designation";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Quantite";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Prix";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Remise";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Total";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
             // 
             // contextMenuStrip1
             // 
@@ -333,7 +119,7 @@ namespace GestionDeStockC.PL
             // 
             // btnenregistrer
             // 
-            this.btnenregistrer.BackColor = System.Drawing.Color.Gray;
+            this.btnenregistrer.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnenregistrer.FlatAppearance.BorderSize = 0;
             this.btnenregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnenregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -353,7 +139,7 @@ namespace GestionDeStockC.PL
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(71, 31);
+            this.label2.Location = new System.Drawing.Point(71, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 24);
             this.label2.TabIndex = 49;
@@ -427,12 +213,12 @@ namespace GestionDeStockC.PL
             // 
             this.btnDest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDest.BackColor = System.Drawing.Color.Gray;
+            this.btnDest.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnDest.FlatAppearance.BorderSize = 0;
             this.btnDest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDest.Location = new System.Drawing.Point(9, 28);
+            this.btnDest.Location = new System.Drawing.Point(9, 23);
             this.btnDest.Name = "btnDest";
             this.btnDest.Size = new System.Drawing.Size(53, 32);
             this.btnDest.TabIndex = 60;
@@ -450,7 +236,7 @@ namespace GestionDeStockC.PL
             this.txtNomDest.Enabled = false;
             this.txtNomDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomDest.ForeColor = System.Drawing.Color.Black;
-            this.txtNomDest.Location = new System.Drawing.Point(143, 28);
+            this.txtNomDest.Location = new System.Drawing.Point(143, 23);
             this.txtNomDest.Multiline = true;
             this.txtNomDest.Name = "txtNomDest";
             this.txtNomDest.Size = new System.Drawing.Size(119, 32);
@@ -466,7 +252,7 @@ namespace GestionDeStockC.PL
             this.txtPrenomDest.Enabled = false;
             this.txtPrenomDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrenomDest.ForeColor = System.Drawing.Color.Black;
-            this.txtPrenomDest.Location = new System.Drawing.Point(268, 28);
+            this.txtPrenomDest.Location = new System.Drawing.Point(268, 23);
             this.txtPrenomDest.Multiline = true;
             this.txtPrenomDest.Name = "txtPrenomDest";
             this.txtPrenomDest.Size = new System.Drawing.Size(106, 32);
@@ -526,11 +312,12 @@ namespace GestionDeStockC.PL
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.dvgProduit);
+            this.groupBox1.Controls.Add(this.btnSupCombo);
+            this.groupBox1.Controls.Add(this.txtrechercheNom);
             this.groupBox1.Controls.Add(this.combotype);
             this.groupBox1.Controls.Add(this.combocategorie);
             this.groupBox1.Controls.Add(this.txtrechercheInvProd);
-            this.groupBox1.Controls.Add(this.dvgProduit);
-            this.groupBox1.Controls.Add(this.txtrecherche);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(12, 79);
             this.groupBox1.Name = "groupBox1";
@@ -539,24 +326,160 @@ namespace GestionDeStockC.PL
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Produit";
             // 
+            // dvgProduit
+            // 
+            this.dvgProduit.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.dvgProduit.AllowUserToAddRows = false;
+            this.dvgProduit.AllowUserToDeleteRows = false;
+            this.dvgProduit.AllowUserToResizeRows = false;
+            this.dvgProduit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dvgProduit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dvgProduit.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dvgProduit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dvgProduit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dvgProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.Column10,
+            this.Column2,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dvgProduit.EnableHeadersVisualStyles = false;
+            this.dvgProduit.Location = new System.Drawing.Point(6, 61);
+            this.dvgProduit.MultiSelect = false;
+            this.dvgProduit.Name = "dvgProduit";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgProduit.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dvgProduit.RowHeadersVisible = false;
+            this.dvgProduit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dvgProduit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dvgProduit.Size = new System.Drawing.Size(856, 637);
+            this.dvgProduit.TabIndex = 65;
+            this.dvgProduit.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Catégorie";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Inventaire";
+            this.Column10.Name = "Column10";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Désignation";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Quantité";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Prix";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Contrôle";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // btnSupCombo
+            // 
+            this.btnSupCombo.BackColor = System.Drawing.Color.White;
+            this.btnSupCombo.CausesValidation = false;
+            this.btnSupCombo.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnSupCombo.FlatAppearance.BorderSize = 0;
+            this.btnSupCombo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
+            this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
+            this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupCombo.Location = new System.Drawing.Point(609, 17);
+            this.btnSupCombo.Name = "btnSupCombo";
+            this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
+            this.btnSupCombo.TabIndex = 64;
+            this.btnSupCombo.UseVisualStyleBackColor = false;
+            // 
+            // txtrechercheNom
+            // 
+            this.txtrechercheNom.BackColor = System.Drawing.SystemColors.Control;
+            this.txtrechercheNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.txtrechercheNom.ForeColor = System.Drawing.Color.DimGray;
+            this.txtrechercheNom.Location = new System.Drawing.Point(463, 16);
+            this.txtrechercheNom.Multiline = true;
+            this.txtrechercheNom.Name = "txtrechercheNom";
+            this.txtrechercheNom.Size = new System.Drawing.Size(140, 32);
+            this.txtrechercheNom.TabIndex = 63;
+            this.txtrechercheNom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // combotype
             // 
             this.combotype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combotype.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.combotype.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.combotype.FormattingEnabled = true;
-            this.combotype.Location = new System.Drawing.Point(178, 16);
+            this.combotype.Location = new System.Drawing.Point(161, 16);
             this.combotype.Name = "combotype";
-            this.combotype.Size = new System.Drawing.Size(128, 28);
+            this.combotype.Size = new System.Drawing.Size(140, 32);
             this.combotype.TabIndex = 62;
             // 
             // combocategorie
             // 
             this.combocategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combocategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.combocategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.combocategorie.FormattingEnabled = true;
-            this.combocategorie.Location = new System.Drawing.Point(6, 16);
+            this.combocategorie.Location = new System.Drawing.Point(8, 16);
             this.combocategorie.Name = "combocategorie";
-            this.combocategorie.Size = new System.Drawing.Size(166, 28);
+            this.combocategorie.Size = new System.Drawing.Size(140, 32);
             this.combocategorie.TabIndex = 61;
             // 
             // txtrechercheInvProd
@@ -567,7 +490,7 @@ namespace GestionDeStockC.PL
             this.txtrechercheInvProd.Location = new System.Drawing.Point(312, 16);
             this.txtrechercheInvProd.Multiline = true;
             this.txtrechercheInvProd.Name = "txtrechercheInvProd";
-            this.txtrechercheInvProd.Size = new System.Drawing.Size(167, 28);
+            this.txtrechercheInvProd.Size = new System.Drawing.Size(140, 32);
             this.txtrechercheInvProd.TabIndex = 60;
             this.txtrechercheInvProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -600,11 +523,102 @@ namespace GestionDeStockC.PL
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detail";
             // 
+            // dvgDetailCommande
+            // 
+            this.dvgDetailCommande.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.dvgDetailCommande.AllowUserToAddRows = false;
+            this.dvgDetailCommande.AllowUserToDeleteRows = false;
+            this.dvgDetailCommande.AllowUserToResizeRows = false;
+            this.dvgDetailCommande.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dvgDetailCommande.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dvgDetailCommande.BackgroundColor = System.Drawing.SystemColors.Menu;
+            this.dvgDetailCommande.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dvgDetailCommande.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgDetailCommande.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dvgDetailCommande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvgDetailCommande.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.Column4});
+            this.dvgDetailCommande.ContextMenuStrip = this.contextMenuStrip1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgDetailCommande.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dvgDetailCommande.EnableHeadersVisualStyles = false;
+            this.dvgDetailCommande.Location = new System.Drawing.Point(6, 61);
+            this.dvgDetailCommande.MultiSelect = false;
+            this.dvgDetailCommande.Name = "dvgDetailCommande";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgDetailCommande.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dvgDetailCommande.RowHeadersVisible = false;
+            this.dvgDetailCommande.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dvgDetailCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dvgDetailCommande.Size = new System.Drawing.Size(494, 637);
+            this.dvgDetailCommande.TabIndex = 66;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "Désignation";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Quantité";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Prix";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Remise";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Total";
+            this.Column4.Name = "Column4";
+            // 
             // btnExp
             // 
             this.btnExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExp.BackColor = System.Drawing.Color.Gray;
+            this.btnExp.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnExp.FlatAppearance.BorderSize = 0;
             this.btnExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -668,12 +682,12 @@ namespace GestionDeStockC.PL
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.btnDest);
             this.groupBox3.Controls.Add(this.txtNomDest);
-            this.groupBox3.Location = new System.Drawing.Point(476, 5);
+            this.groupBox3.Location = new System.Drawing.Point(855, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(385, 71);
+            this.groupBox3.Size = new System.Drawing.Size(385, 68);
             this.groupBox3.TabIndex = 63;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Expediteur";
+            this.groupBox3.Text = "Destinataire";
             // 
             // groupBox4
             // 
@@ -681,18 +695,18 @@ namespace GestionDeStockC.PL
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.txtPrenomExp);
             this.groupBox4.Controls.Add(this.txtNomExp);
-            this.groupBox4.Location = new System.Drawing.Point(867, 5);
+            this.groupBox4.Location = new System.Drawing.Point(469, 8);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(380, 68);
             this.groupBox4.TabIndex = 63;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Destinataire";
+            this.groupBox4.Text = "Expediteur";
             // 
             // FRM_Detail_Commande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1404, 795);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -706,13 +720,13 @@ namespace GestionDeStockC.PL
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_Detail_Commande";
             this.Load += new System.EventHandler(this.FRM_Detail_Commande_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgDetailCommande)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvgDetailCommande)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -723,10 +737,6 @@ namespace GestionDeStockC.PL
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dvgProduit;
-        private System.Windows.Forms.TextBox txtrecherche;
-        private System.Windows.Forms.DataGridView dvgDetailCommande;
         private System.Windows.Forms.Button btnenregistrer;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label8;
@@ -751,24 +761,28 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.TextBox txtPrenomExp;
         public System.Windows.Forms.TextBox txtNomExp;
         public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categorie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         public System.Windows.Forms.ComboBox combotype;
         public System.Windows.Forms.ComboBox combocategorie;
         private System.Windows.Forms.TextBox txtrechercheInvProd;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox txtrechercheNom;
+        private System.Windows.Forms.Button btnSupCombo;
+        private System.Windows.Forms.DataGridView dvgProduit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridView dvgDetailCommande;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

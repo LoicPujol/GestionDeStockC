@@ -46,18 +46,18 @@ namespace GestionDeStockC.PL
                 Typ = db.Types.SingleOrDefault(s => s.ID_Type == Lis.ID_Type);//ajout type
                 if (Cat != null & Typ != null & Lis.Quantité_Produit <= Lis.Stock_Alerte)//si existe
                 {
-                    dgvStock.Rows.Add(false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Quantité_Produit, Lis.Stock_Alerte);//cat.Nom pour afficher nom de cagorie depuis table categorie
+                    dgvStock.Rows.Add(false, false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Quantité_Produit, Lis.Stock_Alerte);//cat.Nom pour afficher nom de cagorie depuis table categorie
                 }
             }
             for (int i = 0; i < dgvStock.Rows.Count; i++)
             {
-                if ((int)dgvStock.Rows[i].Cells[5].Value == 0)
+                if ((int)dgvStock.Rows[i].Cells[6].Value == 0)
                 {
-                    dgvStock.Rows[i].Cells[5].Style.BackColor = Color.Red;
+                    dgvStock.Rows[i].Cells[6].Style.BackColor = Color.DimGray;
                 }
                 else
                 {
-                    dgvStock.Rows[i].Cells[5].Style.BackColor = Color.Orange;
+                    dgvStock.Rows[i].Cells[6].Style.BackColor = Color.DarkGray;
                 }
                 dgvStock.ClearSelection();
             
@@ -67,7 +67,7 @@ namespace GestionDeStockC.PL
 
         public void ActualiserdvgAlerte()
         {
-            dgvDate.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvDate.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
             dgvDate.Rows.Clear();
             //Pour afficher le nom de categorie a partir de idcategorie
@@ -91,20 +91,20 @@ namespace GestionDeStockC.PL
                     {
                         IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
                         NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
-                        dgvDate.Rows.Add(false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client );//cat.Nom pour afficher nom de cagorie depuis table categorie
+                        dgvDate.Rows.Add(false, false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client );//cat.Nom pour afficher nom de cagorie depuis table categorie
                                             
                     }
                 }
             }
             for (int i = 0; i < dgvDate.Rows.Count; i++)
             {
-                if ((int)dgvDate.Rows[i].Cells[6].Value <= 0)
+                if ((int)dgvDate.Rows[i].Cells[7].Value <= 0)
                 {
-                    dgvDate.Rows[i].Cells[6].Style.BackColor = Color.Red;
+                    dgvDate.Rows[i].Cells[7].Style.BackColor = Color.DimGray;
                 }
                 else
                 {
-                    dgvDate.Rows[i].Cells[6].Style.BackColor = Color.Orange;
+                    dgvDate.Rows[i].Cells[7].Style.BackColor = Color.DarkGray;
                 }
                 dgvDate.ClearSelection();
             }

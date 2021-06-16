@@ -34,6 +34,15 @@ namespace GestionDeStockC.PL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(USER_Liste_Produit));
             this.dvgProduit = new System.Windows.Forms.DataGridView();
+            this.txtrechercheInvProd = new System.Windows.Forms.TextBox();
+            this.btnsupprimer = new System.Windows.Forms.Button();
+            this.btnmodifier = new System.Windows.Forms.Button();
+            this.btnajouter = new System.Windows.Forms.Button();
+            this.btnexcel = new System.Windows.Forms.Button();
+            this.txtrechercheNom = new System.Windows.Forms.TextBox();
+            this.combocategorie = new System.Windows.Forms.ComboBox();
+            this.combotype = new System.Windows.Forms.ComboBox();
+            this.btnSupCombo = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,15 +53,6 @@ namespace GestionDeStockC.PL
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtrechercheInvProd = new System.Windows.Forms.TextBox();
-            this.btnsupprimer = new System.Windows.Forms.Button();
-            this.btnmodifier = new System.Windows.Forms.Button();
-            this.btnajouter = new System.Windows.Forms.Button();
-            this.btnexcel = new System.Windows.Forms.Button();
-            this.txtrechercheNom = new System.Windows.Forms.TextBox();
-            this.combocategorie = new System.Windows.Forms.ComboBox();
-            this.combotype = new System.Windows.Forms.ComboBox();
-            this.btnSupCombo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@ namespace GestionDeStockC.PL
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dvgProduit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dvgProduit.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dvgProduit.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dvgProduit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dvgProduit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -90,11 +90,11 @@ namespace GestionDeStockC.PL
             this.Column4,
             this.Column7});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Menu;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Menu;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle2;
             this.dvgProduit.EnableHeadersVisualStyles = false;
@@ -115,64 +115,6 @@ namespace GestionDeStockC.PL
             this.dvgProduit.Size = new System.Drawing.Size(1434, 632);
             this.dvgProduit.TabIndex = 16;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Select";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Id";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Catégorie";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Type";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "N° Inventaire";
-            this.Column10.Name = "Column10";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Désignation";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Quantité";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Stock Alerte";
-            this.Column8.Name = "Column8";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Prix";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Contrôle";
-            this.Column7.Name = "Column7";
-            // 
             // txtrechercheInvProd
             // 
             this.txtrechercheInvProd.BackColor = System.Drawing.SystemColors.Control;
@@ -181,7 +123,7 @@ namespace GestionDeStockC.PL
             this.txtrechercheInvProd.Location = new System.Drawing.Point(324, 19);
             this.txtrechercheInvProd.Multiline = true;
             this.txtrechercheInvProd.Name = "txtrechercheInvProd";
-            this.txtrechercheInvProd.Size = new System.Drawing.Size(152, 32);
+            this.txtrechercheInvProd.Size = new System.Drawing.Size(140, 32);
             this.txtrechercheInvProd.TabIndex = 14;
             this.txtrechercheInvProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtrechercheInvProd.TextChanged += new System.EventHandler(this.txtrechercheInvProd_TextChanged);
@@ -197,9 +139,9 @@ namespace GestionDeStockC.PL
             this.btnsupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnsupprimer.ForeColor = System.Drawing.Color.White;
             this.btnsupprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsupprimer.Location = new System.Drawing.Point(954, 15);
+            this.btnsupprimer.Location = new System.Drawing.Point(950, 19);
             this.btnsupprimer.Name = "btnsupprimer";
-            this.btnsupprimer.Size = new System.Drawing.Size(122, 39);
+            this.btnsupprimer.Size = new System.Drawing.Size(130, 32);
             this.btnsupprimer.TabIndex = 10;
             this.btnsupprimer.Text = "Supprimer";
             this.btnsupprimer.UseVisualStyleBackColor = false;
@@ -216,9 +158,9 @@ namespace GestionDeStockC.PL
             this.btnmodifier.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnmodifier.ForeColor = System.Drawing.Color.White;
             this.btnmodifier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnmodifier.Location = new System.Drawing.Point(814, 15);
+            this.btnmodifier.Location = new System.Drawing.Point(814, 19);
             this.btnmodifier.Name = "btnmodifier";
-            this.btnmodifier.Size = new System.Drawing.Size(134, 39);
+            this.btnmodifier.Size = new System.Drawing.Size(130, 32);
             this.btnmodifier.TabIndex = 9;
             this.btnmodifier.Text = "Modifier";
             this.btnmodifier.UseVisualStyleBackColor = false;
@@ -235,9 +177,9 @@ namespace GestionDeStockC.PL
             this.btnajouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnajouter.ForeColor = System.Drawing.Color.White;
             this.btnajouter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnajouter.Location = new System.Drawing.Point(679, 15);
+            this.btnajouter.Location = new System.Drawing.Point(678, 18);
             this.btnajouter.Name = "btnajouter";
-            this.btnajouter.Size = new System.Drawing.Size(129, 39);
+            this.btnajouter.Size = new System.Drawing.Size(130, 32);
             this.btnajouter.TabIndex = 8;
             this.btnajouter.Text = "Ajouter";
             this.btnajouter.UseVisualStyleBackColor = false;
@@ -270,7 +212,7 @@ namespace GestionDeStockC.PL
             this.txtrechercheNom.Location = new System.Drawing.Point(482, 19);
             this.txtrechercheNom.Multiline = true;
             this.txtrechercheNom.Name = "txtrechercheNom";
-            this.txtrechercheNom.Size = new System.Drawing.Size(149, 32);
+            this.txtrechercheNom.Size = new System.Drawing.Size(140, 32);
             this.txtrechercheNom.TabIndex = 22;
             this.txtrechercheNom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtrechercheNom.TextChanged += new System.EventHandler(this.txtrechercheNom_TextChanged);
@@ -283,7 +225,7 @@ namespace GestionDeStockC.PL
             this.combocategorie.FormattingEnabled = true;
             this.combocategorie.Location = new System.Drawing.Point(18, 19);
             this.combocategorie.Name = "combocategorie";
-            this.combocategorie.Size = new System.Drawing.Size(142, 32);
+            this.combocategorie.Size = new System.Drawing.Size(140, 32);
             this.combocategorie.TabIndex = 52;
             this.combocategorie.SelectionChangeCommitted += new System.EventHandler(this.combocategorie_SelectionChangeCommitted);
             // 
@@ -295,7 +237,7 @@ namespace GestionDeStockC.PL
             this.combotype.FormattingEnabled = true;
             this.combotype.Location = new System.Drawing.Point(166, 19);
             this.combotype.Name = "combotype";
-            this.combotype.Size = new System.Drawing.Size(152, 32);
+            this.combotype.Size = new System.Drawing.Size(140, 32);
             this.combotype.TabIndex = 53;
             this.combotype.SelectionChangeCommitted += new System.EventHandler(this.combotype_SelectionChangeCommitted);
             // 
@@ -312,18 +254,76 @@ namespace GestionDeStockC.PL
             this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
             this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
             this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupCombo.Location = new System.Drawing.Point(637, 19);
+            this.btnSupCombo.Location = new System.Drawing.Point(628, 17);
             this.btnSupCombo.Name = "btnSupCombo";
             this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
             this.btnSupCombo.TabIndex = 54;
             this.btnSupCombo.UseVisualStyleBackColor = false;
             this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Select";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Id";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Catégorie";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Type";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Inventaire";
+            this.Column10.Name = "Column10";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Désignation";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Quantité";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Stock Alerte";
+            this.Column8.Name = "Column8";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Prix";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Contrôle";
+            this.Column7.Name = "Column7";
+            // 
             // USER_Liste_Produit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.Menu;
             this.Controls.Add(this.btnSupCombo);
             this.Controls.Add(this.combotype);
             this.Controls.Add(this.combocategorie);

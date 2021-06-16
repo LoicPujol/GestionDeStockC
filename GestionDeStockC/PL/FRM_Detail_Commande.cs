@@ -42,35 +42,17 @@ namespace GestionDeStockC.PL
         //Fonction remplir datagrid Produit
         public void RemplirdvgProduit()
         {
+            dvgProduit.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
-            foreach(var l in db.Produits)
+            Categorie cat = new Categorie();
+            Type typ = new Type();
+            foreach (var l in db.Produits)
             {
-                dvgProduit.Rows.Add(l.ID_Produit, l.NumInventaire, false, false, l.Nom_Produit, l.Quantité_Produit, l.Prix_Produit, l.Date_Controle);
+                cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
+                typ = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);
+                dvgProduit.Rows.Add(l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit, l.Quantité_Produit, l.Prix_Produit, l.Date_Controle);
             }
-            //colorer stock vide en rouge
-            for (int i = 0; i < dvgProduit.Rows.Count; i++)
-            {
-                if ((int)dvgProduit.Rows[i].Cells[5].Value == 0)
-                {
-                    dvgProduit.Rows[i].Cells[5].Style.BackColor = Color.Red;
-                }
-                else
-                {
-                    dvgProduit.Rows[i].Cells[5].Style.BackColor = Color.LightGreen;
-                }
-            }
-            //vider ligne selectionne
             dvgProduit.ClearSelection();
-        }
-
-
-        private void txtrecherche_Enter(object sender, EventArgs e)
-        {
-            if (txtrecherche.Text == "Recherche")
-            {
-                txtrecherche.Text = "";
-                txtrecherche.ForeColor = Color.Black;
-            }
         }
 
         private void btnquitter_Click(object sender, EventArgs e)
@@ -84,23 +66,11 @@ namespace GestionDeStockC.PL
             RemplirdvgProduit();
         }
 
-        private void txtrecherche_TextChanged(object sender, EventArgs e)
-        {
-            db = new dbStockContext();
-            var listerecherche = db.Produits.ToList();
-            listerecherche = listerecherche.Where(s => s.Nom_Produit.IndexOf(txtrecherche.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
-            dvgProduit.Rows.Clear();
-            foreach (var l in listerecherche)
-            {
-                dvgProduit.Rows.Add(l.ID_Produit, l.Nom_Produit, l.Quantité_Produit, l.Prix_Produit);
-            }
-        }
-
         private void dvgProduit_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             FRM_Produit_Commande frmp = new FRM_Produit_Commande(this);
             //si stock vide
-            if ((int)dvgProduit.CurrentRow.Cells[2].Value == 0)
+            if ((int)dvgProduit.CurrentRow.Cells[5].Value == 0)
             {
                 MessageBox.Show("Stock vide", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -109,9 +79,10 @@ namespace GestionDeStockC.PL
                 //afficher les info de larticle
                 frmp.txtIdClientAffect.Text = IDCLIENT.ToString();
                 frmp.txtIdExpediteur.Text = IDEXPEDITEUR.ToString();
-                frmp.lblInv.Text = dvgProduit.CurrentRow.Cells[0].Value.ToString();
-                frmp.lblnom.Text = dvgProduit.CurrentRow.Cells[1].Value.ToString();
-                frmp.lblstock.Text = dvgProduit.CurrentRow.Cells[2].Value.ToString();
+                frmp.txtIdProduit.Text = dvgProduit.CurrentRow.Cells[0].Value.ToString();
+                frmp.lblInv.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
+                frmp.lblnom.Text = dvgProduit.CurrentRow.Cells[4].Value.ToString();
+                frmp.lblstock.Text = dvgProduit.CurrentRow.Cells[5].Value.ToString();
                 frmp.lblprix.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
                 frmp.txttotal.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
                 frmp.ShowDialog();
@@ -124,15 +95,17 @@ namespace GestionDeStockC.PL
             Produit PR = new Produit();
             if(dvgDetailCommande.CurrentRow!=null)
             {
+                frm.grpproduit.Text = "Modifier Produit";
                 frm.txtIdClientAffect.Text = IDCLIENT.ToString();
                 frm.txtIdExpediteur.Text = IDEXPEDITEUR.ToString();
-                frm.grpproduit.Text = "Modifier Produit";
-                frm.lblInv.Text = dvgDetailCommande.CurrentRow.Cells[0].Value.ToString();
+                frm.txtIdProduit.Text = dvgDetailCommande.CurrentRow.Cells[0].Value.ToString();
                 frm.lblnom.Text = dvgDetailCommande.CurrentRow.Cells[1].Value.ToString();
                 ////Importer le stock de produit depuis le datagrid produit//////
                 int IDP = int.Parse(dvgDetailCommande.CurrentRow.Cells[0].Value.ToString());
                 PR = db.Produits.Single(s => s.ID_Produit == IDP);
                 frm.lblstock.Text = PR.Quantité_Produit.ToString();
+                ////Importer inventaire de produit depuis le datagrid produit//////
+                frm.lblInv.Text = PR.NumInventaire.ToString(); ;
                 ////////////////////////////////////////////////////////////////
                 frm.lblprix.Text = dvgDetailCommande.CurrentRow.Cells[3].Value.ToString();
                 frm.txtquantite.Text = dvgDetailCommande.CurrentRow.Cells[2].Value.ToString();
@@ -160,10 +133,7 @@ namespace GestionDeStockC.PL
         {
             Actualiser_Detail_Commande();
         }
-        //Id client
-        
-        
-     
+
     private void btnenregistrer_Click(object sender, EventArgs e)
         {
             BL.CLS_Commande_Detail clscommande = new BL.CLS_Commande_Detail();

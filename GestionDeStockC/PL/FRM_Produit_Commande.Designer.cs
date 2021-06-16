@@ -47,6 +47,7 @@ namespace GestionDeStockC.PL
             this.grpproduit = new System.Windows.Forms.GroupBox();
             this.txtIdClientAffect = new System.Windows.Forms.TextBox();
             this.txtIdExpediteur = new System.Windows.Forms.TextBox();
+            this.txtIdProduit = new System.Windows.Forms.TextBox();
             this.grpproduit.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -276,11 +277,24 @@ namespace GestionDeStockC.PL
             this.txtIdExpediteur.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtIdExpediteur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdExpediteur.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.txtIdExpediteur.Location = new System.Drawing.Point(171, 7);
+            this.txtIdExpediteur.Location = new System.Drawing.Point(190, 7);
             this.txtIdExpediteur.Multiline = true;
             this.txtIdExpediteur.Name = "txtIdExpediteur";
             this.txtIdExpediteur.Size = new System.Drawing.Size(122, 34);
             this.txtIdExpediteur.TabIndex = 41;
+            // 
+            // txtIdProduit
+            // 
+            this.txtIdProduit.BackColor = System.Drawing.Color.White;
+            this.txtIdProduit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIdProduit.Cursor = System.Windows.Forms.Cursors.Help;
+            this.txtIdProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProduit.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txtIdProduit.Location = new System.Drawing.Point(62, 7);
+            this.txtIdProduit.Multiline = true;
+            this.txtIdProduit.Name = "txtIdProduit";
+            this.txtIdProduit.Size = new System.Drawing.Size(122, 34);
+            this.txtIdProduit.TabIndex = 42;
             // 
             // FRM_Produit_Commande
             // 
@@ -288,6 +302,7 @@ namespace GestionDeStockC.PL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(554, 493);
+            this.Controls.Add(this.txtIdProduit);
             this.Controls.Add(this.txtIdExpediteur);
             this.Controls.Add(this.txtIdClientAffect);
             this.Controls.Add(this.grpproduit);
@@ -322,5 +337,6 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.GroupBox grpproduit;
         public System.Windows.Forms.TextBox txtIdClientAffect;
         public System.Windows.Forms.TextBox txtIdExpediteur;
+        public System.Windows.Forms.TextBox txtIdProduit;
     }
 }

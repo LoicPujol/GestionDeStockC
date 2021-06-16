@@ -114,10 +114,12 @@ namespace GestionDeStockC.PL
                 pnlaficher.Controls.Add(USER_Affectation.Instance);
                 USER_Affectation.Instance.Dock = DockStyle.Fill;
                 USER_Affectation.Instance.BringToFront();
+                USER_Affectation.Instance.Actualiserdvg();
             }
             else
             {
                 USER_Affectation.Instance.BringToFront();
+                USER_Affectation.Instance.Actualiserdvg();
             }
         }
 

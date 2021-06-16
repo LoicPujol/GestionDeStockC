@@ -188,7 +188,16 @@ namespace GestionDeStockC.PL
                     MemoryStream MR = new MemoryStream();
                     picProduit.Image.Save(MR, picProduit.Image.RawFormat);
                     byte[] byteimageP = MR.ToArray();//convertir image en format bye[]
-                    if (clproduit.Ajouter_Produit(txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value, txtInventaireProd.Text) == true)
+                    String NewDate = "";
+                    if (checkDate.Checked)
+                    {
+                        NewDate = dateCtrl.CustomFormat;
+                    }
+                    else
+                    {
+                        NewDate = "";
+                    }
+                    if (clproduit.Ajouter_Produit(txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), NewDate, txtInventaireProd.Text) == true) //dateCtrl.Value
                     {
                         MessageBox.Show("Produit ajoute avec succe", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
@@ -305,6 +314,28 @@ namespace GestionDeStockC.PL
                 txtInventaireProd.ForeColor = Color.Silver;
             }
 
+        }
+
+        private void btnIncrementer_Click(object sender, EventArgs e)
+        {
+            var Inventaire = db.Produits;
+            int i = 100;
+            MessageBox.Show("base" + i.ToString());
+
+            foreach (var l in Inventaire)
+            {
+                if (i.ToString() == l.NumInventaire.ToString())
+                {
+                    i = i + 1;
+                    MessageBox.Show("ID" + l.NumInventaire.ToString());
+                    MessageBox.Show("base + 1" + i.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("ID" + l.NumInventaire.ToString());
+                    break;
+                }
+            }
         }
     }
 }

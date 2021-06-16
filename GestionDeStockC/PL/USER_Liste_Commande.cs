@@ -35,6 +35,7 @@ namespace GestionDeStockC.PL
         public void Actualisedatagrid()
         {
             dvgCommande.Rows.Clear();
+            dvgCommande.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
             Client c = new Client();
             string NomPrenom;
             foreach(var LC in db.Commandes)
@@ -42,9 +43,10 @@ namespace GestionDeStockC.PL
                 //afficher nom + prenom de client a partir de son ID
                 c = db.Clients.Single(s => s.ID_Client == LC.ID_Client);
                 NomPrenom = c.Nom_Client + " " + c.Prenom_Client;
-                dvgCommande.Rows.Add(LC.ID_Commande, LC.DATE_Commande, NomPrenom, LC.Total_HT, LC.TVA, LC.Total_TTC);
+                dvgCommande.Rows.Add(false, LC.ID_Commande, LC.DATE_Commande, NomPrenom, LC.Total_HT);
             }
-            
+            dvgCommande.ClearSelection();
+
         }
        
         private void btnajouter_Click(object sender, EventArgs e)
@@ -60,6 +62,7 @@ namespace GestionDeStockC.PL
         }
         private void txtNumCde_TextChanged(object sender, EventArgs e)
         {
+            Produit Inv = new Produit();
             int NumCde = 0;
             NumCde = Int32.Parse(txtNumCde.Text);
 
@@ -70,24 +73,17 @@ namespace GestionDeStockC.PL
                 dvgDetailCde.Rows.Clear();
                 foreach (var l in detailcommande)
                 {
-                    dvgDetailCde.Rows.Add(l.ID_Produit, l.Nom_Produit, l.Quantite, l.Remise);
+                    Inv = db.Produits.SingleOrDefault(s => s.ID_Produit == l.ID_Produit);
+                    dvgDetailCde.Rows.Add(l.ID_Produit, Inv.NumInventaire, l.Nom_Produit, l.Quantite, l.Remise);
                 }
                 }
+                dvgDetailCde.ClearSelection();
         }
 
-        private void dvgCommande_CellClick(object sender, DataGridViewCellEventArgs e)
+       
+        private void dvgCommande_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNumCde.Text = dvgCommande.CurrentRow.Cells[0].Value.ToString();
+            txtNumCde.Text = dvgCommande.CurrentRow.Cells[1].Value.ToString();
         }
-
-        private void txtrecherche_Enter(object sender, EventArgs e)
-        {
-            if (txtrecherche.Text == "Recherche")
-            {
-                txtrecherche.Text = "";
-                txtrecherche.ForeColor = Color.Black;
-            }
-        }
-
     }
 }

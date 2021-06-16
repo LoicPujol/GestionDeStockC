@@ -43,6 +43,7 @@ namespace GestionDeStockC.PL
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnIncrementer = new System.Windows.Forms.Button();
             this.txtInventaireProd = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -157,7 +158,7 @@ namespace GestionDeStockC.PL
             this.txtAdresse.Location = new System.Drawing.Point(289, 69);
             this.txtAdresse.Multiline = true;
             this.txtAdresse.Name = "txtAdresse";
-            this.txtAdresse.Size = new System.Drawing.Size(230, 121);
+            this.txtAdresse.Size = new System.Drawing.Size(230, 72);
             this.txtAdresse.TabIndex = 25;
             this.txtAdresse.Text = "Adresse Client";
             this.txtAdresse.Enter += new System.EventHandler(this.txtAdresse_Enter);
@@ -252,8 +253,22 @@ namespace GestionDeStockC.PL
             this.txtInventaireProd.Name = "txtInventaireProd";
             this.txtInventaireProd.Size = new System.Drawing.Size(230, 28);
             this.txtInventaireProd.TabIndex = 61;
-            this.txtInventaireProd.Text = "N° Inventaire";
+            this.txtInventaireProd.Text = "N° Client";
             this.txtInventaireProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Cursor = System.Windows.Forms.Cursors.Help;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Silver;
+            this.textBox2.Location = new System.Drawing.Point(289, 155);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(230, 35);
+            this.textBox2.TabIndex = 63;
+            this.textBox2.Text = "Code Zip";
             // 
             // FRM_Ajoute_Modifier_Client
             // 
@@ -261,6 +276,7 @@ namespace GestionDeStockC.PL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(544, 442);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.btnIncrementer);
             this.Controls.Add(this.txtInventaireProd);
             this.Controls.Add(this.textBox1);
@@ -299,5 +315,6 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.Button btnIncrementer;
         public System.Windows.Forms.TextBox txtInventaireProd;
+        public System.Windows.Forms.TextBox textBox2;
     }
 }
