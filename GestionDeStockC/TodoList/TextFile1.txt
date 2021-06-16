@@ -16,8 +16,6 @@ LA DATE DE CONTROLE SENREGISTRE MEME SI NON SLECTIONNEE
 SI NON AFFECTE LE DVG ALERTE SUR DATE PLANTE (IL NE TROUVE PAS DE CLIENT)
 
 
-
-
 SQL : reprendre toutes les tables et verifier les champs obligation
 
 SQL Table Detail commande
@@ -47,5 +45,5 @@ FRM Detail commande :
 --avant selection destinataire demander selection expediteur
 
 Point bloquant :
-FRM Ajouter / modifier produit : ajouter un numero d'inventaire qui se complete soit manuelement soit par implementation de +1 par rapport a la plus petite valeur non utilise.
-User Affectation : filtre dgv liste ne fonctionne pas
+
+LA DATE DE CONTROLE SENREGISTRE MEME SI NON SLECTIONNEE (SI NON AFFECTE LE DVG ALERTE SUR DATE PLANTE (IL NE TROUVE PAS DE CLIENT))

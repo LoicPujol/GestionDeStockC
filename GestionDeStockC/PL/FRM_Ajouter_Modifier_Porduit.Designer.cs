@@ -50,7 +50,6 @@ namespace GestionDeStockC.PL
             this.txtPoids = new System.Windows.Forms.TextBox();
             this.txtTarifAchat = new System.Windows.Forms.TextBox();
             this.txtMarge = new System.Windows.Forms.TextBox();
-            this.btnIncrementer = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,6 +58,8 @@ namespace GestionDeStockC.PL
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picProduit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,9 +78,9 @@ namespace GestionDeStockC.PL
             // 
             this.picProduit.BackColor = System.Drawing.Color.White;
             this.picProduit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picProduit.Location = new System.Drawing.Point(20, 181);
+            this.picProduit.Location = new System.Drawing.Point(20, 159);
             this.picProduit.Name = "picProduit";
-            this.picProduit.Size = new System.Drawing.Size(262, 258);
+            this.picProduit.Size = new System.Drawing.Size(262, 280);
             this.picProduit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picProduit.TabIndex = 7;
             this.picProduit.TabStop = false;
@@ -90,7 +91,7 @@ namespace GestionDeStockC.PL
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(16, 154);
+            this.label1.Location = new System.Drawing.Point(16, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 24);
             this.label1.TabIndex = 8;
@@ -150,9 +151,9 @@ namespace GestionDeStockC.PL
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(315, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 24);
+            this.label2.Size = new System.Drawing.Size(114, 24);
             this.label2.TabIndex = 44;
-            this.label2.Text = "Categorie";
+            this.label2.Text = "Categorie *";
             // 
             // btnenregistrer
             // 
@@ -241,9 +242,9 @@ namespace GestionDeStockC.PL
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(315, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 24);
+            this.label3.Size = new System.Drawing.Size(71, 24);
             this.label3.TabIndex = 50;
-            this.label3.Text = "Type";
+            this.label3.Text = "Type *";
             // 
             // dateCtrl
             // 
@@ -255,7 +256,6 @@ namespace GestionDeStockC.PL
             this.dateCtrl.Name = "dateCtrl";
             this.dateCtrl.Size = new System.Drawing.Size(127, 29);
             this.dateCtrl.TabIndex = 52;
-            this.dateCtrl.Visible = false;
             // 
             // txtStockAlerte
             // 
@@ -291,7 +291,7 @@ namespace GestionDeStockC.PL
             this.txtInventaireProd.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtInventaireProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInventaireProd.ForeColor = System.Drawing.Color.Silver;
-            this.txtInventaireProd.Location = new System.Drawing.Point(20, 102);
+            this.txtInventaireProd.Location = new System.Drawing.Point(20, 89);
             this.txtInventaireProd.Multiline = true;
             this.txtInventaireProd.Name = "txtInventaireProd";
             this.txtInventaireProd.Size = new System.Drawing.Size(262, 28);
@@ -352,22 +352,6 @@ namespace GestionDeStockC.PL
             this.txtMarge.Size = new System.Drawing.Size(230, 30);
             this.txtMarge.TabIndex = 59;
             this.txtMarge.Text = "Marge en %";
-            // 
-            // btnIncrementer
-            // 
-            this.btnIncrementer.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnIncrementer.FlatAppearance.BorderSize = 0;
-            this.btnIncrementer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIncrementer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.btnIncrementer.ForeColor = System.Drawing.Color.White;
-            this.btnIncrementer.Location = new System.Drawing.Point(20, 55);
-            this.btnIncrementer.Name = "btnIncrementer";
-            this.btnIncrementer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnIncrementer.Size = new System.Drawing.Size(262, 36);
-            this.btnIncrementer.TabIndex = 60;
-            this.btnIncrementer.Text = "Incrementer";
-            this.btnIncrementer.UseVisualStyleBackColor = false;
-            this.btnIncrementer.Click += new System.EventHandler(this.btnIncrementer_Click);
             // 
             // label4
             // 
@@ -453,16 +437,40 @@ namespace GestionDeStockC.PL
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(315, 181);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(125, 24);
+            this.label11.Size = new System.Drawing.Size(139, 24);
             this.label11.TabIndex = 67;
-            this.label11.Text = "Nom produit";
+            this.label11.Text = "Nom produit *";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(698, 501);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(113, 13);
+            this.label12.TabIndex = 69;
+            this.label12.Text = "* : champs obligatoires";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(16, 55);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(196, 24);
+            this.label13.TabIndex = 70;
+            this.label13.Text = "Numero Inventaire *";
             // 
             // FRM_Ajouter_Modifier_Porduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(842, 502);
+            this.ClientSize = new System.Drawing.Size(842, 523);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label8);
@@ -471,7 +479,6 @@ namespace GestionDeStockC.PL
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnIncrementer);
             this.Controls.Add(this.txtMarge);
             this.Controls.Add(this.txtTarifAchat);
             this.Controls.Add(this.txtPoids);
@@ -525,7 +532,6 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.TextBox txtPoids;
         public System.Windows.Forms.TextBox txtTarifAchat;
         public System.Windows.Forms.TextBox txtMarge;
-        public System.Windows.Forms.Button btnIncrementer;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label6;
@@ -534,5 +540,7 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.Label label10;
         public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Label label13;
     }
 }
