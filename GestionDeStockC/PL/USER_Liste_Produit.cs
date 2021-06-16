@@ -218,7 +218,8 @@ namespace GestionDeStockC.PL
                         frmproduit.dateCtrl.Visible = true;
                         DateTime dtctrl = Convert.ToDateTime(dvgProduit.CurrentRow.Cells[9].Value.ToString());
                         frmproduit.dateCtrl.Value = dtctrl;
-                    }
+                        frmproduit.txtDateCtrl.Text = dvgProduit.CurrentRow.Cells[9].Value.ToString();
+                }
                         //Afficher image produit
                         int MYIDSELECT = (int)dvgProduit.CurrentRow.Cells[1].Value;
                         PR = db.Produits.SingleOrDefault(s => s.ID_Produit == MYIDSELECT);

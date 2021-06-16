@@ -188,7 +188,8 @@ namespace GestionDeStockC.PL
                     MemoryStream MR = new MemoryStream();
                     picProduit.Image.Save(MR, picProduit.Image.RawFormat);
                     byte[] byteimageP = MR.ToArray();//convertir image en format bye[]
-                    
+                    //DateTime NewDate = new DateTime();
+                                        
                     if (clproduit.Ajouter_Produit(txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value, txtInventaireProd.Text) == true)
                     {
                         MessageBox.Show("Produit ajoute avec succe", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -328,6 +329,12 @@ namespace GestionDeStockC.PL
                     break;
                 }
             }
+        }
+
+        private void btnDate_Click(object sender, EventArgs e)
+        {
+            PL.FRM_Ajoute_Date frmDate = new PL.FRM_Ajoute_Date();
+            frmDate.ShowDialog();
         }
     }
 }

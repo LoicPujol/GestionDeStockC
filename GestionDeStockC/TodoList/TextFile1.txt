@@ -12,10 +12,6 @@ User Liste produit :
 SQL Table client :
 --ajouter numero client
 
-LA DATE DE CONTROLE SENREGISTRE MEME SI NON SLECTIONNEE
-SI NON AFFECTE LE DVG ALERTE SUR DATE PLANTE (IL NE TROUVE PAS DE CLIENT)
-
-
 SQL : reprendre toutes les tables et verifier les champs obligation
 
 SQL Table Detail commande
@@ -47,3 +43,8 @@ FRM Detail commande :
 Point bloquant :
 
 LA DATE DE CONTROLE SENREGISTRE MEME SI NON SLECTIONNEE (SI NON AFFECTE LE DVG ALERTE SUR DATE PLANTE (IL NE TROUVE PAS DE CLIENT))
+
+Verifier :
+--ecriture dans table affectation
+--filtre DVG
+--critere d'erreur

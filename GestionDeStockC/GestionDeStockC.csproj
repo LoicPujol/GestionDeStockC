@@ -106,6 +106,12 @@
     <Compile Include="PL\FRM_Ajouter_Modifier_Porduit.Designer.cs">
       <DependentUpon>FRM_Ajouter_Modifier_Porduit.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FRM_Ajoute_Date.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Ajoute_Date.Designer.cs">
+      <DependentUpon>FRM_Ajoute_Date.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FRM_Ajoute_Modifier_Categorie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </Compile>
     <EmbeddedResource Include="PL\FRM_Ajouter_Modifier_Porduit.resx">
       <DependentUpon>FRM_Ajouter_Modifier_Porduit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Ajoute_Date.resx">
+      <DependentUpon>FRM_Ajoute_Date.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_Ajoute_Modifier_Categorie.resx">
       <DependentUpon>FRM_Ajoute_Modifier_Categorie.cs</DependentUpon>

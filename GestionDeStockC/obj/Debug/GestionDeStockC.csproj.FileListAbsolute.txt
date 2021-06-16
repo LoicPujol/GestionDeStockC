@@ -84,3 +84,4 @@ C:\Users\loicp\Documents\Pro\Inventaire C#\Image Stock\GestionDeStockC\GestionDe
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Alerte.resources
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Affectation.resources
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Dashboard.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajoute_Date.resources
