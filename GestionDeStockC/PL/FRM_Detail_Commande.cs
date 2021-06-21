@@ -379,5 +379,6 @@ namespace GestionDeStockC.PL
             BL.D_Affectation.listeDetail.Clear();
             BL.D_Affectation.listeDetailExpedition.Clear();
         }
+
     }
 }

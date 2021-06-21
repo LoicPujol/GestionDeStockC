@@ -30,13 +30,13 @@ namespace GestionDeStockC.PL
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Detail_Commande));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Detail_Commande));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +53,7 @@ namespace GestionDeStockC.PL
             this.txttva = new System.Windows.Forms.TextBox();
             this.txttotalttc = new System.Windows.Forms.TextBox();
             this.grpPoduit = new System.Windows.Forms.GroupBox();
+            this.btnSupCombo = new System.Windows.Forms.Button();
             this.txtIdExp = new System.Windows.Forms.TextBox();
             this.dvgProduit = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,7 +84,6 @@ namespace GestionDeStockC.PL
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnSupCombo = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.grpPoduit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).BeginInit();
@@ -312,6 +312,26 @@ namespace GestionDeStockC.PL
             this.grpPoduit.TabStop = false;
             this.grpPoduit.Text = "Produit";
             // 
+            // btnSupCombo
+            // 
+            this.btnSupCombo.BackColor = System.Drawing.Color.White;
+            this.btnSupCombo.CausesValidation = false;
+            this.btnSupCombo.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnSupCombo.FlatAppearance.BorderSize = 0;
+            this.btnSupCombo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
+            this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
+            this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupCombo.Location = new System.Drawing.Point(609, 15);
+            this.btnSupCombo.Name = "btnSupCombo";
+            this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
+            this.btnSupCombo.TabIndex = 67;
+            this.btnSupCombo.UseVisualStyleBackColor = false;
+            this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click);
+            // 
             // txtIdExp
             // 
             this.txtIdExp.BackColor = System.Drawing.SystemColors.Control;
@@ -483,6 +503,7 @@ namespace GestionDeStockC.PL
             this.txtrechercheInvProd.TabIndex = 60;
             this.txtrechercheInvProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtrechercheInvProd.TextChanged += new System.EventHandler(this.txtrechercheInvProd_TextChanged);
+            this.txtrechercheInvProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrechercheInvProd_KeyPress);
             // 
             // commandedate
             // 
@@ -674,26 +695,6 @@ namespace GestionDeStockC.PL
             this.groupBox4.TabIndex = 63;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Expediteur";
-            // 
-            // btnSupCombo
-            // 
-            this.btnSupCombo.BackColor = System.Drawing.Color.White;
-            this.btnSupCombo.CausesValidation = false;
-            this.btnSupCombo.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnSupCombo.FlatAppearance.BorderSize = 0;
-            this.btnSupCombo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSupCombo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
-            this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
-            this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupCombo.Location = new System.Drawing.Point(609, 15);
-            this.btnSupCombo.Name = "btnSupCombo";
-            this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
-            this.btnSupCombo.TabIndex = 67;
-            this.btnSupCombo.UseVisualStyleBackColor = false;
-            this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click);
             // 
             // FRM_Detail_Commande
             // 
