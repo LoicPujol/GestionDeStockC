@@ -11,7 +11,7 @@ namespace GestionDeStockC.BL
         private dbStockContext db = new dbStockContext();
         private Produit PR;
         //ajouter produit
-        public bool Ajouter_Produit(string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, DateTime dateCtrl, string inventaire)//image pour sauvegarder dand base de donne doit etre au format byte
+        public bool Ajouter_Produit(string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype,string dateCtrl, string inventaire)//image pour sauvegarder dand base de donne doit etre au format byte
         {
             PR = new Produit();
             PR.Nom_Produit = NomP;
@@ -36,7 +36,7 @@ namespace GestionDeStockC.BL
             }
         }
         //Modifier  Produit
-        public void Modifier_Produit(int IDP, string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, DateTime dateCtrl, string inventaire)
+        public void Modifier_Produit(int IDP, string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, string dateCtrl, string inventaire)
         {
             PR = new Produit();
             PR = db.Produits.SingleOrDefault(s => s.ID_Produit == IDP);//verifier si id de client existe

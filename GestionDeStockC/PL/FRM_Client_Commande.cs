@@ -21,15 +21,76 @@ namespace GestionDeStockC.PL
 
         private void FRM_Client_Commande_Load(object sender, EventArgs e)
         {
-            //remplir datagrid par la liste des clients
-            foreach(var LC in db.Clients)
-            {
-                dvgclient.Rows.Add(LC.ID_Client, LC.Nom_Client, LC.Prenom_Client, LC.Adresse_Client, LC.Telephone_Client, LC.Email_Client, LC.Ville_Client, LC.Pays_Client);
-            }
+            Actualiserdvg();
         }
         private void dvgclient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Close();
+        }
+        public void Actualiserdvg()
+        {
+            dvgclient.Rows.Clear();
+            foreach (var LC in db.Clients)
+            {
+                dvgclient.Rows.Add(LC.ID_Client, LC.Nom_Client + " " + LC.Prenom_Client, LC.Adresse_Client, LC.Telephone_Client, LC.Email_Client, LC.Ville_Client, LC.Pays_Client);
+            }
+            dvgclient.ClearSelection();
+            if (txtID.Text.ToString() != "")
+            {
+                foreach (System.Windows.Forms.DataGridViewRow r in dvgclient.Rows)
+                {
+                    if ((r.Cells[0].Value).ToString().ToUpper() != (txtID.Text.ToString().ToUpper()))
+                    {
+                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgclient.CurrentCell = null;
+                        dvgclient.Rows[r.Index].Visible = false;
+                    }
+                }
+            }
+            if (txtrechercheInv.Text.ToString() != "")
+            {
+                foreach (System.Windows.Forms.DataGridViewRow r in dvgclient.Rows)
+                {
+                    if ((r.Cells[0].Value).ToString().ToUpper().Contains(txtrechercheInv.Text.ToString().ToUpper()))
+                    {
+                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgclient.CurrentCell = null;
+                        dvgclient.Rows[r.Index].Visible = false;
+                    }
+                }
+            }
+            if (txtrechercheNom.Text.ToString() != "")
+            {
+                foreach (System.Windows.Forms.DataGridViewRow r in dvgclient.Rows)
+                {
+                    if ((r.Cells[1].Value).ToString().ToUpper().Contains(txtrechercheNom.Text.ToString().ToUpper()))
+                    {
+                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgclient.CurrentCell = null;
+                        dvgclient.Rows[r.Index].Visible = false;
+                    }
+                }
+            }
+        }
+        private void txtrechercheInv_TextChanged(object sender, EventArgs e)
+        {
+            Actualiserdvg();
+        }
+        private void txtrechercheNom_TextChanged(object sender, EventArgs e)
+        {
+            Actualiserdvg();
         }
     }
 }

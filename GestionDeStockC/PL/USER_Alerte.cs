@@ -82,19 +82,22 @@ namespace GestionDeStockC.PL
                 
                 if (Lis.Date_Controle != null)
                 {
-                    DateTime date = Convert.ToDateTime(Lis.Date_Controle.Value.ToString());
-                    //DateTime date = Convert.ToDateTime(dgvDate.Rows[i].Cells[5].Value.ToString());
+                    //DateTime date = Convert.ToDateTime(Lis.Date_Controle.ToString("dd/MM/yyyy"));
+                    for (int i = 0; i < dgvDate.Rows.Count; i++)
+                    { 
+                    DateTime date = Convert.ToDateTime(dgvDate.Rows[i].Cells[5].Value.ToString());
                     DateTime dateDuJour = DateTime.Now;
                     int nbJours = (date - dateDuJour).Days;
 
-                    if (Cat != null & Typ != null & nbJours <= 30)//si existe
-                    {
-                        IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
-                        NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
+                        if (Cat != null & Typ != null & nbJours <= 30)//si existe
                         {
-                            dgvDate.Rows.Add(false, false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client);//cat.Nom pour afficher nom de cagorie depuis table categorie
-                        }                    
-                    }
+                            IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
+                            NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
+                            {
+                                dgvDate.Rows.Add(false, false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client);//cat.Nom pour afficher nom de cagorie depuis table categorie
+                            }
+                        }
+                        }
                 }
             }
             for (int i = 0; i < dgvDate.Rows.Count; i++)
@@ -122,7 +125,7 @@ namespace GestionDeStockC.PL
             ActualiserdvgAlerte();
             if (dgvDate.Rows.Count != 0 && dgvDate.Rows != null && dgvStock.Rows.Count != 0 && dgvStock.Rows != null)
             {
-                MessageBox.Show("Des articles sont en dessous du stock minimum et/ou arrive a terme de leur controle periodique", "Message d'alerte", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+              //  MessageBox.Show("Des articles sont en dessous du stock minimum et/ou arrive a terme de leur controle periodique", "Message d'alerte", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 
             }
         }

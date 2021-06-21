@@ -171,7 +171,6 @@ namespace GestionDeStockC.PL
                     }
                 }
             }
-
         }
         private void btnajouter_Click(object sender, EventArgs e)
         {
@@ -204,22 +203,21 @@ namespace GestionDeStockC.PL
 
                     if (dvgProduit.CurrentRow.Cells[3].Value.ToString() == "Unitaire")
                     {
-                        frmproduit.checkDate.Visible = true;
+                        frmproduit.grpDateCtrl.Visible = true;
                     }
                     else
                     {
-                        frmproduit.checkDate.Visible = false;
+                        frmproduit.grpDateCtrl.Visible = false;
                     }
                     //Afficher date controle
                     if (dvgProduit.CurrentRow.Cells[9].Value != null)
                     {
                         frmproduit.checkDate.Visible = true;
                         frmproduit.checkDate.Checked = true;
-                        frmproduit.dateCtrl.Visible = true;
-                        DateTime dtctrl = Convert.ToDateTime(dvgProduit.CurrentRow.Cells[9].Value.ToString());
-                        frmproduit.dateCtrl.Value = dtctrl;
+                        frmproduit.btnDate.Visible = true;
+                        frmproduit.txtDateCtrl.Visible = true;
                         frmproduit.txtDateCtrl.Text = dvgProduit.CurrentRow.Cells[9].Value.ToString();
-                }
+                    }
                         //Afficher image produit
                         int MYIDSELECT = (int)dvgProduit.CurrentRow.Cells[1].Value;
                         PR = db.Produits.SingleOrDefault(s => s.ID_Produit == MYIDSELECT);
@@ -241,12 +239,14 @@ namespace GestionDeStockC.PL
         }
         private void btnsupprimer_Click(object sender, EventArgs e)
         {
-            DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer un produit", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (R == DialogResult.Yes)
+            MessageBox.Show(dvgProduit.CurrentRow.Cells[0].Value.ToString());
+            if ((dvgProduit.CurrentRow != null) || (dvgProduit.Rows.Count != 0))
             {
-                BL.CLS_Produit clproduit = new BL.CLS_Produit();
-                if ((dvgProduit.CurrentRow != null) || (dvgProduit.Rows.Count != 0))
+                DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer un produit", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (R == DialogResult.Yes)
                 {
+                    BL.CLS_Produit clproduit = new BL.CLS_Produit();
+
                     int idselect = (int)dvgProduit.CurrentRow.Cells[1].Value;// id de la ligne cocher
                     int NbreProd = db.Affectations.Count(s => s.ID_Produit == idselect);
                     if (NbreProd == 0)
@@ -263,7 +263,7 @@ namespace GestionDeStockC.PL
             }
             else
             {
-                 MessageBox.Show("suppression et annule", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Aucun client selectionnee", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnexcel_Click(object sender, EventArgs e)
@@ -286,10 +286,10 @@ namespace GestionDeStockC.PL
                     int i = 2;
                     foreach (var L in ListeProduit)
                     {
-                        ws.Cells[i, 1] = L.ID_Produit;
+                        ws.Cells[i, 1] = L.NumInventaire;
                         ws.Cells[i, 2] = L.Nom_Produit;
                         ws.Cells[i, 3] = L.Quantité_Produit;
-                        ws.Cells[i, 3] = L.Prix_Produit;
+                        ws.Cells[i, 4] = L.Prix_Produit;
                         i++;
                     }
                     //Mise en forme de l'excel
@@ -331,22 +331,6 @@ namespace GestionDeStockC.PL
         private void combocategorie_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Actualiserdvg();
-            /**
-           foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
-            {
-                
-                if ((r.Cells[2].Value).ToString().ToUpper().Contains(combocategorie.Text.ToString().ToUpper()))
-                {
-                    dvgProduit.Rows[r.Index].Visible = true;
-                    dvgProduit.Rows[r.Index].Selected = true;
-
-                }
-                else
-                {
-                    dvgProduit.CurrentCell = null;
-                    dvgProduit.Rows[r.Index].Visible = false;
-                }
-            }**/
         }
   
     }

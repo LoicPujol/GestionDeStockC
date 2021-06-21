@@ -42,6 +42,7 @@ namespace GestionDeStockC.PL
             this.btncategorie = new System.Windows.Forms.Button();
             this.pnlparammetrer = new System.Windows.Forms.Panel();
             this.pnlaficher = new System.Windows.Forms.Panel();
+            this.btnLivraison = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlparammetrer.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +50,7 @@ namespace GestionDeStockC.PL
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.Controls.Add(this.btnLivraison);
             this.panel1.Controls.Add(this.btnDash);
             this.panel1.Controls.Add(this.btnaffectation);
             this.panel1.Controls.Add(this.btnalerte);
@@ -93,7 +95,7 @@ namespace GestionDeStockC.PL
             this.btnaffectation.ForeColor = System.Drawing.Color.White;
             this.btnaffectation.Image = ((System.Drawing.Image)(resources.GetObject("btnaffectation.Image")));
             this.btnaffectation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnaffectation.Location = new System.Drawing.Point(8, 372);
+            this.btnaffectation.Location = new System.Drawing.Point(8, 401);
             this.btnaffectation.Name = "btnaffectation";
             this.btnaffectation.Size = new System.Drawing.Size(180, 45);
             this.btnaffectation.TabIndex = 14;
@@ -112,7 +114,7 @@ namespace GestionDeStockC.PL
             this.btnalerte.ForeColor = System.Drawing.Color.White;
             this.btnalerte.Image = ((System.Drawing.Image)(resources.GetObject("btnalerte.Image")));
             this.btnalerte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnalerte.Location = new System.Drawing.Point(9, 423);
+            this.btnalerte.Location = new System.Drawing.Point(9, 455);
             this.btnalerte.Name = "btnalerte";
             this.btnalerte.Size = new System.Drawing.Size(179, 45);
             this.btnalerte.TabIndex = 13;
@@ -154,7 +156,7 @@ namespace GestionDeStockC.PL
             this.btncommande.ForeColor = System.Drawing.Color.White;
             this.btncommande.Image = ((System.Drawing.Image)(resources.GetObject("btncommande.Image")));
             this.btncommande.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btncommande.Location = new System.Drawing.Point(7, 321);
+            this.btncommande.Location = new System.Drawing.Point(7, 347);
             this.btncommande.Name = "btncommande";
             this.btncommande.Size = new System.Drawing.Size(181, 45);
             this.btncommande.TabIndex = 12;
@@ -173,7 +175,7 @@ namespace GestionDeStockC.PL
             this.btnproduit.ForeColor = System.Drawing.Color.White;
             this.btnproduit.Image = ((System.Drawing.Image)(resources.GetObject("btnproduit.Image")));
             this.btnproduit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnproduit.Location = new System.Drawing.Point(7, 194);
+            this.btnproduit.Location = new System.Drawing.Point(7, 185);
             this.btnproduit.Name = "btnproduit";
             this.btnproduit.Size = new System.Drawing.Size(181, 45);
             this.btnproduit.TabIndex = 11;
@@ -211,7 +213,7 @@ namespace GestionDeStockC.PL
             this.btncategorie.ForeColor = System.Drawing.Color.White;
             this.btncategorie.Image = ((System.Drawing.Image)(resources.GetObject("btncategorie.Image")));
             this.btncategorie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btncategorie.Location = new System.Drawing.Point(7, 256);
+            this.btncategorie.Location = new System.Drawing.Point(7, 293);
             this.btncategorie.Name = "btncategorie";
             this.btncategorie.Size = new System.Drawing.Size(181, 45);
             this.btncategorie.TabIndex = 10;
@@ -239,6 +241,24 @@ namespace GestionDeStockC.PL
             this.pnlaficher.Name = "pnlaficher";
             this.pnlaficher.Size = new System.Drawing.Size(966, 619);
             this.pnlaficher.TabIndex = 12;
+            // 
+            // btnLivraison
+            // 
+            this.btnLivraison.FlatAppearance.BorderSize = 0;
+            this.btnLivraison.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLivraison.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLivraison.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLivraison.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLivraison.ForeColor = System.Drawing.Color.White;
+            this.btnLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btnLivraison.Image")));
+            this.btnLivraison.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLivraison.Location = new System.Drawing.Point(3, 239);
+            this.btnLivraison.Name = "btnLivraison";
+            this.btnLivraison.Size = new System.Drawing.Size(181, 45);
+            this.btnLivraison.TabIndex = 16;
+            this.btnLivraison.Text = "       Livraison";
+            this.btnLivraison.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLivraison.UseVisualStyleBackColor = true;
             // 
             // FRM_Menu
             // 
@@ -270,5 +290,6 @@ namespace GestionDeStockC.PL
         internal System.Windows.Forms.Button btnalerte;
         internal System.Windows.Forms.Button btnaffectation;
         internal System.Windows.Forms.Button btnDash;
+        internal System.Windows.Forms.Button btnLivraison;
     }
 }

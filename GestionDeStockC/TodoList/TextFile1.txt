@@ -1,5 +1,5 @@
 ﻿Champs de saisie (partout) :
--- verifier si saisie selon numerique ou alphanumerique
+--verifier si saisie selon numerique ou alphanumerique
 --empecher la saisie de plus de X caractere (variable selon les champs)
 --verifier les champs obligatoire
 --corriger faute orthographe 
@@ -14,29 +14,12 @@ SQL Table client :
 
 SQL : reprendre toutes les tables et verifier les champs obligation
 
-FRM Produit_Commande :
--- bloquer quantite a 1 si unitaire
-
-User Liste commande :
--- filtrer avec plus recente en haut
-
 User Affectation :
 -- supprimer ligne si qte = 0  ==> doit se faire dans table affectation SQL
 
 FRM Detail commande :
---afficher liste que si emeteur selectionnee
---actualiser liste produit en fonction de affectation
---si changement expediteur alors clear les 3 listesdetails et clear les dgv
---filtrer liste destintaire en fonction de expediteur selectionnee
---avant selection destinataire demander selection expediteur
-	Puis :
-					FRM_Detail_Commande : 
-					--modifier produit prend le stock dans la table produit a changer pour table affectation
-
-
-Point bloquant :
-
-LA DATE DE CONTROLE SENREGISTRE MEME SI NON SLECTIONNEE (SI NON AFFECTE LE DVG ALERTE SUR DATE PLANTE (IL NE TROUVE PAS DE CLIENT))
+--contextstrip modifier prend le stock dans table produit
+--contexstrip modifier ne permet pas de recuperer la condition si unitaire alors qte = 1
 
 Verifier :
 --ecriture dans table affectation

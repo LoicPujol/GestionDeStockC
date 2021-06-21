@@ -21,7 +21,7 @@ namespace GestionDeStockC.PL
 
         private void btnajouter_Click(object sender, EventArgs e)
         {
-            
+            Close();
         }
     }
 }

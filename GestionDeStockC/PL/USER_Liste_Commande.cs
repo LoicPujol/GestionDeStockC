@@ -45,8 +45,9 @@ namespace GestionDeStockC.PL
                 NomPrenom = c.Nom_Client + " " + c.Prenom_Client;
                 dvgCommande.Rows.Add(false, LC.ID_Commande, LC.DATE_Commande, NomPrenom, LC.Total_HT);
             }
+            ListSortDirection TryDirection = ListSortDirection.Descending;
+            dvgCommande.Sort(dvgCommande.Columns[1], TryDirection);
             dvgCommande.ClearSelection();
-
         }
        
         private void btnajouter_Click(object sender, EventArgs e)

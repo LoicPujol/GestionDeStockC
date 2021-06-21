@@ -70,7 +70,7 @@
           <Property Name="ID_Categorie" Type="int" Nullable="false" />
           <Property Name="ID_Type" Type="int" />
           <Property Name="Stock_Alerte" Type="int" />
-          <Property Name="Date_Controle" Type="date" />
+          <Property Name="Date_Controle" Type="nvarchar" MaxLength="50" />
           <Property Name="NumInventaire" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Type">
@@ -339,7 +339,7 @@
           <Property Name="ID_Categorie" Type="Int32" Nullable="false" />
           <Property Name="ID_Type" Type="Int32" />
           <Property Name="Stock_Alerte" Type="Int32" />
-          <Property Name="Date_Controle" Type="DateTime" Precision="0" />
+          <Property Name="Date_Controle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NumInventaire" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Affectations" Relationship="GESTION_DE_STOCKModel.FK_Affectation_Produit" FromRole="Produit" ToRole="Affectation" />
           <NavigationProperty Name="Categorie" Relationship="GESTION_DE_STOCKModel.FK_Produit_Categorie" FromRole="Produit" ToRole="Categorie" />

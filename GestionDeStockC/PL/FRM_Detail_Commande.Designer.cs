@@ -33,10 +33,10 @@ namespace GestionDeStockC.PL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Detail_Commande));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Detail_Commande));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,12 +49,13 @@ namespace GestionDeStockC.PL
             this.label12 = new System.Windows.Forms.Label();
             this.btnDest = new System.Windows.Forms.Button();
             this.txtNomDest = new System.Windows.Forms.TextBox();
-            this.txtPrenomDest = new System.Windows.Forms.TextBox();
             this.txttotalht = new System.Windows.Forms.TextBox();
             this.txttva = new System.Windows.Forms.TextBox();
             this.txttotalttc = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpPoduit = new System.Windows.Forms.GroupBox();
+            this.txtIdExp = new System.Windows.Forms.TextBox();
             this.dvgProduit = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,13 +64,12 @@ namespace GestionDeStockC.PL
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSupCombo = new System.Windows.Forms.Button();
             this.txtrechercheNom = new System.Windows.Forms.TextBox();
             this.combotype = new System.Windows.Forms.ComboBox();
             this.combocategorie = new System.Windows.Forms.ComboBox();
             this.txtrechercheInvProd = new System.Windows.Forms.TextBox();
             this.commandedate = new System.Windows.Forms.DateTimePicker();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpDetail = new System.Windows.Forms.GroupBox();
             this.dvgDetailCommande = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,15 +79,15 @@ namespace GestionDeStockC.PL
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnExp = new System.Windows.Forms.Button();
-            this.txtPrenomExp = new System.Windows.Forms.TextBox();
             this.txtNomExp = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnSupCombo = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpPoduit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.grpDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDetailCommande)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -151,7 +151,7 @@ namespace GestionDeStockC.PL
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(8, 8);
+            this.label8.Location = new System.Drawing.Point(16, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(165, 24);
             this.label8.TabIndex = 56;
@@ -239,24 +239,9 @@ namespace GestionDeStockC.PL
             this.txtNomDest.Location = new System.Drawing.Point(143, 23);
             this.txtNomDest.Multiline = true;
             this.txtNomDest.Name = "txtNomDest";
-            this.txtNomDest.Size = new System.Drawing.Size(119, 32);
+            this.txtNomDest.Size = new System.Drawing.Size(236, 32);
             this.txtNomDest.TabIndex = 61;
-            // 
-            // txtPrenomDest
-            // 
-            this.txtPrenomDest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrenomDest.BackColor = System.Drawing.Color.White;
-            this.txtPrenomDest.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPrenomDest.Cursor = System.Windows.Forms.Cursors.Help;
-            this.txtPrenomDest.Enabled = false;
-            this.txtPrenomDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrenomDest.ForeColor = System.Drawing.Color.Black;
-            this.txtPrenomDest.Location = new System.Drawing.Point(268, 23);
-            this.txtPrenomDest.Multiline = true;
-            this.txtPrenomDest.Name = "txtPrenomDest";
-            this.txtPrenomDest.Size = new System.Drawing.Size(106, 32);
-            this.txtPrenomDest.TabIndex = 62;
+            this.txtNomDest.TextChanged += new System.EventHandler(this.txtNomDest_TextChanged);
             // 
             // txttotalht
             // 
@@ -307,24 +292,37 @@ namespace GestionDeStockC.PL
             this.txttotalttc.Size = new System.Drawing.Size(0, 32);
             this.txttotalttc.TabIndex = 69;
             // 
-            // groupBox1
+            // grpPoduit
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grpPoduit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.dvgProduit);
-            this.groupBox1.Controls.Add(this.btnSupCombo);
-            this.groupBox1.Controls.Add(this.txtrechercheNom);
-            this.groupBox1.Controls.Add(this.combotype);
-            this.groupBox1.Controls.Add(this.combocategorie);
-            this.groupBox1.Controls.Add(this.txtrechercheInvProd);
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(12, 79);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(868, 704);
-            this.groupBox1.TabIndex = 71;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Produit";
+            this.grpPoduit.BackColor = System.Drawing.Color.Transparent;
+            this.grpPoduit.Controls.Add(this.btnSupCombo);
+            this.grpPoduit.Controls.Add(this.txtIdExp);
+            this.grpPoduit.Controls.Add(this.dvgProduit);
+            this.grpPoduit.Controls.Add(this.txtrechercheNom);
+            this.grpPoduit.Controls.Add(this.combotype);
+            this.grpPoduit.Controls.Add(this.combocategorie);
+            this.grpPoduit.Controls.Add(this.txtrechercheInvProd);
+            this.grpPoduit.ForeColor = System.Drawing.Color.Black;
+            this.grpPoduit.Location = new System.Drawing.Point(12, 79);
+            this.grpPoduit.Name = "grpPoduit";
+            this.grpPoduit.Size = new System.Drawing.Size(868, 704);
+            this.grpPoduit.TabIndex = 71;
+            this.grpPoduit.TabStop = false;
+            this.grpPoduit.Text = "Produit";
+            // 
+            // txtIdExp
+            // 
+            this.txtIdExp.BackColor = System.Drawing.SystemColors.Control;
+            this.txtIdExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.txtIdExp.ForeColor = System.Drawing.Color.DimGray;
+            this.txtIdExp.Location = new System.Drawing.Point(722, 19);
+            this.txtIdExp.Multiline = true;
+            this.txtIdExp.Name = "txtIdExp";
+            this.txtIdExp.Size = new System.Drawing.Size(140, 32);
+            this.txtIdExp.TabIndex = 66;
+            this.txtIdExp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dvgProduit
             // 
@@ -349,6 +347,7 @@ namespace GestionDeStockC.PL
             this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dvgProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
@@ -366,7 +365,7 @@ namespace GestionDeStockC.PL
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle2;
             this.dvgProduit.EnableHeadersVisualStyles = false;
-            this.dvgProduit.Location = new System.Drawing.Point(6, 61);
+            this.dvgProduit.Location = new System.Drawing.Point(8, 61);
             this.dvgProduit.MultiSelect = false;
             this.dvgProduit.Name = "dvgProduit";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -380,13 +379,19 @@ namespace GestionDeStockC.PL
             this.dvgProduit.RowHeadersVisible = false;
             this.dvgProduit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dvgProduit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgProduit.Size = new System.Drawing.Size(856, 637);
+            this.dvgProduit.Size = new System.Drawing.Size(854, 637);
             this.dvgProduit.TabIndex = 65;
             this.dvgProduit.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "IdExp";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "IdProduit";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Visible = false;
@@ -431,25 +436,6 @@ namespace GestionDeStockC.PL
             this.dataGridViewTextBoxColumn11.HeaderText = "Contrôle";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
-            // btnSupCombo
-            // 
-            this.btnSupCombo.BackColor = System.Drawing.Color.White;
-            this.btnSupCombo.CausesValidation = false;
-            this.btnSupCombo.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnSupCombo.FlatAppearance.BorderSize = 0;
-            this.btnSupCombo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSupCombo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
-            this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
-            this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupCombo.Location = new System.Drawing.Point(609, 17);
-            this.btnSupCombo.Name = "btnSupCombo";
-            this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
-            this.btnSupCombo.TabIndex = 64;
-            this.btnSupCombo.UseVisualStyleBackColor = false;
-            // 
             // txtrechercheNom
             // 
             this.txtrechercheNom.BackColor = System.Drawing.SystemColors.Control;
@@ -461,6 +447,7 @@ namespace GestionDeStockC.PL
             this.txtrechercheNom.Size = new System.Drawing.Size(140, 32);
             this.txtrechercheNom.TabIndex = 63;
             this.txtrechercheNom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtrechercheNom.TextChanged += new System.EventHandler(this.txtrechercheNom_TextChanged);
             // 
             // combotype
             // 
@@ -471,6 +458,7 @@ namespace GestionDeStockC.PL
             this.combotype.Name = "combotype";
             this.combotype.Size = new System.Drawing.Size(140, 32);
             this.combotype.TabIndex = 62;
+            this.combotype.SelectionChangeCommitted += new System.EventHandler(this.combotype_SelectionChangeCommitted);
             // 
             // combocategorie
             // 
@@ -481,6 +469,7 @@ namespace GestionDeStockC.PL
             this.combocategorie.Name = "combocategorie";
             this.combocategorie.Size = new System.Drawing.Size(140, 32);
             this.combocategorie.TabIndex = 61;
+            this.combocategorie.SelectionChangeCommitted += new System.EventHandler(this.combocategorie_SelectionChangeCommitted);
             // 
             // txtrechercheInvProd
             // 
@@ -493,35 +482,36 @@ namespace GestionDeStockC.PL
             this.txtrechercheInvProd.Size = new System.Drawing.Size(140, 32);
             this.txtrechercheInvProd.TabIndex = 60;
             this.txtrechercheInvProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtrechercheInvProd.TextChanged += new System.EventHandler(this.txtrechercheInvProd_TextChanged);
             // 
             // commandedate
             // 
             this.commandedate.Enabled = false;
-            this.commandedate.Location = new System.Drawing.Point(12, 35);
+            this.commandedate.Location = new System.Drawing.Point(20, 34);
             this.commandedate.Name = "commandedate";
             this.commandedate.Size = new System.Drawing.Size(200, 20);
             this.commandedate.TabIndex = 72;
             this.commandedate.Value = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
             // 
-            // groupBox2
+            // grpDetail
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grpDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.dvgDetailCommande);
-            this.groupBox2.Controls.Add(this.txttotalttc);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.txttva);
-            this.groupBox2.Controls.Add(this.txttotalht);
-            this.groupBox2.Location = new System.Drawing.Point(886, 79);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(506, 704);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Detail";
+            this.grpDetail.Controls.Add(this.dvgDetailCommande);
+            this.grpDetail.Controls.Add(this.txttotalttc);
+            this.grpDetail.Controls.Add(this.label9);
+            this.grpDetail.Controls.Add(this.label10);
+            this.grpDetail.Controls.Add(this.label11);
+            this.grpDetail.Controls.Add(this.label12);
+            this.grpDetail.Controls.Add(this.txttva);
+            this.grpDetail.Controls.Add(this.txttotalht);
+            this.grpDetail.Location = new System.Drawing.Point(886, 79);
+            this.grpDetail.Name = "grpDetail";
+            this.grpDetail.Size = new System.Drawing.Size(506, 704);
+            this.grpDetail.TabIndex = 10;
+            this.grpDetail.TabStop = false;
+            this.grpDetail.Text = "Detail";
             // 
             // dvgDetailCommande
             // 
@@ -631,22 +621,6 @@ namespace GestionDeStockC.PL
             this.btnExp.UseVisualStyleBackColor = false;
             this.btnExp.Click += new System.EventHandler(this.btnExp_Click);
             // 
-            // txtPrenomExp
-            // 
-            this.txtPrenomExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrenomExp.BackColor = System.Drawing.Color.White;
-            this.txtPrenomExp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPrenomExp.Cursor = System.Windows.Forms.Cursors.Help;
-            this.txtPrenomExp.Enabled = false;
-            this.txtPrenomExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrenomExp.ForeColor = System.Drawing.Color.Black;
-            this.txtPrenomExp.Location = new System.Drawing.Point(268, 28);
-            this.txtPrenomExp.Multiline = true;
-            this.txtPrenomExp.Name = "txtPrenomExp";
-            this.txtPrenomExp.Size = new System.Drawing.Size(106, 32);
-            this.txtPrenomExp.TabIndex = 77;
-            // 
             // txtNomExp
             // 
             this.txtNomExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -660,8 +634,9 @@ namespace GestionDeStockC.PL
             this.txtNomExp.Location = new System.Drawing.Point(144, 28);
             this.txtNomExp.Multiline = true;
             this.txtNomExp.Name = "txtNomExp";
-            this.txtNomExp.Size = new System.Drawing.Size(119, 32);
+            this.txtNomExp.Size = new System.Drawing.Size(230, 32);
             this.txtNomExp.TabIndex = 76;
+            this.txtNomExp.TextChanged += new System.EventHandler(this.txtNomExp_TextChanged);
             // 
             // label4
             // 
@@ -678,7 +653,6 @@ namespace GestionDeStockC.PL
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.txtPrenomDest);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.btnDest);
             this.groupBox3.Controls.Add(this.txtNomDest);
@@ -693,7 +667,6 @@ namespace GestionDeStockC.PL
             // 
             this.groupBox4.Controls.Add(this.btnExp);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.txtPrenomExp);
             this.groupBox4.Controls.Add(this.txtNomExp);
             this.groupBox4.Location = new System.Drawing.Point(469, 8);
             this.groupBox4.Name = "groupBox4";
@@ -701,6 +674,26 @@ namespace GestionDeStockC.PL
             this.groupBox4.TabIndex = 63;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Expediteur";
+            // 
+            // btnSupCombo
+            // 
+            this.btnSupCombo.BackColor = System.Drawing.Color.White;
+            this.btnSupCombo.CausesValidation = false;
+            this.btnSupCombo.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnSupCombo.FlatAppearance.BorderSize = 0;
+            this.btnSupCombo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
+            this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
+            this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupCombo.Location = new System.Drawing.Point(609, 15);
+            this.btnSupCombo.Name = "btnSupCombo";
+            this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
+            this.btnSupCombo.TabIndex = 67;
+            this.btnSupCombo.UseVisualStyleBackColor = false;
+            this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click);
             // 
             // FRM_Detail_Commande
             // 
@@ -710,10 +703,10 @@ namespace GestionDeStockC.PL
             this.ClientSize = new System.Drawing.Size(1404, 795);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.grpDetail);
             this.Controls.Add(this.btnenregistrer);
             this.Controls.Add(this.commandedate);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpPoduit);
             this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FRM_Detail_Commande";
@@ -721,11 +714,11 @@ namespace GestionDeStockC.PL
             this.Text = "FRM_Detail_Commande";
             this.Load += new System.EventHandler(this.FRM_Detail_Commande_Load);
             this.contextMenuStrip1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpPoduit.ResumeLayout(false);
+            this.grpPoduit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpDetail.ResumeLayout(false);
+            this.grpDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDetailCommande)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -746,19 +739,17 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnDest;
         public System.Windows.Forms.TextBox txtNomDest;
-        public System.Windows.Forms.TextBox txtPrenomDest;
         public System.Windows.Forms.TextBox txttotalht;
         public System.Windows.Forms.TextBox txttva;
         public System.Windows.Forms.TextBox txttotalttc;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supprimerToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpPoduit;
         private System.Windows.Forms.DateTimePicker commandedate;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpDetail;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnExp;
-        public System.Windows.Forms.TextBox txtPrenomExp;
         public System.Windows.Forms.TextBox txtNomExp;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.ComboBox combotype;
@@ -767,8 +758,16 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtrechercheNom;
-        private System.Windows.Forms.Button btnSupCombo;
         private System.Windows.Forms.DataGridView dvgProduit;
+        private System.Windows.Forms.DataGridView dvgDetailCommande;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.TextBox txtIdExp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
@@ -777,12 +776,6 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridView dvgDetailCommande;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnSupCombo;
     }
 }

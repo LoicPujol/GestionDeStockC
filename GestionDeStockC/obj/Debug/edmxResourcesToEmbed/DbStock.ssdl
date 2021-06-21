@@ -65,7 +65,7 @@
     <Property Name="ID_Categorie" Type="int" Nullable="false" />
     <Property Name="ID_Type" Type="int" />
     <Property Name="Stock_Alerte" Type="int" />
-    <Property Name="Date_Controle" Type="date" />
+    <Property Name="Date_Controle" Type="nvarchar" MaxLength="50" />
     <Property Name="NumInventaire" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="Type">

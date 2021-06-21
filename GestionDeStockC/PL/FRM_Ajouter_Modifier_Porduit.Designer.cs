@@ -41,7 +41,6 @@ namespace GestionDeStockC.PL
             this.combocategorie = new System.Windows.Forms.ComboBox();
             this.combotype = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateCtrl = new System.Windows.Forms.DateTimePicker();
             this.txtStockAlerte = new System.Windows.Forms.TextBox();
             this.checkDate = new System.Windows.Forms.CheckBox();
             this.txtInventaireProd = new System.Windows.Forms.TextBox();
@@ -62,9 +61,9 @@ namespace GestionDeStockC.PL
             this.txtDateCtrl = new System.Windows.Forms.TextBox();
             this.picProduit = new System.Windows.Forms.PictureBox();
             this.btnDate = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpDateCtrl = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.picProduit)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpDateCtrl.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -238,18 +237,6 @@ namespace GestionDeStockC.PL
             this.label3.TabIndex = 50;
             this.label3.Text = "Type *";
             // 
-            // dateCtrl
-            // 
-            this.dateCtrl.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateCtrl.CustomFormat = "dd/MM/yyyy";
-            this.dateCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateCtrl.Location = new System.Drawing.Point(6, 59);
-            this.dateCtrl.Name = "dateCtrl";
-            this.dateCtrl.Size = new System.Drawing.Size(127, 29);
-            this.dateCtrl.TabIndex = 52;
-            this.dateCtrl.Visible = false;
-            // 
             // txtStockAlerte
             // 
             this.txtStockAlerte.BackColor = System.Drawing.Color.White;
@@ -269,13 +256,12 @@ namespace GestionDeStockC.PL
             // checkDate
             // 
             this.checkDate.AutoSize = true;
-            this.checkDate.Location = new System.Drawing.Point(6, 29);
+            this.checkDate.Location = new System.Drawing.Point(54, 24);
             this.checkDate.Name = "checkDate";
             this.checkDate.Size = new System.Drawing.Size(139, 17);
             this.checkDate.TabIndex = 54;
             this.checkDate.Text = "Ajouter date de controle";
             this.checkDate.UseVisualStyleBackColor = true;
-            this.checkDate.Visible = false;
             this.checkDate.Click += new System.EventHandler(this.checkDate_Click);
             // 
             // txtInventaireProd
@@ -467,6 +453,8 @@ namespace GestionDeStockC.PL
             this.txtDateCtrl.Name = "txtDateCtrl";
             this.txtDateCtrl.Size = new System.Drawing.Size(230, 30);
             this.txtDateCtrl.TabIndex = 71;
+            this.txtDateCtrl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDateCtrl.Visible = false;
             // 
             // picProduit
             // 
@@ -487,26 +475,26 @@ namespace GestionDeStockC.PL
             this.btnDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnDate.ForeColor = System.Drawing.Color.White;
-            this.btnDate.Location = new System.Drawing.Point(151, 20);
+            this.btnDate.Location = new System.Drawing.Point(6, 52);
             this.btnDate.Name = "btnDate";
-            this.btnDate.Size = new System.Drawing.Size(88, 36);
+            this.btnDate.Size = new System.Drawing.Size(230, 36);
             this.btnDate.TabIndex = 72;
             this.btnDate.Text = "Select Date";
             this.btnDate.UseVisualStyleBackColor = false;
+            this.btnDate.Visible = false;
             this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
             // 
-            // groupBox1
+            // grpDateCtrl
             // 
-            this.groupBox1.Controls.Add(this.dateCtrl);
-            this.groupBox1.Controls.Add(this.btnDate);
-            this.groupBox1.Controls.Add(this.checkDate);
-            this.groupBox1.Controls.Add(this.txtDateCtrl);
-            this.groupBox1.Location = new System.Drawing.Point(583, 42);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(247, 136);
-            this.groupBox1.TabIndex = 73;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.grpDateCtrl.Controls.Add(this.btnDate);
+            this.grpDateCtrl.Controls.Add(this.checkDate);
+            this.grpDateCtrl.Controls.Add(this.txtDateCtrl);
+            this.grpDateCtrl.Location = new System.Drawing.Point(583, 42);
+            this.grpDateCtrl.Name = "grpDateCtrl";
+            this.grpDateCtrl.Size = new System.Drawing.Size(247, 136);
+            this.grpDateCtrl.TabIndex = 73;
+            this.grpDateCtrl.TabStop = false;
+            this.grpDateCtrl.Text = "Date du prochain contrôle";
             // 
             // FRM_Ajouter_Modifier_Porduit
             // 
@@ -514,7 +502,7 @@ namespace GestionDeStockC.PL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(842, 523);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpDateCtrl);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
@@ -549,8 +537,8 @@ namespace GestionDeStockC.PL
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_Ajouter_Modifier_Porduit";
             ((System.ComponentModel.ISupportInitialize)(this.picProduit)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpDateCtrl.ResumeLayout(false);
+            this.grpDateCtrl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,7 +558,6 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.ComboBox combotype;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox combocategorie;
-        public System.Windows.Forms.DateTimePicker dateCtrl;
         public System.Windows.Forms.TextBox txtStockAlerte;
         public System.Windows.Forms.TextBox txtInventaireProd;
         public System.Windows.Forms.CheckBox checkDate;
@@ -590,6 +577,6 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.Label label13;
         public System.Windows.Forms.TextBox txtDateCtrl;
         public System.Windows.Forms.Button btnDate;
-        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.GroupBox grpDateCtrl;
     }
 }

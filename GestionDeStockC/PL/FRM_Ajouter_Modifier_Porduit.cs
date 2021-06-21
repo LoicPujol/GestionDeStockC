@@ -33,7 +33,6 @@ namespace GestionDeStockC.PL
             combotype.DisplayMember = "Nom_Type";//afficher les nom des categorie
             combotype.ValueMember = "ID_Type";
             combotype.SelectedIndex = -1;
-
         }
         //test champ obligatoire
         string testoblogatoire()
@@ -64,7 +63,6 @@ namespace GestionDeStockC.PL
             }
             return null;
         }
-
         private void btnactualiser_Click(object sender, EventArgs e)
         {
             txtNomP.Text = "Nom Produit"; txtNomP.ForeColor = Color.Silver;
@@ -75,7 +73,6 @@ namespace GestionDeStockC.PL
             combotype.SelectedIndex = -1;
             picProduit.Image = null;
         }
-
         private void txtNomP_Enter(object sender, EventArgs e)
         {
             if (txtNomP.Text == "Nom Produit")
@@ -84,7 +81,6 @@ namespace GestionDeStockC.PL
                 txtNomP.ForeColor = Color.Black;
             }
         }
-
         private void txtNomP_Leave(object sender, EventArgs e)
         {
             if (txtNomP.Text == "")
@@ -93,7 +89,6 @@ namespace GestionDeStockC.PL
                 txtNomP.ForeColor = Color.Silver;
             }
         }
-
         private void txtQuantite_Enter(object sender, EventArgs e)
         {
             if (txtQuantite.Text == "Quantite")
@@ -102,7 +97,6 @@ namespace GestionDeStockC.PL
                 txtQuantite.ForeColor = Color.Black;
             }
         }
-
         private void txtQuantite_Leave(object sender, EventArgs e)
         {
             if (txtQuantite.Text == "")
@@ -111,7 +105,6 @@ namespace GestionDeStockC.PL
                 txtQuantite.ForeColor = Color.Silver;
             }
         }
-
         private void txtPrix_Enter(object sender, EventArgs e)
         {
             if (txtPrix.Text == "Prix")
@@ -120,7 +113,6 @@ namespace GestionDeStockC.PL
                 txtPrix.ForeColor = Color.Black;
             }
         }
-
         private void txtPrix_Leave(object sender, EventArgs e)
         {
             if (txtPrix.Text == "")
@@ -129,12 +121,10 @@ namespace GestionDeStockC.PL
                 txtPrix.ForeColor = Color.Silver;
             }
         }
-
         private void btnquitter_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void btnparcourir_Click(object sender, EventArgs e)
         {
             //Afficher fichier Image
@@ -145,7 +135,6 @@ namespace GestionDeStockC.PL
                 picProduit.Image = Image.FromFile(OP.FileName);
             }
         }
-
         private void txtQuantite_KeyPress(object sender, KeyPressEventArgs e)
         {
             //textbox numerique
@@ -158,7 +147,6 @@ namespace GestionDeStockC.PL
                 e.Handled = false;
             }
         }
-
         private void txtPrix_KeyPress(object sender, KeyPressEventArgs e)
         {
             //textbox numerique
@@ -188,9 +176,10 @@ namespace GestionDeStockC.PL
                     MemoryStream MR = new MemoryStream();
                     picProduit.Image.Save(MR, picProduit.Image.RawFormat);
                     byte[] byteimageP = MR.ToArray();//convertir image en format bye[]
-                    //DateTime NewDate = new DateTime();
-                                        
-                    if (clproduit.Ajouter_Produit(txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value, txtInventaireProd.Text) == true)
+                                                     //DateTime NewDate = new DateTime();
+
+                    
+                    if (clproduit.Ajouter_Produit(txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue),txtDateCtrl.Text, txtInventaireProd.Text) == true)
                     {
                         MessageBox.Show("Produit ajoute avec succe", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
@@ -210,8 +199,9 @@ namespace GestionDeStockC.PL
                     DialogResult RS = MessageBox.Show("Voulez vous modifier", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (RS == DialogResult.Yes)
                     {
-                        cLS_Produit.Modifier_Produit(IDPRODUIT, txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue), dateCtrl.Value, txtInventaireProd.Text);
-                        MessageBox.Show("Produit modifier", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        
+                           cLS_Produit.Modifier_Produit(IDPRODUIT, txtNomP.Text, int.Parse(txtQuantite.Text), int.Parse(txtStockAlerte.Text), txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue),txtDateCtrl.Text, txtInventaireProd.Text);
+                            MessageBox.Show("Produit modifier", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         //Actualiser datagrid
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
                         Close();
@@ -220,10 +210,10 @@ namespace GestionDeStockC.PL
                     {
                         MessageBox.Show("Modification annule", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                    
                 }
             }
         }
-
         private void txtStockAlerte_Enter(object sender, EventArgs e)
         {
             if (txtStockAlerte.Text == "Stock Alerte")
@@ -232,7 +222,6 @@ namespace GestionDeStockC.PL
                 txtStockAlerte.ForeColor = Color.Black;
             }
         }
-
         private void txtStockAlerte_Leave(object sender, EventArgs e)
         {
             if (txtStockAlerte.Text == "")
@@ -241,7 +230,6 @@ namespace GestionDeStockC.PL
                 txtStockAlerte.ForeColor = Color.Silver;
             }
         }
-
         private void txtStockAlerte_KeyPress(object sender, KeyPressEventArgs e)
         {
             //textbox numerique
@@ -254,42 +242,39 @@ namespace GestionDeStockC.PL
                 e.Handled = false;
             }
         }
-
         private void combotype_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (combotype.Text == "Unitaire")
             {
-                checkDate.Visible = true;
+                grpDateCtrl.Visible = true;
                 txtQuantite.Enabled = false;
                 txtQuantite.Text = "1";
-
             }
             if (combotype.Text == "Lot")
             {
-                checkDate.Visible = false;
-                dateCtrl.Visible = false;
+                grpDateCtrl.Visible = false;
                 txtQuantite.Enabled = true;
                 txtQuantite.Text = "Quantite";
             }
             if (combotype.Text == "Consomable")
             {
-                checkDate.Visible = false;
-                dateCtrl.Visible = false;
+                grpDateCtrl.Visible = false;
                 txtQuantite.Enabled = true;
                 txtQuantite.Text = "Quantite";
             }
         }
-
         private void checkDate_Click(object sender, EventArgs e)
         {
             if (checkDate.Checked)
             {
-                dateCtrl.Visible = true;
+                btnDate.Visible = true;
+                txtDateCtrl.Visible = true;
             }
             else
-                dateCtrl.Visible = false;
+                btnDate.Visible = false;
+                txtDateCtrl.Visible = false;
+                txtDateCtrl.Text = "";
             }
-
         private void txtInventaireProd_Enter(object sender, EventArgs e)
         {
             if (txtInventaireProd.Text == "N° Inventaire")
@@ -298,7 +283,6 @@ namespace GestionDeStockC.PL
                 txtInventaireProd.ForeColor = Color.Black;
             }
         }
-
         private void txtInventaireProd_Leave(object sender, EventArgs e)
         {
             if (txtInventaireProd.Text == "")
@@ -308,7 +292,6 @@ namespace GestionDeStockC.PL
             }
 
         }
-
         private void btnIncrementer_Click(object sender, EventArgs e)
         {
             var Inventaire = db.Produits;
@@ -330,11 +313,12 @@ namespace GestionDeStockC.PL
                 }
             }
         }
-
         private void btnDate_Click(object sender, EventArgs e)
         {
             PL.FRM_Ajoute_Date frmDate = new PL.FRM_Ajoute_Date();
             frmDate.ShowDialog();
+            txtDateCtrl.Visible = true;
+            txtDateCtrl.Text = frmDate.dateCtrl.Value.ToString("dd/MM/yyyy");
         }
     }
 }

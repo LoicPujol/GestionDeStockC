@@ -5,14 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="62044fb018314ce08c7c243f43b2f229" Name="Diagram1">
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Affectation" Width="1.5" PointX="8.125" PointY="5.375" />
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Categorie" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Client" Width="1.5" PointX="8.25" PointY="1.25" />
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Commande" Width="1.5" PointX="5.375" PointY="0.75" />
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Details_Commande" Width="1.5" PointX="5.25" PointY="4.625" />
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Produit" Width="1.5" PointX="2.875" PointY="4.625" />
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Type" Width="1.5" PointX="0.75" PointY="4.625" />
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Utilisateur" Width="1.5" PointX="1.625" PointY="1.625" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Affectation" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Categorie" Width="1.5" PointX="0.75" PointY="2.25" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Client" Width="1.5" PointX="3" PointY="10.5" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Commande" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Details_Commande" Width="1.5" PointX="8.25" PointY="4.5" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Produit" Width="1.5" PointX="3" PointY="4.125" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Type" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Utilisateur" Width="1.5" PointX="5.75" PointY="8.75" />
         <AssociationConnector Association="GESTION_DE_STOCKModel.FK_Affectation_Client" />
         <AssociationConnector Association="GESTION_DE_STOCKModel.FK_Affectation_Produit" />
         <AssociationConnector Association="GESTION_DE_STOCKModel.FK_Produit_Categorie" />

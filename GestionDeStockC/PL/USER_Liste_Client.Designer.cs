@@ -271,7 +271,7 @@ namespace GestionDeStockC.PL
             this.btnmodifierclient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnmodifierclient.ForeColor = System.Drawing.Color.White;
             this.btnmodifierclient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnmodifierclient.Location = new System.Drawing.Point(465, 24);
+            this.btnmodifierclient.Location = new System.Drawing.Point(469, 23);
             this.btnmodifierclient.Name = "btnmodifierclient";
             this.btnmodifierclient.Size = new System.Drawing.Size(130, 32);
             this.btnmodifierclient.TabIndex = 19;

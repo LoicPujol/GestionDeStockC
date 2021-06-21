@@ -29,7 +29,7 @@ namespace GestionDeStockC
         public int ID_Categorie { get; set; }
         public Nullable<int> ID_Type { get; set; }
         public Nullable<int> Stock_Alerte { get; set; }
-        public Nullable<System.DateTime> Date_Controle { get; set; }
+        public string Date_Controle { get; set; }
         public string NumInventaire { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

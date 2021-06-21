@@ -156,6 +156,7 @@ namespace GestionDeStockC.PL
                 {
                 dvgclient.Rows.Add(false, l.ID_Client, l.Nom_Client, l.Prenom_Client, l.Adresse_Client, l.Telephone_Client, l.Email_Client, l.Ville_Client, l.Pays_Client);
                 }
+            dvgclient.ClearSelection();
         }
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
