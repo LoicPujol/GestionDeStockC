@@ -6,14 +6,9 @@
 --passer tout les dgv en readonly
 --ajouter des exports exel
 
-FRM_Ajoute_Modifier_Client :
--- passer la verif sur le numero client au lieu du nom et ou prenom
-
 USER_Alerte :
 -- afficher les produits que si stock alerte et stock reel existe
-
-FRM_Produit_Commande :
--- bloquer remise
+-- afficher produit en alerte que si affecte
 
 USER_Liste_Produit :
 --prendre quantite par article dans le total des affectations

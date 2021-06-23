@@ -86,7 +86,7 @@ namespace GestionDeStockC.PL
                 BL.CLS_Client clclient = new BL.CLS_Client();
                 if ((dvgclient.CurrentRow != null) || (dvgclient.Rows.Count != 0))
                 {
-                    int idselect = (int)dvgclient.CurrentRow.Cells[1].Value;// id de la ligne cocher
+                    int idselect = (int)dvgclient.CurrentRow.Cells[0].Value;// id de la ligne cocher
                     int NbreProd = db.Affectations.Count(s => s.ID_Client == idselect);
                     if (NbreProd == 0)
                     {

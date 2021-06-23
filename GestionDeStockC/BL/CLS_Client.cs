@@ -26,7 +26,7 @@ namespace GestionDeStockC.BL
             C.Code_Zip = CodeZip;
             C.Rabais = rabais;
             //verifier si client existe
-            if(db.Clients.SingleOrDefault(s=>s.Nom_Client==Nom && s.Prenom_Client==Prenom)==null)// si existe pas
+            if(db.Clients.SingleOrDefault(s=>s.Num_Client==NumClient)==null)// si existe pas
             {
                 db.Clients.Add(C);//ajouter dans la table client
                 db.SaveChanges();//enregistrer dans la base de données

@@ -77,7 +77,7 @@ namespace GestionDeStockC.PL
                 }
                 else
                 {
-                    MessageBox.Show("Nom et prénom éxistent déja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Le numero de client éxistent déja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }else //si lblTitre=Modifier client
             {

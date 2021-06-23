@@ -77,7 +77,7 @@ namespace GestionDeStockC.PL
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dvgProduit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvgProduit.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dvgProduit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dvgProduit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dvgProduit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
@@ -438,7 +438,7 @@ namespace GestionDeStockC.PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Menu;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnexcel);
             this.Controls.Add(this.dvgProduit);

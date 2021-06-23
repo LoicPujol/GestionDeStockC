@@ -126,7 +126,7 @@ namespace GestionDeStockC.PL
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dvgclient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvgclient.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dvgclient.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dvgclient.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dvgclient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
@@ -172,7 +172,7 @@ namespace GestionDeStockC.PL
             this.dvgclient.RowHeadersVisible = false;
             this.dvgclient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dvgclient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgclient.Size = new System.Drawing.Size(1107, 640);
+            this.dvgclient.Size = new System.Drawing.Size(1107, 625);
             this.dvgclient.TabIndex = 17;
             // 
             // Column9
@@ -337,6 +337,7 @@ namespace GestionDeStockC.PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnsupprimerclient);
             this.Controls.Add(this.btnmodifierclient);

@@ -67,7 +67,7 @@ namespace GestionDeStockC.PL
 
         public void ActualiserdvgAlerte()
         {
-            dgvDate.Columns[6].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvDate.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
             dgvDate.Rows.Clear();
             //Pour afficher le nom de categorie a partir de idcategorie
@@ -80,35 +80,30 @@ namespace GestionDeStockC.PL
                 Cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == Lis.ID_Categorie);
                 Typ = db.Types.SingleOrDefault(s => s.ID_Type == Lis.ID_Type);//ajout type
                 
-                if (Lis.Date_Controle != null)
+                if (Lis.Date_Controle != "")
                 {
-                    //DateTime date = Convert.ToDateTime(Lis.Date_Controle.ToString("dd/MM/yyyy"));
-                    for (int i = 0; i < dgvDate.Rows.Count; i++)
-                    { 
-                    DateTime date = Convert.ToDateTime(dgvDate.Rows[i].Cells[5].Value.ToString());
+                    DateTime date = Convert.ToDateTime(Lis.Date_Controle.ToString());
                     DateTime dateDuJour = DateTime.Now;
                     int nbJours = (date - dateDuJour).Days;
-
                         if (Cat != null & Typ != null & nbJours <= 30)//si existe
                         {
                             IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
                             NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
                             {
-                                dgvDate.Rows.Add(false, false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client);//cat.Nom pour afficher nom de cagorie depuis table categorie
+                                dgvDate.Rows.Add(Lis.ID_Produit, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client);//cat.Nom pour afficher nom de cagorie depuis table categorie
                             }
-                        }
                         }
                 }
             }
             for (int i = 0; i < dgvDate.Rows.Count; i++)
             {
-                if ((int)dgvDate.Rows[i].Cells[7].Value <= 0)
+                if ((int)dgvDate.Rows[i].Cells[6].Value <= 0)
                 {
-                    dgvDate.Rows[i].Cells[7].Style.BackColor = Color.DimGray;
+                    dgvDate.Rows[i].Cells[6].Style.BackColor = Color.DimGray;
                 }
                 else
                 {
-                    dgvDate.Rows[i].Cells[7].Style.BackColor = Color.DarkGray;
+                    dgvDate.Rows[i].Cells[6].Style.BackColor = Color.DarkGray;
                 }
                 dgvDate.ClearSelection();
             }

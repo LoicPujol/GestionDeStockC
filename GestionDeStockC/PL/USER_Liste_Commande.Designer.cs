@@ -120,7 +120,7 @@ namespace GestionDeStockC.PL
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dvgCommande.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvgCommande.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dvgCommande.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dvgCommande.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dvgCommande.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
@@ -196,7 +196,7 @@ namespace GestionDeStockC.PL
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dvgDetailCde.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvgDetailCde.BackgroundColor = System.Drawing.SystemColors.Menu;
-            this.dvgDetailCde.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dvgDetailCde.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dvgDetailCde.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.DodgerBlue;
@@ -265,7 +265,7 @@ namespace GestionDeStockC.PL
             // 
             // txtClient
             // 
-            this.txtClient.BackColor = System.Drawing.SystemColors.Control;
+            this.txtClient.BackColor = System.Drawing.SystemColors.Menu;
             this.txtClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.txtClient.ForeColor = System.Drawing.Color.DimGray;
             this.txtClient.Location = new System.Drawing.Point(321, 29);
@@ -278,7 +278,7 @@ namespace GestionDeStockC.PL
             // 
             // txtNumCommande
             // 
-            this.txtNumCommande.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNumCommande.BackColor = System.Drawing.SystemColors.Menu;
             this.txtNumCommande.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.txtNumCommande.ForeColor = System.Drawing.Color.DimGray;
             this.txtNumCommande.Location = new System.Drawing.Point(9, 29);
@@ -336,7 +336,7 @@ namespace GestionDeStockC.PL
             // 
             // txtPeriode
             // 
-            this.txtPeriode.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPeriode.BackColor = System.Drawing.SystemColors.Menu;
             this.txtPeriode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.txtPeriode.ForeColor = System.Drawing.Color.DimGray;
             this.txtPeriode.Location = new System.Drawing.Point(164, 29);
@@ -373,6 +373,7 @@ namespace GestionDeStockC.PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnajouter);
             this.Controls.Add(this.dvgDetailCde);
