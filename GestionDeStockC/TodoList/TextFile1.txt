@@ -3,19 +3,23 @@
 --empecher la saisie de plus de X caractere (variable selon les champs)
 --verifier les champs obligatoire
 --corriger faute orthographe 
-
 --passer tout les dgv en readonly
+--ajouter des exports exel
 
-User Liste produit :
---reprendre l'export excel
+FRM_Ajoute_Modifier_Client :
+-- passer la verif sur le numero client au lieu du nom et ou prenom
 
-SQL Table client :
---ajouter numero client
+USER_Alerte :
+-- afficher les produits que si stock alerte et stock reel existe
 
-SQL : reprendre toutes les tables et verifier les champs obligation
+FRM_Produit_Commande :
+-- bloquer remise
+
+USER_Liste_Produit :
+--prendre quantite par article dans le total des affectations
 
 User Affectation :
--- supprimer ligne si qte = 0  ==> doit se faire dans table affectation SQL
+-- supprimer ligne si qte = 0  ==> doit se faire dans table affectation SQL OU mettre un check box pour voir les ligne a 0 de stock
 
 FRM Detail commande :
 --contextstrip modifier prend le stock dans table produit

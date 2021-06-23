@@ -11,7 +11,7 @@ namespace GestionDeStockC.BL
         private dbStockContext db = new dbStockContext();
         private Produit PR;
         //ajouter produit
-        public bool Ajouter_Produit(string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype,string dateCtrl, string inventaire)//image pour sauvegarder dand base de donne doit etre au format byte
+        public bool Ajouter_Produit(string NomP, string quantite, string alerte, string prix, byte[] imageP, int idcategorie, int idtype,string dateCtrl, string inventaire, string Serie, string tarifachat, string poids, string marge)//image pour sauvegarder dand base de donne doit etre au format byte
         {
             PR = new Produit();
             PR.Nom_Produit = NomP;
@@ -23,6 +23,10 @@ namespace GestionDeStockC.BL
             PR.ID_Type = idtype;
             PR.Date_Controle = dateCtrl;
             PR.NumInventaire = inventaire;
+            PR.N_Serie = Serie;
+            PR.Tarif_Achat = tarifachat;
+            PR.Poids = poids;
+            PR.Marge = marge;
             //verifier si le produit existe
             if (db.Produits.SingleOrDefault(a => a.NumInventaire.ToString() == inventaire.ToString()) == null)//n'existe pas
             {
@@ -36,7 +40,7 @@ namespace GestionDeStockC.BL
             }
         }
         //Modifier  Produit
-        public void Modifier_Produit(int IDP, string NomP, int quantite, int alerte, string prix, byte[] imageP, int idcategorie, int idtype, string dateCtrl, string inventaire)
+        public void Modifier_Produit(int IDP, string NomP, string quantite, string alerte, string prix, byte[] imageP, int idcategorie, int idtype, string dateCtrl, string inventaire, string Serie, string tarifachat, string poids, string marge)
         {
             PR = new Produit();
             PR = db.Produits.SingleOrDefault(s => s.ID_Produit == IDP);//verifier si id de client existe
@@ -51,6 +55,10 @@ namespace GestionDeStockC.BL
                 PR.ID_Type = idtype;
                 PR.Date_Controle = dateCtrl;
                 PR.NumInventaire = inventaire;
+                PR.N_Serie = Serie;
+                PR.Tarif_Achat = tarifachat;
+                PR.Poids = poids;
+                PR.Marge = marge;
                 db.SaveChanges();//sauver changement dans base donnee
             }
         }

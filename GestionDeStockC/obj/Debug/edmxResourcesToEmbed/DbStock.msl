@@ -22,6 +22,9 @@
     <EntitySetMapping Name="Clients">
       <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Client">
         <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Num_Client" ColumnName="Num_Client" />
+          <ScalarProperty Name="Rabais" ColumnName="Rabais" />
+          <ScalarProperty Name="Code_Zip" ColumnName="Code_Zip" />
           <ScalarProperty Name="Email_Client" ColumnName="Email_Client" />
           <ScalarProperty Name="Ville_Client" ColumnName="Ville_Client" />
           <ScalarProperty Name="Pays_Client" ColumnName="Pays_Client" />
@@ -62,6 +65,10 @@
     <EntitySetMapping Name="Produits">
       <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Produit">
         <MappingFragment StoreEntitySet="Produit">
+          <ScalarProperty Name="Marge" ColumnName="Marge" />
+          <ScalarProperty Name="Poids" ColumnName="Poids" />
+          <ScalarProperty Name="Tarif_Achat" ColumnName="Tarif_Achat" />
+          <ScalarProperty Name="N_Serie" ColumnName="N_Serie" />
           <ScalarProperty Name="NumInventaire" ColumnName="NumInventaire" />
           <ScalarProperty Name="Date_Controle" ColumnName="Date_Controle" />
           <ScalarProperty Name="Stock_Alerte" ColumnName="Stock_Alerte" />

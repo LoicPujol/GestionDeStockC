@@ -44,12 +44,12 @@ namespace GestionDeStockC.PL
             {
                 Cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == Lis.ID_Categorie);
                 Typ = db.Types.SingleOrDefault(s => s.ID_Type == Lis.ID_Type);//ajout type
-                if (Cat != null & Typ != null & Lis.Quantité_Produit <= Lis.Stock_Alerte)//si existe
-                {
+                //if (Cat != null & Typ != null & int.Parse(Lis.Quantité_Produit) <= Lis.Stock_Alerte)//si existe
+                //{
                     dgvStock.Rows.Add(false, false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Quantité_Produit, Lis.Stock_Alerte);//cat.Nom pour afficher nom de cagorie depuis table categorie
-                }
+                //}
             }
-            for (int i = 0; i < dgvStock.Rows.Count; i++)
+            /**for (int i = 0; i < dgvStock.Rows.Count; i++)
             {
                 if ((int)dgvStock.Rows[i].Cells[6].Value == 0)
                 {
@@ -61,7 +61,7 @@ namespace GestionDeStockC.PL
                 }
                 dgvStock.ClearSelection();
             
-            }
+            }**/
 
         }
 

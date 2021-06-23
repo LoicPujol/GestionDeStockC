@@ -29,6 +29,9 @@ namespace GestionDeStockC
         public string Pays_Client { get; set; }
         public string Ville_Client { get; set; }
         public string Email_Client { get; set; }
+        public string Code_Zip { get; set; }
+        public string Rabais { get; set; }
+        public string Num_Client { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Affectation> Affectations { get; set; }

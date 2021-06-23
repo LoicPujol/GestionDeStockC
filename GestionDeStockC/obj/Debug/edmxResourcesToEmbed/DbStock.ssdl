@@ -22,12 +22,15 @@
     </Key>
     <Property Name="ID_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nom_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Prenom_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Adresse_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Telephone_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Pays_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Ville_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Email_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Prenom_Client" Type="nvarchar" MaxLength="250" />
+    <Property Name="Adresse_Client" Type="nvarchar" MaxLength="250" />
+    <Property Name="Telephone_Client" Type="nvarchar" MaxLength="250" />
+    <Property Name="Pays_Client" Type="nvarchar" MaxLength="250" />
+    <Property Name="Ville_Client" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email_Client" Type="nvarchar" MaxLength="250" />
+    <Property Name="Code_Zip" Type="nvarchar" MaxLength="250" />
+    <Property Name="Rabais" Type="nvarchar" MaxLength="50" />
+    <Property Name="Num_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="Commande">
     <Key>
@@ -58,15 +61,19 @@
       <PropertyRef Name="ID_Produit" />
     </Key>
     <Property Name="ID_Produit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nom_Produit" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Quantité_Produit" Type="int" Nullable="false" />
-    <Property Name="Prix_Produit" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Image_Produit" Type="image" Nullable="false" />
+    <Property Name="Nom_Produit" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quantité_Produit" Type="nvarchar" MaxLength="50" />
+    <Property Name="Prix_Produit" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image_Produit" Type="image" />
     <Property Name="ID_Categorie" Type="int" Nullable="false" />
-    <Property Name="ID_Type" Type="int" />
-    <Property Name="Stock_Alerte" Type="int" />
+    <Property Name="ID_Type" Type="int" Nullable="false" />
+    <Property Name="Stock_Alerte" Type="nvarchar" MaxLength="50" />
     <Property Name="Date_Controle" Type="nvarchar" MaxLength="50" />
-    <Property Name="NumInventaire" Type="nvarchar" MaxLength="250" />
+    <Property Name="NumInventaire" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="N_Serie" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tarif_Achat" Type="nvarchar" MaxLength="50" />
+    <Property Name="Poids" Type="nvarchar" MaxLength="50" />
+    <Property Name="Marge" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Type">
     <Key>
@@ -167,7 +174,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Produit_Type">
-    <End Role="Type" Type="Self.Type" Multiplicity="0..1">
+    <End Role="Type" Type="Self.Type" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Produit" Type="Self.Produit" Multiplicity="*" />

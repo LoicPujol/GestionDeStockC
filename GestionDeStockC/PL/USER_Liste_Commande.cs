@@ -34,20 +34,73 @@ namespace GestionDeStockC.PL
         //Remplir datagrid commande
         public void Actualisedatagrid()
         {
+            dvgCommande.Visible = false;
             dvgCommande.Rows.Clear();
-            dvgCommande.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dvgCommande.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
+            var listecommande = db.Commandes.ToList();
             Client c = new Client();
             string NomPrenom;
-            foreach(var LC in db.Commandes)
+
+             foreach (var LC in listecommande)
+             {
+                 c = db.Clients.Single(s => s.ID_Client == LC.ID_Client);
+                 NomPrenom = c.Nom_Client + " " + c.Prenom_Client;
+            
+                dvgCommande.Rows.Add(LC.ID_Commande, LC.DATE_Commande, NomPrenom, LC.Total_HT);
+             }
+                ListSortDirection TryDirection = ListSortDirection.Descending;
+                dvgCommande.Sort(dvgCommande.Columns[0], TryDirection);
+                dvgCommande.ClearSelection();
+
+            if (txtNumCommande.Text.ToString() != "")
             {
-                //afficher nom + prenom de client a partir de son ID
-                c = db.Clients.Single(s => s.ID_Client == LC.ID_Client);
-                NomPrenom = c.Nom_Client + " " + c.Prenom_Client;
-                dvgCommande.Rows.Add(false, LC.ID_Commande, LC.DATE_Commande, NomPrenom, LC.Total_HT);
+                foreach (System.Windows.Forms.DataGridViewRow r in dvgCommande.Rows)
+                {
+                    if ((r.Cells[0].Value).ToString().ToUpper().Contains(txtNumCommande.Text.ToString().ToUpper()))
+                    {
+                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgCommande.CurrentCell = null;
+                        dvgCommande.Rows[r.Index].Visible = false;
+                    }
+                }
             }
-            ListSortDirection TryDirection = ListSortDirection.Descending;
-            dvgCommande.Sort(dvgCommande.Columns[1], TryDirection);
-            dvgCommande.ClearSelection();
+            if (txtClient.Text.ToString() != "")
+            {
+                foreach (System.Windows.Forms.DataGridViewRow r in dvgCommande.Rows)
+                {
+                    if ((r.Cells[2].Value).ToString().ToUpper().Contains(txtClient.Text.ToString().ToUpper()))
+                    {
+                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgCommande.CurrentCell = null;
+                        dvgCommande.Rows[r.Index].Visible = false;
+                    }
+                }
+            }
+            if (txtPeriode.Text.ToString() != "")
+            {
+                foreach (System.Windows.Forms.DataGridViewRow r in dvgCommande.Rows)
+                {
+                    if ((r.Cells[1].Value).ToString().ToUpper().Contains(txtPeriode.Text.ToString().ToUpper()))
+                    {
+                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dvgCommande.CurrentCell = null;
+                        dvgCommande.Rows[r.Index].Visible = false;
+                    }
+                }
+            }
+            dvgCommande.Visible = true;
         }
        
         private void btnajouter_Click(object sender, EventArgs e)
@@ -63,28 +116,39 @@ namespace GestionDeStockC.PL
         }
         private void txtNumCde_TextChanged(object sender, EventArgs e)
         {
-            Produit Inv = new Produit();
-            int NumCde = 0;
-            NumCde = Int32.Parse(txtNumCde.Text);
-
-            var detailcommande = db.Details_Commande.ToList();
-                if(txtNumCde.Text != "")
-                {
-                detailcommande = detailcommande.Where(s => s.ID_Commande == NumCde).ToList();
-                dvgDetailCde.Rows.Clear();
-                foreach (var l in detailcommande)
-                {
-                    Inv = db.Produits.SingleOrDefault(s => s.ID_Produit == l.ID_Produit);
-                    dvgDetailCde.Rows.Add(l.ID_Produit, Inv.NumInventaire, l.Nom_Produit, l.Quantite, l.Remise);
-                }
-                }
-                dvgDetailCde.ClearSelection();
+            dvgDetailCde.Rows.Clear();
+            var listerecherche = db.Details_Commande.ToList();
+            Produit Inventaire = new Produit();
+            listerecherche = listerecherche.Where(s => s.ID_Commande.ToString() == txtNumCde.Text).ToList();
+      
+            foreach (var LC in listerecherche)
+            {
+                Inventaire = db.Produits.SingleOrDefault(s => s.ID_Produit == LC.ID_Produit);
+                dvgDetailCde.Rows.Add(Inventaire.NumInventaire, LC.Nom_Produit, LC.Quantite, LC.Remise);
+            }
+            dvgDetailCde.ClearSelection();
         }
-
-       
         private void dvgCommande_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNumCde.Text = dvgCommande.CurrentRow.Cells[1].Value.ToString();
+            txtNumCde.Text = dvgCommande.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void txtNumCommande_TextChanged(object sender, EventArgs e)
+        {
+            txtNumCde.Text = "";
+            Actualisedatagrid();
+        }
+
+        private void txtClient_TextChanged(object sender, EventArgs e)
+        {
+            txtNumCde.Text = "";
+            Actualisedatagrid();
+        }
+
+        private void txtPeriode_TextChanged(object sender, EventArgs e)
+        {
+            txtNumCde.Text = "";
+            Actualisedatagrid();
         }
     }
 }

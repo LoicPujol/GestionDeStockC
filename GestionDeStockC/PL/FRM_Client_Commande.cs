@@ -32,7 +32,7 @@ namespace GestionDeStockC.PL
             dvgclient.Rows.Clear();
             foreach (var LC in db.Clients)
             {
-                dvgclient.Rows.Add(LC.ID_Client, LC.Nom_Client + " " + LC.Prenom_Client, LC.Adresse_Client, LC.Telephone_Client, LC.Email_Client, LC.Ville_Client, LC.Pays_Client);
+                dvgclient.Rows.Add(LC.ID_Client, LC.Num_Client, LC.Nom_Client + " " + LC.Prenom_Client, LC.Telephone_Client, LC.Ville_Client, LC.Rabais);
             }
             dvgclient.ClearSelection();
             if (txtID.Text.ToString() != "")
@@ -51,11 +51,11 @@ namespace GestionDeStockC.PL
                     }
                 }
             }
-            if (txtrechercheInv.Text.ToString() != "")
+            if (txtNumeroClient.Text.ToString() != "")
             {
                 foreach (System.Windows.Forms.DataGridViewRow r in dvgclient.Rows)
                 {
-                    if ((r.Cells[0].Value).ToString().ToUpper().Contains(txtrechercheInv.Text.ToString().ToUpper()))
+                    if ((r.Cells[1].Value).ToString().ToUpper().Contains(txtNumeroClient.Text.ToString().ToUpper()))
                     {
                         //dvgAffectationProduit.Rows[r.Index].Visible = true;
                         //dvgAffectationProduit.Rows[r.Index].Selected = true;
@@ -67,11 +67,11 @@ namespace GestionDeStockC.PL
                     }
                 }
             }
-            if (txtrechercheNom.Text.ToString() != "")
+            if (txtNomClient.Text.ToString() != "")
             {
                 foreach (System.Windows.Forms.DataGridViewRow r in dvgclient.Rows)
                 {
-                    if ((r.Cells[1].Value).ToString().ToUpper().Contains(txtrechercheNom.Text.ToString().ToUpper()))
+                    if ((r.Cells[2].Value).ToString().ToUpper().Contains(txtNomClient.Text.ToString().ToUpper()))
                     {
                         //dvgAffectationProduit.Rows[r.Index].Visible = true;
                         //dvgAffectationProduit.Rows[r.Index].Selected = true;

@@ -47,6 +47,7 @@ namespace GestionDeStockC.PL
         }
         public void Actualiserdvg()
         {
+            dvgProduit.Visible = false;
             /**dvgProduit.Columns[9].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
             var listerecherche = db.Produits.ToList();//liste de recherche = liste des clients
@@ -126,7 +127,7 @@ namespace GestionDeStockC.PL
                     {
                         cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
                         typ = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);//ajout type
-                        dvgProduit.Rows.Add(false, l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit, l.Quantité_Produit, l.Stock_Alerte, l.Prix_Produit,  l.Date_Controle);
+                        dvgProduit.Rows.Add(false, l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit, l.Quantité_Produit, l.Stock_Alerte, l.Prix_Produit,  l.Date_Controle, l.N_Serie, l.Poids, l.Marge, l.Tarif_Achat);
                     }
 
             foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
@@ -171,6 +172,7 @@ namespace GestionDeStockC.PL
                     }
                 }
             }
+            dvgProduit.Visible = true;
         }
         private void btnajouter_Click(object sender, EventArgs e)
         {
@@ -184,24 +186,23 @@ namespace GestionDeStockC.PL
             if ((dvgProduit.CurrentRow != null) || (dvgProduit.Rows.Count != 0))
             { 
                     frmproduit.lblTitre.Text = "Modifier Produit";
-                    frmproduit.btnactualiser.Visible = false;
                     frmproduit.IDPRODUIT = (int)dvgProduit.CurrentRow.Cells[1].Value;
                     frmproduit.combocategorie.Text = dvgProduit.CurrentRow.Cells[2].Value.ToString();
                     frmproduit.combotype.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
                     frmproduit.combotype.Enabled = false;
                     frmproduit.txtInventaireProd.Text = dvgProduit.CurrentRow.Cells[4].Value.ToString();
-                    frmproduit.txtInventaireProd.ForeColor = Color.Black;
+                    frmproduit.txtInventaireProd.ForeColor = Color.Silver;
                     frmproduit.txtInventaireProd.Enabled = false;
                     frmproduit.txtNomP.Text = dvgProduit.CurrentRow.Cells[5].Value.ToString();
-                    frmproduit.txtNomP.ForeColor = Color.Black;
                     frmproduit.txtQuantite.Text = dvgProduit.CurrentRow.Cells[6].Value.ToString();
-                    frmproduit.txtQuantite.ForeColor = Color.Black;
                     frmproduit.txtStockAlerte.Text = dvgProduit.CurrentRow.Cells[7].Value.ToString();
-                    frmproduit.txtStockAlerte.ForeColor = Color.Black;
                     frmproduit.txtPrix.Text = dvgProduit.CurrentRow.Cells[8].Value.ToString();
-                    frmproduit.txtPrix.ForeColor = Color.Black;
-
-                    if (dvgProduit.CurrentRow.Cells[3].Value.ToString() == "Unitaire")
+                    frmproduit.txtNumSerie.Text = dvgProduit.CurrentRow.Cells[10].Value.ToString();
+                    frmproduit.txtTarifAchat.Text = dvgProduit.CurrentRow.Cells[11].Value.ToString();
+                    frmproduit.txtMarge.Text = dvgProduit.CurrentRow.Cells[12].Value.ToString();
+                    frmproduit.txtPoids.Text = dvgProduit.CurrentRow.Cells[13].Value.ToString();
+                    
+                if (dvgProduit.CurrentRow.Cells[3].Value.ToString() == "Unitaire")
                     {
                         frmproduit.grpDateCtrl.Visible = true;
                     }
@@ -277,27 +278,42 @@ namespace GestionDeStockC.PL
                     Worksheet ws = (Worksheet)app.ActiveSheet;
                     app.Visible = false;
                     //Les noms des colones :
-                    ws.Cells[1, 1] = "ID Produit";
-                    ws.Cells[1, 2] = "Nom Produit";
-                    ws.Cells[1, 3] = "Quantite Produit";
-                    ws.Cells[1, 4] = "Prix Produit";
+                    ws.Cells[1, 1] = "Numero Inventaire";
+                    ws.Cells[1, 2] = "Id Categorie";
+                    ws.Cells[1, 3] = "Id Type";
+                    ws.Cells[1, 4] = "Designation";
+                    ws.Cells[1, 5] = "Tarif achat";
+                    ws.Cells[1, 6] = "Tarif vente";
+                    ws.Cells[1, 7] = "Marge";
+                    ws.Cells[1, 8] = "Stock alerte";
+                    ws.Cells[1, 9] = "Date contrôle";
+                    ws.Cells[1, 10] = "Numero serie";
+                    ws.Cells[1, 11] = "Poids";
+
                     //liste des produits
                     var ListeProduit = db.Produits.ToList();
                     int i = 2;
                     foreach (var L in ListeProduit)
                     {
                         ws.Cells[i, 1] = L.NumInventaire;
-                        ws.Cells[i, 2] = L.Nom_Produit;
-                        ws.Cells[i, 3] = L.Quantité_Produit;
-                        ws.Cells[i, 4] = L.Prix_Produit;
+                        ws.Cells[i, 2] = L.ID_Categorie;
+                        ws.Cells[i, 3] = L.ID_Type;
+                        ws.Cells[i, 4] = L.Nom_Produit;
+                        ws.Cells[i, 5] = L.Tarif_Achat;
+                        ws.Cells[i, 6] = L.Prix_Produit;
+                        ws.Cells[i, 7] = L.Marge;
+                        ws.Cells[i, 8] = L.Stock_Alerte;
+                        ws.Cells[i, 9] = L.Date_Controle;
+                        ws.Cells[i, 10] = L.N_Serie;
+                        ws.Cells[i, 11] = L.Poids;
                         i++;
                     }
                     //Mise en forme de l'excel
-                    ws.Range["A1:D1"].Interior.Color = Color.Teal;
-                    ws.Range["A1:D1"].Font.Color = Color.White;
-                    ws.Range["A1:D1"].Font.Size = 15;
-                    ws.Range["A1:D1"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                    ws.Range["A1:D1"].ColumnWidth = 16;
+                    ws.Range["A1:K1"].Interior.Color = Color.Blue;
+                    ws.Range["A1:K1"].Font.Color = Color.White;
+                    ws.Range["A1:K1"].Font.Size = 15;
+                    ws.Range["A:K"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    ws.Range["A1:K1"].ColumnWidth = 16;
                     //Fermer classeur
                     wb.SaveAs(SDF.FileName);
                     app.Quit();
@@ -309,11 +325,12 @@ namespace GestionDeStockC.PL
         {
             Actualiserdvg();
         }
-
         private void btnSupCombo_Click(object sender, EventArgs e)
         {
             combocategorie.SelectedIndex = -1;
             combotype.SelectedIndex = -1;
+            txtrechercheInvProd.Text = "";
+            txtrechercheNom.Text = "";
             Actualiserdvg();
         }
         private void combotype_SelectionChangeCommitted(object sender, EventArgs e)
@@ -332,7 +349,5 @@ namespace GestionDeStockC.PL
         {
             Actualiserdvg();
         }
-  
     }
-
 }

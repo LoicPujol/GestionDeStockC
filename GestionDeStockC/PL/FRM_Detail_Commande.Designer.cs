@@ -31,17 +31,16 @@ namespace GestionDeStockC.PL
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Detail_Commande));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnenregistrer = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -81,9 +80,10 @@ namespace GestionDeStockC.PL
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnExp = new System.Windows.Forms.Button();
             this.txtNomExp = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRemise = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.grpPoduit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).BeginInit();
@@ -91,6 +91,7 @@ namespace GestionDeStockC.PL
             ((System.ComponentModel.ISupportInitialize)(this.dvgDetailCommande)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -119,6 +120,7 @@ namespace GestionDeStockC.PL
             // 
             // btnenregistrer
             // 
+            this.btnenregistrer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnenregistrer.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnenregistrer.FlatAppearance.BorderSize = 0;
             this.btnenregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -126,24 +128,11 @@ namespace GestionDeStockC.PL
             this.btnenregistrer.ForeColor = System.Drawing.Color.Black;
             this.btnenregistrer.Location = new System.Drawing.Point(1253, 8);
             this.btnenregistrer.Name = "btnenregistrer";
-            this.btnenregistrer.Size = new System.Drawing.Size(133, 65);
+            this.btnenregistrer.Size = new System.Drawing.Size(133, 46);
             this.btnenregistrer.TabIndex = 47;
             this.btnenregistrer.Text = "Enregistrer";
             this.btnenregistrer.UseVisualStyleBackColor = false;
             this.btnenregistrer.Click += new System.EventHandler(this.btnenregistrer_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(71, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 24);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "Nom :";
             // 
             // label8
             // 
@@ -159,66 +148,61 @@ namespace GestionDeStockC.PL
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(363, 22);
+            this.label9.Location = new System.Drawing.Point(293, 24);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(26, 24);
+            this.label9.Size = new System.Drawing.Size(23, 20);
             this.label9.TabIndex = 57;
             this.label9.Text = "%";
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(17, 22);
+            this.label10.Location = new System.Drawing.Point(17, 28);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 24);
+            this.label10.Size = new System.Drawing.Size(77, 20);
             this.label10.TabIndex = 57;
             this.label10.Text = "Total HT :";
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(213, 20);
+            this.label11.Location = new System.Drawing.Point(177, 27);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 24);
+            this.label11.Size = new System.Drawing.Size(48, 20);
             this.label11.TabIndex = 58;
             this.label11.Text = "TVA :";
             // 
             // label12
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(413, 20);
+            this.label12.Location = new System.Drawing.Point(317, 24);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(114, 24);
+            this.label12.Size = new System.Drawing.Size(85, 20);
             this.label12.TabIndex = 59;
             this.label12.Text = "Total TTC :";
             // 
             // btnDest
             // 
-            this.btnDest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDest.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnDest.FlatAppearance.BorderSize = 0;
             this.btnDest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDest.Location = new System.Drawing.Point(9, 23);
+            this.btnDest.Location = new System.Drawing.Point(8, 18);
             this.btnDest.Name = "btnDest";
             this.btnDest.Size = new System.Drawing.Size(53, 32);
             this.btnDest.TabIndex = 60;
@@ -228,68 +212,64 @@ namespace GestionDeStockC.PL
             // 
             // txtNomDest
             // 
-            this.txtNomDest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNomDest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNomDest.BackColor = System.Drawing.Color.White;
             this.txtNomDest.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNomDest.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtNomDest.Enabled = false;
             this.txtNomDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomDest.ForeColor = System.Drawing.Color.Black;
-            this.txtNomDest.Location = new System.Drawing.Point(143, 23);
+            this.txtNomDest.Location = new System.Drawing.Point(67, 18);
             this.txtNomDest.Multiline = true;
             this.txtNomDest.Name = "txtNomDest";
-            this.txtNomDest.Size = new System.Drawing.Size(236, 32);
+            this.txtNomDest.Size = new System.Drawing.Size(224, 32);
             this.txtNomDest.TabIndex = 61;
             this.txtNomDest.TextChanged += new System.EventHandler(this.txtNomDest_TextChanged);
             // 
             // txttotalht
             // 
-            this.txttotalht.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txttotalht.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txttotalht.BackColor = System.Drawing.Color.White;
             this.txttotalht.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttotalht.Cursor = System.Windows.Forms.Cursors.Help;
             this.txttotalht.Enabled = false;
-            this.txttotalht.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttotalht.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttotalht.ForeColor = System.Drawing.Color.Black;
-            this.txttotalht.Location = new System.Drawing.Point(125, 19);
+            this.txttotalht.Location = new System.Drawing.Point(93, 23);
             this.txttotalht.Multiline = true;
             this.txttotalht.Name = "txttotalht";
-            this.txttotalht.Size = new System.Drawing.Size(0, 32);
+            this.txttotalht.Size = new System.Drawing.Size(68, 24);
             this.txttotalht.TabIndex = 67;
             // 
             // txttva
             // 
-            this.txttva.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txttva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txttva.BackColor = System.Drawing.Color.White;
             this.txttva.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttva.Cursor = System.Windows.Forms.Cursors.Help;
-            this.txttva.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttva.ForeColor = System.Drawing.Color.Black;
-            this.txttva.Location = new System.Drawing.Point(282, 19);
+            this.txttva.Location = new System.Drawing.Point(225, 23);
             this.txttva.Multiline = true;
             this.txttva.Name = "txttva";
-            this.txttva.Size = new System.Drawing.Size(0, 32);
+            this.txttva.Size = new System.Drawing.Size(69, 24);
             this.txttva.TabIndex = 68;
             this.txttva.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txttva.TextChanged += new System.EventHandler(this.txttva_TextChanged);
             // 
             // txttotalttc
             // 
-            this.txttotalttc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txttotalttc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txttotalttc.BackColor = System.Drawing.Color.White;
             this.txttotalttc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txttotalttc.Cursor = System.Windows.Forms.Cursors.Help;
             this.txttotalttc.Enabled = false;
-            this.txttotalttc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttotalttc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txttotalttc.ForeColor = System.Drawing.Color.Black;
-            this.txttotalttc.Location = new System.Drawing.Point(533, 16);
+            this.txttotalttc.Location = new System.Drawing.Point(399, 23);
             this.txttotalttc.Multiline = true;
             this.txttotalttc.Name = "txttotalttc";
-            this.txttotalttc.Size = new System.Drawing.Size(0, 32);
+            this.txttotalttc.Size = new System.Drawing.Size(133, 24);
             this.txttotalttc.TabIndex = 69;
             // 
             // grpPoduit
@@ -307,7 +287,7 @@ namespace GestionDeStockC.PL
             this.grpPoduit.ForeColor = System.Drawing.Color.Black;
             this.grpPoduit.Location = new System.Drawing.Point(12, 79);
             this.grpPoduit.Name = "grpPoduit";
-            this.grpPoduit.Size = new System.Drawing.Size(868, 704);
+            this.grpPoduit.Size = new System.Drawing.Size(837, 704);
             this.grpPoduit.TabIndex = 71;
             this.grpPoduit.TabStop = false;
             this.grpPoduit.Text = "Produit";
@@ -337,7 +317,7 @@ namespace GestionDeStockC.PL
             this.txtIdExp.BackColor = System.Drawing.SystemColors.Control;
             this.txtIdExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.txtIdExp.ForeColor = System.Drawing.Color.DimGray;
-            this.txtIdExp.Location = new System.Drawing.Point(722, 19);
+            this.txtIdExp.Location = new System.Drawing.Point(651, 15);
             this.txtIdExp.Multiline = true;
             this.txtIdExp.Name = "txtIdExp";
             this.txtIdExp.Size = new System.Drawing.Size(140, 32);
@@ -357,14 +337,14 @@ namespace GestionDeStockC.PL
             this.dvgProduit.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dvgProduit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dvgProduit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dvgProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -376,30 +356,30 @@ namespace GestionDeStockC.PL
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle8;
             this.dvgProduit.EnableHeadersVisualStyles = false;
             this.dvgProduit.Location = new System.Drawing.Point(8, 61);
             this.dvgProduit.MultiSelect = false;
             this.dvgProduit.Name = "dvgProduit";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgProduit.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgProduit.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dvgProduit.RowHeadersVisible = false;
             this.dvgProduit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dvgProduit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgProduit.Size = new System.Drawing.Size(854, 637);
+            this.dvgProduit.Size = new System.Drawing.Size(823, 637);
             this.dvgProduit.TabIndex = 65;
             this.dvgProduit.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
             // 
@@ -503,7 +483,6 @@ namespace GestionDeStockC.PL
             this.txtrechercheInvProd.TabIndex = 60;
             this.txtrechercheInvProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtrechercheInvProd.TextChanged += new System.EventHandler(this.txtrechercheInvProd_TextChanged);
-            this.txtrechercheInvProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtrechercheInvProd_KeyPress);
             // 
             // commandedate
             // 
@@ -527,9 +506,9 @@ namespace GestionDeStockC.PL
             this.grpDetail.Controls.Add(this.label12);
             this.grpDetail.Controls.Add(this.txttva);
             this.grpDetail.Controls.Add(this.txttotalht);
-            this.grpDetail.Location = new System.Drawing.Point(886, 79);
+            this.grpDetail.Location = new System.Drawing.Point(855, 79);
             this.grpDetail.Name = "grpDetail";
-            this.grpDetail.Size = new System.Drawing.Size(506, 704);
+            this.grpDetail.Size = new System.Drawing.Size(538, 704);
             this.grpDetail.TabIndex = 10;
             this.grpDetail.TabStop = false;
             this.grpDetail.Text = "Detail";
@@ -547,14 +526,14 @@ namespace GestionDeStockC.PL
             this.dvgDetailCommande.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dvgDetailCommande.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dvgDetailCommande.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgDetailCommande.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgDetailCommande.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dvgDetailCommande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgDetailCommande.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn9,
@@ -564,30 +543,30 @@ namespace GestionDeStockC.PL
             this.dataGridViewTextBoxColumn18,
             this.Column4});
             this.dvgDetailCommande.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgDetailCommande.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgDetailCommande.DefaultCellStyle = dataGridViewCellStyle11;
             this.dvgDetailCommande.EnableHeadersVisualStyles = false;
             this.dvgDetailCommande.Location = new System.Drawing.Point(6, 61);
             this.dvgDetailCommande.MultiSelect = false;
             this.dvgDetailCommande.Name = "dvgDetailCommande";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgDetailCommande.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgDetailCommande.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dvgDetailCommande.RowHeadersVisible = false;
             this.dvgDetailCommande.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dvgDetailCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgDetailCommande.Size = new System.Drawing.Size(494, 637);
+            this.dvgDetailCommande.Size = new System.Drawing.Size(526, 637);
             this.dvgDetailCommande.TabIndex = 66;
             // 
             // dataGridViewTextBoxColumn9
@@ -627,16 +606,15 @@ namespace GestionDeStockC.PL
             // 
             // btnExp
             // 
-            this.btnExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExp.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnExp.FlatAppearance.BorderSize = 0;
             this.btnExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnExp.Location = new System.Drawing.Point(10, 28);
+            this.btnExp.Location = new System.Drawing.Point(7, 21);
             this.btnExp.Name = "btnExp";
-            this.btnExp.Size = new System.Drawing.Size(53, 31);
+            this.btnExp.Size = new System.Drawing.Size(47, 31);
             this.btnExp.TabIndex = 73;
             this.btnExp.Text = "...";
             this.btnExp.UseVisualStyleBackColor = false;
@@ -644,57 +622,70 @@ namespace GestionDeStockC.PL
             // 
             // txtNomExp
             // 
-            this.txtNomExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNomExp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNomExp.BackColor = System.Drawing.Color.White;
             this.txtNomExp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNomExp.Cursor = System.Windows.Forms.Cursors.Help;
             this.txtNomExp.Enabled = false;
             this.txtNomExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomExp.ForeColor = System.Drawing.Color.Black;
-            this.txtNomExp.Location = new System.Drawing.Point(144, 28);
+            this.txtNomExp.Location = new System.Drawing.Point(60, 21);
             this.txtNomExp.Multiline = true;
             this.txtNomExp.Name = "txtNomExp";
-            this.txtNomExp.Size = new System.Drawing.Size(230, 32);
+            this.txtNomExp.Size = new System.Drawing.Size(224, 32);
             this.txtNomExp.TabIndex = 76;
             this.txtNomExp.TextChanged += new System.EventHandler(this.txtNomExp_TextChanged);
             // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(72, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 24);
-            this.label4.TabIndex = 74;
-            this.label4.Text = "Nom :";
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.btnDest);
             this.groupBox3.Controls.Add(this.txtNomDest);
             this.groupBox3.Location = new System.Drawing.Point(855, 8);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(385, 68);
+            this.groupBox3.Size = new System.Drawing.Size(300, 60);
             this.groupBox3.TabIndex = 63;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Destinataire";
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.btnExp);
-            this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.txtNomExp);
-            this.groupBox4.Location = new System.Drawing.Point(469, 8);
+            this.groupBox4.Location = new System.Drawing.Point(559, 8);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(380, 68);
+            this.groupBox4.Size = new System.Drawing.Size(290, 60);
             this.groupBox4.TabIndex = 63;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Expediteur";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.txtRemise);
+            this.groupBox1.Location = new System.Drawing.Point(1161, 8);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(80, 60);
+            this.groupBox1.TabIndex = 64;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Remise";
+            // 
+            // txtRemise
+            // 
+            this.txtRemise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRemise.BackColor = System.Drawing.Color.White;
+            this.txtRemise.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRemise.Cursor = System.Windows.Forms.Cursors.Help;
+            this.txtRemise.Enabled = false;
+            this.txtRemise.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRemise.ForeColor = System.Drawing.Color.Black;
+            this.txtRemise.Location = new System.Drawing.Point(9, 19);
+            this.txtRemise.Multiline = true;
+            this.txtRemise.Name = "txtRemise";
+            this.txtRemise.Size = new System.Drawing.Size(60, 32);
+            this.txtRemise.TabIndex = 61;
+            this.txtRemise.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FRM_Detail_Commande
             // 
@@ -702,6 +693,7 @@ namespace GestionDeStockC.PL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1404, 795);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.grpDetail);
@@ -725,6 +717,8 @@ namespace GestionDeStockC.PL
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -732,7 +726,6 @@ namespace GestionDeStockC.PL
 
         #endregion
         private System.Windows.Forms.Button btnenregistrer;
-        public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.Label label10;
@@ -752,7 +745,6 @@ namespace GestionDeStockC.PL
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnExp;
         public System.Windows.Forms.TextBox txtNomExp;
-        public System.Windows.Forms.Label label4;
         public System.Windows.Forms.ComboBox combotype;
         public System.Windows.Forms.ComboBox combocategorie;
         private System.Windows.Forms.TextBox txtrechercheInvProd;
@@ -778,5 +770,7 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.Button btnSupCombo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.TextBox txtRemise;
     }
 }

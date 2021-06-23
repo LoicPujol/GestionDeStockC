@@ -31,6 +31,7 @@ namespace GestionDeStockC.PL
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Menu));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLivraison = new System.Windows.Forms.Button();
             this.btnDash = new System.Windows.Forms.Button();
             this.btnaffectation = new System.Windows.Forms.Button();
             this.btnalerte = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@ namespace GestionDeStockC.PL
             this.btncategorie = new System.Windows.Forms.Button();
             this.pnlparammetrer = new System.Windows.Forms.Panel();
             this.pnlaficher = new System.Windows.Forms.Panel();
-            this.btnLivraison = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlparammetrer.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +65,25 @@ namespace GestionDeStockC.PL
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(190, 619);
             this.panel1.TabIndex = 0;
+            // 
+            // btnLivraison
+            // 
+            this.btnLivraison.FlatAppearance.BorderSize = 0;
+            this.btnLivraison.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLivraison.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLivraison.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLivraison.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLivraison.ForeColor = System.Drawing.Color.White;
+            this.btnLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btnLivraison.Image")));
+            this.btnLivraison.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLivraison.Location = new System.Drawing.Point(7, 239);
+            this.btnLivraison.Name = "btnLivraison";
+            this.btnLivraison.Size = new System.Drawing.Size(181, 45);
+            this.btnLivraison.TabIndex = 16;
+            this.btnLivraison.Text = "      Livraison";
+            this.btnLivraison.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLivraison.UseVisualStyleBackColor = true;
+            this.btnLivraison.Click += new System.EventHandler(this.btnLivraison_Click);
             // 
             // btnDash
             // 
@@ -241,24 +260,6 @@ namespace GestionDeStockC.PL
             this.pnlaficher.Name = "pnlaficher";
             this.pnlaficher.Size = new System.Drawing.Size(966, 619);
             this.pnlaficher.TabIndex = 12;
-            // 
-            // btnLivraison
-            // 
-            this.btnLivraison.FlatAppearance.BorderSize = 0;
-            this.btnLivraison.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnLivraison.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnLivraison.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLivraison.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLivraison.ForeColor = System.Drawing.Color.White;
-            this.btnLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btnLivraison.Image")));
-            this.btnLivraison.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLivraison.Location = new System.Drawing.Point(3, 239);
-            this.btnLivraison.Name = "btnLivraison";
-            this.btnLivraison.Size = new System.Drawing.Size(181, 45);
-            this.btnLivraison.TabIndex = 16;
-            this.btnLivraison.Text = "       Livraison";
-            this.btnLivraison.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLivraison.UseVisualStyleBackColor = true;
             // 
             // FRM_Menu
             // 

@@ -137,5 +137,20 @@ namespace GestionDeStockC.PL
                 USER_Dashboard.Instance.BringToFront();
             }
         }
+
+        private void btnLivraison_Click(object sender, EventArgs e)
+        {
+            pnlBut.Top = btnLivraison.Top;
+            if (!pnlaficher.Controls.Contains(USER_Livraison.Instance))
+            {
+                pnlaficher.Controls.Add(USER_Livraison.Instance);
+                USER_Livraison.Instance.Dock = DockStyle.Fill;
+                USER_Livraison.Instance.BringToFront();
+            }
+            else
+            {
+                USER_Livraison.Instance.BringToFront();
+            }
+        }
     }
 }

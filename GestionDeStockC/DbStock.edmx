@@ -27,12 +27,15 @@
           </Key>
           <Property Name="ID_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nom_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Prenom_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Adresse_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Telephone_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Pays_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Ville_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Email_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Prenom_Client" Type="nvarchar" MaxLength="250" />
+          <Property Name="Adresse_Client" Type="nvarchar" MaxLength="250" />
+          <Property Name="Telephone_Client" Type="nvarchar" MaxLength="250" />
+          <Property Name="Pays_Client" Type="nvarchar" MaxLength="250" />
+          <Property Name="Ville_Client" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email_Client" Type="nvarchar" MaxLength="250" />
+          <Property Name="Code_Zip" Type="nvarchar" MaxLength="250" />
+          <Property Name="Rabais" Type="nvarchar" MaxLength="50" />
+          <Property Name="Num_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="Commande">
           <Key>
@@ -63,15 +66,19 @@
             <PropertyRef Name="ID_Produit" />
           </Key>
           <Property Name="ID_Produit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nom_Produit" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Quantité_Produit" Type="int" Nullable="false" />
-          <Property Name="Prix_Produit" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Image_Produit" Type="image" Nullable="false" />
+          <Property Name="Nom_Produit" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Quantité_Produit" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prix_Produit" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image_Produit" Type="image" />
           <Property Name="ID_Categorie" Type="int" Nullable="false" />
-          <Property Name="ID_Type" Type="int" />
-          <Property Name="Stock_Alerte" Type="int" />
+          <Property Name="ID_Type" Type="int" Nullable="false" />
+          <Property Name="Stock_Alerte" Type="nvarchar" MaxLength="50" />
           <Property Name="Date_Controle" Type="nvarchar" MaxLength="50" />
-          <Property Name="NumInventaire" Type="nvarchar" MaxLength="250" />
+          <Property Name="NumInventaire" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="N_Serie" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tarif_Achat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Poids" Type="nvarchar" MaxLength="50" />
+          <Property Name="Marge" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Type">
           <Key>
@@ -172,7 +179,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Produit_Type">
-          <End Role="Type" Type="Self.Type" Multiplicity="0..1">
+          <End Role="Type" Type="Self.Type" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
@@ -290,12 +297,15 @@
           </Key>
           <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Prenom_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Adresse_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Telephone_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Pays_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Ville_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Email_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Pays_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Ville_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Code_Zip" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Rabais" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Num_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Affectations" Relationship="GESTION_DE_STOCKModel.FK_Affectation_Client" FromRole="Client" ToRole="Affectation" />
           <NavigationProperty Name="Commandes" Relationship="GESTION_DE_STOCKModel.FK_Commande_Client" FromRole="Client" ToRole="Commande" />
         </EntityType>
@@ -332,15 +342,19 @@
             <PropertyRef Name="ID_Produit" />
           </Key>
           <Property Name="ID_Produit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nom_Produit" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Quantité_Produit" Type="Int32" Nullable="false" />
-          <Property Name="Prix_Produit" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Image_Produit" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Nom_Produit" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantité_Produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prix_Produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image_Produit" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ID_Categorie" Type="Int32" Nullable="false" />
-          <Property Name="ID_Type" Type="Int32" />
-          <Property Name="Stock_Alerte" Type="Int32" />
+          <Property Name="ID_Type" Type="Int32" Nullable="false" />
+          <Property Name="Stock_Alerte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Date_Controle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NumInventaire" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NumInventaire" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="N_Serie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tarif_Achat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Poids" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Marge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Affectations" Relationship="GESTION_DE_STOCKModel.FK_Affectation_Produit" FromRole="Produit" ToRole="Affectation" />
           <NavigationProperty Name="Categorie" Relationship="GESTION_DE_STOCKModel.FK_Produit_Categorie" FromRole="Produit" ToRole="Categorie" />
           <NavigationProperty Name="Details_Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Produit" FromRole="Produit" ToRole="Details_Commande" />
@@ -446,7 +460,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Produit_Type">
-          <End Type="GESTION_DE_STOCKModel.Type" Role="Type" Multiplicity="0..1">
+          <End Type="GESTION_DE_STOCKModel.Type" Role="Type" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Type="GESTION_DE_STOCKModel.Produit" Role="Produit" Multiplicity="*" />
@@ -486,6 +500,9 @@
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Num_Client" ColumnName="Num_Client" />
+                <ScalarProperty Name="Rabais" ColumnName="Rabais" />
+                <ScalarProperty Name="Code_Zip" ColumnName="Code_Zip" />
                 <ScalarProperty Name="Email_Client" ColumnName="Email_Client" />
                 <ScalarProperty Name="Ville_Client" ColumnName="Ville_Client" />
                 <ScalarProperty Name="Pays_Client" ColumnName="Pays_Client" />
@@ -526,6 +543,10 @@
           <EntitySetMapping Name="Produits">
             <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Produit">
               <MappingFragment StoreEntitySet="Produit">
+                <ScalarProperty Name="Marge" ColumnName="Marge" />
+                <ScalarProperty Name="Poids" ColumnName="Poids" />
+                <ScalarProperty Name="Tarif_Achat" ColumnName="Tarif_Achat" />
+                <ScalarProperty Name="N_Serie" ColumnName="N_Serie" />
                 <ScalarProperty Name="NumInventaire" ColumnName="NumInventaire" />
                 <ScalarProperty Name="Date_Controle" ColumnName="Date_Controle" />
                 <ScalarProperty Name="Stock_Alerte" ColumnName="Stock_Alerte" />

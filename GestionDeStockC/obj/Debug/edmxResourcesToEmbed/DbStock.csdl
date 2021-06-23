@@ -63,12 +63,15 @@
     </Key>
     <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nom_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Prenom_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Adresse_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Telephone_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Pays_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Ville_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Email_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Prenom_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Adresse_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Telephone_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Pays_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Ville_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email_Client" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Code_Zip" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Rabais" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Num_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Affectations" Relationship="GESTION_DE_STOCKModel.FK_Affectation_Client" FromRole="Client" ToRole="Affectation" />
     <NavigationProperty Name="Commandes" Relationship="GESTION_DE_STOCKModel.FK_Commande_Client" FromRole="Client" ToRole="Commande" />
   </EntityType>
@@ -105,15 +108,19 @@
       <PropertyRef Name="ID_Produit" />
     </Key>
     <Property Name="ID_Produit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nom_Produit" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Quantité_Produit" Type="Int32" Nullable="false" />
-    <Property Name="Prix_Produit" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Image_Produit" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="Nom_Produit" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantité_Produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prix_Produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image_Produit" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="ID_Categorie" Type="Int32" Nullable="false" />
-    <Property Name="ID_Type" Type="Int32" />
-    <Property Name="Stock_Alerte" Type="Int32" />
+    <Property Name="ID_Type" Type="Int32" Nullable="false" />
+    <Property Name="Stock_Alerte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Date_Controle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="NumInventaire" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NumInventaire" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="N_Serie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tarif_Achat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Poids" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Marge" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Affectations" Relationship="GESTION_DE_STOCKModel.FK_Affectation_Produit" FromRole="Produit" ToRole="Affectation" />
     <NavigationProperty Name="Categorie" Relationship="GESTION_DE_STOCKModel.FK_Produit_Categorie" FromRole="Produit" ToRole="Categorie" />
     <NavigationProperty Name="Details_Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Produit" FromRole="Produit" ToRole="Details_Commande" />
@@ -219,7 +226,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Produit_Type">
-    <End Type="GESTION_DE_STOCKModel.Type" Role="Type" Multiplicity="0..1">
+    <End Type="GESTION_DE_STOCKModel.Type" Role="Type" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Type="GESTION_DE_STOCKModel.Produit" Role="Produit" Multiplicity="*" />

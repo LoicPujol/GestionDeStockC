@@ -127,6 +127,7 @@ namespace GestionDeStockC.PL
             // 
             // btnexcel
             // 
+            this.btnexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnexcel.BackColor = System.Drawing.Color.White;
             this.btnexcel.DialogResult = System.Windows.Forms.DialogResult.No;
             this.btnexcel.FlatAppearance.BorderSize = 0;
@@ -137,7 +138,7 @@ namespace GestionDeStockC.PL
             this.btnexcel.ForeColor = System.Drawing.Color.LightGray;
             this.btnexcel.Image = ((System.Drawing.Image)(resources.GetObject("btnexcel.Image")));
             this.btnexcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnexcel.Location = new System.Drawing.Point(679, 15);
+            this.btnexcel.Location = new System.Drawing.Point(1022, 16);
             this.btnexcel.Name = "btnexcel";
             this.btnexcel.Size = new System.Drawing.Size(33, 39);
             this.btnexcel.TabIndex = 59;
@@ -422,6 +423,7 @@ namespace GestionDeStockC.PL
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.No;
             this.button2.FlatAppearance.BorderSize = 0;
@@ -432,7 +434,7 @@ namespace GestionDeStockC.PL
             this.button2.ForeColor = System.Drawing.Color.LightGray;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(679, 438);
+            this.button2.Location = new System.Drawing.Point(1022, 442);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(33, 39);
             this.button2.TabIndex = 66;

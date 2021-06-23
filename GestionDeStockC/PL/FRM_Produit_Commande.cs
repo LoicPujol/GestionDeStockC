@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace GestionDeStockC.PL
 {
@@ -40,11 +41,13 @@ namespace GestionDeStockC.PL
         private void txtquantite_TextChanged(object sender, EventArgs e)
         {
             
-            if(txtquantite.Text!="")//pas vide
+            if (txtquantite.Text!="")//pas vide
             {
                 int quantite = int.Parse(txtquantite.Text);
-                int prix = int.Parse(lblprix.Text);
-                if(int.Parse(txtquantite.Text)>int.Parse(lblstock.Text))
+                //int prix = int.Parse(lblprix.Text);
+                decimal prix = 0;//sup
+                prix = decimal.Parse(lblprix.Text, CultureInfo.InvariantCulture);//sup
+                if (int.Parse(txtquantite.Text)>int.Parse(lblstock.Text))
                 {
                     MessageBox.Show("Il n'y a seulement " + int.Parse(lblstock.Text) + " danqs le stock", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //vider textquantite si trop
@@ -56,12 +59,10 @@ namespace GestionDeStockC.PL
                     txttotal.Text = (quantite * prix).ToString();
                 }
                 //calcul total
-                
             }else
             {
                 txttotal.Text = lblprix.Text;
             }
-            
         }
 
         private void txtremise_TextChanged(object sender, EventArgs e)
@@ -116,7 +117,7 @@ namespace GestionDeStockC.PL
                     Total = txttotal.Text
                 };
                 //Ajouter dans liste detail commande
-                if (grpproduit.Text == "Vendre Produit")
+                if (lblTitre.Text == "Ajouter Produit")
                 {
                     if (BL.D_Commande.listeDetail.SingleOrDefault(s => s.Id == DETAIL.Id) != null)
                     {
@@ -140,7 +141,7 @@ namespace GestionDeStockC.PL
                     Id_Produit = int.Parse(txtIdProduit.Text),
                     Quantite = int.Parse(txtquantite.Text),
                 };
-                if (grpproduit.Text == "Vendre Produit")
+                if (lblTitre.Text == "Ajouter Produit")
                 {
                     if (BL.D_Affectation.listeDetail.SingleOrDefault(s => s.Id_Produit == DetailDestinataire.Id_Produit) != null)
                     {
@@ -165,7 +166,7 @@ namespace GestionDeStockC.PL
                     Id_Produit = int.Parse(txtIdProduit.Text),
                     Quantite = int.Parse(txtquantite.Text),
                 };
-                if (grpproduit.Text == "Vendre Produit")
+                if (lblTitre.Text == "Ajouter Produit")
                 {
                     if (BL.D_Affectation.listeDetailExpedition.SingleOrDefault(s => s.Id_Produit == DetailExpediteur.Id_Produit) != null)
                     {

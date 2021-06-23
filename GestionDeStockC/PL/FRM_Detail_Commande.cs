@@ -190,7 +190,7 @@ namespace GestionDeStockC.PL
                     frmp.lblnom.Text = dvgProduit.CurrentRow.Cells[5].Value.ToString();
                     frmp.lblstock.Text = dvgProduit.CurrentRow.Cells[6].Value.ToString();
                     frmp.lblprix.Text = dvgProduit.CurrentRow.Cells[7].Value.ToString();
-                    frmp.txttotal.Text = dvgProduit.CurrentRow.Cells[7].Value.ToString();
+                    frmp.txtremise.Text = txtRemise.Text;
                     if (dvgProduit.CurrentRow.Cells[3].Value.ToString () == "Unitaire")
                     {
                         frmp.txtquantite.Text = "1";
@@ -200,6 +200,18 @@ namespace GestionDeStockC.PL
                     {
                         frmp.txtquantite.Enabled = true;
                     }
+                    int prix = Convert.ToInt32(dvgProduit.CurrentRow.Cells[7].Value);
+                    int remise = int.Parse(txtRemise.Text);
+                    string tarif = "";
+                    if (txtRemise.Text != "")
+                    {
+                        tarif  = (prix - (prix * remise / 100)).ToString();
+                    }
+                    else
+                    {
+                        tarif = prix.ToString();
+                    }
+                    frmp.txttotal.Text = tarif;
                     frmp.ShowDialog();
                 }
             }
@@ -211,7 +223,7 @@ namespace GestionDeStockC.PL
             Produit PR = new Produit();
             if(dvgDetailCommande.CurrentRow!=null)
             {
-                frm.grpproduit.Text = "Modifier Produit";
+                frm.lblTitre.Text = "Modifier Produit";
                 frm.txtIdClientAffect.Text = IDCLIENT.ToString();
                 frm.txtIdExpediteur.Text = IDEXPEDITEUR.ToString();
                 frm.txtIdProduit.Text = dvgDetailCommande.CurrentRow.Cells[0].Value.ToString();
@@ -311,7 +323,8 @@ namespace GestionDeStockC.PL
                 if ((frmC.dvgclient.CurrentRow != null) && (frmC.dvgclient.Rows.Count != 0))
                 {
                     IDCLIENT = (int)frmC.dvgclient.CurrentRow.Cells[0].Value; //on recupere l'ID client pour le mettre en variable puis utiliser a l'enregistrement de la commande
-                    txtNomDest.Text = frmC.dvgclient.CurrentRow.Cells[1].Value.ToString();
+                    txtNomDest.Text = frmC.dvgclient.CurrentRow.Cells[2].Value.ToString();
+                    txtRemise.Text = frmC.dvgclient.CurrentRow.Cells[5].Value.ToString();
                 }
             }
 
@@ -330,7 +343,7 @@ namespace GestionDeStockC.PL
                     if ((frmC.dvgclient.CurrentRow != null) && (frmC.dvgclient.Rows.Count != 0))
                     {
                         IDEXPEDITEUR = (int)frmC.dvgclient.CurrentRow.Cells[0].Value; //on recupere l'ID client pour le mettre en variable puis utiliser a l'enregistrement de la commande
-                        txtNomExp.Text = frmC.dvgclient.CurrentRow.Cells[1].Value.ToString();
+                        txtNomExp.Text = frmC.dvgclient.CurrentRow.Cells[2].Value.ToString();
                         txtIdExp.Text = frmC.dvgclient.CurrentRow.Cells[0].Value.ToString();
                     }
         }

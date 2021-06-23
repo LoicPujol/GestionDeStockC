@@ -23,14 +23,18 @@ namespace GestionDeStockC
     
         public int ID_Produit { get; set; }
         public string Nom_Produit { get; set; }
-        public int Quantité_Produit { get; set; }
+        public string Quantité_Produit { get; set; }
         public string Prix_Produit { get; set; }
         public byte[] Image_Produit { get; set; }
         public int ID_Categorie { get; set; }
-        public Nullable<int> ID_Type { get; set; }
-        public Nullable<int> Stock_Alerte { get; set; }
+        public int ID_Type { get; set; }
+        public string Stock_Alerte { get; set; }
         public string Date_Controle { get; set; }
         public string NumInventaire { get; set; }
+        public string N_Serie { get; set; }
+        public string Tarif_Achat { get; set; }
+        public string Poids { get; set; }
+        public string Marge { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Affectation> Affectations { get; set; }

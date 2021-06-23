@@ -12,7 +12,7 @@ namespace GestionDeStockC.BL
         private Client C;//table client
 
         //fonction pour ajouter client dans les tables
-        public bool Ajouter_Client(string Nom, string Prenom, string Adresse, string Telephone, string Email, string Ville, String Pays)
+        public bool Ajouter_Client(string Nom, string Prenom, string Adresse, string Telephone, string Email, string Ville, String Pays, string NumClient, string CodeZip, string rabais)
         {
             C = new Client();//nouveau client
             C.Nom_Client = Nom;
@@ -22,6 +22,9 @@ namespace GestionDeStockC.BL
             C.Telephone_Client = Telephone;
             C.Ville_Client = Ville;
             C.Pays_Client = Pays;
+            C.Num_Client = NumClient;
+            C.Code_Zip = CodeZip;
+            C.Rabais = rabais;
             //verifier si client existe
             if(db.Clients.SingleOrDefault(s=>s.Nom_Client==Nom && s.Prenom_Client==Prenom)==null)// si existe pas
             {
@@ -34,7 +37,7 @@ namespace GestionDeStockC.BL
             }
         }
         //fonction pour modifier client dans la base de donne        
-        public void Modifier_Client(int id, string Nom, string Prenom, string Adresse, string Telephone, string Email, string Ville, String Pays)
+        public void Modifier_Client(int id, string Nom, string Prenom, string Adresse, string Telephone, string Email, string Ville, String Pays, string NumClient, string CodeZip, string rabais)
         {
             C = new Client();
             C = db.Clients.SingleOrDefault(s => s.ID_Client == id);//verifier si id de client existe
@@ -47,6 +50,9 @@ namespace GestionDeStockC.BL
                 C.Email_Client = Email;
                 C.Ville_Client = Ville;
                 C.Pays_Client = Pays;
+                C.Num_Client = NumClient;
+                C.Code_Zip = CodeZip;
+                C.Rabais = rabais;
                 db.SaveChanges();//sauver changement dans base donnee
             }
         }

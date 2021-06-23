@@ -40,15 +40,7 @@ namespace GestionDeStockC.PL
             dvgclient.Rows.Clear();//vider datagrid view
             foreach(var S in db.Clients)
             {
-                dvgclient.Rows.Add(false, S.ID_Client, S.Nom_Client, S.Prenom_Client, S.Adresse_Client, S.Telephone_Client, S.Email_Client, S.Ville_Client, S.Pays_Client);//ajouter ligne dans datagrid
-            }
-        }
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            if(txtrecherche.Text=="Recherche")
-            {
-                txtrecherche.Text = "";
-                txtrecherche.ForeColor = Color.Black;
+                dvgclient.Rows.Add(S.ID_Client, S.Num_Client, S.Nom_Client, S.Prenom_Client, S.Rabais, S.Adresse_Client, S.Code_Zip, S.Ville_Client, S.Pays_Client, S.Telephone_Client, S.Email_Client);//ajouter ligne dans datagrid
             }
         }
         private void USER_Liste_Client_Load(object sender, EventArgs e)
@@ -67,23 +59,19 @@ namespace GestionDeStockC.PL
 
                 if ((dvgclient.CurrentRow != null) || (dvgclient.Rows.Count != 0))
                 {
-                        frmclient.IDselect = (int)dvgclient.CurrentRow.Cells[1].Value;
                         frmclient.txtNom.Text = dvgclient.CurrentRow.Cells[2].Value.ToString();
-                        frmclient.txtNom.ForeColor = Color.Black;
                         frmclient.txtPrenom.Text = dvgclient.CurrentRow.Cells[3].Value.ToString();
-                        frmclient.txtPrenom.ForeColor = Color.Black;
-                        frmclient.txtAdresse.Text = dvgclient.CurrentRow.Cells[4].Value.ToString();
-                        frmclient.txtAdresse.ForeColor = Color.Black;
-                        frmclient.txtTelephone.Text = dvgclient.CurrentRow.Cells[5].Value.ToString();
-                        frmclient.txtTelephone.ForeColor = Color.Black;
-                        frmclient.txtEmail.Text = dvgclient.CurrentRow.Cells[6].Value.ToString();
-                        frmclient.txtEmail.ForeColor = Color.Black;
+                        frmclient.txtAdresse.Text = dvgclient.CurrentRow.Cells[5].Value.ToString();
+                        frmclient.txtTelephone.Text = dvgclient.CurrentRow.Cells[9].Value.ToString();
+                        frmclient.txtEmail.Text = dvgclient.CurrentRow.Cells[10].Value.ToString();
                         frmclient.txtVille.Text = dvgclient.CurrentRow.Cells[7].Value.ToString();
-                        frmclient.txtVille.ForeColor = Color.Black;
                         frmclient.txtPays.Text = dvgclient.CurrentRow.Cells[8].Value.ToString();
-                        frmclient.txtPays.ForeColor = Color.Black;
                         frmclient.lblTitre.Text = "Modifier Client";
-                        frmclient.btnactualiser.Visible = false;
+                        frmclient.txtNumClient.Text = dvgclient.CurrentRow.Cells[1].Value.ToString();
+                        frmclient.txtNumClient.ForeColor = Color.Silver;
+                        frmclient.txtNumClient.Enabled = false;
+                        frmclient.txtZip.Text = dvgclient.CurrentRow.Cells[6].Value.ToString();
+                        frmclient.txtRabais.Text = dvgclient.CurrentRow.Cells[4].Value.ToString();
                         frmclient.ShowDialog();
                 }else
                 {
@@ -180,7 +168,6 @@ namespace GestionDeStockC.PL
                         frmclient.txtPays.Text = dvgclient.CurrentRow.Cells[8].Value.ToString();
                         frmclient.txtPays.ForeColor = Color.Black;
                         frmclient.lblTitre.Text = "Modifier Client";
-                        frmclient.btnactualiser.Visible = false;
                         frmclient.ShowDialog();
             }
         }

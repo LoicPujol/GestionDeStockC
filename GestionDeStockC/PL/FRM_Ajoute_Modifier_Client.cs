@@ -23,36 +23,17 @@ namespace GestionDeStockC.PL
         //les champs obligatoire
         string testoblogatoire()
         {
-            if(txtNom.Text == "" || txtNom.Text == "Nom de Client")
+            if (txtNumClient.Text == "")
+            {
+                return "Entrer numero client";
+            }
+
+            if (txtNom.Text == "")
             {
                 return "Entrer le Nom de Client";
             }
-            if (txtPrenom.Text == "" || txtPrenom.Text == "Prenom de Client")
-            {
-                return "Entrer le Prenom de Client";
-            }
-            if (txtAdresse.Text == "" || txtAdresse.Text == "Adresse Client")
-            {
-                return "Entrer l'adresse de Client";
-            }
-            if (txtTelephone.Text == "" || txtTelephone.Text == "Telephone Client")
-            {
-                return "Entrer le telephone de Client";
-            }
-            if (txtEmail.Text == "" || txtEmail.Text == "Email Client")
-            {
-                return "Entrer le Email de Client";
-            }
-            if (txtPays.Text == "" || txtPays.Text == "Pays Client")
-            {
-                return "Entrer le Pays de Client";
-            }
-            if (txtVille.Text == "" || txtVille.Text == "Ville Client")
-            {
-                return "Entrer la ville de Client";
-            }
             //verifier si email valide
-            if (txtEmail.Text != "" || txtEmail.Text != "Email Client")
+            if (txtEmail.Text != "")
             {
                 try
                 {
@@ -66,9 +47,60 @@ namespace GestionDeStockC.PL
             return null;
         }
 
-        private void txtNom_Enter(object sender, EventArgs e)
+        private void txtTelephone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(txtNom.Text=="Nom de Client")
+            //textbox numerique
+            if(e.KeyChar<48 || e.KeyChar>57)//code asci des numero de tel
+            {
+                e.Handled = true;
+            }
+            if(e.KeyChar==8)
+            {
+                e.Handled = false;
+            }
+        }
+        public int IDselect;
+        private void btnenregistrer_Click(object sender, EventArgs e)
+        {
+            if(testoblogatoire()!=null)
+            {
+                MessageBox.Show(testoblogatoire(),"Obligatoire",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }else
+            if(lblTitre.Text=="Ajouter Client")
+            {
+                BL.CLS_Client clclient = new BL.CLS_Client();
+                if(clclient.Ajouter_Client(txtNom.Text,txtPrenom.Text,txtAdresse.Text,txtTelephone.Text,txtEmail.Text,txtVille.Text,txtPays.Text, txtNumClient.Text, txtZip.Text, txtRabais.Text)==true)
+                {
+                    MessageBox.Show("Client ajouté avec succés", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    (usclient as USER_Liste_Client).Actualisedatagrid();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Nom et prénom éxistent déja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }else //si lblTitre=Modifier client
+            {
+                BL.CLS_Client clclient = new BL.CLS_Client();
+                DialogResult R = MessageBox.Show("Voulez vous vraiment modifier ce client", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(R==DialogResult.Yes)
+                {
+                    clclient.Modifier_Client(IDselect, txtNom.Text, txtPrenom.Text, txtAdresse.Text, txtTelephone.Text, txtEmail.Text, txtVille.Text, txtPays.Text, txtNumClient.Text, txtZip.Text, txtRabais.Text);
+                    //pour actualiser datzgrid wiev
+                    (usclient as USER_Liste_Client).Actualisedatagrid();
+                    MessageBox.Show("Client modifie avec succe","Modification",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Modification est annule", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
+            }
+        }
+        /**private void txtNom_Enter(object sender, EventArgs e)
+        {
+            if (txtNom.Text == "Nom de Client")
             {
                 txtNom.Text = "";
                 txtNom.ForeColor = Color.Black;
@@ -191,73 +223,6 @@ namespace GestionDeStockC.PL
                 txtVille.ForeColor = Color.Silver;
             }
         }
-        private void btnquitter_Click(object sender, EventArgs e)
-        {
-            Close();//Quitter le formulaire de saisie
-        }
-
-        private void txtTelephone_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //textbox numerique
-            if(e.KeyChar<48 || e.KeyChar>57)//code asci des numero de tel
-            {
-                e.Handled = true;
-            }
-            if(e.KeyChar==8)
-            {
-                e.Handled = false;
-            }
-        }
-        public int IDselect;
-        private void btnenregistrer_Click(object sender, EventArgs e)
-        {
-            if(testoblogatoire()!=null)
-            {
-                MessageBox.Show(testoblogatoire(),"Obligatoire",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }else
-            if(lblTitre.Text=="Ajouter Client")
-            {
-                BL.CLS_Client clclient = new BL.CLS_Client();
-                if(clclient.Ajouter_Client(txtNom.Text,txtPrenom.Text,txtAdresse.Text,txtTelephone.Text,txtEmail.Text,txtVille.Text,txtPays.Text)==true)
-                {
-                    MessageBox.Show("Client ajouté avec succés", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    (usclient as USER_Liste_Client).Actualisedatagrid();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Nom et prénom éxistent déja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }else //si lblTitre=Modifier client
-            {
-                BL.CLS_Client clclient = new BL.CLS_Client();
-                DialogResult R = MessageBox.Show("Voulez vous vraiment modifier ce client", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(R==DialogResult.Yes)
-                {
-                    clclient.Modifier_Client(IDselect, txtNom.Text, txtPrenom.Text, txtAdresse.Text, txtTelephone.Text, txtEmail.Text, txtVille.Text, txtPays.Text);
-                    //pour actualiser datzgrid wiev
-                    (usclient as USER_Liste_Client).Actualisedatagrid();
-                    MessageBox.Show("Client modifie avec succe","Modification",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Modification est annule", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                
-            }
-        }
-
-        private void btnactualiser_Click(object sender, EventArgs e)
-        {
-            txtNom.Text = "Nom de Client"; txtNom.ForeColor = Color.Silver;
-            txtPrenom.Text = "Prenom de Client"; txtPrenom.ForeColor = Color.Silver;
-            txtAdresse.Text = "Adresse Client"; txtAdresse.ForeColor = Color.Silver;
-            txtTelephone.Text = "Telephone Client"; txtTelephone.ForeColor = Color.Silver;
-            txtEmail.Text = "Email Client"; txtEmail.ForeColor = Color.Silver;
-            txtPays.Text = "Pays Client"; txtPays.ForeColor = Color.Silver;
-            txtVille.Text = "Ville Client"; txtVille.ForeColor = Color.Silver;
-        }
-
+         **/
     }
 }
