@@ -135,19 +135,19 @@ namespace GestionDeStockC.PL
 
         private void txtNumCommande_TextChanged(object sender, EventArgs e)
         {
-            txtNumCde.Text = "";
+           // txtNumCde.Text = "";
             Actualisedatagrid();
         }
 
         private void txtClient_TextChanged(object sender, EventArgs e)
         {
-            txtNumCde.Text = "";
+          //  txtNumCde.Text = "";
             Actualisedatagrid();
         }
 
         private void txtPeriode_TextChanged(object sender, EventArgs e)
         {
-            txtNumCde.Text = "";
+          //  txtNumCde.Text = "";
             Actualisedatagrid();
         }
     }

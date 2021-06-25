@@ -13,11 +13,9 @@ USER_Alerte :
 USER_Liste_Produit :
 --prendre quantite par article dans le total des affectations
 
-FRM_Detail livraison :
--- si unitaire et quantite = 1 alors ne pas apparaitre
-
 Verifier :
 --ecriture dans table affectation
 --filtre DVG
 --critere d'erreur
 --cas de multiple utilisateur (IMPORTANT)
+--si un unitaire est affecte sur plusieurs site (ce qui ne doit normalement pas etre possible) alors DVGproduit plante au chargement

@@ -46,7 +46,7 @@ namespace GestionDeStockC.PL
             {
                 Nomcat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
                 NomType = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);
-                if (NomType.ToString() != "Unitaire")
+                if (l.ID_Type.ToString() != "3")
                 {
                     if (db.Affectations.SingleOrDefault(s => s.ID_Client == IDDEST && s.ID_Produit == l.ID_Produit) != null)
                     {
@@ -258,7 +258,7 @@ namespace GestionDeStockC.PL
                     {
                         clslivraison.Ajouter_Affectation(LD.Id_Client, LD.Id_Produit, LD.Quantite);
                     }
-                   
+
                    (userLivraison as USER_Liste_Livraison).Actualisedatagrid();
                     BL.D_Commande.listeDetail.Clear();
                     BL.D_Affectation.listeDetail.Clear();
@@ -267,7 +267,7 @@ namespace GestionDeStockC.PL
                 }
             }
         }
-        
+
         public int IDDEST;
         private void btnDst_Click(object sender, EventArgs e)
         {

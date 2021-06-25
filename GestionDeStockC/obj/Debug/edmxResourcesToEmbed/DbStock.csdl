@@ -285,7 +285,7 @@
     </Key>
     <Property Name="ID_Livraison" Type="Int32" Nullable="false" />
     <Property Name="ID_Produit" Type="Int32" Nullable="false" />
-    <Property Name="Quantite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantite" Type="Int32" />
     <Property Name="IdDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nom_Produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Livraison" Relationship="GESTION_DE_STOCKModel.FK_Details_Livraison_Livraison" FromRole="Details_Livraison" ToRole="Livraison" />

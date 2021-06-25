@@ -22,10 +22,10 @@
         <AssociationConnector Association="GESTION_DE_STOCKModel.FK_Details_Commande_Commande" />
         <AssociationConnector Association="GESTION_DE_STOCKModel.FK_Details_Commande_Produit" />
         <AssociationConnector Association="GESTION_DE_STOCKModel.FK_Produit_Type" />
-        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Details_Livraison" Width="1.5" PointX="5" PointY="9.375" />
+        <EntityTypeShape EntityType="GESTION_DE_STOCKModel.Details_Livraison" Width="1.5" PointX="5" PointY="9.25" />
         <AssociationConnector Association="GESTION_DE_STOCKModel.FK_Details_Livraison_Livraison" />
         <AssociationConnector Association="GESTION_DE_STOCKModel.FK_Details_Livraison_Produit" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -62,7 +62,7 @@
     </Key>
     <Property Name="ID_Livraison" Type="int" Nullable="false" />
     <Property Name="ID_Produit" Type="int" Nullable="false" />
-    <Property Name="Quantite" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantite" Type="int" />
     <Property Name="IdDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nom_Produit" Type="nvarchar" MaxLength="50" />
   </EntityType>

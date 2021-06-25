@@ -87,14 +87,21 @@ namespace GestionDeStockC.PL
                     DateTime date = Convert.ToDateTime(Lis.Date_Controle.ToString());
                     DateTime dateDuJour = DateTime.Now;
                     int nbJours = (date - dateDuJour).Days;
-                       // if (Cat != null & Typ != null & nbJours <= 30)//si existe
-                        //{
-                         //   IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
-                          //  NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
-                           // {
-                                dgvDate.Rows.Add(Lis.ID_Produit, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client);//cat.Nom pour afficher nom de cagorie depuis table categorie
-                           // }
-                       // }
+                    if (Cat != null & Typ != null & nbJours <= 30)//si existe
+                    {
+                        bool TestNomClient;
+                        IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
+                        NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
+                        if (NomClient != null)
+                        {
+                            TestNomClient = true;
+                            dgvDate.Rows.Add(Lis.ID_Produit, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client);//cat.Nom pour afficher nom de cagorie depuis table categorie
+                        }
+                        else
+                        {
+                            dgvDate.Rows.Add(Lis.ID_Produit, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, "Non affecte");//cat.Nom pour afficher nom de cagorie depuis table categorie
+                        }
+                    }
                 }
             }
             for (int i = 0; i < dgvDate.Rows.Count; i++)

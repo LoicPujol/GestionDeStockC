@@ -108,7 +108,7 @@ namespace GestionDeStockC.PL
             frmL.ShowDialog();
         }
 
-        private void USER_Liste_Commande_Load(object sender, EventArgs e)
+        private void USER_Liste_Livraison_Load(object sender, EventArgs e)
         {
             Actualisedatagrid();
         }
@@ -131,21 +131,21 @@ namespace GestionDeStockC.PL
             txtNumLiv.Text = dvgLivraison.CurrentRow.Cells[0].Value.ToString();
         }
 
-        private void txtNumCommande_TextChanged(object sender, EventArgs e)
+        private void txtNumLivraison_TextChanged(object sender, EventArgs e)
         {
-            txtNumLiv.Text = "";
+          //  txtNumLiv.Text = "";
             Actualisedatagrid();
         }
 
         private void txtClient_TextChanged(object sender, EventArgs e)
         {
-            txtNumLiv.Text = "";
+         //   txtNumLiv.Text = "";
             Actualisedatagrid();
         }
 
         private void txtPeriode_TextChanged(object sender, EventArgs e)
         {
-            txtNumLiv.Text = "";
+          //  txtNumLiv.Text = "";
             Actualisedatagrid();
         }
     }

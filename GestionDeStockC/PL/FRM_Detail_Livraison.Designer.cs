@@ -46,6 +46,8 @@ namespace GestionDeStockC.PL
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Livraisondate = new System.Windows.Forms.DateTimePicker();
             this.txtrechercheNom = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -56,19 +58,17 @@ namespace GestionDeStockC.PL
             this.label8 = new System.Windows.Forms.Label();
             this.txtIdDest = new System.Windows.Forms.TextBox();
             this.dvgProduit = new System.Windows.Forms.DataGridView();
-            this.grpPoduit = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtNomFournisseur = new System.Windows.Forms.TextBox();
-            this.txtNumDocument = new System.Windows.Forms.TextBox();
-            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.supprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSupCombo = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grpPoduit = new System.Windows.Forms.GroupBox();
+            this.btnSupCombo = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtNomFournisseur = new System.Windows.Forms.TextBox();
+            this.txtNumDocument = new System.Windows.Forms.TextBox();
             this.grpDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgDetailLivraison)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -206,6 +206,20 @@ namespace GestionDeStockC.PL
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(130, 48);
             // 
+            // modifierToolStripMenuItem
+            // 
+            this.modifierToolStripMenuItem.Image = global::GestionDeStockC.Properties.Resources.k;
+            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.modifierToolStripMenuItem.Text = "Modifier";
+            // 
+            // supprimerToolStripMenuItem
+            // 
+            this.supprimerToolStripMenuItem.Image = global::GestionDeStockC.Properties.Resources.Deconnecte;
+            this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.supprimerToolStripMenuItem.Text = "Supprimer";
+            // 
             // Livraisondate
             // 
             this.Livraisondate.Enabled = false;
@@ -285,6 +299,7 @@ namespace GestionDeStockC.PL
             this.btnenregistrer.TabIndex = 74;
             this.btnenregistrer.Text = "Enregistrer";
             this.btnenregistrer.UseVisualStyleBackColor = false;
+            this.btnenregistrer.Click += new System.EventHandler(this.btnenregistrer_Click);
             // 
             // label8
             // 
@@ -367,6 +382,42 @@ namespace GestionDeStockC.PL
             this.dvgProduit.TabIndex = 65;
             this.dvgProduit.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
             // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "IdProduit";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Catégorie";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Inventaire";
+            this.Column10.Name = "Column10";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Désignation";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Quantité";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
             // grpPoduit
             // 
             this.grpPoduit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -386,6 +437,26 @@ namespace GestionDeStockC.PL
             this.grpPoduit.TabIndex = 79;
             this.grpPoduit.TabStop = false;
             this.grpPoduit.Text = "Produit";
+            // 
+            // btnSupCombo
+            // 
+            this.btnSupCombo.BackColor = System.Drawing.Color.White;
+            this.btnSupCombo.CausesValidation = false;
+            this.btnSupCombo.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnSupCombo.FlatAppearance.BorderSize = 0;
+            this.btnSupCombo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSupCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
+            this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
+            this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupCombo.Location = new System.Drawing.Point(609, 15);
+            this.btnSupCombo.Name = "btnSupCombo";
+            this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
+            this.btnSupCombo.TabIndex = 67;
+            this.btnSupCombo.UseVisualStyleBackColor = false;
+            this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click);
             // 
             // groupBox2
             // 
@@ -428,76 +499,6 @@ namespace GestionDeStockC.PL
             this.txtNumDocument.Name = "txtNumDocument";
             this.txtNumDocument.Size = new System.Drawing.Size(224, 32);
             this.txtNumDocument.TabIndex = 61;
-            // 
-            // modifierToolStripMenuItem
-            // 
-            this.modifierToolStripMenuItem.Image = global::GestionDeStockC.Properties.Resources.k;
-            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.modifierToolStripMenuItem.Text = "Modifier";
-            // 
-            // supprimerToolStripMenuItem
-            // 
-            this.supprimerToolStripMenuItem.Image = global::GestionDeStockC.Properties.Resources.Deconnecte;
-            this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.supprimerToolStripMenuItem.Text = "Supprimer";
-            // 
-            // btnSupCombo
-            // 
-            this.btnSupCombo.BackColor = System.Drawing.Color.White;
-            this.btnSupCombo.CausesValidation = false;
-            this.btnSupCombo.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnSupCombo.FlatAppearance.BorderSize = 0;
-            this.btnSupCombo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSupCombo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnSupCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSupCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
-            this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
-            this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupCombo.Location = new System.Drawing.Point(609, 15);
-            this.btnSupCombo.Name = "btnSupCombo";
-            this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
-            this.btnSupCombo.TabIndex = 67;
-            this.btnSupCombo.UseVisualStyleBackColor = false;
-            this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click);
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "IdProduit";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Catégorie";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Inventaire";
-            this.Column10.Name = "Column10";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Désignation";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Quantité";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // FRM_Detail_Livraison
             // 

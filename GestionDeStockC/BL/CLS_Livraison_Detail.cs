@@ -31,6 +31,7 @@ namespace GestionDeStockC.BL
             clsD = new Details_Livraison();
             clsD.ID_Livraison = IDLivraison;
             clsD.ID_Produit = idproduit;
+            clsD.Nom_Produit = nomproduit;
             clsD.Quantite = quantite;
             db.Details_Livraison.Add(clsD);
             db.SaveChanges();

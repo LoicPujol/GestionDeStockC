@@ -16,7 +16,7 @@ namespace GestionDeStockC
     {
         public int ID_Livraison { get; set; }
         public int ID_Produit { get; set; }
-        public string Quantite { get; set; }
+        public Nullable<int> Quantite { get; set; }
         public int IdDetail { get; set; }
         public string Nom_Produit { get; set; }
     
