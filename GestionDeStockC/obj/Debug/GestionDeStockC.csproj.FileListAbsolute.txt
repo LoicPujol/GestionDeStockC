@@ -85,4 +85,6 @@ C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeS
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Affectation.resources
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Dashboard.resources
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Ajoute_Date.resources
-C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Livraison.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Detail_Livraison.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.USER_Liste_Livraison.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.PL.FRM_Produit_Livraison.resources

@@ -37,5 +37,11 @@ namespace GestionDeStockC.PL
             lblDate.Text = DateTime.Now.ToShortDateString();
 
         }
+
+        private void USER_Dashboard_Load(object sender, EventArgs e)
+        {
+           // txtNbreDateCtrlAlerte.Text =
+           // txtNbreStockAlerte.Text = 
+        }
     }
 }

@@ -200,27 +200,36 @@ namespace GestionDeStockC.PL
                     {
                         frmp.txtquantite.Enabled = true;
                     }
-                    int prix = Convert.ToInt32(dvgProduit.CurrentRow.Cells[7].Value);
-                    int remise = int.Parse(txtRemise.Text);
-                    string tarif = "";
-                    if (txtRemise.Text != "")
+                    int prix;
+                    int remise;
+                    string tarif;
+                    if (dvgProduit.CurrentRow.Cells[7].Value.ToString() != "")
                     {
-                        tarif  = (prix - (prix * remise / 100)).ToString();
+                        prix = Convert.ToInt32(dvgProduit.CurrentRow.Cells[7].Value);
+                            if (txtRemise.Text != "")
+                            {
+                            remise = int.Parse(txtRemise.Text);
+                            }
+                            else
+                            {
+                            remise = 0;
+                            }
+                            tarif = (prix - (prix * remise / 100)).ToString();
                     }
                     else
                     {
-                        tarif = prix.ToString();
+                        tarif = "";
                     }
                     frmp.txttotal.Text = tarif;
                     frmp.ShowDialog();
                 }
             }
         }
-
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FRM_Produit_Commande frm = new FRM_Produit_Commande(this);
             Produit PR = new Produit();
+            Affectation QteAff = new Affectation();
             if(dvgDetailCommande.CurrentRow!=null)
             {
                 frm.lblTitre.Text = "Modifier Produit";
@@ -229,12 +238,14 @@ namespace GestionDeStockC.PL
                 frm.txtIdProduit.Text = dvgDetailCommande.CurrentRow.Cells[0].Value.ToString();
                 frm.lblnom.Text = dvgDetailCommande.CurrentRow.Cells[1].Value.ToString();
                 ////Importer le stock de produit depuis le datagrid produit//////
+                int IDEX = IDEXPEDITEUR;
+                int IDPROD = int.Parse(dvgDetailCommande.CurrentRow.Cells[0].Value.ToString());
+                QteAff = db.Affectations.Single(s => s.ID_Client == IDEX && s.ID_Produit == IDPROD);
+                frm.lblstock.Text = QteAff.Quantite_affectee.ToString();
+                ////Importer inventaire de produit depuis le datagrid produit//////
                 int IDP = int.Parse(dvgDetailCommande.CurrentRow.Cells[0].Value.ToString());
                 PR = db.Produits.Single(s => s.ID_Produit == IDP);
-                frm.lblstock.Text = PR.Quantité_Produit.ToString();
-                ////Importer inventaire de produit depuis le datagrid produit//////
                 frm.lblInv.Text = PR.NumInventaire.ToString(); ;
-                ////////////////////////////////////////////////////////////////
                 frm.lblprix.Text = dvgDetailCommande.CurrentRow.Cells[3].Value.ToString();
                 frm.txtquantite.Text = dvgDetailCommande.CurrentRow.Cells[2].Value.ToString();
                 frm.txtremise.Text = dvgDetailCommande.CurrentRow.Cells[4].Value.ToString();

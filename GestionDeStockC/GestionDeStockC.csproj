@@ -65,9 +65,11 @@
     <Compile Include="BL\CLS_Categorie.cs" />
     <Compile Include="BL\CLS_Client.cs" />
     <Compile Include="BL\CLS_Commande_Detail.cs" />
+    <Compile Include="BL\CLS_Livraison_Detail.cs" />
     <Compile Include="BL\CLS_Produit.cs" />
     <Compile Include="BL\D_Affectation.cs" />
     <Compile Include="BL\D_Commande.cs" />
+    <Compile Include="BL\D_Livraison.cs" />
     <Compile Include="Categorie.cs">
       <DependentUpon>DbStock.tt</DependentUpon>
     </Compile>
@@ -95,10 +97,16 @@
     <Compile Include="Details_Commande.cs">
       <DependentUpon>DbStock.tt</DependentUpon>
     </Compile>
+    <Compile Include="Details_Livraison.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
     <Compile Include="GESTION_DE_STOCKDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GESTION_DE_STOCKDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Livraison.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
     </Compile>
     <Compile Include="PL\FRM_Ajouter_Modifier_Porduit.cs">
       <SubType>Form</SubType>
@@ -136,6 +144,12 @@
     <Compile Include="PL\FRM_Detail_Commande.Designer.cs">
       <DependentUpon>FRM_Detail_Commande.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\FRM_Detail_Livraison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Detail_Livraison.Designer.cs">
+      <DependentUpon>FRM_Detail_Livraison.cs</DependentUpon>
+    </Compile>
     <Compile Include="PL\FRM_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +161,12 @@
     </Compile>
     <Compile Include="PL\FRM_Produit_Commande.Designer.cs">
       <DependentUpon>FRM_Produit_Commande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Produit_Livraison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Produit_Livraison.Designer.cs">
+      <DependentUpon>FRM_Produit_Livraison.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\USER_Affectation.cs">
       <SubType>UserControl</SubType>
@@ -190,11 +210,11 @@
     <Compile Include="PL\USER_Liste_Produit.Designer.cs">
       <DependentUpon>USER_Liste_Produit.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\USER_Livraison.cs">
+    <Compile Include="PL\USER_Liste_Livraison.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PL\USER_Livraison.Designer.cs">
-      <DependentUpon>USER_Livraison.cs</DependentUpon>
+    <Compile Include="PL\USER_Liste_Livraison.Designer.cs">
+      <DependentUpon>USER_Liste_Livraison.cs</DependentUpon>
     </Compile>
     <Compile Include="Produit.cs">
       <DependentUpon>DbStock.tt</DependentUpon>
@@ -225,11 +245,17 @@
     <EmbeddedResource Include="PL\FRM_Detail_Commande.resx">
       <DependentUpon>FRM_Detail_Commande.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Detail_Livraison.resx">
+      <DependentUpon>FRM_Detail_Livraison.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_Menu.resx">
       <DependentUpon>FRM_Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\FRM_Produit_Commande.resx">
       <DependentUpon>FRM_Produit_Commande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Produit_Livraison.resx">
+      <DependentUpon>FRM_Produit_Livraison.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\USER_Affectation.resx">
       <DependentUpon>USER_Affectation.cs</DependentUpon>
@@ -252,8 +278,8 @@
     <EmbeddedResource Include="PL\USER_Liste_Produit.resx">
       <DependentUpon>USER_Liste_Produit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\USER_Livraison.resx">
-      <DependentUpon>USER_Livraison.cs</DependentUpon>
+    <EmbeddedResource Include="PL\USER_Liste_Livraison.resx">
+      <DependentUpon>USER_Liste_Livraison.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

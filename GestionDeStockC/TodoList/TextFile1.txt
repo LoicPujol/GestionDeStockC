@@ -13,12 +13,8 @@ USER_Alerte :
 USER_Liste_Produit :
 --prendre quantite par article dans le total des affectations
 
-User Affectation :
--- supprimer ligne si qte = 0  ==> doit se faire dans table affectation SQL OU mettre un check box pour voir les ligne a 0 de stock
-
-FRM Detail commande :
---contextstrip modifier prend le stock dans table produit
---contexstrip modifier ne permet pas de recuperer la condition si unitaire alors qte = 1
+FRM_Detail livraison :
+-- si unitaire et quantite = 1 alors ne pas apparaitre
 
 Verifier :
 --ecriture dans table affectation

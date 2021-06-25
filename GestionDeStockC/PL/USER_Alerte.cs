@@ -33,6 +33,7 @@ namespace GestionDeStockC.PL
             db = new dbStockContext();
             
         }
+        //public int NbreArticleStockAlerte;
         public void ActualiserdvgStock()
         {
             db = new dbStockContext();
@@ -45,9 +46,9 @@ namespace GestionDeStockC.PL
                 Cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == Lis.ID_Categorie);
                 Typ = db.Types.SingleOrDefault(s => s.ID_Type == Lis.ID_Type);//ajout type
                 //if (Cat != null & Typ != null & int.Parse(Lis.Quantité_Produit) <= Lis.Stock_Alerte)//si existe
-                //{
+             //   {
                     dgvStock.Rows.Add(false, false, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Quantité_Produit, Lis.Stock_Alerte);//cat.Nom pour afficher nom de cagorie depuis table categorie
-                //}
+            //    }
             }
             /**for (int i = 0; i < dgvStock.Rows.Count; i++)
             {
@@ -62,9 +63,10 @@ namespace GestionDeStockC.PL
                 dgvStock.ClearSelection();
             
             }**/
+          //  NbreArticleStockAlerte = dgvStock.Rows.Count;
 
         }
-
+      //  public int NbreArticleDateCtrlAlerte;
         public void ActualiserdvgAlerte()
         {
             dgvDate.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -85,14 +87,14 @@ namespace GestionDeStockC.PL
                     DateTime date = Convert.ToDateTime(Lis.Date_Controle.ToString());
                     DateTime dateDuJour = DateTime.Now;
                     int nbJours = (date - dateDuJour).Days;
-                        if (Cat != null & Typ != null & nbJours <= 30)//si existe
-                        {
-                            IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
-                            NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
-                            {
+                       // if (Cat != null & Typ != null & nbJours <= 30)//si existe
+                        //{
+                         //   IDAffect = db.Affectations.SingleOrDefault(s => s.ID_Produit == Lis.ID_Produit);
+                          //  NomClient = db.Clients.SingleOrDefault(s => s.ID_Client == IDAffect.ID_Client);
+                           // {
                                 dgvDate.Rows.Add(Lis.ID_Produit, Cat.Nom_Categorie, Typ.Nom_Type, Lis.NumInventaire, Lis.Nom_Produit, Lis.Date_Controle, nbJours, NomClient.Nom_Client + " " + NomClient.Prenom_Client);//cat.Nom pour afficher nom de cagorie depuis table categorie
-                            }
-                        }
+                           // }
+                       // }
                 }
             }
             for (int i = 0; i < dgvDate.Rows.Count; i++)
@@ -107,8 +109,8 @@ namespace GestionDeStockC.PL
                 }
                 dgvDate.ClearSelection();
             }
+        //    NbreArticleDateCtrlAlerte = dgvDate.Rows.Count;
         }
-
         private void USER_Alerte_Load(object sender, EventArgs e)
         {
             ActualiserdvgStock();

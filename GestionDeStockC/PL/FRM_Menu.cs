@@ -141,15 +141,15 @@ namespace GestionDeStockC.PL
         private void btnLivraison_Click(object sender, EventArgs e)
         {
             pnlBut.Top = btnLivraison.Top;
-            if (!pnlaficher.Controls.Contains(USER_Livraison.Instance))
+            if (!pnlaficher.Controls.Contains(USER_Liste_Livraison.Instance))
             {
-                pnlaficher.Controls.Add(USER_Livraison.Instance);
-                USER_Livraison.Instance.Dock = DockStyle.Fill;
-                USER_Livraison.Instance.BringToFront();
+                pnlaficher.Controls.Add(USER_Liste_Livraison.Instance);
+                USER_Liste_Livraison.Instance.Dock = DockStyle.Fill;
+                USER_Liste_Livraison.Instance.BringToFront();
             }
             else
             {
-                USER_Livraison.Instance.BringToFront();
+                USER_Liste_Livraison.Instance.BringToFront();
             }
         }
     }

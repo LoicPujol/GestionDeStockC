@@ -62,6 +62,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Livraisons">
+      <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Livraison">
+        <MappingFragment StoreEntitySet="Livraison">
+          <ScalarProperty Name="Num_Document" ColumnName="Num_Document" />
+          <ScalarProperty Name="Fournisseur" ColumnName="Fournisseur" />
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="Date_Livraison" ColumnName="Date_Livraison" />
+          <ScalarProperty Name="ID_Livraison" ColumnName="ID_Livraison" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Produits">
       <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Produit">
         <MappingFragment StoreEntitySet="Produit">
@@ -95,6 +106,17 @@
         <MappingFragment StoreEntitySet="Utilisateur">
           <ScalarProperty Name="Mot_De_Passe" ColumnName="Mot_De_Passe" />
           <ScalarProperty Name="NomUtilisateur" ColumnName="NomUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Details_Livraison">
+      <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Details_Livraison">
+        <MappingFragment StoreEntitySet="Details_Livraison">
+          <ScalarProperty Name="Nom_Produit" ColumnName="Nom_Produit" />
+          <ScalarProperty Name="IdDetail" ColumnName="IdDetail" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="ID_Produit" ColumnName="ID_Produit" />
+          <ScalarProperty Name="ID_Livraison" ColumnName="ID_Livraison" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

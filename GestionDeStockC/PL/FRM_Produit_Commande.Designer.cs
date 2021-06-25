@@ -202,9 +202,8 @@ namespace GestionDeStockC.PL
             this.lblprix.ForeColor = System.Drawing.Color.Black;
             this.lblprix.Location = new System.Drawing.Point(126, 236);
             this.lblprix.Name = "lblprix";
-            this.lblprix.Size = new System.Drawing.Size(25, 24);
+            this.lblprix.Size = new System.Drawing.Size(0, 24);
             this.lblprix.TabIndex = 35;
-            this.lblprix.Text = "Ip";
             // 
             // lblInv
             // 

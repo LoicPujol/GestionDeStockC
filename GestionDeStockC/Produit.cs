@@ -19,6 +19,7 @@ namespace GestionDeStockC
         {
             this.Affectations = new HashSet<Affectation>();
             this.Details_Commande = new HashSet<Details_Commande>();
+            this.Details_Livraison = new HashSet<Details_Livraison>();
         }
     
         public int ID_Produit { get; set; }
@@ -42,5 +43,7 @@ namespace GestionDeStockC
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Details_Commande> Details_Commande { get; set; }
         public virtual Type Type { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Details_Livraison> Details_Livraison { get; set; }
     }
 }

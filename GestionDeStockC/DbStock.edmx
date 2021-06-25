@@ -61,6 +61,26 @@
           <Property Name="Remise" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Total" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
+        <EntityType Name="Details_Livraison">
+          <Key>
+            <PropertyRef Name="IdDetail" />
+          </Key>
+          <Property Name="ID_Livraison" Type="int" Nullable="false" />
+          <Property Name="ID_Produit" Type="int" Nullable="false" />
+          <Property Name="Quantite" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Produit" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Livraison">
+          <Key>
+            <PropertyRef Name="ID_Livraison" />
+          </Key>
+          <Property Name="ID_Livraison" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date_Livraison" Type="datetime" Nullable="false" />
+          <Property Name="ID_Client" Type="int" Nullable="false" />
+          <Property Name="Fournisseur" Type="nvarchar" MaxLength="50" />
+          <Property Name="Num_Document" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Produit">
           <Key>
             <PropertyRef Name="ID_Produit" />
@@ -164,6 +184,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Details_Livraison_Livraison">
+          <End Role="Livraison" Type="Self.Livraison" Multiplicity="1" />
+          <End Role="Details_Livraison" Type="Self.Details_Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Livraison">
+              <PropertyRef Name="ID_Livraison" />
+            </Principal>
+            <Dependent Role="Details_Livraison">
+              <PropertyRef Name="ID_Livraison" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Livraison_Produit">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1" />
+          <End Role="Details_Livraison" Type="Self.Details_Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="ID_Produit" />
+            </Principal>
+            <Dependent Role="Details_Livraison">
+              <PropertyRef Name="ID_Produit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Livraison_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Livraison" Type="Self.Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Produit_Categorie">
           <End Role="Categorie" Type="Self.Categorie" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -198,6 +254,8 @@
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Details_Commande" EntityType="Self.Details_Commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Details_Livraison" EntityType="Self.Details_Livraison" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Livraison" EntityType="Self.Livraison" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
@@ -221,6 +279,18 @@
             <End Role="Produit" EntitySet="Produit" />
             <End Role="Details_Commande" EntitySet="Details_Commande" />
           </AssociationSet>
+          <AssociationSet Name="FK_Details_Livraison_Livraison" Association="Self.FK_Details_Livraison_Livraison">
+            <End Role="Livraison" EntitySet="Livraison" />
+            <End Role="Details_Livraison" EntitySet="Details_Livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Livraison_Produit" Association="Self.FK_Details_Livraison_Produit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Details_Livraison" EntitySet="Details_Livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Livraison_Client" Association="Self.FK_Livraison_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Livraison" EntitySet="Livraison" />
+          </AssociationSet>
           <AssociationSet Name="FK_Produit_Categorie" Association="Self.FK_Produit_Categorie">
             <End Role="Categorie" EntitySet="Categorie" />
             <End Role="Produit" EntitySet="Produit" />
@@ -240,6 +310,7 @@
           <EntitySet Name="Clients" EntityType="GESTION_DE_STOCKModel.Client" />
           <EntitySet Name="Commandes" EntityType="GESTION_DE_STOCKModel.Commande" />
           <EntitySet Name="Details_Commande" EntityType="GESTION_DE_STOCKModel.Details_Commande" />
+          <EntitySet Name="Livraisons" EntityType="GESTION_DE_STOCKModel.Livraison" />
           <EntitySet Name="Produits" EntityType="GESTION_DE_STOCKModel.Produit" />
           <EntitySet Name="Types" EntityType="GESTION_DE_STOCKModel.Type" />
           <EntitySet Name="Utilisateurs" EntityType="GESTION_DE_STOCKModel.Utilisateur" />
@@ -259,6 +330,10 @@
             <End Role="Client" EntitySet="Clients" />
             <End Role="Commande" EntitySet="Commandes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Livraison_Client" Association="GESTION_DE_STOCKModel.FK_Livraison_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Livraison" EntitySet="Livraisons" />
+          </AssociationSet>
           <AssociationSet Name="FK_Details_Commande_Commande" Association="GESTION_DE_STOCKModel.FK_Details_Commande_Commande">
             <End Role="Commande" EntitySet="Commandes" />
             <End Role="Details_Commande" EntitySet="Details_Commande" />
@@ -270,6 +345,15 @@
           <AssociationSet Name="FK_Produit_Type" Association="GESTION_DE_STOCKModel.FK_Produit_Type">
             <End Role="Type" EntitySet="Types" />
             <End Role="Produit" EntitySet="Produits" />
+          </AssociationSet>
+          <EntitySet Name="Details_Livraison" EntityType="GESTION_DE_STOCKModel.Details_Livraison" />
+          <AssociationSet Name="FK_Details_Livraison_Livraison" Association="GESTION_DE_STOCKModel.FK_Details_Livraison_Livraison">
+            <End Role="Livraison" EntitySet="Livraisons" />
+            <End Role="Details_Livraison" EntitySet="Details_Livraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Livraison_Produit" Association="GESTION_DE_STOCKModel.FK_Details_Livraison_Produit">
+            <End Role="Produit" EntitySet="Produits" />
+            <End Role="Details_Livraison" EntitySet="Details_Livraison" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Affectation">
@@ -308,6 +392,7 @@
           <Property Name="Num_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Affectations" Relationship="GESTION_DE_STOCKModel.FK_Affectation_Client" FromRole="Client" ToRole="Affectation" />
           <NavigationProperty Name="Commandes" Relationship="GESTION_DE_STOCKModel.FK_Commande_Client" FromRole="Client" ToRole="Commande" />
+          <NavigationProperty Name="Livraisons" Relationship="GESTION_DE_STOCKModel.FK_Livraison_Client" FromRole="Client" ToRole="Livraison" />
         </EntityType>
         <EntityType Name="Commande">
           <Key>
@@ -337,6 +422,18 @@
           <NavigationProperty Name="Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Commande" FromRole="Details_Commande" ToRole="Commande" />
           <NavigationProperty Name="Produit" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Produit" FromRole="Details_Commande" ToRole="Produit" />
         </EntityType>
+        <EntityType Name="Livraison">
+          <Key>
+            <PropertyRef Name="ID_Livraison" />
+          </Key>
+          <Property Name="ID_Livraison" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Livraison" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="Fournisseur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Num_Document" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client" Relationship="GESTION_DE_STOCKModel.FK_Livraison_Client" FromRole="Livraison" ToRole="Client" />
+          <NavigationProperty Name="Details_Livraison" Relationship="GESTION_DE_STOCKModel.FK_Details_Livraison_Livraison" FromRole="Livraison" ToRole="Details_Livraison" />
+        </EntityType>
         <EntityType Name="Produit">
           <Key>
             <PropertyRef Name="ID_Produit" />
@@ -359,6 +456,7 @@
           <NavigationProperty Name="Categorie" Relationship="GESTION_DE_STOCKModel.FK_Produit_Categorie" FromRole="Produit" ToRole="Categorie" />
           <NavigationProperty Name="Details_Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Produit" FromRole="Produit" ToRole="Details_Commande" />
           <NavigationProperty Name="Type" Relationship="GESTION_DE_STOCKModel.FK_Produit_Type" FromRole="Produit" ToRole="Type" />
+          <NavigationProperty Name="Details_Livraison" Relationship="GESTION_DE_STOCKModel.FK_Details_Livraison_Produit" FromRole="Produit" ToRole="Details_Livraison" />
         </EntityType>
         <EntityType Name="Type">
           <Key>
@@ -431,6 +529,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Livraison_Client">
+          <End Type="GESTION_DE_STOCKModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="GESTION_DE_STOCKModel.Livraison" Role="Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Livraison">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Details_Commande_Commande">
           <End Type="GESTION_DE_STOCKModel.Commande" Role="Commande" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -470,6 +580,42 @@
             </Principal>
             <Dependent Role="Produit">
               <PropertyRef Name="ID_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Details_Livraison">
+          <Key>
+            <PropertyRef Name="IdDetail" />
+          </Key>
+          <Property Name="ID_Livraison" Type="Int32" Nullable="false" />
+          <Property Name="ID_Produit" Type="Int32" Nullable="false" />
+          <Property Name="Quantite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Produit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Livraison" Relationship="GESTION_DE_STOCKModel.FK_Details_Livraison_Livraison" FromRole="Details_Livraison" ToRole="Livraison" />
+          <NavigationProperty Name="Produit" Relationship="GESTION_DE_STOCKModel.FK_Details_Livraison_Produit" FromRole="Details_Livraison" ToRole="Produit" />
+        </EntityType>
+        <Association Name="FK_Details_Livraison_Livraison">
+          <End Type="GESTION_DE_STOCKModel.Livraison" Role="Livraison" Multiplicity="1" />
+          <End Type="GESTION_DE_STOCKModel.Details_Livraison" Role="Details_Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Livraison">
+              <PropertyRef Name="ID_Livraison" />
+            </Principal>
+            <Dependent Role="Details_Livraison">
+              <PropertyRef Name="ID_Livraison" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Livraison_Produit">
+          <End Type="GESTION_DE_STOCKModel.Produit" Role="Produit" Multiplicity="1" />
+          <End Type="GESTION_DE_STOCKModel.Details_Livraison" Role="Details_Livraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="ID_Produit" />
+            </Principal>
+            <Dependent Role="Details_Livraison">
+              <PropertyRef Name="ID_Produit" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -540,6 +686,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Livraisons">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Livraison">
+              <MappingFragment StoreEntitySet="Livraison">
+                <ScalarProperty Name="Num_Document" ColumnName="Num_Document" />
+                <ScalarProperty Name="Fournisseur" ColumnName="Fournisseur" />
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="Date_Livraison" ColumnName="Date_Livraison" />
+                <ScalarProperty Name="ID_Livraison" ColumnName="ID_Livraison" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Produits">
             <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Produit">
               <MappingFragment StoreEntitySet="Produit">
@@ -573,6 +730,17 @@
               <MappingFragment StoreEntitySet="Utilisateur">
                 <ScalarProperty Name="Mot_De_Passe" ColumnName="Mot_De_Passe" />
                 <ScalarProperty Name="NomUtilisateur" ColumnName="NomUtilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Details_Livraison">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Details_Livraison">
+              <MappingFragment StoreEntitySet="Details_Livraison">
+                <ScalarProperty Name="Nom_Produit" ColumnName="Nom_Produit" />
+                <ScalarProperty Name="IdDetail" ColumnName="IdDetail" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="ID_Produit" ColumnName="ID_Produit" />
+                <ScalarProperty Name="ID_Livraison" ColumnName="ID_Livraison" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
