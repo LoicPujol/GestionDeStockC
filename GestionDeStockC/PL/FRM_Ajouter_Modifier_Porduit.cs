@@ -102,9 +102,12 @@ namespace GestionDeStockC.PL
                 }
                 else //si titre n'est pas ajoute produit alors c'est une modificaton
                 {
-                    MemoryStream MR = new MemoryStream();
-                    picProduit.Image.Save(MR, picProduit.Image.RawFormat);
-                    byte[] byteimageP = MR.ToArray();//convertir image en format bye[]
+                    if (picProduit.Image != null)
+                    {
+                        MemoryStream MR = new MemoryStream();
+                        picProduit.Image.Save(MR, picProduit.Image.RawFormat);
+                        byte[] byteimageP = MR.ToArray();//convertir image en format bye[]
+                    }
                     BL.CLS_Produit cLS_Produit = new BL.CLS_Produit();
                     DialogResult RS = MessageBox.Show("Voulez vous modifier", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (RS == DialogResult.Yes)
@@ -129,18 +132,21 @@ namespace GestionDeStockC.PL
         {
             if (combotype.Text == "Unitaire")
             {
-                grpDateCtrl.Visible = true;
+                grpUnitaire.Visible = true;
+                grpNonUnitaire.Visible = false;
                 txtQuantite.Enabled = false;
                 txtQuantite.Text = "1";
             }
             if (combotype.Text == "Lot")
             {
-                grpDateCtrl.Visible = false;
+                grpUnitaire.Visible = false;
+                grpNonUnitaire.Visible = true;
                 txtQuantite.Enabled = true;
             }
             if (combotype.Text == "Consomable")
             {
-                grpDateCtrl.Visible = false;
+                grpUnitaire.Visible = false;
+                grpNonUnitaire.Visible = true;
                 txtQuantite.Enabled = true;
              }
         }
@@ -248,6 +254,37 @@ namespace GestionDeStockC.PL
             {
                 e.Handled = false;
             }
+        }
+        public void Calcul_Marge ()
+        {
+            decimal TarifAchat;
+            decimal TarifVente;
+            decimal Marge;
+                 
+
+            if (txtTarifAchat.Text != "")
+            {
+                TarifAchat = int.Parse(txtTarifAchat.Text);
+                if (txtPrix.Text != "")
+                {
+                    TarifVente = int.Parse(txtPrix.Text);
+                    if (TarifAchat.ToString() != "" && TarifVente.ToString() != "")
+                    {
+                        Marge = (((TarifVente - TarifAchat) / TarifAchat) *100);
+                        txtMarge.Text = Marge.ToString();
+                    }
+                }
+            }
+         }
+
+        private void txtTarifAchat_TextChanged(object sender, EventArgs e)
+        {
+            Calcul_Marge();
+        }
+
+        private void txtPrix_TextChanged(object sender, EventArgs e)
+        {
+            Calcul_Marge();
         }
 
         /**private void txtNomP_Enter(object sender, EventArgs e)

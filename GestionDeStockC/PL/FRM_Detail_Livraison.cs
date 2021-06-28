@@ -44,6 +44,8 @@ namespace GestionDeStockC.PL
                 Affectation StockUnitaire = new Affectation();
             foreach (var l in listerecherche)
             {
+                MessageBox.Show(l.ID_Produit.ToString());
+
                 Nomcat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
                 NomType = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);
                 if (l.ID_Type.ToString() != "3")
@@ -216,20 +218,19 @@ namespace GestionDeStockC.PL
                 frm.ShowDialog();
             }
         }
-
+        **/
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dvgDetailCommande.CurrentRow != null)
+            if (dvgDetailLivraison.CurrentRow != null)
             {
                 //supprimer ligne selectionne dans datagrid commande + sur les 3 listedetail
-                int index = BL.D_Commande.listeDetail.FindIndex(s => s.Id == int.Parse(dvgDetailCommande.CurrentRow.Cells[0].Value.ToString()));
-                BL.D_Commande.listeDetail.RemoveAt(index);
+                int index = BL.D_Livraison.listeDetail.FindIndex(s => s.Id == int.Parse(dvgDetailLivraison.CurrentRow.Cells[0].Value.ToString()));
+                BL.D_Livraison.listeDetail.RemoveAt(index);
                 BL.D_Affectation.listeDetail.RemoveAt(index);
-                BL.D_Affectation.listeDetailExpedition.RemoveAt(index);
-
-                Actualiser_Detail_Commande();
+  
+                Actualiser_Detail_Livraison();
             }
-        }**/
+        }
         private void btnenregistrer_Click(object sender, EventArgs e)
         {
             BL.CLS_Livraison_Detail clslivraison = new BL.CLS_Livraison_Detail();

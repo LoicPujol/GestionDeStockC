@@ -33,6 +33,7 @@ namespace GestionDeStockC.PL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(USER_Liste_Client));
             this.txtrecherche = new System.Windows.Forms.TextBox();
             this.comborecherche = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -56,6 +57,7 @@ namespace GestionDeStockC.PL
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnexcel = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgclient)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -186,6 +188,7 @@ namespace GestionDeStockC.PL
             // 
             this.Column7.HeaderText = "N° client";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column5
             // 
@@ -203,21 +206,25 @@ namespace GestionDeStockC.PL
             // 
             this.Column12.HeaderText = "Rabais";
             this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
             // 
             // Column10
             // 
             this.Column10.HeaderText = "Adresse";
             this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             // 
             // Column11
             // 
             this.Column11.HeaderText = "Code postal";
             this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Ville";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column4
             // 
@@ -251,7 +258,7 @@ namespace GestionDeStockC.PL
             this.btnsupprimerclient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnsupprimerclient.ForeColor = System.Drawing.Color.White;
             this.btnsupprimerclient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnsupprimerclient.Location = new System.Drawing.Point(995, 31);
+            this.btnsupprimerclient.Location = new System.Drawing.Point(951, 31);
             this.btnsupprimerclient.Name = "btnsupprimerclient";
             this.btnsupprimerclient.Size = new System.Drawing.Size(130, 32);
             this.btnsupprimerclient.TabIndex = 20;
@@ -271,7 +278,7 @@ namespace GestionDeStockC.PL
             this.btnajouteclient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnajouteclient.ForeColor = System.Drawing.Color.White;
             this.btnajouteclient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnajouteclient.Location = new System.Drawing.Point(720, 31);
+            this.btnajouteclient.Location = new System.Drawing.Point(676, 31);
             this.btnajouteclient.Name = "btnajouteclient";
             this.btnajouteclient.Size = new System.Drawing.Size(130, 32);
             this.btnajouteclient.TabIndex = 18;
@@ -291,7 +298,7 @@ namespace GestionDeStockC.PL
             this.btnmodifierclient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnmodifierclient.ForeColor = System.Drawing.Color.White;
             this.btnmodifierclient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnmodifierclient.Location = new System.Drawing.Point(859, 30);
+            this.btnmodifierclient.Location = new System.Drawing.Point(815, 30);
             this.btnmodifierclient.Name = "btnmodifierclient";
             this.btnmodifierclient.Size = new System.Drawing.Size(130, 32);
             this.btnmodifierclient.TabIndex = 19;
@@ -333,11 +340,32 @@ namespace GestionDeStockC.PL
             this.label2.TabIndex = 69;
             this.label2.Text = "Type";
             // 
+            // btnexcel
+            // 
+            this.btnexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnexcel.BackColor = System.Drawing.Color.White;
+            this.btnexcel.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnexcel.FlatAppearance.BorderSize = 0;
+            this.btnexcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnexcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnexcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnexcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnexcel.ForeColor = System.Drawing.Color.LightGray;
+            this.btnexcel.Image = ((System.Drawing.Image)(resources.GetObject("btnexcel.Image")));
+            this.btnexcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnexcel.Location = new System.Drawing.Point(1092, 28);
+            this.btnexcel.Name = "btnexcel";
+            this.btnexcel.Size = new System.Drawing.Size(33, 39);
+            this.btnexcel.TabIndex = 70;
+            this.btnexcel.UseVisualStyleBackColor = false;
+            this.btnexcel.Click += new System.EventHandler(this.btnexcel_Click);
+            // 
             // USER_Liste_Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.btnexcel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnsupprimerclient);
             this.Controls.Add(this.btnmodifierclient);
@@ -378,5 +406,6 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button btnexcel;
     }
 }

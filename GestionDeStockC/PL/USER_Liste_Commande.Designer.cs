@@ -36,6 +36,7 @@ namespace GestionDeStockC.PL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(USER_Liste_Commande));
             this.btnimprimertout = new System.Windows.Forms.Button();
             this.detailsCommandeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gESTION_DE_STOCKDataSet = new GestionDeStockC.GESTION_DE_STOCKDataSet();
@@ -59,6 +60,7 @@ namespace GestionDeStockC.PL
             this.txtPeriode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnexcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.detailsCommandeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gESTION_DE_STOCKDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCommande)).BeginInit();
@@ -97,10 +99,10 @@ namespace GestionDeStockC.PL
             // 
             this.txtNumCde.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNumCde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumCde.Location = new System.Drawing.Point(820, 16);
+            this.txtNumCde.Location = new System.Drawing.Point(860, 16);
             this.txtNumCde.Multiline = true;
             this.txtNumCde.Name = "txtNumCde";
-            this.txtNumCde.Size = new System.Drawing.Size(107, 29);
+            this.txtNumCde.Size = new System.Drawing.Size(17, 29);
             this.txtNumCde.TabIndex = 35;
             this.txtNumCde.Visible = false;
             this.txtNumCde.TextChanged += new System.EventHandler(this.txtNumCde_TextChanged);
@@ -179,6 +181,7 @@ namespace GestionDeStockC.PL
             // 
             this.Column8.HeaderText = "Client";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -220,6 +223,7 @@ namespace GestionDeStockC.PL
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Menu;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvgDetailCde.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dvgDetailCde.Enabled = false;
             this.dvgDetailCde.EnableHeadersVisualStyles = false;
             this.dvgDetailCde.Location = new System.Drawing.Point(548, 82);
             this.dvgDetailCde.MultiSelect = false;
@@ -301,7 +305,7 @@ namespace GestionDeStockC.PL
             this.btnajouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.btnajouter.ForeColor = System.Drawing.Color.White;
             this.btnajouter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnajouter.Location = new System.Drawing.Point(943, 12);
+            this.btnajouter.Location = new System.Drawing.Point(893, 12);
             this.btnajouter.Name = "btnajouter";
             this.btnajouter.Size = new System.Drawing.Size(130, 32);
             this.btnajouter.TabIndex = 68;
@@ -369,11 +373,32 @@ namespace GestionDeStockC.PL
             this.label2.TabIndex = 69;
             this.label2.Text = "Numero";
             // 
+            // btnexcel
+            // 
+            this.btnexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnexcel.BackColor = System.Drawing.Color.White;
+            this.btnexcel.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnexcel.FlatAppearance.BorderSize = 0;
+            this.btnexcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnexcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnexcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnexcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnexcel.ForeColor = System.Drawing.Color.LightGray;
+            this.btnexcel.Image = ((System.Drawing.Image)(resources.GetObject("btnexcel.Image")));
+            this.btnexcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnexcel.Location = new System.Drawing.Point(1040, 8);
+            this.btnexcel.Name = "btnexcel";
+            this.btnexcel.Size = new System.Drawing.Size(33, 39);
+            this.btnexcel.TabIndex = 79;
+            this.btnexcel.UseVisualStyleBackColor = false;
+            this.btnexcel.Click += new System.EventHandler(this.btnexcel_Click);
+            // 
             // USER_Liste_Commande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.btnexcel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnajouter);
             this.Controls.Add(this.dvgDetailCde);
@@ -410,13 +435,14 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPeriode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Button btnexcel;
     }
 }

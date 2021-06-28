@@ -76,7 +76,7 @@ namespace GestionDeStockC.PL
             this.btnLivraison.ForeColor = System.Drawing.Color.White;
             this.btnLivraison.Image = ((System.Drawing.Image)(resources.GetObject("btnLivraison.Image")));
             this.btnLivraison.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLivraison.Location = new System.Drawing.Point(7, 239);
+            this.btnLivraison.Location = new System.Drawing.Point(7, 293);
             this.btnLivraison.Name = "btnLivraison";
             this.btnLivraison.Size = new System.Drawing.Size(181, 45);
             this.btnLivraison.TabIndex = 16;
@@ -145,7 +145,7 @@ namespace GestionDeStockC.PL
             // pnlBut
             // 
             this.pnlBut.BackColor = System.Drawing.Color.DimGray;
-            this.pnlBut.Location = new System.Drawing.Point(0, 80);
+            this.pnlBut.Location = new System.Drawing.Point(0, 78);
             this.pnlBut.Name = "pnlBut";
             this.pnlBut.Size = new System.Drawing.Size(10, 45);
             this.pnlBut.TabIndex = 6;
@@ -232,7 +232,7 @@ namespace GestionDeStockC.PL
             this.btncategorie.ForeColor = System.Drawing.Color.White;
             this.btncategorie.Image = ((System.Drawing.Image)(resources.GetObject("btncategorie.Image")));
             this.btncategorie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btncategorie.Location = new System.Drawing.Point(7, 293);
+            this.btncategorie.Location = new System.Drawing.Point(7, 239);
             this.btncategorie.Name = "btncategorie";
             this.btncategorie.Size = new System.Drawing.Size(181, 45);
             this.btncategorie.TabIndex = 10;

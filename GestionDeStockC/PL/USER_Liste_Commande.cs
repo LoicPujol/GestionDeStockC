@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
 
 namespace GestionDeStockC.PL
 {
@@ -149,6 +150,54 @@ namespace GestionDeStockC.PL
         {
           //  txtNumCde.Text = "";
             Actualisedatagrid();
+        }
+
+        private void btnexcel_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog SDF = new SaveFileDialog() { Filter = "Excel Workbook |*xlsx", ValidateNames = true })//filtrer seulement fichier excel
+            {
+                if (SDF.ShowDialog() == DialogResult.OK)
+                {
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                    Worksheet ws = (Worksheet)app.ActiveSheet;
+                    app.Visible = false;
+                    //Les noms des colones :
+                    ws.Cells[1, 1] = "Numero";
+                    ws.Cells[1, 2] = "Date";
+                    ws.Cells[1, 3] = "Nom Client";
+                    ws.Cells[1, 4] = "Total HT";
+
+                    //liste des produits
+                    var ListeCommande = db.Commandes.ToList();
+                    int i = 2;
+                    Client Clt = new Client();
+                    foreach (var L in ListeCommande)
+                    {
+                        ws.Cells[i, 1] = L.ID_Commande;
+                        ws.Cells[i, 2] = L.DATE_Commande;
+                        Clt = db.Clients.SingleOrDefault(s => s.ID_Client == L.ID_Client);
+                        ws.Cells[i, 3] = Clt.Nom_Client + " " + Clt.Prenom_Client;
+                        ws.Cells[i, 4] = L.Total_HT;
+
+
+                        i++;
+                    }
+                    //Mise en forme de l'excel
+                    ws.Range["A1:D1"].Interior.Color = Color.Blue;
+                    ws.Range["A1:D1"].Font.Color = Color.White;
+                    ws.Range["A1:D1"].Font.Size = 15;
+                    ws.Range["A:D"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    ws.Range["A1:D1"].ColumnWidth = 16;
+
+
+
+                    //Fermer classeur
+                    wb.SaveAs(SDF.FileName);
+                    app.Quit();
+                    MessageBox.Show("Sauvegarde ok", "Excel", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
         }
     }
 }

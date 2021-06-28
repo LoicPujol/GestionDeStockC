@@ -4,14 +4,13 @@
 --verifier les champs obligatoire
 --corriger faute orthographe 
 --passer tout les dgv en readonly
---ajouter des exports exel
-
-USER_Alerte :
--- afficher les produits que si stock alerte et stock reel existe
--- afficher produit en alerte que si affecte
 
 USER_Liste_Produit :
---prendre quantite par article dans le total des affectations
+--suprimer quantite
+--ajouter ID expediteur dans detail commande
+
+FRM_Detail_Livraison :
+--conextstip modifier a reprendre
 
 Verifier :
 --ecriture dans table affectation

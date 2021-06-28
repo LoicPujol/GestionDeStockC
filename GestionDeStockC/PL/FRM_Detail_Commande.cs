@@ -200,27 +200,6 @@ namespace GestionDeStockC.PL
                     {
                         frmp.txtquantite.Enabled = true;
                     }
-                    int prix;
-                    int remise;
-                    string tarif;
-                    if (dvgProduit.CurrentRow.Cells[7].Value.ToString() != "")
-                    {
-                        prix = Convert.ToInt32(dvgProduit.CurrentRow.Cells[7].Value);
-                            if (txtRemise.Text != "")
-                            {
-                            remise = int.Parse(txtRemise.Text);
-                            }
-                            else
-                            {
-                            remise = 0;
-                            }
-                            tarif = (prix - (prix * remise / 100)).ToString();
-                    }
-                    else
-                    {
-                        tarif = "";
-                    }
-                    frmp.txttotal.Text = tarif;
                     frmp.ShowDialog();
                 }
             }
@@ -403,6 +382,5 @@ namespace GestionDeStockC.PL
             BL.D_Affectation.listeDetail.Clear();
             BL.D_Affectation.listeDetailExpedition.Clear();
         }
-
     }
 }

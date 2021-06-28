@@ -16,7 +16,7 @@ namespace GestionDeStockC.PL
         {
             InitializeComponent();
             panel1.Size=new Size(180, 666);
-            USER_Alerte.Instance.TestDemarageAlerte();
+            //USER_Alerte.Instance.TestDemarageAlerte();
             
         }
         
@@ -39,15 +39,12 @@ namespace GestionDeStockC.PL
                 pnlaficher.Controls.Add(USER_Liste_Produit.Instance);
                 USER_Liste_Produit.Instance.Dock = DockStyle.Fill;
                 USER_Liste_Produit.Instance.BringToFront();
-                USER_Liste_Produit.Instance.Actualiserdvg();
             }
             else
             {
                 USER_Liste_Produit.Instance.BringToFront();
-                USER_Liste_Produit.Instance.Actualiserdvg();
             }
         }
-
         private void btnclient_Click(object sender, EventArgs e)
         {
             pnlBut.Top = btnclient.Top;
@@ -131,10 +128,13 @@ namespace GestionDeStockC.PL
                 pnlaficher.Controls.Add(USER_Dashboard.Instance);
                 USER_Dashboard.Instance.Dock = DockStyle.Fill;
                 USER_Dashboard.Instance.BringToFront();
+                USER_Alerte.Instance.ActualiserdvgAlerte();
+                USER_Alerte.Instance.ActualiserdvgStock();
             }
             else
             {
                 USER_Dashboard.Instance.BringToFront();
+
             }
         }
 

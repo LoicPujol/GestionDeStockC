@@ -204,20 +204,20 @@ namespace GestionDeStockC.PL
             this.modifierToolStripMenuItem,
             this.supprimerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // modifierToolStripMenuItem
             // 
             this.modifierToolStripMenuItem.Image = global::GestionDeStockC.Properties.Resources.k;
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modifierToolStripMenuItem.Text = "Modifier";
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Image = global::GestionDeStockC.Properties.Resources.Deconnecte;
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
             // 
             // Livraisondate
@@ -381,6 +381,7 @@ namespace GestionDeStockC.PL
             this.dvgProduit.Size = new System.Drawing.Size(823, 637);
             this.dvgProduit.TabIndex = 65;
             this.dvgProduit.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
+            this.dvgProduit.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -514,6 +515,7 @@ namespace GestionDeStockC.PL
             this.Controls.Add(this.grpPoduit);
             this.Name = "FRM_Detail_Livraison";
             this.Text = "FRM_Detail_Livraison";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FRM_Detail_Livraison_Load);
             this.grpDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvgDetailLivraison)).EndInit();

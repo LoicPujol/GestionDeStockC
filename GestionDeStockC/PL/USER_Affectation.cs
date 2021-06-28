@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
 
 namespace GestionDeStockC.PL
 {
@@ -198,6 +199,71 @@ namespace GestionDeStockC.PL
         private void txtrechercheClient_TextChanged(object sender, EventArgs e)
         {
             Actualiserdvg();
+        }
+
+        private void btnexcel_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog SDF = new SaveFileDialog() { Filter = "Excel Workbook |*xlsx", ValidateNames = true })//filtrer seulement fichier excel
+            {
+                if (SDF.ShowDialog() == DialogResult.OK)
+                {
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                    Worksheet ws = (Worksheet)app.ActiveSheet;
+                    app.Visible = false;
+                    //Les noms des colones :
+                    ws.Cells[1, 1] = "Categorie";
+                    ws.Cells[1, 2] = "Type";
+                    ws.Cells[1, 3] = "Client";
+                    ws.Cells[1, 4] = "Num Inv";
+                    ws.Cells[1, 5] = "Designation";
+                    ws.Cells[1, 6] = "Quantite";
+                    ws.Cells[1, 7] = "Controle";
+
+                    //liste des produits
+                    var ListeAffectation = db.Affectations.ToList();
+                    int i = 2;
+                    Produit Prod = new Produit();
+                    Produit CatProd = new Produit();
+                    Produit TypProd = new Produit();
+                    Produit DateCtrl = new Produit();
+                    Categorie Nomcat = new Categorie();
+                    Type NomType = new Type();
+                    Client Clt = new Client();
+                    foreach (var L in ListeAffectation)
+                    {
+                        CatProd = db.Produits.SingleOrDefault(s => s.ID_Produit == L.ID_Produit);
+                        Nomcat = db.Categories.SingleOrDefault(s => s.ID_Categorie == CatProd.ID_Categorie);
+                        ws.Cells[i, 1] = Nomcat.Nom_Categorie;
+                        TypProd = db.Produits.SingleOrDefault(s => s.ID_Produit == L.ID_Produit);
+                        NomType = db.Types.SingleOrDefault(s => s.ID_Type == TypProd.ID_Type);
+                        ws.Cells[i, 2] = NomType.Nom_Type;
+                        Clt = db.Clients.SingleOrDefault(s => s.ID_Client == L.ID_Client);
+                        ws.Cells[i, 3] = Clt.Nom_Client + " " + Clt.Prenom_Client;
+                        Prod = db.Produits.SingleOrDefault(s => s.ID_Produit == L.ID_Produit);
+                        ws.Cells[i, 4] = Prod.NumInventaire;
+                        ws.Cells[i, 5] = Prod.Nom_Produit;
+                        ws.Cells[i, 6] = L.Quantite_affectee;
+                        ws.Cells[i, 7] = Prod.Date_Controle;
+
+
+                        i++;
+                    }
+                    //Mise en forme de l'excel
+                    ws.Range["A1:G1"].Interior.Color = Color.Blue;
+                    ws.Range["A1:G1"].Font.Color = Color.White;
+                    ws.Range["A1:G1"].Font.Size = 15;
+                    ws.Range["A:G"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    ws.Range["A1:G1"].ColumnWidth = 16;
+
+
+
+                    //Fermer classeur
+                    wb.SaveAs(SDF.FileName);
+                    app.Quit();
+                    MessageBox.Show("Sauvegarde ok", "Excel", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
         }
     }
 }

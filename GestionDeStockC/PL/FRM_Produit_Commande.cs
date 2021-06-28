@@ -44,58 +44,54 @@ namespace GestionDeStockC.PL
             if (txtquantite.Text!="")//pas vide
             {
                 int quantite = int.Parse(txtquantite.Text);
-                //int prix = int.Parse(lblprix.Text);
-                decimal prix = 0;//sup
-                prix = decimal.Parse(lblprix.Text, CultureInfo.InvariantCulture);//sup
                 if (int.Parse(txtquantite.Text)>int.Parse(lblstock.Text))
                 {
                     MessageBox.Show("Il n'y a seulement " + int.Parse(lblstock.Text) + " danqs le stock", "Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //vider textquantite si trop
                     txtquantite.Text = "";
-                    txttotal.Text = lblprix.Text;
                 }
-                else
-                {
-                    txttotal.Text = (quantite * prix).ToString();
-                }
-                //calcul total
-            }else
-            {
-                txttotal.Text = lblprix.Text;
             }
+            Calcul_total();
         }
 
         private void txtremise_TextChanged(object sender, EventArgs e)
         {
-            if(txtremise.Text!="")
-            {
-                int quantite;
-                if(txtquantite.Text!="")
-                {
-                    quantite = int.Parse(txtquantite.Text);
-                }else
-                {
-                    quantite = 1;
-                }
-                int prix = int.Parse(lblprix.Text);
-                int total = quantite * prix;
-                int remise = int.Parse(txtremise.Text);
-                txttotal.Text = (total - (total * remise / 100)).ToString();
-            }else
-            {
-                int quantite;
-                if (txtquantite.Text !="")
-                {
-                    quantite = int.Parse(txtquantite.Text);
-                }
-                else
-                {
-                    quantite = 1;
-                }
-                int prix = int.Parse(lblprix.Text);
-                txttotal.Text = (quantite * prix).ToString();
+            Calcul_total();
+        }
 
+
+        public decimal quantite;
+        public decimal prix;
+        public decimal remise;
+        public decimal total;
+        public void Calcul_total ()
+        {
+
+            if (txtquantite.Text != "")
+            {
+                quantite = decimal.Parse(txtquantite.Text);
             }
+            else
+            {
+                quantite = 0;
+            }
+            if (lblprix.Text != "")
+            {
+                prix = decimal.Parse(lblprix.Text);
+            }
+            else
+            {
+                prix = 0;
+            }
+            if (txtremise.Text != "")
+            {
+                remise = decimal.Parse(txtremise.Text);
+            }
+            else
+            {
+                remise = 0;
+            }
+            total = (prix - (prix * (remise / 100))) * quantite;
+            txttotal.Text = (total.ToString());
         }
 
         private void btnenregistrer_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Excel;
 
 namespace GestionDeStockC.PL
 {
@@ -142,8 +143,8 @@ namespace GestionDeStockC.PL
             dvgclient.Rows.Clear();
             foreach(var l in listerecherche)
                 {
-                dvgclient.Rows.Add(false, l.ID_Client, l.Nom_Client, l.Prenom_Client, l.Adresse_Client, l.Telephone_Client, l.Email_Client, l.Ville_Client, l.Pays_Client);
-                }
+                dvgclient.Rows.Add(l.ID_Client, l.Num_Client, l.Nom_Client, l.Prenom_Client, l.Rabais, l.Adresse_Client, l.Code_Zip, l.Ville_Client, l.Pays_Client, l.Telephone_Client, l.Email_Client);//ajouter ligne dans datagrid
+            }
             dvgclient.ClearSelection();
         }
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
@@ -169,6 +170,63 @@ namespace GestionDeStockC.PL
                         frmclient.txtPays.ForeColor = Color.Black;
                         frmclient.lblTitre.Text = "Modifier Client";
                         frmclient.ShowDialog();
+            }
+        }
+
+        private void btnexcel_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog SDF = new SaveFileDialog() { Filter = "Excel Workbook |*xlsx", ValidateNames = true })//filtrer seulement fichier excel
+            {
+                if (SDF.ShowDialog() == DialogResult.OK)
+                {
+                    Microsoft.Office.Interop.Excel.Application app = new Microsoft.Office.Interop.Excel.Application();
+                    Workbook wb = app.Workbooks.Add(XlSheetType.xlWorksheet);
+                    Worksheet ws = (Worksheet)app.ActiveSheet;
+                    app.Visible = false;
+                    //Les noms des colones :
+                    ws.Cells[1, 1] = "Numero Client";
+                    ws.Cells[1, 2] = "Nom Client";
+                    ws.Cells[1, 3] = "Prenom Client";
+                    ws.Cells[1, 4] = "Rabais";
+                    ws.Cells[1, 5] = "Adresse";
+                    ws.Cells[1, 6] = "Code Zip";
+                    ws.Cells[1, 7] = "Ville";
+                    ws.Cells[1, 8] = "Pays";
+                    ws.Cells[1, 9] = "Numero de telephone";
+                    ws.Cells[1, 10] = "Mail";
+
+                    //liste des produits
+                    var ListeClient = db.Clients.ToList();
+                    int i = 2;
+                    foreach (var L in ListeClient)
+                    {
+                        ws.Cells[i, 1] = L.Num_Client;
+                        ws.Cells[i, 2] = L.Nom_Client;
+                        ws.Cells[i, 3] = L.Prenom_Client;
+                        ws.Cells[i, 4] = L.Rabais;
+                        ws.Cells[i, 5] = L.Adresse_Client;
+                        ws.Cells[i, 6] = L.Code_Zip;
+                        ws.Cells[i, 7] = L.Ville_Client;
+                        ws.Cells[i, 8] = L.Pays_Client;
+                        ws.Cells[i, 9] = L.Telephone_Client;
+                        ws.Cells[i, 10] = L.Email_Client;
+                        
+                        i++;
+                    }
+                    //Mise en forme de l'excel
+                    ws.Range["A1:J1"].Interior.Color = Color.Blue;
+                    ws.Range["A1:J1"].Font.Color = Color.White;
+                    ws.Range["A1:J1"].Font.Size = 15;
+                    ws.Range["A:J"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    ws.Range["A1:J1"].ColumnWidth = 16;
+
+
+
+                    //Fermer classeur
+                    wb.SaveAs(SDF.FileName);
+                    app.Quit();
+                    MessageBox.Show("Sauvegarde ok", "Excel", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
             }
         }
     }

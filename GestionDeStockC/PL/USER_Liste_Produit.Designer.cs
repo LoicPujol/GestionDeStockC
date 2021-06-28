@@ -34,7 +34,6 @@ namespace GestionDeStockC.PL
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(USER_Liste_Produit));
             this.dvgProduit = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,9 +44,9 @@ namespace GestionDeStockC.PL
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtrechercheInvProd = new System.Windows.Forms.TextBox();
             this.btnsupprimer = new System.Windows.Forms.Button();
             this.btnmodifier = new System.Windows.Forms.Button();
@@ -89,7 +88,6 @@ namespace GestionDeStockC.PL
             this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dvgProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
             this.Column9,
             this.Column5,
             this.Column6,
@@ -100,9 +98,9 @@ namespace GestionDeStockC.PL
             this.Column4,
             this.Column7,
             this.Column11,
-            this.Column12,
+            this.Column13,
             this.Column14,
-            this.Column13});
+            this.Column12});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Menu;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
@@ -128,12 +126,6 @@ namespace GestionDeStockC.PL
             this.dvgProduit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgProduit.Size = new System.Drawing.Size(1434, 624);
             this.dvgProduit.TabIndex = 16;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Select";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
             // 
             // Column9
             // 
@@ -205,11 +197,11 @@ namespace GestionDeStockC.PL
             this.Column11.Name = "Column11";
             this.Column11.Visible = false;
             // 
-            // Column12
+            // Column13
             // 
-            this.Column12.HeaderText = "Tarif achat";
-            this.Column12.Name = "Column12";
-            this.Column12.Visible = false;
+            this.Column13.HeaderText = "Poids";
+            this.Column13.Name = "Column13";
+            this.Column13.Visible = false;
             // 
             // Column14
             // 
@@ -217,11 +209,11 @@ namespace GestionDeStockC.PL
             this.Column14.Name = "Column14";
             this.Column14.Visible = false;
             // 
-            // Column13
+            // Column12
             // 
-            this.Column13.HeaderText = "Poids";
-            this.Column13.Name = "Column13";
-            this.Column13.Visible = false;
+            this.Column12.HeaderText = "Tarif achat";
+            this.Column12.Name = "Column12";
+            this.Column12.Visible = false;
             // 
             // txtrechercheInvProd
             // 
@@ -456,7 +448,6 @@ namespace GestionDeStockC.PL
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dvgProduit;
         private System.Windows.Forms.TextBox txtrechercheInvProd;
         private System.Windows.Forms.Button btnsupprimer;
         private System.Windows.Forms.Button btnmodifier;
@@ -466,7 +457,11 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.ComboBox combocategorie;
         public System.Windows.Forms.ComboBox combotype;
         private System.Windows.Forms.Button btnSupCombo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
@@ -477,13 +472,9 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        public System.Windows.Forms.DataGridView dvgProduit;
     }
 }

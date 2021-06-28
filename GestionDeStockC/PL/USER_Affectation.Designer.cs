@@ -55,6 +55,7 @@ namespace GestionDeStockC.PL
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnexcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAffectationProduit)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -327,10 +328,31 @@ namespace GestionDeStockC.PL
             this.label8.TabIndex = 68;
             this.label8.Text = "Categorie";
             // 
+            // btnexcel
+            // 
+            this.btnexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnexcel.BackColor = System.Drawing.Color.White;
+            this.btnexcel.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnexcel.FlatAppearance.BorderSize = 0;
+            this.btnexcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnexcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnexcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnexcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnexcel.ForeColor = System.Drawing.Color.LightGray;
+            this.btnexcel.Image = ((System.Drawing.Image)(resources.GetObject("btnexcel.Image")));
+            this.btnexcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnexcel.Location = new System.Drawing.Point(1027, 23);
+            this.btnexcel.Name = "btnexcel";
+            this.btnexcel.Size = new System.Drawing.Size(33, 39);
+            this.btnexcel.TabIndex = 80;
+            this.btnexcel.UseVisualStyleBackColor = false;
+            this.btnexcel.Click += new System.EventHandler(this.btnexcel_Click);
+            // 
             // USER_Affectation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnexcel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dvgAffectationProduit);
             this.Name = "USER_Affectation";
@@ -366,5 +388,6 @@ namespace GestionDeStockC.PL
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnexcel;
     }
 }

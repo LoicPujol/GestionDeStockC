@@ -34,10 +34,10 @@ namespace GestionDeStockC.PL
             this.lblDate = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNbreDateCtrlAlerte = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNbreStockAlerte = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNbreDateCtrlAlerte = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,35 +83,12 @@ namespace GestionDeStockC.PL
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Article en alerte";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(17, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 72;
-            this.label3.Text = "Contrôle :";
-            // 
-            // txtNbreDateCtrlAlerte
-            // 
-            this.txtNbreDateCtrlAlerte.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNbreDateCtrlAlerte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.txtNbreDateCtrlAlerte.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNbreDateCtrlAlerte.Location = new System.Drawing.Point(18, 46);
-            this.txtNbreDateCtrlAlerte.Multiline = true;
-            this.txtNbreDateCtrlAlerte.Name = "txtNbreDateCtrlAlerte";
-            this.txtNbreDateCtrlAlerte.Size = new System.Drawing.Size(140, 32);
-            this.txtNbreDateCtrlAlerte.TabIndex = 71;
-            this.txtNbreDateCtrlAlerte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(17, 111);
+            this.label1.Location = new System.Drawing.Point(17, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 74;
@@ -120,14 +97,39 @@ namespace GestionDeStockC.PL
             // txtNbreStockAlerte
             // 
             this.txtNbreStockAlerte.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNbreStockAlerte.Enabled = false;
             this.txtNbreStockAlerte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.txtNbreStockAlerte.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNbreStockAlerte.Location = new System.Drawing.Point(18, 130);
+            this.txtNbreStockAlerte.Location = new System.Drawing.Point(18, 131);
             this.txtNbreStockAlerte.Multiline = true;
             this.txtNbreStockAlerte.Name = "txtNbreStockAlerte";
             this.txtNbreStockAlerte.Size = new System.Drawing.Size(140, 32);
             this.txtNbreStockAlerte.TabIndex = 73;
             this.txtNbreStockAlerte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(17, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 72;
+            this.label3.Text = "Contrôle :";
+            // 
+            // txtNbreDateCtrlAlerte
+            // 
+            this.txtNbreDateCtrlAlerte.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNbreDateCtrlAlerte.Enabled = false;
+            this.txtNbreDateCtrlAlerte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.txtNbreDateCtrlAlerte.ForeColor = System.Drawing.Color.DimGray;
+            this.txtNbreDateCtrlAlerte.Location = new System.Drawing.Point(18, 56);
+            this.txtNbreDateCtrlAlerte.Multiline = true;
+            this.txtNbreDateCtrlAlerte.Name = "txtNbreDateCtrlAlerte";
+            this.txtNbreDateCtrlAlerte.Size = new System.Drawing.Size(140, 32);
+            this.txtNbreDateCtrlAlerte.TabIndex = 71;
+            this.txtNbreDateCtrlAlerte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // USER_Dashboard
             // 
@@ -154,8 +156,8 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNbreStockAlerte;
         public System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNbreDateCtrlAlerte;
+        public System.Windows.Forms.TextBox txtNbreStockAlerte;
+        public System.Windows.Forms.TextBox txtNbreDateCtrlAlerte;
     }
 }
