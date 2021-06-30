@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GESTION_DE_STOCKDataSet1" targetNamespace="http://tempuri.org/GESTION_DE_STOCKDataSet1.xsd" xmlns:mstns="http://tempuri.org/GESTION_DE_STOCKDataSet1.xsd" xmlns="http://tempuri.org/GESTION_DE_STOCKDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="GESTION_DE_STOCKConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="GESTION_DE_STOCKConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GestionDeStockC.Properties.Settings.GlobalReference.Default.GESTION_DE_STOCKConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProduitTableAdapter" GeneratorDataComponentClassName="ProduitTableAdapter" Name="Produit" UserDataComponentName="ProduitTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="GESTION_DE_STOCKConnectionString (Settings)" DbObjectName="GESTION_DE_STOCK.dbo.Produit" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NumInventaire FROM dbo.Produit</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NumInventaire" DataSetColumn="NumInventaire" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GESTION_DE_STOCKDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="GESTION_DE_STOCKDataSet1" msprop:Generator_UserDSName="GESTION_DE_STOCKDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Produit" msprop:Generator_TableClassName="ProduitDataTable" msprop:Generator_TableVarName="tableProduit" msprop:Generator_TablePropName="Produit" msprop:Generator_RowDeletingName="ProduitRowDeleting" msprop:Generator_RowChangingName="ProduitRowChanging" msprop:Generator_RowEvHandlerName="ProduitRowChangeEventHandler" msprop:Generator_RowDeletedName="ProduitRowDeleted" msprop:Generator_UserTableName="Produit" msprop:Generator_RowChangedName="ProduitRowChanged" msprop:Generator_RowEvArgName="ProduitRowChangeEvent" msprop:Generator_RowClassName="ProduitRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NumInventaire" msprop:Generator_ColumnVarNameInTable="columnNumInventaire" msprop:Generator_ColumnPropNameInRow="NumInventaire" msprop:Generator_ColumnPropNameInTable="NumInventaireColumn" msprop:Generator_UserColumnName="NumInventaire">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

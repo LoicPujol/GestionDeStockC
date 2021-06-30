@@ -44,7 +44,7 @@ namespace GestionDeStockC.PL
                 Affectation StockUnitaire = new Affectation();
             foreach (var l in listerecherche)
             {
-                MessageBox.Show(l.ID_Produit.ToString());
+               // MessageBox.Show(l.ID_Produit.ToString());
 
                 Nomcat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
                 NomType = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);

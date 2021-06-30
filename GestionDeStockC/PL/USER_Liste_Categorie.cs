@@ -54,14 +54,12 @@ namespace GestionDeStockC.PL
         {
             Actualisedatagrid();
         }
-
         private void btnajouter_Click(object sender, EventArgs e)
         {
             //afficher formulaire ajout client
             PL.FRM_Ajoute_Modifier_Categorie frmcat = new FRM_Ajoute_Modifier_Categorie(this);
             frmcat.ShowDialog();
         }
-
         private void dvgCategorie_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             PL.FRM_Ajoute_Modifier_Categorie frmcat = new FRM_Ajoute_Modifier_Categorie(this);

@@ -261,7 +261,6 @@ namespace GestionDeStockC.PL
             decimal TarifVente;
             decimal Marge;
                  
-
             if (txtTarifAchat.Text != "")
             {
                 TarifAchat = int.Parse(txtTarifAchat.Text);

@@ -141,7 +141,7 @@ namespace GestionDeStockC.PL
                 {
                     if (BL.D_Affectation.listeDetail.SingleOrDefault(s => s.Id_Produit == DetailDestinataire.Id_Produit) != null)
                     {
-                        MessageBox.Show("Produit deja ajoute dans commande", "Produit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //MessageBox.Show("Produit deja ajoute dans commande", "Produit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     } else
                     {
                         BL.D_Affectation.listeDetail.Add(DetailDestinataire);
@@ -166,7 +166,7 @@ namespace GestionDeStockC.PL
                 {
                     if (BL.D_Affectation.listeDetailExpedition.SingleOrDefault(s => s.Id_Produit == DetailExpediteur.Id_Produit) != null)
                     {
-                        MessageBox.Show("Produit deja ajoute dans commande", "Produit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //MessageBox.Show("Produit deja ajoute dans commande", "Produit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {

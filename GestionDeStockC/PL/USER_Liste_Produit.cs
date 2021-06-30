@@ -44,88 +44,114 @@ namespace GestionDeStockC.PL
             combotype.DisplayMember = "Nom_Type";
             combotype.ValueMember = "ID_Type";
             combotype.SelectedIndex = -1;
+
         }
         public void Actualiserdvg()
         {
-            dvgProduit.Columns[8].DefaultCellStyle.Format = "dd/MM/yyyy";
+
+            dvgProduit.Visible = false;
+            dvgProduit.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
-            var listerecherche = db.Produits.ToList();//liste de recherche = liste des clients
+            var listerecherche = db.Produits.ToList();
             dvgProduit.Rows.Clear();
 
-                    Categorie cat = new Categorie();
-                    Type typ = new Type();//ajout pout type
-                    foreach (var l in listerecherche)
-                    {
-                        cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
-                        typ = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);//ajout type
-                        dvgProduit.Rows.Add(l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit, l.Quantité_Produit, l.Stock_Alerte, l.Prix_Produit,  l.Date_Controle, l.N_Serie, l.Poids, l.Marge, l.Tarif_Achat);
-                    }
-            if (txtrechercheInvProd.Text.ToString() != "")
+            if (combocategorie.SelectedItem == null && combotype.SelectedItem == null)
             {
-                foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
-                {
-                    if ((r.Cells[3].Value).ToString().ToUpper().Contains(txtrechercheInvProd.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dvgProduit.CurrentCell = null;
-                        dvgProduit.Rows[r.Index].Visible = false;
-                    }
-                }
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProd.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
             }
-            if (txtrechercheNom.Text.ToString() != "")
+            //dvgProduit.Rows.Clear();
+
+            Categorie cat = new Categorie();
+            Type typ = new Type();//ajout pout type
+            foreach (var l in listerecherche)
             {
-                foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
-                {
-                    if ((r.Cells[4].Value).ToString().ToUpper().Contains(txtrechercheNom.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dvgProduit.CurrentCell = null;
-                        dvgProduit.Rows[r.Index].Visible = false;
-                    }
-                }
+                cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
+                typ = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);//ajout type
+                dvgProduit.Rows.Add(l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit,l.Stock_Alerte, l.Prix_Produit, l.Date_Controle, l.N_Serie, l.Poids, l.Marge, l.Tarif_Achat);
             }
-            if (combocategorie.SelectedItem != null)
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
-                {
-                    if ((r.Cells[1].Value).ToString().ToUpper().Contains(combocategorie.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dvgProduit.CurrentCell = null;
-                        dvgProduit.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
-            if (combotype.SelectedItem != null)
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
-                {
-                    if ((r.Cells[2].Value).ToString().ToUpper().Contains(combotype.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dvgProduit.CurrentCell = null;
-                        dvgProduit.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
+            //colorer stock vide en rouge
             dvgProduit.ClearSelection();
+            dvgProduit.Visible = true;
         }
+        /**dvgProduit.Columns[8].DefaultCellStyle.Format = "dd/MM/yyyy";
+        db = new dbStockContext();
+        var listerecherche = db.Produits.ToList();
+        dvgProduit.Rows.Clear();
+
+                Categorie cat = new Categorie();
+                Type typ = new Type();//ajout pout type
+                foreach (var l in listerecherche)
+                {
+                    cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
+                    typ = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);//ajout type
+                    dvgProduit.Rows.Add(l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit, l.Quantité_Produit, l.Stock_Alerte, l.Prix_Produit,  l.Date_Controle, l.N_Serie, l.Poids, l.Marge, l.Tarif_Achat);
+                }
+        if (txtrechercheInvProd.Text.ToString() != "")
+        {
+            foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
+            {
+                if ((r.Cells[3].Value).ToString().ToUpper().Contains(txtrechercheInvProd.Text.ToString().ToUpper()))
+                {
+                    //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                    //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                }
+                else
+                {
+                    dvgProduit.CurrentCell = null;
+                    dvgProduit.Rows[r.Index].Visible = false;
+                }
+            }
+        }
+        if (txtrechercheNom.Text.ToString() != "")
+        {
+            foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
+            {
+                if ((r.Cells[4].Value).ToString().ToUpper().Contains(txtrechercheNom.Text.ToString().ToUpper()))
+                {
+                    //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                    //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                }
+                else
+                {
+                    dvgProduit.CurrentCell = null;
+                    dvgProduit.Rows[r.Index].Visible = false;
+                }
+            }
+        }
+        if (combocategorie.SelectedItem != null)
+        {
+            foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
+            {
+                if ((r.Cells[1].Value).ToString().ToUpper().Contains(combocategorie.Text.ToString().ToUpper()))
+                {
+                    //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                    //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                }
+                else
+                {
+                    dvgProduit.CurrentCell = null;
+                    dvgProduit.Rows[r.Index].Visible = false;
+                }
+            }
+        }
+        if (combotype.SelectedItem != null)
+        {
+            foreach (System.Windows.Forms.DataGridViewRow r in dvgProduit.Rows)
+            {
+                if ((r.Cells[2].Value).ToString().ToUpper().Contains(combotype.Text.ToString().ToUpper()))
+                {
+                    //dvgAffectationProduit.Rows[r.Index].Visible = true;
+                    //dvgAffectationProduit.Rows[r.Index].Selected = true;
+                }
+                else
+                {
+                    dvgProduit.CurrentCell = null;
+                    dvgProduit.Rows[r.Index].Visible = false;
+                }
+            }
+        }**/
+
+
         private void btnajouter_Click(object sender, EventArgs e)
         {
             PL.FRM_Ajouter_Modifier_Porduit frmProduit = new PL.FRM_Ajouter_Modifier_Porduit(this);
@@ -136,9 +162,11 @@ namespace GestionDeStockC.PL
         {
             Produit PR = new Produit();
             PL.FRM_Ajouter_Modifier_Porduit frmproduit = new PL.FRM_Ajouter_Modifier_Porduit(this);
-            if ((dvgProduit.CurrentRow != null) || (dvgProduit.Rows.Count != 0))
-            { 
-                    frmproduit.lblTitre.Text = "Modifier Produit";
+            //if ((dvgProduit.CurrentRow != null) && (dvgProduit.Rows.Count != 0))
+            if (dvgProduit.SelectedRows.Count != 0 && (dvgProduit.Rows.Count != 0))
+            {
+
+                frmproduit.lblTitre.Text = "Modifier Produit";
                     frmproduit.IDPRODUIT = (int)dvgProduit.CurrentRow.Cells[0].Value;
                     frmproduit.combocategorie.Text = dvgProduit.CurrentRow.Cells[1].Value.ToString();
                     frmproduit.combotype.Text = dvgProduit.CurrentRow.Cells[2].Value.ToString();
@@ -149,7 +177,7 @@ namespace GestionDeStockC.PL
                     frmproduit.txtNomP.Text = dvgProduit.CurrentRow.Cells[4].Value.ToString();
                     frmproduit.txtQuantite.Text = dvgProduit.CurrentRow.Cells[5].Value.ToString();
                     frmproduit.txtStockAlerte.Text = dvgProduit.CurrentRow.Cells[6].Value.ToString();
-                    frmproduit.txtTarifAchat.Text = dvgProduit.CurrentRow.Cells[12].Value.ToString();
+                    frmproduit.txtTarifAchat.Text = dvgProduit.CurrentRow.Cells[10].Value.ToString();
                     frmproduit.txtPrix.Text = dvgProduit.CurrentRow.Cells[7].Value.ToString();
                     frmproduit.txtNumSerie.Text = dvgProduit.CurrentRow.Cells[9].Value.ToString();
 
@@ -309,6 +337,63 @@ namespace GestionDeStockC.PL
         private void combocategorie_SelectionChangeCommitted(object sender, EventArgs e)
         {
             Actualiserdvg();
+        }
+        public byte[] byteimageP;
+        private void dvgProduit_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCat.Text = "";
+            txtTyp.Text = "";
+            txtInventaireProd.Text = "";
+            txtNomP.Text = "";
+            txtStockAlerte.Text = "";
+            txtPrix.Text = "";
+            txtDateCtrl.Text = "";
+            txtNumSerie.Text = "";
+            txtPoids.Text = "";
+            txtMarge.Text = "";
+            txtTarifAchat.Text = "";
+            picProduit.Image = null;
+
+            Produit PR = new Produit();
+                
+                txtCat.Text = dvgProduit.CurrentRow.Cells[1].Value.ToString();
+                //txtCat.ForeColor = Color.Silver;
+                //txtCat.Enabled = false;
+                txtTyp.Text = dvgProduit.CurrentRow.Cells[2].Value.ToString();
+                //txtTyp.ForeColor = Color.Silver;
+                //txtTyp.Enabled = false;
+                txtInventaireProd.Text = dvgProduit.CurrentRow.Cells[3].Value.ToString();
+                //txtInventaireProd.ForeColor = Color.Silver;
+                //txtInventaireProd.Enabled = false;
+                txtNomP.Text = dvgProduit.CurrentRow.Cells[4].Value.ToString();
+                //txtNomP.ForeColor = Color.Silver;
+                //txtNomP.Enabled = false;
+                txtStockAlerte.Text = dvgProduit.CurrentRow.Cells[5].Value.ToString();
+                //txtStockAlerte.ForeColor = Color.Silver;
+                //txtStockAlerte.Enabled = false;
+                txtPrix.Text = dvgProduit.CurrentRow.Cells[6].Value.ToString();
+                //txtPrix.ForeColor = Color.Silver;
+                //txtPrix.Enabled = false;
+                txtDateCtrl.Text = dvgProduit.CurrentRow.Cells[7].Value.ToString();
+                txtNumSerie.Text = dvgProduit.CurrentRow.Cells[8].Value.ToString();
+                //txtNumSerie.ForeColor = Color.Silver;
+                //txtNumSerie.Enabled = false;
+                txtPoids.Text = dvgProduit.CurrentRow.Cells[9].Value.ToString();
+                //txtPoids.ForeColor = Color.Silver;
+                //txtPoids.Enabled = false;
+                txtMarge.Text = dvgProduit.CurrentRow.Cells[10].Value.ToString();
+                //txtMarge.ForeColor = Color.Silver;
+                //txtMarge.Enabled = false;
+                txtTarifAchat.Text = dvgProduit.CurrentRow.Cells[11].Value.ToString();
+                //txtTarifAchat.ForeColor = Color.Silver;
+                //txtTarifAchat.Enabled = false;
+                int MYIDSELECT = (int)dvgProduit.CurrentRow.Cells[0].Value;
+                PR = db.Produits.SingleOrDefault(s => s.ID_Produit == MYIDSELECT);
+                if (PR.Image_Produit != null)
+                {
+                    MemoryStream MS = new MemoryStream(PR.Image_Produit);
+                    picProduit.Image = Image.FromStream(MS);
+                }
         }
     }
 }

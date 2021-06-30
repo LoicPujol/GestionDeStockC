@@ -323,6 +323,7 @@ namespace GestionDeStockC.PL
             this.txtIdExp.Size = new System.Drawing.Size(140, 32);
             this.txtIdExp.TabIndex = 66;
             this.txtIdExp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdExp.Visible = false;
             // 
             // dvgProduit
             // 

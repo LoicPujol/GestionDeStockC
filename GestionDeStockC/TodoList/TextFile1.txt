@@ -18,3 +18,4 @@ Verifier :
 --critere d'erreur
 --cas de multiple utilisateur (IMPORTANT)
 --si un unitaire est affecte sur plusieurs site (ce qui ne doit normalement pas etre possible) alors DVGproduit plante au chargement
+

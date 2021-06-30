@@ -105,6 +105,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GESTION_DE_STOCKDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GESTION_DE_STOCKDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GESTION_DE_STOCKDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Livraison.cs">
       <DependentUpon>DbStock.tt</DependentUpon>
     </Compile>
@@ -308,6 +313,17 @@
     </None>
     <None Include="GESTION_DE_STOCKDataSet.xss">
       <DependentUpon>GESTION_DE_STOCKDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GESTION_DE_STOCKDataSet1.xsc">
+      <DependentUpon>GESTION_DE_STOCKDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GESTION_DE_STOCKDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GESTION_DE_STOCKDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GESTION_DE_STOCKDataSet1.xss">
+      <DependentUpon>GESTION_DE_STOCKDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
