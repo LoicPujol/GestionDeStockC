@@ -63,7 +63,6 @@ namespace GestionDeStockC.PL
                     BL.D_Livraison.listeDetail[index] = DETAIL;
                 }
                 //Ajouter dans liste detail affectation
-
                 BL.D_Affectation DetailDestinataire = new BL.D_Affectation
                 {
                     Id_Client = int.Parse(txtIdClientAffect.Text),

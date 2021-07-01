@@ -11,11 +11,10 @@ namespace GestionDeStockC.BL
         private dbStockContext db = new dbStockContext();
         private Produit PR;
         //ajouter produit
-        public bool Ajouter_Produit(string NomP, string quantite, string alerte, string prix, byte[] imageP, int idcategorie, int idtype,string dateCtrl, string inventaire, string Serie, string tarifachat, string poids, string marge)//image pour sauvegarder dand base de donne doit etre au format byte
+        public bool Ajouter_Produit(string NomP, string alerte, string prix, byte[] imageP, int idcategorie, int idtype,string dateCtrl, string inventaire, string Serie, string tarifachat, string poids, string marge)//image pour sauvegarder dand base de donne doit etre au format byte
         {
             PR = new Produit();
             PR.Nom_Produit = NomP;
-            PR.Quantité_Produit = quantite;
             PR.Stock_Alerte = alerte;
             PR.Prix_Produit = prix;
             PR.Image_Produit = imageP;
@@ -40,14 +39,13 @@ namespace GestionDeStockC.BL
             }
         }
         //Modifier  Produit
-        public void Modifier_Produit(int IDP, string NomP, string quantite, string alerte, string prix, byte[] imageP, int idcategorie, int idtype, string dateCtrl, string inventaire, string Serie, string tarifachat, string poids, string marge)
+        public void Modifier_Produit(int IDP, string NomP, string alerte, string prix, byte[] imageP, int idcategorie, int idtype, string dateCtrl, string inventaire, string Serie, string tarifachat, string poids, string marge)
         {
             PR = new Produit();
             PR = db.Produits.SingleOrDefault(s => s.ID_Produit == IDP);//verifier si id de client existe
             if (PR != null)//existe
             {
                 PR.Nom_Produit = NomP;
-                PR.Quantité_Produit = quantite;
                 PR.Stock_Alerte = alerte;
                 PR.Prix_Produit = prix;
                 PR.Image_Produit = imageP;

@@ -190,40 +190,30 @@ namespace GestionDeStockC.PL
                 }
             }
         }
-        /**private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FRM_Produit_Commande frm = new FRM_Produit_Commande(this);
+            FRM_Produit_Livraison frm = new FRM_Produit_Livraison(this);
             Produit PR = new Produit();
             Affectation QteAff = new Affectation();
-            if (dvgDetailCommande.CurrentRow != null)
+            if (dvgDetailLivraison.CurrentRow != null)
             {
-                frm.lblTitre.Text = "Modifier Produit";
-                frm.txtIdClientAffect.Text = IDCLIENT.ToString();
-                frm.txtIdExpediteur.Text = IDEXPEDITEUR.ToString();
-                frm.txtIdProduit.Text = dvgDetailCommande.CurrentRow.Cells[0].Value.ToString();
-                frm.lblnom.Text = dvgDetailCommande.CurrentRow.Cells[1].Value.ToString();
-                ////Importer le stock de produit depuis le datagrid produit//////
-                int IDEX = IDEXPEDITEUR;
-                int IDPROD = int.Parse(dvgDetailCommande.CurrentRow.Cells[0].Value.ToString());
-                QteAff = db.Affectations.Single(s => s.ID_Client == IDEX && s.ID_Produit == IDPROD);
-                frm.lblstock.Text = QteAff.Quantite_affectee.ToString();
+                frm.lblTitre.Text = "Modifier Livraison";
+                frm.txtIdClientAffect.Text = IDDEST.ToString();
+                frm.txtIdProduit.Text = dvgDetailLivraison.CurrentRow.Cells[0].Value.ToString();
+                frm.lblnom.Text = dvgDetailLivraison.CurrentRow.Cells[1].Value.ToString();
                 ////Importer inventaire de produit depuis le datagrid produit//////
-                int IDP = int.Parse(dvgDetailCommande.CurrentRow.Cells[0].Value.ToString());
+                int IDP = int.Parse(dvgDetailLivraison.CurrentRow.Cells[0].Value.ToString());
                 PR = db.Produits.Single(s => s.ID_Produit == IDP);
                 frm.lblInv.Text = PR.NumInventaire.ToString(); ;
-                frm.lblprix.Text = dvgDetailCommande.CurrentRow.Cells[3].Value.ToString();
-                frm.txtquantite.Text = dvgDetailCommande.CurrentRow.Cells[2].Value.ToString();
-                frm.txtremise.Text = dvgDetailCommande.CurrentRow.Cells[4].Value.ToString();
-                frm.txttotal.Text = dvgDetailCommande.CurrentRow.Cells[5].Value.ToString();
+                frm.txtquantite.Text = dvgDetailLivraison.CurrentRow.Cells[2].Value.ToString();
                 frm.ShowDialog();
             }
         }
-        **/
+        
         private void supprimerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dvgDetailLivraison.CurrentRow != null)
             {
-                //supprimer ligne selectionne dans datagrid commande + sur les 3 listedetail
                 int index = BL.D_Livraison.listeDetail.FindIndex(s => s.Id == int.Parse(dvgDetailLivraison.CurrentRow.Cells[0].Value.ToString()));
                 BL.D_Livraison.listeDetail.RemoveAt(index);
                 BL.D_Affectation.listeDetail.RemoveAt(index);
@@ -276,8 +266,7 @@ namespace GestionDeStockC.PL
             {
                 MessageBox.Show("Un changement de destinataire annulera la commande en cour.", "Expediteur", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-            else
-            {
+                       
                 PL.FRM_Client_Commande frmC = new FRM_Client_Commande();
                 frmC.ShowDialog();
                 //afficher les info de client
@@ -287,7 +276,7 @@ namespace GestionDeStockC.PL
                     txtNomDest.Text = frmC.dvgclient.CurrentRow.Cells[2].Value.ToString();
                     txtIdDest.Text = frmC.dvgclient.CurrentRow.Cells[0].Value.ToString();
                 }
-            }
+            
         }
         private void btnSupCombo_Click(object sender, EventArgs e)
         {

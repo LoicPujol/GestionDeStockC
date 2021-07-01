@@ -30,12 +30,12 @@ namespace GestionDeStockC.PL
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_Detail_Livraison));
             this.combotype = new System.Windows.Forms.ComboBox();
             this.combocategorie = new System.Windows.Forms.ComboBox();
@@ -83,9 +83,9 @@ namespace GestionDeStockC.PL
             this.combotype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combotype.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.combotype.FormattingEnabled = true;
-            this.combotype.Location = new System.Drawing.Point(161, 16);
+            this.combotype.Location = new System.Drawing.Point(146, 16);
             this.combotype.Name = "combotype";
-            this.combotype.Size = new System.Drawing.Size(140, 32);
+            this.combotype.Size = new System.Drawing.Size(125, 32);
             this.combotype.TabIndex = 62;
             this.combotype.SelectionChangeCommitted += new System.EventHandler(this.combotype_SelectionChangeCommitted);
             // 
@@ -94,9 +94,9 @@ namespace GestionDeStockC.PL
             this.combocategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combocategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.combocategorie.FormattingEnabled = true;
-            this.combocategorie.Location = new System.Drawing.Point(8, 16);
+            this.combocategorie.Location = new System.Drawing.Point(10, 16);
             this.combocategorie.Name = "combocategorie";
-            this.combocategorie.Size = new System.Drawing.Size(140, 32);
+            this.combocategorie.Size = new System.Drawing.Size(125, 32);
             this.combocategorie.TabIndex = 61;
             this.combocategorie.SelectionChangeCommitted += new System.EventHandler(this.combocategorie_SelectionChangeCommitted);
             // 
@@ -105,10 +105,10 @@ namespace GestionDeStockC.PL
             this.txtrechercheInvProd.BackColor = System.Drawing.SystemColors.Control;
             this.txtrechercheInvProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.txtrechercheInvProd.ForeColor = System.Drawing.Color.DimGray;
-            this.txtrechercheInvProd.Location = new System.Drawing.Point(312, 16);
+            this.txtrechercheInvProd.Location = new System.Drawing.Point(281, 16);
             this.txtrechercheInvProd.Multiline = true;
             this.txtrechercheInvProd.Name = "txtrechercheInvProd";
-            this.txtrechercheInvProd.Size = new System.Drawing.Size(140, 32);
+            this.txtrechercheInvProd.Size = new System.Drawing.Size(90, 32);
             this.txtrechercheInvProd.TabIndex = 60;
             this.txtrechercheInvProd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtrechercheInvProd.TextChanged += new System.EventHandler(this.txtrechercheInvProd_TextChanged);
@@ -119,9 +119,9 @@ namespace GestionDeStockC.PL
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpDetail.Controls.Add(this.dvgDetailLivraison);
-            this.grpDetail.Location = new System.Drawing.Point(855, 81);
+            this.grpDetail.Location = new System.Drawing.Point(951, 81);
             this.grpDetail.Name = "grpDetail";
-            this.grpDetail.Size = new System.Drawing.Size(538, 704);
+            this.grpDetail.Size = new System.Drawing.Size(442, 704);
             this.grpDetail.TabIndex = 73;
             this.grpDetail.TabStop = false;
             this.grpDetail.Text = "Detail";
@@ -139,44 +139,44 @@ namespace GestionDeStockC.PL
             this.dvgDetailLivraison.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dvgDetailLivraison.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dvgDetailLivraison.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgDetailLivraison.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgDetailLivraison.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dvgDetailLivraison.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgDetailLivraison.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16});
             this.dvgDetailLivraison.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgDetailLivraison.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgDetailLivraison.DefaultCellStyle = dataGridViewCellStyle8;
             this.dvgDetailLivraison.EnableHeadersVisualStyles = false;
-            this.dvgDetailLivraison.Location = new System.Drawing.Point(6, 61);
+            this.dvgDetailLivraison.Location = new System.Drawing.Point(6, 58);
             this.dvgDetailLivraison.MultiSelect = false;
             this.dvgDetailLivraison.Name = "dvgDetailLivraison";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgDetailLivraison.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgDetailLivraison.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dvgDetailLivraison.RowHeadersVisible = false;
             this.dvgDetailLivraison.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dvgDetailLivraison.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgDetailLivraison.Size = new System.Drawing.Size(526, 637);
+            this.dvgDetailLivraison.Size = new System.Drawing.Size(430, 637);
             this.dvgDetailLivraison.TabIndex = 66;
             // 
             // dataGridViewTextBoxColumn9
@@ -204,21 +204,23 @@ namespace GestionDeStockC.PL
             this.modifierToolStripMenuItem,
             this.supprimerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 48);
             // 
             // modifierToolStripMenuItem
             // 
             this.modifierToolStripMenuItem.Image = global::GestionDeStockC.Properties.Resources.k;
             this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.modifierToolStripMenuItem.Text = "Modifier";
+            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
             // 
             // supprimerToolStripMenuItem
             // 
             this.supprimerToolStripMenuItem.Image = global::GestionDeStockC.Properties.Resources.Deconnecte;
             this.supprimerToolStripMenuItem.Name = "supprimerToolStripMenuItem";
-            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.supprimerToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.supprimerToolStripMenuItem.Text = "Supprimer";
+            this.supprimerToolStripMenuItem.Click += new System.EventHandler(this.supprimerToolStripMenuItem_Click);
             // 
             // Livraisondate
             // 
@@ -234,10 +236,10 @@ namespace GestionDeStockC.PL
             this.txtrechercheNom.BackColor = System.Drawing.SystemColors.Control;
             this.txtrechercheNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.txtrechercheNom.ForeColor = System.Drawing.Color.DimGray;
-            this.txtrechercheNom.Location = new System.Drawing.Point(463, 16);
+            this.txtrechercheNom.Location = new System.Drawing.Point(381, 16);
             this.txtrechercheNom.Multiline = true;
             this.txtrechercheNom.Name = "txtrechercheNom";
-            this.txtrechercheNom.Size = new System.Drawing.Size(140, 32);
+            this.txtrechercheNom.Size = new System.Drawing.Size(125, 32);
             this.txtrechercheNom.TabIndex = 63;
             this.txtrechercheNom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtrechercheNom.TextChanged += new System.EventHandler(this.txtrechercheNom_TextChanged);
@@ -247,9 +249,9 @@ namespace GestionDeStockC.PL
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.btnDest);
             this.groupBox3.Controls.Add(this.txtNomDest);
-            this.groupBox3.Location = new System.Drawing.Point(855, 10);
+            this.groupBox3.Location = new System.Drawing.Point(951, 10);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(393, 60);
+            this.groupBox3.Size = new System.Drawing.Size(297, 60);
             this.groupBox3.TabIndex = 77;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Destinataire";
@@ -262,9 +264,9 @@ namespace GestionDeStockC.PL
             this.btnDest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDest.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDest.Location = new System.Drawing.Point(6, 18);
+            this.btnDest.Location = new System.Drawing.Point(8, 18);
             this.btnDest.Name = "btnDest";
-            this.btnDest.Size = new System.Drawing.Size(53, 32);
+            this.btnDest.Size = new System.Drawing.Size(32, 32);
             this.btnDest.TabIndex = 60;
             this.btnDest.Text = "...";
             this.btnDest.UseVisualStyleBackColor = false;
@@ -279,10 +281,10 @@ namespace GestionDeStockC.PL
             this.txtNomDest.Enabled = false;
             this.txtNomDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomDest.ForeColor = System.Drawing.Color.Black;
-            this.txtNomDest.Location = new System.Drawing.Point(65, 18);
+            this.txtNomDest.Location = new System.Drawing.Point(46, 18);
             this.txtNomDest.Multiline = true;
             this.txtNomDest.Name = "txtNomDest";
-            this.txtNomDest.Size = new System.Drawing.Size(319, 32);
+            this.txtNomDest.Size = new System.Drawing.Size(245, 32);
             this.txtNomDest.TabIndex = 61;
             // 
             // btnenregistrer
@@ -291,11 +293,11 @@ namespace GestionDeStockC.PL
             this.btnenregistrer.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnenregistrer.FlatAppearance.BorderSize = 0;
             this.btnenregistrer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnenregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnenregistrer.ForeColor = System.Drawing.Color.Black;
-            this.btnenregistrer.Location = new System.Drawing.Point(1254, 17);
+            this.btnenregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnenregistrer.ForeColor = System.Drawing.Color.White;
+            this.btnenregistrer.Location = new System.Drawing.Point(1262, 16);
             this.btnenregistrer.Name = "btnenregistrer";
-            this.btnenregistrer.Size = new System.Drawing.Size(133, 46);
+            this.btnenregistrer.Size = new System.Drawing.Size(130, 32);
             this.btnenregistrer.TabIndex = 74;
             this.btnenregistrer.Text = "Enregistrer";
             this.btnenregistrer.UseVisualStyleBackColor = false;
@@ -303,7 +305,6 @@ namespace GestionDeStockC.PL
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
@@ -324,6 +325,7 @@ namespace GestionDeStockC.PL
             this.txtIdDest.Size = new System.Drawing.Size(140, 32);
             this.txtIdDest.TabIndex = 66;
             this.txtIdDest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdDest.Visible = false;
             this.txtIdDest.TextChanged += new System.EventHandler(this.txtNomDest_TextChanged);
             // 
             // dvgProduit
@@ -339,14 +341,14 @@ namespace GestionDeStockC.PL
             this.dvgProduit.BackgroundColor = System.Drawing.SystemColors.Menu;
             this.dvgProduit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dvgProduit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgProduit.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dvgProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvgProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
@@ -355,30 +357,30 @@ namespace GestionDeStockC.PL
             this.Column10,
             this.Column2,
             this.dataGridViewTextBoxColumn8});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvgProduit.DefaultCellStyle = dataGridViewCellStyle2;
             this.dvgProduit.EnableHeadersVisualStyles = false;
-            this.dvgProduit.Location = new System.Drawing.Point(8, 61);
+            this.dvgProduit.Location = new System.Drawing.Point(8, 58);
             this.dvgProduit.MultiSelect = false;
             this.dvgProduit.Name = "dvgProduit";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvgProduit.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvgProduit.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dvgProduit.RowHeadersVisible = false;
             this.dvgProduit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dvgProduit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgProduit.Size = new System.Drawing.Size(823, 637);
+            this.dvgProduit.Size = new System.Drawing.Size(919, 637);
             this.dvgProduit.TabIndex = 65;
             this.dvgProduit.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
             this.dvgProduit.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
@@ -392,18 +394,23 @@ namespace GestionDeStockC.PL
             // 
             // dataGridViewTextBoxColumn6
             // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn6.HeaderText = "Catégorie";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 135;
             // 
             // dataGridViewTextBoxColumn7
             // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn7.HeaderText = "Type";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 135;
             // 
             // Column10
             // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Column10.HeaderText = "Inventaire";
             this.Column10.Name = "Column10";
             // 
@@ -415,6 +422,7 @@ namespace GestionDeStockC.PL
             // 
             // dataGridViewTextBoxColumn8
             // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn8.HeaderText = "Quantité";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -434,7 +442,7 @@ namespace GestionDeStockC.PL
             this.grpPoduit.ForeColor = System.Drawing.Color.Black;
             this.grpPoduit.Location = new System.Drawing.Point(12, 81);
             this.grpPoduit.Name = "grpPoduit";
-            this.grpPoduit.Size = new System.Drawing.Size(837, 704);
+            this.grpPoduit.Size = new System.Drawing.Size(933, 704);
             this.grpPoduit.TabIndex = 79;
             this.grpPoduit.TabStop = false;
             this.grpPoduit.Text = "Produit";
@@ -452,9 +460,9 @@ namespace GestionDeStockC.PL
             this.btnSupCombo.ForeColor = System.Drawing.Color.LightGray;
             this.btnSupCombo.Image = ((System.Drawing.Image)(resources.GetObject("btnSupCombo.Image")));
             this.btnSupCombo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupCombo.Location = new System.Drawing.Point(609, 15);
+            this.btnSupCombo.Location = new System.Drawing.Point(515, 16);
             this.btnSupCombo.Name = "btnSupCombo";
-            this.btnSupCombo.Size = new System.Drawing.Size(36, 32);
+            this.btnSupCombo.Size = new System.Drawing.Size(32, 32);
             this.btnSupCombo.TabIndex = 67;
             this.btnSupCombo.UseVisualStyleBackColor = false;
             this.btnSupCombo.Click += new System.EventHandler(this.btnSupCombo_Click);
@@ -464,7 +472,7 @@ namespace GestionDeStockC.PL
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtNomFournisseur);
             this.groupBox2.Controls.Add(this.txtNumDocument);
-            this.groupBox2.Location = new System.Drawing.Point(357, 10);
+            this.groupBox2.Location = new System.Drawing.Point(459, 9);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(486, 60);
             this.groupBox2.TabIndex = 78;
@@ -514,6 +522,7 @@ namespace GestionDeStockC.PL
             this.Controls.Add(this.label8);
             this.Controls.Add(this.grpPoduit);
             this.Name = "FRM_Detail_Livraison";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_Detail_Livraison";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FRM_Detail_Livraison_Load);

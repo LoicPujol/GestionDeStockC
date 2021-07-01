@@ -40,14 +40,18 @@ namespace GestionDeStockC.PL
             dvgCommande.Columns[1].DefaultCellStyle.Format = "dd/MM/yyyy";
             var listecommande = db.Commandes.ToList();
             Client c = new Client();
-            string NomPrenom;
+            string NomPrenomClient;
+            string NomPrenomExpediteur;
 
-             foreach (var LC in listecommande)
+            foreach (var LC in listecommande)
              {
                  c = db.Clients.Single(s => s.ID_Client == LC.ID_Client);
-                 NomPrenom = c.Nom_Client + " " + c.Prenom_Client;
-            
-                dvgCommande.Rows.Add(LC.ID_Commande, LC.DATE_Commande, NomPrenom, LC.Total_HT);
+                 NomPrenomClient = c.Nom_Client + " " + c.Prenom_Client;
+
+                c = db.Clients.Single(s => s.ID_Client == LC.ID_Expediteur);
+                NomPrenomExpediteur = c.Nom_Client + " " + c.Prenom_Client;
+
+                dvgCommande.Rows.Add(LC.ID_Commande, LC.DATE_Commande, NomPrenomExpediteur, NomPrenomClient, LC.Total_HT);
              }
                 ListSortDirection TryDirection = ListSortDirection.Descending;
                 dvgCommande.Sort(dvgCommande.Columns[0], TryDirection);
@@ -165,8 +169,9 @@ namespace GestionDeStockC.PL
                     //Les noms des colones :
                     ws.Cells[1, 1] = "Numero";
                     ws.Cells[1, 2] = "Date";
-                    ws.Cells[1, 3] = "Nom Client";
-                    ws.Cells[1, 4] = "Total HT";
+                    ws.Cells[1, 3] = "Nom Expediteur";
+                    ws.Cells[1, 4] = "Nom Client";
+                    ws.Cells[1, 5] = "Total HT";
 
                     //liste des produits
                     var ListeCommande = db.Commandes.ToList();
@@ -178,17 +183,19 @@ namespace GestionDeStockC.PL
                         ws.Cells[i, 2] = L.DATE_Commande;
                         Clt = db.Clients.SingleOrDefault(s => s.ID_Client == L.ID_Client);
                         ws.Cells[i, 3] = Clt.Nom_Client + " " + Clt.Prenom_Client;
-                        ws.Cells[i, 4] = L.Total_HT;
+                        Clt = db.Clients.SingleOrDefault(s => s.ID_Client == L.ID_Expediteur);
+                        ws.Cells[i, 4] = Clt.Nom_Client + " " + Clt.Prenom_Client;
+                        ws.Cells[i, 5] = L.Total_HT;
 
 
                         i++;
                     }
                     //Mise en forme de l'excel
-                    ws.Range["A1:D1"].Interior.Color = Color.Blue;
-                    ws.Range["A1:D1"].Font.Color = Color.White;
-                    ws.Range["A1:D1"].Font.Size = 15;
-                    ws.Range["A:D"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
-                    ws.Range["A1:D1"].ColumnWidth = 16;
+                    ws.Range["A1:E1"].Interior.Color = Color.Blue;
+                    ws.Range["A1:E1"].Font.Color = Color.White;
+                    ws.Range["A1:E1"].Font.Size = 15;
+                    ws.Range["A:E"].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    ws.Range["A1:E1"].ColumnWidth = 16;
 
 
 

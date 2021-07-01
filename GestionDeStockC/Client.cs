@@ -18,8 +18,9 @@ namespace GestionDeStockC
         public Client()
         {
             this.Affectations = new HashSet<Affectation>();
-            this.Commandes = new HashSet<Commande>();
             this.Livraisons = new HashSet<Livraison>();
+            this.Commandes = new HashSet<Commande>();
+            this.Commandes1 = new HashSet<Commande>();
         }
     
         public int ID_Client { get; set; }
@@ -37,8 +38,10 @@ namespace GestionDeStockC
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Affectation> Affectations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Livraison> Livraisons { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Commande> Commandes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Livraison> Livraisons { get; set; }
+        public virtual ICollection<Commande> Commandes1 { get; set; }
     }
 }

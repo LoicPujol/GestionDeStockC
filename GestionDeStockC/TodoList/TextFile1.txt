@@ -1,16 +1,7 @@
 ﻿Champs de saisie (partout) :
 --verifier si saisie selon numerique ou alphanumerique
 --empecher la saisie de plus de X caractere (variable selon les champs)
---verifier les champs obligatoire
 --corriger faute orthographe 
---passer tout les dgv en readonly
-
-USER_Liste_Produit :
---suprimer quantite
---ajouter ID expediteur dans detail commande
-
-FRM_Detail_Livraison :
---conextstip modifier a reprendre
 
 Verifier :
 --ecriture dans table affectation
@@ -19,3 +10,6 @@ Verifier :
 --cas de multiple utilisateur (IMPORTANT)
 --si un unitaire est affecte sur plusieurs site (ce qui ne doit normalement pas etre possible) alors DVGproduit plante au chargement
 
+A traiter :
+Gestion des messages d'erreur quand export excel ecrasse document existant avec choix d'annuler par l'utilisateur.
+Reprendre les filtre de DVG (ok jusqua livraison)

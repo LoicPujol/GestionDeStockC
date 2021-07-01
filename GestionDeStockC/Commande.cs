@@ -26,8 +26,10 @@ namespace GestionDeStockC
         public string Total_HT { get; set; }
         public string TVA { get; set; }
         public string Total_TTC { get; set; }
+        public int ID_Expediteur { get; set; }
     
         public virtual Client Client { get; set; }
+        public virtual Client Client1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Details_Commande> Details_Commande { get; set; }
     }

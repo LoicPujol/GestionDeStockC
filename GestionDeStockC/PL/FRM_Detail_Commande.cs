@@ -266,7 +266,7 @@ namespace GestionDeStockC.PL
                 }else
                 {
                     //enregistrer commande
-                    clscommande.Ajouter_Commande(commandedate.Value, IDCLIENT, txttotalht.Text, txttva.Text, txttotalttc.Text);
+                    clscommande.Ajouter_Commande(commandedate.Value, IDCLIENT, IDEXPEDITEUR, txttotalht.Text, txttva.Text, txttotalttc.Text);
                     
                     //enregistrer liste detail commande dans les tables
                     foreach(var LD in BL.D_Commande.listeDetail)

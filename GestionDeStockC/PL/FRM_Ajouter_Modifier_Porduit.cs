@@ -89,7 +89,7 @@ namespace GestionDeStockC.PL
                         byteimageP = MR.ToArray();//convertir image en format bye[]
                                                          //DateTime NewDate = new DateTime();
                     }
-                    if (clproduit.Ajouter_Produit(txtNomP.Text, txtQuantite.Text, txtStockAlerte.Text, txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue),txtDateCtrl.Text, txtInventaireProd.Text, txtNumSerie.Text, txtTarifAchat.Text, txtPoids.Text,txtMarge.Text) == true)
+                    if (clproduit.Ajouter_Produit(txtNomP.Text, txtStockAlerte.Text, txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue),txtDateCtrl.Text, txtInventaireProd.Text, txtNumSerie.Text, txtTarifAchat.Text, txtPoids.Text,txtMarge.Text) == true)
                     {
                         MessageBox.Show("Produit ajoute avec succe", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
@@ -113,7 +113,7 @@ namespace GestionDeStockC.PL
                     if (RS == DialogResult.Yes)
                     {
                         
-                           cLS_Produit.Modifier_Produit(IDPRODUIT, txtNomP.Text, txtQuantite.Text, txtStockAlerte.Text, txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue),txtDateCtrl.Text, txtInventaireProd.Text, txtNumSerie.Text, txtTarifAchat.Text, txtPoids.Text,txtMarge.Text);
+                           cLS_Produit.Modifier_Produit(IDPRODUIT, txtNomP.Text, txtStockAlerte.Text, txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue),txtDateCtrl.Text, txtInventaireProd.Text, txtNumSerie.Text, txtTarifAchat.Text, txtPoids.Text, txtMarge.Text);
                             MessageBox.Show("Produit modifier", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         //Actualiser datagrid
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
@@ -134,20 +134,16 @@ namespace GestionDeStockC.PL
             {
                 grpUnitaire.Visible = true;
                 grpNonUnitaire.Visible = false;
-                txtQuantite.Enabled = false;
-                txtQuantite.Text = "1";
             }
             if (combotype.Text == "Lot")
             {
                 grpUnitaire.Visible = false;
                 grpNonUnitaire.Visible = true;
-                txtQuantite.Enabled = true;
             }
             if (combotype.Text == "Consomable")
             {
                 grpUnitaire.Visible = false;
                 grpNonUnitaire.Visible = true;
-                txtQuantite.Enabled = true;
              }
         }
         private void checkDate_Click(object sender, EventArgs e)
@@ -260,7 +256,6 @@ namespace GestionDeStockC.PL
             decimal TarifAchat;
             decimal TarifVente;
             decimal Marge;
-                 
             if (txtTarifAchat.Text != "")
             {
                 TarifAchat = int.Parse(txtTarifAchat.Text);

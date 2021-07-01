@@ -42,6 +42,7 @@
     <Property Name="Total_HT" Type="nvarchar" MaxLength="250" />
     <Property Name="TVA" Type="nvarchar" MaxLength="20" />
     <Property Name="Total_TTC" Type="nvarchar" MaxLength="250" />
+    <Property Name="ID_Expediteur" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Details_Commande">
     <Key>
@@ -148,6 +149,18 @@
       </Principal>
       <Dependent Role="Commande">
         <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Commande_Client1">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Commande" Type="Self.Commande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID_Client" />
+      </Principal>
+      <Dependent Role="Commande">
+        <PropertyRef Name="ID_Expediteur" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -263,6 +276,10 @@
       <End Role="Affectation" EntitySet="Affectation" />
     </AssociationSet>
     <AssociationSet Name="FK_Commande_Client" Association="Self.FK_Commande_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Commande" EntitySet="Commande" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Commande_Client1" Association="Self.FK_Commande_Client1">
       <End Role="Client" EntitySet="Client" />
       <End Role="Commande" EntitySet="Commande" />
     </AssociationSet>

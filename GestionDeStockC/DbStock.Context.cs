@@ -28,12 +28,12 @@ namespace GestionDeStockC
         public virtual DbSet<Affectation> Affectations { get; set; }
         public virtual DbSet<Categorie> Categories { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
-        public virtual DbSet<Commande> Commandes { get; set; }
         public virtual DbSet<Details_Commande> Details_Commande { get; set; }
         public virtual DbSet<Livraison> Livraisons { get; set; }
         public virtual DbSet<Produit> Produits { get; set; }
         public virtual DbSet<Type> Types { get; set; }
         public virtual DbSet<Utilisateur> Utilisateurs { get; set; }
         public virtual DbSet<Details_Livraison> Details_Livraison { get; set; }
+        public virtual DbSet<Commande> Commandes { get; set; }
     }
 }

@@ -15,11 +15,12 @@ namespace GestionDeStockC.BL
         private Affectation clsE;
         public int IDCommande;
         //Sauvegarder commande
-        public void Ajouter_Commande(DateTime datecommande, int Idclient, string totalht, string tva, string totalttc)
+        public void Ajouter_Commande(DateTime datecommande, int Idclient, int Idexped, string totalht, string tva, string totalttc)
         {
             clscmd = new Commande();
             clscmd.DATE_Commande = datecommande;
             clscmd.ID_Client = Idclient;
+            clscmd.ID_Expediteur = Idexped;
             clscmd.Total_HT = totalht;
             clscmd.TVA = tva;
             clscmd.Total_TTC = totalttc;
@@ -60,7 +61,6 @@ namespace GestionDeStockC.BL
                 db.SaveChanges();
 
             }
-            
         }
         public void Ajouter_Expedition(int client, int produit, int quantite)
         {

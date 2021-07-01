@@ -39,6 +39,7 @@ namespace GestionDeStockC.PL
             var listelivraison = db.Livraisons.ToList();
             Client c = new Client();
             string NomPrenom;
+            listelivraison = listelivraison.Where(s => (s.ID_Livraison).ToString().IndexOf(txtNumLivraison.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && (s.Date_Livraison).ToString().IndexOf(txtPeriode.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Num_Document.IndexOf(txtDocument.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Fournisseur.IndexOf(txtFournisseur.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
 
             foreach (var LC in listelivraison)
             {
@@ -51,75 +52,11 @@ namespace GestionDeStockC.PL
             dvgLivraison.Sort(dvgLivraison.Columns[0], TryDirection);
             dvgLivraison.ClearSelection();
 
-            if (txtNumLivraison.Text.ToString() != "")
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dvgLivraison.Rows)
-                {
-                    if ((r.Cells[0].Value).ToString().ToUpper().Contains(txtNumLivraison.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dvgLivraison.CurrentCell = null;
-                        dvgLivraison.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
             if (txtClient.Text.ToString() != "")
             {
                 foreach (System.Windows.Forms.DataGridViewRow r in dvgLivraison.Rows)
                 {
                     if ((r.Cells[2].Value).ToString().ToUpper().Contains(txtClient.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dvgLivraison.CurrentCell = null;
-                        dvgLivraison.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
-            if (txtPeriode.Text.ToString() != "")
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dvgLivraison.Rows)
-                {
-                    if ((r.Cells[1].Value).ToString().ToUpper().Contains(txtPeriode.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dvgLivraison.CurrentCell = null;
-                        dvgLivraison.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
-            if (txtFournisseur.Text.ToString() != "")
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dvgLivraison.Rows)
-                {
-                    if ((r.Cells[3].Value).ToString().ToUpper().Contains(txtFournisseur.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dvgLivraison.CurrentCell = null;
-                        dvgLivraison.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
-            if (txtDocument.Text.ToString() != "")
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dvgLivraison.Rows)
-                {
-                    if ((r.Cells[4].Value).ToString().ToUpper().Contains(txtDocument.Text.ToString().ToUpper()))
                     {
                         //dvgAffectationProduit.Rows[r.Index].Visible = true;
                         //dvgAffectationProduit.Rows[r.Index].Selected = true;

@@ -23,7 +23,7 @@ namespace GestionDeStockC
         public string Remise { get; set; }
         public string Total { get; set; }
     
-        public virtual Commande Commande { get; set; }
         public virtual Produit Produit { get; set; }
+        public virtual Commande Commande { get; set; }
     }
 }

@@ -43,6 +43,7 @@ namespace GestionDeStockC.PL
             {
                 dvgclient.Rows.Add(S.ID_Client, S.Num_Client, S.Nom_Client, S.Prenom_Client, S.Rabais, S.Adresse_Client, S.Code_Zip, S.Ville_Client, S.Pays_Client, S.Telephone_Client, S.Email_Client);//ajouter ligne dans datagrid
             }
+            dvgclient.ClearSelection();
         }
         private void USER_Liste_Client_Load(object sender, EventArgs e)
         {
@@ -58,8 +59,8 @@ namespace GestionDeStockC.PL
         {
             PL.FRM_Ajoute_Modifier_Client frmclient = new PL.FRM_Ajoute_Modifier_Client(this);
 
-                if ((dvgclient.CurrentRow != null) || (dvgclient.Rows.Count != 0))
-                {
+                if ((dvgclient.SelectedRows.Count != 0) && (dvgclient.Rows.Count != 0))
+            {
                         frmclient.txtNom.Text = dvgclient.CurrentRow.Cells[2].Value.ToString();
                         frmclient.txtPrenom.Text = dvgclient.CurrentRow.Cells[3].Value.ToString();
                         frmclient.txtAdresse.Text = dvgclient.CurrentRow.Cells[5].Value.ToString();
@@ -81,12 +82,13 @@ namespace GestionDeStockC.PL
         }
         private void btnsupprimerclient_Click(object sender, EventArgs e)
         {
-            DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer un client", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (R == DialogResult.Yes)
+            if ((dvgclient.SelectedRows.Count != 0) && (dvgclient.Rows.Count != 0))
             {
-                BL.CLS_Client clclient = new BL.CLS_Client();
-                if ((dvgclient.CurrentRow != null) || (dvgclient.Rows.Count != 0))
+                DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer un client", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (R == DialogResult.Yes)
                 {
+                    BL.CLS_Client clclient = new BL.CLS_Client();
+
                     int idselect = (int)dvgclient.CurrentRow.Cells[0].Value;// id de la ligne cocher
                     int NbreProd = db.Affectations.Count(s => s.ID_Client == idselect);
                     if (NbreProd == 0)
@@ -97,13 +99,17 @@ namespace GestionDeStockC.PL
                     }
                     else
                     {
-                        DialogResult PDR = MessageBox.Show("Il y a " + NbreProd + " affectatins pour ce produit vous ne pouvez pas le supprimer", "Supprime", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult PDR = MessageBox.Show("Il y a " + NbreProd + " affectatins pour ce client vous ne pouvez pas le supprimer", "Supprime", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("suppression et annule", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("suppression et annule", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Aucun client selectionnee", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void comborecherche_SelectedIndexChanged(object sender, EventArgs e)

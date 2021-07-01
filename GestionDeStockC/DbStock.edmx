@@ -47,6 +47,7 @@
           <Property Name="Total_HT" Type="nvarchar" MaxLength="250" />
           <Property Name="TVA" Type="nvarchar" MaxLength="20" />
           <Property Name="Total_TTC" Type="nvarchar" MaxLength="250" />
+          <Property Name="ID_Expediteur" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Details_Commande">
           <Key>
@@ -153,6 +154,18 @@
             </Principal>
             <Dependent Role="Commande">
               <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commande_Client1">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Commande" Type="Self.Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="ID_Expediteur" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -271,6 +284,10 @@
             <End Role="Client" EntitySet="Client" />
             <End Role="Commande" EntitySet="Commande" />
           </AssociationSet>
+          <AssociationSet Name="FK_Commande_Client1" Association="Self.FK_Commande_Client1">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Commande" EntitySet="Commande" />
+          </AssociationSet>
           <AssociationSet Name="FK_Details_Commande_Commande" Association="Self.FK_Details_Commande_Commande">
             <End Role="Commande" EntitySet="Commande" />
             <End Role="Details_Commande" EntitySet="Details_Commande" />
@@ -308,7 +325,6 @@
           <EntitySet Name="Affectations" EntityType="GESTION_DE_STOCKModel.Affectation" />
           <EntitySet Name="Categories" EntityType="GESTION_DE_STOCKModel.Categorie" />
           <EntitySet Name="Clients" EntityType="GESTION_DE_STOCKModel.Client" />
-          <EntitySet Name="Commandes" EntityType="GESTION_DE_STOCKModel.Commande" />
           <EntitySet Name="Details_Commande" EntityType="GESTION_DE_STOCKModel.Details_Commande" />
           <EntitySet Name="Livraisons" EntityType="GESTION_DE_STOCKModel.Livraison" />
           <EntitySet Name="Produits" EntityType="GESTION_DE_STOCKModel.Produit" />
@@ -326,17 +342,9 @@
             <End Role="Categorie" EntitySet="Categories" />
             <End Role="Produit" EntitySet="Produits" />
           </AssociationSet>
-          <AssociationSet Name="FK_Commande_Client" Association="GESTION_DE_STOCKModel.FK_Commande_Client">
-            <End Role="Client" EntitySet="Clients" />
-            <End Role="Commande" EntitySet="Commandes" />
-          </AssociationSet>
           <AssociationSet Name="FK_Livraison_Client" Association="GESTION_DE_STOCKModel.FK_Livraison_Client">
             <End Role="Client" EntitySet="Clients" />
             <End Role="Livraison" EntitySet="Livraisons" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Details_Commande_Commande" Association="GESTION_DE_STOCKModel.FK_Details_Commande_Commande">
-            <End Role="Commande" EntitySet="Commandes" />
-            <End Role="Details_Commande" EntitySet="Details_Commande" />
           </AssociationSet>
           <AssociationSet Name="FK_Details_Commande_Produit" Association="GESTION_DE_STOCKModel.FK_Details_Commande_Produit">
             <End Role="Produit" EntitySet="Produits" />
@@ -354,6 +362,19 @@
           <AssociationSet Name="FK_Details_Livraison_Produit" Association="GESTION_DE_STOCKModel.FK_Details_Livraison_Produit">
             <End Role="Produit" EntitySet="Produits" />
             <End Role="Details_Livraison" EntitySet="Details_Livraison" />
+          </AssociationSet>
+          <EntitySet Name="Commandes" EntityType="GESTION_DE_STOCKModel.Commande" />
+          <AssociationSet Name="FK_Commande_Client" Association="GESTION_DE_STOCKModel.FK_Commande_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Commande" EntitySet="Commandes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commande_Client1" Association="GESTION_DE_STOCKModel.FK_Commande_Client1">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Commande" EntitySet="Commandes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Commande_Commande" Association="GESTION_DE_STOCKModel.FK_Details_Commande_Commande">
+            <End Role="Commande" EntitySet="Commandes" />
+            <End Role="Details_Commande" EntitySet="Details_Commande" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Affectation">
@@ -391,21 +412,9 @@
           <Property Name="Rabais" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Num_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Affectations" Relationship="GESTION_DE_STOCKModel.FK_Affectation_Client" FromRole="Client" ToRole="Affectation" />
-          <NavigationProperty Name="Commandes" Relationship="GESTION_DE_STOCKModel.FK_Commande_Client" FromRole="Client" ToRole="Commande" />
           <NavigationProperty Name="Livraisons" Relationship="GESTION_DE_STOCKModel.FK_Livraison_Client" FromRole="Client" ToRole="Livraison" />
-        </EntityType>
-        <EntityType Name="Commande">
-          <Key>
-            <PropertyRef Name="ID_Commande" />
-          </Key>
-          <Property Name="ID_Commande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DATE_Commande" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ID_Client" Type="Int32" Nullable="false" />
-          <Property Name="Total_HT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="TVA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Total_TTC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Client" Relationship="GESTION_DE_STOCKModel.FK_Commande_Client" FromRole="Commande" ToRole="Client" />
-          <NavigationProperty Name="Details_Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Commande" FromRole="Commande" ToRole="Details_Commande" />
+          <NavigationProperty Name="Commandes" Relationship="GESTION_DE_STOCKModel.FK_Commande_Client" FromRole="Client" ToRole="Commande" />
+          <NavigationProperty Name="Commandes1" Relationship="GESTION_DE_STOCKModel.FK_Commande_Client1" FromRole="Client" ToRole="Commande" />
         </EntityType>
         <EntityType Name="Details_Commande">
           <Key>
@@ -419,8 +428,8 @@
           <Property Name="Prix" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Remise" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Total" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Commande" FromRole="Details_Commande" ToRole="Commande" />
           <NavigationProperty Name="Produit" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Produit" FromRole="Details_Commande" ToRole="Produit" />
+          <NavigationProperty Name="Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Commande" FromRole="Details_Commande" ToRole="Commande" />
         </EntityType>
         <EntityType Name="Livraison">
           <Key>
@@ -515,20 +524,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Commande_Client">
-          <End Type="GESTION_DE_STOCKModel.Client" Role="Client" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="GESTION_DE_STOCKModel.Commande" Role="Commande" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ID_Client" />
-            </Principal>
-            <Dependent Role="Commande">
-              <PropertyRef Name="ID_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Livraison_Client">
           <End Type="GESTION_DE_STOCKModel.Client" Role="Client" Multiplicity="1" />
           <End Type="GESTION_DE_STOCKModel.Livraison" Role="Livraison" Multiplicity="*" />
@@ -538,20 +533,6 @@
             </Principal>
             <Dependent Role="Livraison">
               <PropertyRef Name="ID_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Details_Commande_Commande">
-          <End Type="GESTION_DE_STOCKModel.Commande" Role="Commande" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="GESTION_DE_STOCKModel.Details_Commande" Role="Details_Commande" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Commande">
-              <PropertyRef Name="ID_Commande" />
-            </Principal>
-            <Dependent Role="Details_Commande">
-              <PropertyRef Name="ID_Commande" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -619,6 +600,61 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="ID_Commande" />
+          </Key>
+          <Property Name="ID_Commande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATE_Commande" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_Client" Type="Int32" Nullable="false" />
+          <Property Name="Total_HT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TVA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Total_TTC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Expediteur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="GESTION_DE_STOCKModel.FK_Commande_Client" FromRole="Commande" ToRole="Client" />
+          <NavigationProperty Name="Client1" Relationship="GESTION_DE_STOCKModel.FK_Commande_Client1" FromRole="Commande" ToRole="Client" />
+          <NavigationProperty Name="Details_Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Commande" FromRole="Commande" ToRole="Details_Commande" />
+        </EntityType>
+        <Association Name="FK_Commande_Client">
+          <End Type="GESTION_DE_STOCKModel.Client" Role="Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.Commande" Role="Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="ID_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commande_Client1">
+          <End Type="GESTION_DE_STOCKModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="GESTION_DE_STOCKModel.Commande" Role="Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="ID_Expediteur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Commande_Commande">
+          <End Type="GESTION_DE_STOCKModel.Commande" Role="Commande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.Details_Commande" Role="Details_Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="ID_Commande" />
+            </Principal>
+            <Dependent Role="Details_Commande">
+              <PropertyRef Name="ID_Commande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -657,18 +693,6 @@
                 <ScalarProperty Name="Prenom_Client" ColumnName="Prenom_Client" />
                 <ScalarProperty Name="Nom_Client" ColumnName="Nom_Client" />
                 <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Commandes">
-            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Commande">
-              <MappingFragment StoreEntitySet="Commande">
-                <ScalarProperty Name="Total_TTC" ColumnName="Total_TTC" />
-                <ScalarProperty Name="TVA" ColumnName="TVA" />
-                <ScalarProperty Name="Total_HT" ColumnName="Total_HT" />
-                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
-                <ScalarProperty Name="DATE_Commande" ColumnName="DATE_Commande" />
-                <ScalarProperty Name="ID_Commande" ColumnName="ID_Commande" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -741,6 +765,19 @@
                 <ScalarProperty Name="Quantite" ColumnName="Quantite" />
                 <ScalarProperty Name="ID_Produit" ColumnName="ID_Produit" />
                 <ScalarProperty Name="ID_Livraison" ColumnName="ID_Livraison" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commandes">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Commande">
+              <MappingFragment StoreEntitySet="Commande">
+                <ScalarProperty Name="ID_Expediteur" ColumnName="ID_Expediteur" />
+                <ScalarProperty Name="Total_TTC" ColumnName="Total_TTC" />
+                <ScalarProperty Name="TVA" ColumnName="TVA" />
+                <ScalarProperty Name="Total_HT" ColumnName="Total_HT" />
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+                <ScalarProperty Name="DATE_Commande" ColumnName="DATE_Commande" />
+                <ScalarProperty Name="ID_Commande" ColumnName="ID_Commande" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
