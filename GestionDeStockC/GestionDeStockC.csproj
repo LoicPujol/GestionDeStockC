@@ -390,6 +390,7 @@
       <DependentUpon>DbStock.edmx</DependentUpon>
       <LastGenOutput>DbStock.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-impression-24.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

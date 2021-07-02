@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
+using Microsoft.Reporting.WinForms;
+
 
 namespace GestionDeStockC.PL
 {
@@ -196,6 +198,53 @@ namespace GestionDeStockC.PL
         private void txtExpediteur_TextChanged(object sender, EventArgs e)
         {
             Actualisedatagrid();
+        }
+        private void btnImprimer_Click(object sender, EventArgs e)
+        {
+            db = new dbStockContext();
+            RAP.FRM_RAPPORT frmrap = new RAP.FRM_RAPPORT();
+            try
+            {
+                int IdCommande = (int)dvgCommande.CurrentRow.Cells[0].Value;
+                var Commande = db.Commandes.Single(s => s.ID_Commande == IdCommande);
+                var ClientCommande = db.Clients.Single(s => s.ID_Client == Commande.ID_Client);
+                var listedetail = db.Details_Commande.Where(s => s.ID_Commande == IdCommande).ToList();
+                frmrap.RPT_Afficher.LocalReport.ReportEmbeddedResource = "GestionDeStockC.RAP.RPT_Commande.rdlc";
+                frmrap.RPT_Afficher.LocalReport.DataSources.Add(new ReportDataSource("dataCommande", listedetail));
+                ReportParameter NomPrenom = new ReportParameter("NomPrenom", ClientCommande.Nom_Client + " " + ClientCommande.Prenom_Client);
+                ReportParameter Adresse = new ReportParameter("Adresse", ClientCommande.Adresse_Client);
+                ReportParameter Telephone = new ReportParameter("Telephone", ClientCommande.Telephone_Client);
+                ReportParameter Mail = new ReportParameter("Email", ClientCommande.Email_Client);
+
+                ReportParameter NumeroCommande = new ReportParameter("IDCommande", IdCommande.ToString());
+                ReportParameter DateCommande = new ReportParameter("DateCommande", Commande.DATE_Commande.ToString());
+
+                ReportParameter TotalHt = new ReportParameter("TotalHT", Commande.Total_HT);
+                ReportParameter TVA = new ReportParameter("TVA", Commande.TVA);
+                ReportParameter TotalTtc = new ReportParameter("TotalTTC", Commande.Total_TTC);
+
+                /**
+                MessageBox.Show(Commande.ToString());
+                MessageBox.Show(ClientCommande.ToString());
+                MessageBox.Show(listedetail.ToString());
+                MessageBox.Show(NomPrenom.ToString());
+                MessageBox.Show(Adresse.ToString());
+                MessageBox.Show(Telephone.ToString());
+                MessageBox.Show(Mail.ToString());
+                MessageBox.Show(NumeroCommande.ToString());
+                MessageBox.Show(DateCommande.ToString());
+                MessageBox.Show(TotalHt.ToString());
+                MessageBox.Show(TotalTtc.ToString());
+                MessageBox.Show(TVA.ToString());
+                **/
+                frmrap.RPT_Afficher.LocalReport.SetParameters(new ReportParameter[] { NomPrenom, Adresse, Telephone, Mail, NumeroCommande, DateCommande, TotalHt, TVA, TotalTtc });
+                frmrap.RPT_Afficher.RefreshReport();
+                frmrap.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

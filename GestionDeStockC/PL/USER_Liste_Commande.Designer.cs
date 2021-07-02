@@ -42,6 +42,11 @@ namespace GestionDeStockC.PL
             this.txtNumCde = new System.Windows.Forms.TextBox();
             this.details_CommandeTableAdapter = new GestionDeStockC.GESTION_DE_STOCKDataSetTableAdapters.Details_CommandeTableAdapter();
             this.dvgCommande = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvgDetailCde = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,13 +56,9 @@ namespace GestionDeStockC.PL
             this.txtNumCommande = new System.Windows.Forms.TextBox();
             this.btnajouter = new System.Windows.Forms.Button();
             this.txtPeriode = new System.Windows.Forms.TextBox();
-            this.btnexcel = new System.Windows.Forms.Button();
             this.txtExpediteur = new System.Windows.Forms.TextBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnImprimer = new System.Windows.Forms.Button();
+            this.btnexcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.detailsCommandeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gESTION_DE_STOCKDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCommande)).BeginInit();
@@ -144,6 +145,41 @@ namespace GestionDeStockC.PL
             this.dvgCommande.Size = new System.Drawing.Size(900, 790);
             this.dvgCommande.TabIndex = 64;
             this.dvgCommande.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgCommande_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Numéro";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.HeaderText = "Expéditeur";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 200;
+            // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column8.HeaderText = "Client";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Total Ht";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dvgDetailCde
             // 
@@ -286,6 +322,38 @@ namespace GestionDeStockC.PL
             this.txtPeriode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPeriode.TextChanged += new System.EventHandler(this.txtPeriode_TextChanged);
             // 
+            // txtExpediteur
+            // 
+            this.txtExpediteur.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtExpediteur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.txtExpediteur.ForeColor = System.Drawing.Color.DimGray;
+            this.txtExpediteur.Location = new System.Drawing.Point(225, 20);
+            this.txtExpediteur.Multiline = true;
+            this.txtExpediteur.Name = "txtExpediteur";
+            this.txtExpediteur.Size = new System.Drawing.Size(190, 32);
+            this.txtExpediteur.TabIndex = 80;
+            this.txtExpediteur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtExpediteur.TextChanged += new System.EventHandler(this.txtExpediteur_TextChanged);
+            // 
+            // btnImprimer
+            // 
+            this.btnImprimer.BackColor = System.Drawing.Color.White;
+            this.btnImprimer.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.btnImprimer.FlatAppearance.BorderSize = 0;
+            this.btnImprimer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnImprimer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnImprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimer.ForeColor = System.Drawing.Color.LightGray;
+            this.btnImprimer.Image = global::GestionDeStockC.Properties.Resources.icons8_impression_24;
+            this.btnImprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimer.Location = new System.Drawing.Point(628, 20);
+            this.btnImprimer.Name = "btnImprimer";
+            this.btnImprimer.Size = new System.Drawing.Size(32, 32);
+            this.btnImprimer.TabIndex = 81;
+            this.btnImprimer.UseVisualStyleBackColor = false;
+            this.btnImprimer.Click += new System.EventHandler(this.btnImprimer_Click);
+            // 
             // btnexcel
             // 
             this.btnexcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -306,59 +374,12 @@ namespace GestionDeStockC.PL
             this.btnexcel.UseVisualStyleBackColor = false;
             this.btnexcel.Click += new System.EventHandler(this.btnexcel_Click);
             // 
-            // txtExpediteur
-            // 
-            this.txtExpediteur.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtExpediteur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.txtExpediteur.ForeColor = System.Drawing.Color.DimGray;
-            this.txtExpediteur.Location = new System.Drawing.Point(225, 20);
-            this.txtExpediteur.Multiline = true;
-            this.txtExpediteur.Name = "txtExpediteur";
-            this.txtExpediteur.Size = new System.Drawing.Size(190, 32);
-            this.txtExpediteur.TabIndex = 80;
-            this.txtExpediteur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtExpediteur.TextChanged += new System.EventHandler(this.txtExpediteur_TextChanged);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Numéro";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.HeaderText = "Expéditeur";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 200;
-            // 
-            // Column8
-            // 
-            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column8.HeaderText = "Client";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Total Ht";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
             // USER_Liste_Commande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Controls.Add(this.btnImprimer);
             this.Controls.Add(this.txtExpediteur);
             this.Controls.Add(this.btnexcel);
             this.Controls.Add(this.txtPeriode);
@@ -402,5 +423,6 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Button btnImprimer;
     }
 }

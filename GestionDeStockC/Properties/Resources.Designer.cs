@@ -273,6 +273,16 @@ namespace GestionDeStockC.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_impression_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-impression-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ImpriCanon {
             get {
                 object obj = ResourceManager.GetObject("ImpriCanon", resourceCulture);

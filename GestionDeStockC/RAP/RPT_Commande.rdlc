@@ -11,7 +11,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="dataCommande">
       <Query>
         <DataSourceName>GestionDeStockC</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -208,7 +208,7 @@
                 <Top>0.635cm</Top>
                 <Left>3.30729cm</Left>
                 <Height>0.6cm</Height>
-                <Width>7.50062cm</Width>
+                <Width>3.82291cm</Width>
                 <ZIndex>4</ZIndex>
                 <Style>
                   <Border>
@@ -238,7 +238,7 @@
                 <Top>1.95542cm</Top>
                 <Left>3.30729cm</Left>
                 <Height>0.6cm</Height>
-                <Width>7.50062cm</Width>
+                <Width>3.82291cm</Width>
                 <ZIndex>5</ZIndex>
                 <Style>
                   <Border>
@@ -268,7 +268,7 @@
                 <Top>3.43958cm</Top>
                 <Left>3.30729cm</Left>
                 <Height>0.6cm</Height>
-                <Width>7.50062cm</Width>
+                <Width>3.82291cm</Width>
                 <ZIndex>6</ZIndex>
                 <Style>
                   <Border>
@@ -298,7 +298,7 @@
                 <Top>4.89229cm</Top>
                 <Left>3.30729cm</Left>
                 <Height>0.6cm</Height>
-                <Width>7.50062cm</Width>
+                <Width>3.82291cm</Width>
                 <ZIndex>7</ZIndex>
                 <Style>
                   <Border>
@@ -315,7 +315,7 @@
             <Top>0.34328cm</Top>
             <Left>8.27828cm</Left>
             <Height>6.01896cm</Height>
-            <Width>11.53521cm</Width>
+            <Width>7.61938cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -463,16 +463,16 @@
                   <Width>1.76431cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>8.68285cm</Width>
+                  <Width>7.02952cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.23993cm</Width>
+                  <Width>1.31326cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.97083cm</Width>
+                  <Width>1.27cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>1.5475cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -907,11 +907,11 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>DataSet1</DataSetName>
+            <DataSetName>dataCommande</DataSetName>
             <Top>6.90245cm</Top>
             <Left>0.47307cm</Left>
             <Height>1.2cm</Height>
-            <Width>19.65792cm</Width>
+            <Width>15.42459cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -935,7 +935,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
             <Top>8.40479cm</Top>
-            <Left>14.57537cm</Left>
+            <Left>10.13037cm</Left>
             <Height>0.6cm</Height>
             <Width>2.10312cm</Width>
             <ZIndex>3</ZIndex>
@@ -965,7 +965,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
             <Top>9.51604cm</Top>
-            <Left>14.57537cm</Left>
+            <Left>10.13037cm</Left>
             <Height>0.6cm</Height>
             <Width>2.10312cm</Width>
             <ZIndex>4</ZIndex>
@@ -995,7 +995,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox21</rd:DefaultName>
             <Top>10.75958cm</Top>
-            <Left>14.57537cm</Left>
+            <Left>10.13037cm</Left>
             <Height>0.6cm</Height>
             <Width>2.10312cm</Width>
             <ZIndex>5</ZIndex>
@@ -1025,7 +1025,7 @@
             </Paragraphs>
             <rd:DefaultName>TotalHT</rd:DefaultName>
             <Top>8.40479cm</Top>
-            <Left>16.96953cm</Left>
+            <Left>12.52453cm</Left>
             <Height>0.6cm</Height>
             <Width>3.16146cm</Width>
             <ZIndex>6</ZIndex>
@@ -1055,7 +1055,7 @@
             </Paragraphs>
             <rd:DefaultName>TVA</rd:DefaultName>
             <Top>9.51604cm</Top>
-            <Left>16.96953cm</Left>
+            <Left>12.52453cm</Left>
             <Height>0.6cm</Height>
             <Width>3.16146cm</Width>
             <ZIndex>7</ZIndex>
@@ -1085,7 +1085,7 @@
             </Paragraphs>
             <rd:DefaultName>TotalTTC</rd:DefaultName>
             <Top>10.75958cm</Top>
-            <Left>16.96953cm</Left>
+            <Left>12.52453cm</Left>
             <Height>0.6cm</Height>
             <Width>3.16146cm</Width>
             <ZIndex>8</ZIndex>
@@ -1103,7 +1103,7 @@
         <Height>5.5in</Height>
         <Style />
       </Body>
-      <Width>8.04526in</Width>
+      <Width>6.47234in</Width>
       <Page>
         <PageFooter>
           <Height>2.54cm</Height>

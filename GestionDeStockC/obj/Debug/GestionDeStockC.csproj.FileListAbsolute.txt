@@ -100,7 +100,6 @@ C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\Microsoft.
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\EnvDTE.dll
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
-C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\stdole.dll
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
@@ -168,3 +167,6 @@ C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\ru\Microso
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.RAP.FRM_RAPPORT.resources
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\GestionDeStockC.csprojAssemblyReference.cache
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\RdlCompile.cache
+C:\Users\loicp\source\repos\GestionDeStockC\GestionDeStockC\obj\Debug\RdlCompile.compiled
