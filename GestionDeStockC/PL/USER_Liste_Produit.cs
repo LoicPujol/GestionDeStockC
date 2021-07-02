@@ -51,9 +51,9 @@ namespace GestionDeStockC.PL
             dvgProduit.Visible = false;
             dvgProduit.Columns[7].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
-            var listerecherche = db.Produits.ToList();
             dvgProduit.Rows.Clear();
-
+            var listerecherche = db.Produits.ToList();
+            
             if (combocategorie.SelectedItem != null && combotype.SelectedItem != null)
             {
                 string CategRech = combocategorie.SelectedValue.ToString();
@@ -85,15 +85,18 @@ namespace GestionDeStockC.PL
             {
                 listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProd.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNom.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
             }
+            Categorie cat = new Categorie();
+            Type typ = new Type();//ajout pout type
+            foreach (var l in listerecherche)
+            {
+                cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
+                typ = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);//ajout type
 
-                Categorie cat = new Categorie();
-                Type typ = new Type();//ajout pout type
-                foreach (var l in listerecherche)
+                if (dvgProduit.RowCount <= 100)
                 {
-                    cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == l.ID_Categorie);
-                    typ = db.Types.SingleOrDefault(s => s.ID_Type == l.ID_Type);//ajout type
-                    dvgProduit.Rows.Add(l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit,l.Stock_Alerte, l.Prix_Produit, l.Date_Controle, l.N_Serie, l.Poids, l.Marge, l.Tarif_Achat);
+                    dvgProduit.Rows.Add(l.ID_Produit, cat.Nom_Categorie, typ.Nom_Type, l.NumInventaire, l.Nom_Produit, l.Stock_Alerte, l.Prix_Produit, l.Date_Controle, l.N_Serie, l.Poids, l.Marge, l.Tarif_Achat);
                 }
+            }
             dvgProduit.ClearSelection();
             dvgProduit.Visible = true;
         }
@@ -229,7 +232,7 @@ namespace GestionDeStockC.PL
             }
             else
             {
-                MessageBox.Show("Aucun article selectionnee", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Aucun article selectionnée.", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void USER_Liste_Produit_Load(object sender, EventArgs e)
@@ -240,7 +243,7 @@ namespace GestionDeStockC.PL
         {
             if (dvgProduit.SelectedRows.Count != 0 && (dvgProduit.Rows.Count != 0))
             {
-                DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer un produit", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer cet article?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (R == DialogResult.Yes)
                 {
                     BL.CLS_Produit clproduit = new BL.CLS_Produit();
@@ -251,17 +254,17 @@ namespace GestionDeStockC.PL
                     {
                         clproduit.Supprimer_Produit(idselect);
                         Actualiserdvg();
-                        MessageBox.Show("suppression avec succe", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Suppression avec succée.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
                     {
-                        DialogResult PDR = MessageBox.Show("Il y a " + NbreProd + " affectatins pour ce produit vous ne pouvez pas le supprimer", "Supprime", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult PDR = MessageBox.Show("Il y a " + NbreProd + " afféctations pour cet article vous ne pouvez pas le supprimer.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Aucun produit selectionnee", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Aucun produit séléctionnée.", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnexcel_Click(object sender, EventArgs e)

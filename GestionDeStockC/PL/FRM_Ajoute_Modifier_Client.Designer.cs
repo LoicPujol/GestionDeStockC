@@ -226,7 +226,7 @@ namespace GestionDeStockC.PL
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(140, 24);
             this.label13.TabIndex = 71;
-            this.label13.Text = "Numero client *";
+            this.label13.Text = "Numéro client *";
             // 
             // label1
             // 
@@ -235,9 +235,9 @@ namespace GestionDeStockC.PL
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(17, 130);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 24);
+            this.label1.Size = new System.Drawing.Size(63, 24);
             this.label1.TabIndex = 72;
-            this.label1.Text = "Nom de Client *";
+            this.label1.Text = "Nom *";
             // 
             // label2
             // 
@@ -248,7 +248,7 @@ namespace GestionDeStockC.PL
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 24);
             this.label2.TabIndex = 73;
-            this.label2.Text = "Prenom";
+            this.label2.Text = "Prénom";
             // 
             // label3
             // 
@@ -259,7 +259,7 @@ namespace GestionDeStockC.PL
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 24);
             this.label3.TabIndex = 74;
-            this.label3.Text = "Telephone";
+            this.label3.Text = "Téléphone";
             // 
             // label4
             // 
@@ -281,7 +281,7 @@ namespace GestionDeStockC.PL
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 24);
             this.label5.TabIndex = 76;
-            this.label5.Text = "Adresse";
+            this.label5.Text = "Adrésse";
             // 
             // label6
             // 

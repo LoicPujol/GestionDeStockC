@@ -116,7 +116,7 @@ namespace GestionDeStockC.PL
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 24);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Designation :";
+            this.label1.Text = "Désignation :";
             // 
             // label2
             // 
@@ -147,9 +147,9 @@ namespace GestionDeStockC.PL
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(311, 51);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 24);
+            this.label4.Size = new System.Drawing.Size(101, 24);
             this.label4.TabIndex = 30;
-            this.label4.Text = "Quantite :";
+            this.label4.Text = "Quantitée :";
             // 
             // label5
             // 

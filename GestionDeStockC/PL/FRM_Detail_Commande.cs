@@ -289,7 +289,7 @@ namespace GestionDeStockC.PL
                     BL.D_Affectation.listeDetail.Clear();
                     BL.D_Affectation.listeDetailExpedition.Clear();
                     Close();
-                    MessageBox.Show("Ajouter ajoute", "Enregistrer", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Commande enregistrée avec succés.", "Enregistrer", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             }
@@ -298,11 +298,11 @@ namespace GestionDeStockC.PL
         {
             if (dvgDetailCommande.Rows.Count != 0)
             {
-                MessageBox.Show("Un changement de destinataire annulera la commande en cour.", "Expediteur", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Un changement de déstinataire annulera la commande en cour.", "Expéditeur", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             if (txtIdExp.Text == "")
             {
-                MessageBox.Show("Selectionner expediteur", "Expediteur", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Selectionner un Client", "Client", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {

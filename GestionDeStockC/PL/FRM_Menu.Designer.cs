@@ -118,7 +118,7 @@ namespace GestionDeStockC.PL
             this.btnaffectation.Name = "btnaffectation";
             this.btnaffectation.Size = new System.Drawing.Size(180, 45);
             this.btnaffectation.TabIndex = 14;
-            this.btnaffectation.Text = "      Affectation";
+            this.btnaffectation.Text = "      Afféctation";
             this.btnaffectation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnaffectation.UseVisualStyleBackColor = true;
             this.btnaffectation.Click += new System.EventHandler(this.btnaffectation_Click);
@@ -137,7 +137,7 @@ namespace GestionDeStockC.PL
             this.btnalerte.Name = "btnalerte";
             this.btnalerte.Size = new System.Drawing.Size(179, 45);
             this.btnalerte.TabIndex = 13;
-            this.btnalerte.Text = "      Alerte";
+            this.btnalerte.Text = "      Alérte";
             this.btnalerte.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnalerte.UseVisualStyleBackColor = true;
             this.btnalerte.Click += new System.EventHandler(this.btnalerte_Click);
@@ -236,7 +236,7 @@ namespace GestionDeStockC.PL
             this.btncategorie.Name = "btncategorie";
             this.btncategorie.Size = new System.Drawing.Size(181, 45);
             this.btncategorie.TabIndex = 10;
-            this.btncategorie.Text = "      Categorie";
+            this.btncategorie.Text = "      Catégorie";
             this.btncategorie.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btncategorie.UseVisualStyleBackColor = true;
             this.btncategorie.Click += new System.EventHandler(this.btncategorie_Click);

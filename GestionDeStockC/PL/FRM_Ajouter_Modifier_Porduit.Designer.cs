@@ -124,7 +124,7 @@ namespace GestionDeStockC.PL
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 24);
             this.label2.TabIndex = 44;
-            this.label2.Text = "Categorie *";
+            this.label2.Text = "Catégorie *";
             // 
             // btnenregistrer
             // 
@@ -357,7 +357,7 @@ namespace GestionDeStockC.PL
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(152, 24);
             this.label10.TabIndex = 68;
-            this.label10.Text = "Numero de serie";
+            this.label10.Text = "Numéro de serie";
             // 
             // label11
             // 
@@ -390,7 +390,7 @@ namespace GestionDeStockC.PL
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(177, 24);
             this.label13.TabIndex = 70;
-            this.label13.Text = "Numero Inventaire *";
+            this.label13.Text = "Numéro Inventaire *";
             // 
             // txtDateCtrl
             // 

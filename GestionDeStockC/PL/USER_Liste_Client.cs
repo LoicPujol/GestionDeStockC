@@ -77,14 +77,14 @@ namespace GestionDeStockC.PL
                         frmclient.ShowDialog();
                 }else
                 {
-                MessageBox.Show("Aucun client selectionnee", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Aucun client séléctionnée.", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
         }
         private void btnsupprimerclient_Click(object sender, EventArgs e)
         {
             if ((dvgclient.SelectedRows.Count != 0) && (dvgclient.Rows.Count != 0))
             {
-                DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer un client", "Suppresion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult R = MessageBox.Show("Voulez vous vraiment supprimer ce client?", "Supprimer", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (R == DialogResult.Yes)
                 {
                     BL.CLS_Client clclient = new BL.CLS_Client();
@@ -95,21 +95,21 @@ namespace GestionDeStockC.PL
                     {
                         clclient.Supprimer_Client(idselect);
                         Actualisedatagrid();
-                        MessageBox.Show("suppression avec succe", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Client supprimé avec succés.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
                     {
-                        DialogResult PDR = MessageBox.Show("Il y a " + NbreProd + " affectatins pour ce client vous ne pouvez pas le supprimer", "Supprime", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult PDR = MessageBox.Show("Il y a " + NbreProd + " produit affécté pour ce client vous ne pouvez pas le supprimer.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("suppression et annule", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Suppression annulée.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Aucun client selectionnee", "suppression", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Aucun client selectionnée.", "Supprimer", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void comborecherche_SelectedIndexChanged(object sender, EventArgs e)

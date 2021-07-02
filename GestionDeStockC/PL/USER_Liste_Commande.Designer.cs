@@ -52,7 +52,7 @@ namespace GestionDeStockC.PL
             this.btnajouter = new System.Windows.Forms.Button();
             this.txtPeriode = new System.Windows.Forms.TextBox();
             this.btnexcel = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtExpediteur = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -216,7 +216,7 @@ namespace GestionDeStockC.PL
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn18.HeaderText = "Quantité";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Quantitée";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
@@ -232,7 +232,7 @@ namespace GestionDeStockC.PL
             this.txtClient.BackColor = System.Drawing.SystemColors.Menu;
             this.txtClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.txtClient.ForeColor = System.Drawing.Color.DimGray;
-            this.txtClient.Location = new System.Drawing.Point(225, 20);
+            this.txtClient.Location = new System.Drawing.Point(425, 20);
             this.txtClient.Multiline = true;
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(190, 32);
@@ -306,22 +306,23 @@ namespace GestionDeStockC.PL
             this.btnexcel.UseVisualStyleBackColor = false;
             this.btnexcel.Click += new System.EventHandler(this.btnexcel_Click);
             // 
-            // textBox1
+            // txtExpediteur
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.textBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox1.Location = new System.Drawing.Point(425, 20);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 32);
-            this.textBox1.TabIndex = 80;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtExpediteur.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtExpediteur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.txtExpediteur.ForeColor = System.Drawing.Color.DimGray;
+            this.txtExpediteur.Location = new System.Drawing.Point(225, 20);
+            this.txtExpediteur.Multiline = true;
+            this.txtExpediteur.Name = "txtExpediteur";
+            this.txtExpediteur.Size = new System.Drawing.Size(190, 32);
+            this.txtExpediteur.TabIndex = 80;
+            this.txtExpediteur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtExpediteur.TextChanged += new System.EventHandler(this.txtExpediteur_TextChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Numero";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Numéro";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
@@ -335,7 +336,7 @@ namespace GestionDeStockC.PL
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.HeaderText = "Expediteur";
+            this.Column1.HeaderText = "Expéditeur";
             this.Column1.Name = "Column1";
             this.Column1.Width = 200;
             // 
@@ -358,7 +359,7 @@ namespace GestionDeStockC.PL
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtExpediteur);
             this.Controls.Add(this.btnexcel);
             this.Controls.Add(this.txtPeriode);
             this.Controls.Add(this.btnajouter);
@@ -391,11 +392,11 @@ namespace GestionDeStockC.PL
         private System.Windows.Forms.Button btnajouter;
         private System.Windows.Forms.TextBox txtPeriode;
         private System.Windows.Forms.Button btnexcel;
+        private System.Windows.Forms.TextBox txtExpediteur;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

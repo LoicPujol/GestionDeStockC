@@ -73,7 +73,7 @@ namespace GestionDeStockC.PL
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FRM_Ajoute_Date";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FRM_Ajoute_Date";
+            this.Text = "Date";
             this.ResumeLayout(false);
 
         }

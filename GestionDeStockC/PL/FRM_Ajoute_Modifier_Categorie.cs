@@ -44,36 +44,36 @@ namespace GestionDeStockC.PL
             BL.CLS_Categorie clcat = new BL.CLS_Categorie();
             if (txtNom.Text == "" || txtNom.Text == "Nom de Categorie")
             { 
-                MessageBox.Show("Entrer nom de Categorie", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Entrer un nom de Categorie", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }else
             {
                 if (lblTitre.Text == "Ajouter Categorie")
                 {
                     if (clcat.Ajouter_Categorie(txtNom.Text) == false)
                     {
-                        MessageBox.Show("Categorie exsiste deja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("La catégorie éxsiste déja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Categorie ajoute", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Catégorie ajoutée", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         (usercat as USER_Liste_Categorie).Actualisedatagrid();
                         Close();
                     }
                 }
                 if(lblTitre.Text == "Modifier Categorie")
                 {
-                    DialogResult DR=MessageBox.Show("Voulez vou modifier", "Modifier", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult DR=MessageBox.Show("Voulez vous modifier la catégorie?", "Modifier", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (DR == DialogResult.Yes)
                     {
                         clcat.Modifier_Categorie(idcategorie, txtNom.Text);
-                        MessageBox.Show("Categorie modifier", "Modifier", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Catégorie modifiée", "Modifier", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         //actualiser datagrid
                         (usercat as USER_Liste_Categorie).Actualisedatagrid();
                         Close();
                     }
                     else
                     {
-                        MessageBox.Show("Modification annule", "Modifier", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Modification annulée", "Modifier", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }

@@ -1,15 +1,6 @@
 ﻿Champs de saisie (partout) :
 --verifier si saisie selon numerique ou alphanumerique
 --empecher la saisie de plus de X caractere (variable selon les champs)
---corriger faute orthographe 
-
-Verifier :
---ecriture dans table affectation
---filtre DVG
---critere d'erreur
---cas de multiple utilisateur (IMPORTANT)
---si un unitaire est affecte sur plusieurs site (ce qui ne doit normalement pas etre possible) alors DVGproduit plante au chargement
 
 A traiter :
 Gestion des messages d'erreur quand export excel ecrasse document existant avec choix d'annuler par l'utilisateur.
-Reprendre les filtre de DVG (ok jusqua livraison)

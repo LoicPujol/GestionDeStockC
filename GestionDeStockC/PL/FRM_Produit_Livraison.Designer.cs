@@ -61,7 +61,7 @@ namespace GestionDeStockC.PL
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 24);
             this.label1.TabIndex = 48;
-            this.label1.Text = "Designation :";
+            this.label1.Text = "Désignation :";
             // 
             // txtIdProduit
             // 
@@ -147,11 +147,11 @@ namespace GestionDeStockC.PL
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(40, 167);
+            this.label4.Location = new System.Drawing.Point(29, 169);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 24);
+            this.label4.Size = new System.Drawing.Size(101, 24);
             this.label4.TabIndex = 51;
-            this.label4.Text = "Quantite :";
+            this.label4.Text = "Quantitée :";
             // 
             // lblnom
             // 

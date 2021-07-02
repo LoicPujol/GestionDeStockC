@@ -53,15 +53,57 @@ namespace GestionDeStockC.PL
             combocategorieCtrl.ValueMember = "ID_Categorie";
             combocategorieCtrl.SelectedIndex = -1;
 
+            //afficher type selon table dans combobox
+            comboTypeCtrl.DataSource = db.Types.ToList();
+            //pour filtrer seulement les nom de categorie
+            comboTypeCtrl.DisplayMember = "Nom_Type";//afficher les nom des categorie
+            comboTypeCtrl.ValueMember = "ID_Type";
+            comboTypeCtrl.SelectedIndex = -1;
+
         }
         public void ActualiserdvgStock()
         {
             db = new dbStockContext();
             dgvStock.Rows.Clear();
+            var listerecherche = db.Produits.ToList();
+
+            if (combocategorieStock.SelectedItem != null && combotypeStock.SelectedItem != null)
+            {
+                string CategRech = combocategorieStock.SelectedValue.ToString();
+                int IdCat;
+                bool testCat = Int32.TryParse(CategRech, out IdCat);
+                string TypeRech = combotypeStock.SelectedValue.ToString();
+                int IdTyp;
+                bool testTyp = Int32.TryParse(TypeRech, out IdTyp);
+                string IdRech = txtrechercheInvProdStock.Text;
+                int IdProd;
+                bool testProd = Int32.TryParse(IdRech, out IdProd);
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProdStock.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNomStock.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdTyp == s.ID_Type && IdCat == s.ID_Categorie).ToList();
+            }
+            if (combocategorieStock.SelectedItem != null)
+            {
+                string CategRecherche = combocategorieStock.SelectedValue.ToString();
+                int IdCateg;
+                bool testCateg = Int32.TryParse(CategRecherche, out IdCateg);
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProdStock.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNomStock.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdCateg == s.ID_Categorie).ToList();
+            }
+            if (combotypeStock.SelectedItem != null)
+            {
+                string TypeRecherche = combotypeStock.SelectedValue.ToString();
+                int IdType;
+                bool testType = Int32.TryParse(TypeRecherche, out IdType);
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProdStock.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNomStock.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdType == s.ID_Type).ToList();
+            }
+            if (combocategorieStock.SelectedItem == null && combotypeStock.SelectedItem == null)
+            {
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProdStock.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNomStock.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+            }
+
             Categorie Cat = new Categorie();
             Type Typ = new Type();
             Affectation IDAffect = new Affectation();
-            foreach (var Lis in db.Produits)
+            //foreach (var Lis in db.Produits)
+            foreach (var Lis in listerecherche)
             {
                 Cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == Lis.ID_Categorie);
                 Typ = db.Types.SingleOrDefault(s => s.ID_Type == Lis.ID_Type);
@@ -83,71 +125,6 @@ namespace GestionDeStockC.PL
             }
             PL.USER_Dashboard.Instance.txtNbreStockAlerte.Text = (dgvStock.Rows.Count.ToString());
 
-            if (txtrechercheInvProdStock.Text.ToString() != "")
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dgvStock.Rows)
-                {
-                    if ((r.Cells[3].Value).ToString().ToUpper().Contains(txtrechercheInvProdStock.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dgvStock.CurrentCell = null;
-                        dgvStock.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
-            if (txtrechercheNomStock.Text.ToString() != "")
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dgvStock.Rows)
-                {
-                    if ((r.Cells[4].Value).ToString().ToUpper().Contains(txtrechercheNomStock.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dgvStock.CurrentCell = null;
-                        dgvStock.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
-            
-            if (combocategorieStock.SelectedItem != null)
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dgvStock.Rows)
-                {
-                    if ((r.Cells[1].Value).ToString().ToUpper().Contains(combocategorieStock.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dgvStock.CurrentCell = null;
-                        dgvStock.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
-            if (combotypeStock.SelectedItem != null)
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dgvStock.Rows)
-                {
-                    if ((r.Cells[2].Value).ToString().ToUpper().Contains(combotypeStock.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dgvStock.CurrentCell = null;
-                        dgvStock.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
             for (int i = 0; i < dgvStock.Rows.Count; i++)
             {
                 if ((int)dgvStock.Rows[i].Cells[5].Value == 0)
@@ -167,12 +144,45 @@ namespace GestionDeStockC.PL
             dgvDate.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
             db = new dbStockContext();
             dgvDate.Rows.Clear();
-            //Pour afficher le nom de categorie a partir de idcategorie
+            var listerecherche = db.Produits.ToList();
+
+            if (combocategorieCtrl.SelectedItem != null && comboTypeCtrl.SelectedItem != null)
+            {
+                string CategRech = combocategorieCtrl.SelectedValue.ToString();
+                int IdCat;
+                bool testCat = Int32.TryParse(CategRech, out IdCat);
+                string TypeRech = comboTypeCtrl.SelectedValue.ToString();
+                int IdTyp;
+                bool testTyp = Int32.TryParse(TypeRech, out IdTyp);
+                string IdRech = txtrechercheInvProdCtrl.Text;
+                int IdProd;
+                bool testProd = Int32.TryParse(IdRech, out IdProd);
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProdCtrl.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNomCtrl.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdTyp == s.ID_Type && IdCat == s.ID_Categorie).ToList();
+            }
+            if (combocategorieCtrl.SelectedItem != null)
+            {
+                string CategRecherche = combocategorieCtrl.SelectedValue.ToString();
+                int IdCateg;
+                bool testCateg = Int32.TryParse(CategRecherche, out IdCateg);
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProdCtrl.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNomCtrl.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdCateg == s.ID_Categorie).ToList();
+            }
+            if (comboTypeCtrl.SelectedItem != null)
+            {
+                string TypeRecherche = comboTypeCtrl.SelectedValue.ToString();
+                int IdType;
+                bool testType = Int32.TryParse(TypeRecherche, out IdType);
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProdCtrl.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNomCtrl.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && IdType == s.ID_Type).ToList();
+            }
+            if (combocategorieCtrl.SelectedItem == null && comboTypeCtrl.SelectedItem == null)
+            {
+                listerecherche = listerecherche.Where(s => s.NumInventaire.IndexOf(txtrechercheInvProdCtrl.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && s.Nom_Produit.IndexOf(txtrechercheNomCtrl.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+            }
+
             Categorie Cat = new Categorie();
             Type Typ = new Type();//ajout pout type
             Affectation IDAffect = new Affectation();
             Client NomClient = new Client();
-            foreach (var Lis in db.Produits)
+            foreach (var Lis in listerecherche)
             {
                 Cat = db.Categories.SingleOrDefault(s => s.ID_Categorie == Lis.ID_Categorie);
                 Typ = db.Types.SingleOrDefault(s => s.ID_Type == Lis.ID_Type);//ajout type
@@ -200,54 +210,6 @@ namespace GestionDeStockC.PL
             }
             PL.USER_Dashboard.Instance.txtNbreDateCtrlAlerte.Text = (dgvDate.Rows.Count.ToString());
 
-            if (txtrechercheInvProdCtrl.Text.ToString() != "")
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dgvDate.Rows)
-                {
-                    if ((r.Cells[3].Value).ToString().ToUpper().Contains(txtrechercheInvProdCtrl.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dgvDate.CurrentCell = null;
-                        dgvDate.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
-            if (txtrechercheNomCtrl.Text.ToString() != "")
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dgvDate.Rows)
-                {
-                    if ((r.Cells[4].Value).ToString().ToUpper().Contains(txtrechercheNomCtrl.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dgvDate.CurrentCell = null;
-                        dgvDate.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
-            if (combocategorieCtrl.SelectedItem != null)
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dgvDate.Rows)
-                {
-                    if ((r.Cells[1].Value).ToString().ToUpper().Contains(combocategorieCtrl.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dgvDate.CurrentCell = null;
-                        dgvDate.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
             for (int i = 0; i < dgvDate.Rows.Count; i++)
             {
                 if ((int)dgvDate.Rows[i].Cells[6].Value <= 0)
@@ -309,6 +271,7 @@ namespace GestionDeStockC.PL
         private void btnSupComboCtrl_Click(object sender, EventArgs e)
         {
             combocategorieCtrl.SelectedIndex = -1;
+            comboTypeCtrl.SelectedIndex = -1;
             txtrechercheInvProdCtrl.Text = "";
             txtrechercheNomCtrl.Text = "";
             ActualiserdvgAlerte();
@@ -387,6 +350,11 @@ namespace GestionDeStockC.PL
                     MessageBox.Show("Sauvegarde ok", "Excel", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }**/
+        }
+
+        private void comboTypeCtrl_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ActualiserdvgAlerte();
         }
     }
 }

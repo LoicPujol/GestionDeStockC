@@ -43,6 +43,8 @@ namespace GestionDeStockC.PL
             string NomPrenomClient;
             string NomPrenomExpediteur;
 
+            listecommande = listecommande.Where(s => (s.ID_Commande).ToString().IndexOf(txtNumCommande.Text, StringComparison.CurrentCultureIgnoreCase) != -1 && (s.DATE_Commande).ToString().IndexOf(txtPeriode.Text, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+
             foreach (var LC in listecommande)
              {
                  c = db.Clients.Single(s => s.ID_Client == LC.ID_Client);
@@ -57,27 +59,11 @@ namespace GestionDeStockC.PL
                 dvgCommande.Sort(dvgCommande.Columns[0], TryDirection);
                 dvgCommande.ClearSelection();
 
-            if (txtNumCommande.Text.ToString() != "")
-            {
-                foreach (System.Windows.Forms.DataGridViewRow r in dvgCommande.Rows)
-                {
-                    if ((r.Cells[0].Value).ToString().ToUpper().Contains(txtNumCommande.Text.ToString().ToUpper()))
-                    {
-                        //dvgAffectationProduit.Rows[r.Index].Visible = true;
-                        //dvgAffectationProduit.Rows[r.Index].Selected = true;
-                    }
-                    else
-                    {
-                        dvgCommande.CurrentCell = null;
-                        dvgCommande.Rows[r.Index].Visible = false;
-                    }
-                }
-            }
             if (txtClient.Text.ToString() != "")
             {
                 foreach (System.Windows.Forms.DataGridViewRow r in dvgCommande.Rows)
                 {
-                    if ((r.Cells[2].Value).ToString().ToUpper().Contains(txtClient.Text.ToString().ToUpper()))
+                    if ((r.Cells[3].Value).ToString().ToUpper().Contains(txtClient.Text.ToString().ToUpper()))
                     {
                         //dvgAffectationProduit.Rows[r.Index].Visible = true;
                         //dvgAffectationProduit.Rows[r.Index].Selected = true;
@@ -89,11 +75,11 @@ namespace GestionDeStockC.PL
                     }
                 }
             }
-            if (txtPeriode.Text.ToString() != "")
+            if (txtExpediteur.Text.ToString() != "")
             {
                 foreach (System.Windows.Forms.DataGridViewRow r in dvgCommande.Rows)
                 {
-                    if ((r.Cells[1].Value).ToString().ToUpper().Contains(txtPeriode.Text.ToString().ToUpper()))
+                    if ((r.Cells[2].Value).ToString().ToUpper().Contains(txtExpediteur.Text.ToString().ToUpper()))
                     {
                         //dvgAffectationProduit.Rows[r.Index].Visible = true;
                         //dvgAffectationProduit.Rows[r.Index].Selected = true;
@@ -205,6 +191,11 @@ namespace GestionDeStockC.PL
                     MessageBox.Show("Sauvegarde ok", "Excel", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
+        }
+
+        private void txtExpediteur_TextChanged(object sender, EventArgs e)
+        {
+            Actualisedatagrid();
         }
     }
 }

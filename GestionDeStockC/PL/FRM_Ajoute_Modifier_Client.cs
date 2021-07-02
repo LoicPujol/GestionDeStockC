@@ -25,12 +25,12 @@ namespace GestionDeStockC.PL
         {
             if (txtNumClient.Text == "")
             {
-                return "Entrer numero client";
+                return "Entrer le numéro client";
             }
 
             if (txtNom.Text == "")
             {
-                return "Entrer le Nom de Client";
+                return "Entrer le Nom Client";
             }
             //verifier si email valide
             if (txtEmail.Text != "")
@@ -38,8 +38,8 @@ namespace GestionDeStockC.PL
                 try
                 {
                     new MailAddress(txtEmail.Text);//pour verifier si email valide
-
-                } catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     return ("Email non valide");
                 }
@@ -71,29 +71,29 @@ namespace GestionDeStockC.PL
                 BL.CLS_Client clclient = new BL.CLS_Client();
                 if(clclient.Ajouter_Client(txtNom.Text,txtPrenom.Text,txtAdresse.Text,txtTelephone.Text,txtEmail.Text,txtVille.Text,txtPays.Text, txtNumClient.Text, txtZip.Text, txtRabais.Text)==true)
                 {
-                    MessageBox.Show("Client ajouté avec succés", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Client ajouté avec succés.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     (usclient as USER_Liste_Client).Actualisedatagrid();
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("Le numero de client éxistent déja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Le numero de client éxistent déja.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }else //si lblTitre=Modifier client
             {
                 BL.CLS_Client clclient = new BL.CLS_Client();
-                DialogResult R = MessageBox.Show("Voulez vous vraiment modifier ce client", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult R = MessageBox.Show("Voulez vous vraiment modifier ce client.", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(R==DialogResult.Yes)
                 {
                     clclient.Modifier_Client(IDselect, txtNom.Text, txtPrenom.Text, txtAdresse.Text, txtTelephone.Text, txtEmail.Text, txtVille.Text, txtPays.Text, txtNumClient.Text, txtZip.Text, txtRabais.Text);
                     //pour actualiser datzgrid wiev
                     (usclient as USER_Liste_Client).Actualisedatagrid();
-                    MessageBox.Show("Client modifie avec succe","Modification",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Client modifié avec succés.","Modification",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("Modification est annule", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Modification est annulé.", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 
             }

@@ -18,7 +18,6 @@ namespace GestionDeStockC.PL
             InitializeComponent();
             db = new dbStockContext();
         }
-
         private void FRM_Client_Commande_Load(object sender, EventArgs e)
         {
             Actualiserdvg();

@@ -39,19 +39,19 @@ namespace GestionDeStockC.PL
         {
             if (txtInventaireProd.Text == "")
             {
-                return "Entrer une quantite";
+                return "Entrer une quantitée";
             }
             if (txtNomP.Text == "")
             {
-                return "Entrer le Nom de Produit";
+                return "Entrer le Nom du Produit";
             }
             if (combocategorie.Text == "")
             {
-                return "entrer nom categorie";
+                return "Entrer une categorie";
             }
             if (combotype.Text == "")
             {
-                return "entrer nom type";
+                return "Entrer un type";
             }
             return null;
         }
@@ -91,13 +91,13 @@ namespace GestionDeStockC.PL
                     }
                     if (clproduit.Ajouter_Produit(txtNomP.Text, txtStockAlerte.Text, txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue),txtDateCtrl.Text, txtInventaireProd.Text, txtNumSerie.Text, txtTarifAchat.Text, txtPoids.Text,txtMarge.Text) == true)
                     {
-                        MessageBox.Show("Produit ajoute avec succe", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Produit ajouté avec succés.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
                         Close();
                     }
                     else
                     {
-                        MessageBox.Show("Produit existe deja", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Le produit éxiste deja.", "Ajouter", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else //si titre n'est pas ajoute produit alors c'est une modificaton
@@ -109,19 +109,19 @@ namespace GestionDeStockC.PL
                         byte[] byteimageP = MR.ToArray();//convertir image en format bye[]
                     }
                     BL.CLS_Produit cLS_Produit = new BL.CLS_Produit();
-                    DialogResult RS = MessageBox.Show("Voulez vous modifier", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult RS = MessageBox.Show("Voulez vous modifier le produit?", "Modification", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (RS == DialogResult.Yes)
                     {
                         
                            cLS_Produit.Modifier_Produit(IDPRODUIT, txtNomP.Text, txtStockAlerte.Text, txtPrix.Text, byteimageP, Convert.ToInt32(combocategorie.SelectedValue), Convert.ToInt32(combotype.SelectedValue),txtDateCtrl.Text, txtInventaireProd.Text, txtNumSerie.Text, txtTarifAchat.Text, txtPoids.Text, txtMarge.Text);
-                            MessageBox.Show("Produit modifier", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show("Produit modifier avec succés.", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         //Actualiser datagrid
                         (UserProduit as USER_Liste_Produit).Actualiserdvg();
                         Close();
                     }
                     else
                     {
-                        MessageBox.Show("Modification annule", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Modification annulée.", "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     
                 }
