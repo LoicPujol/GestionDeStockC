@@ -1,6 +1,10 @@
-﻿Champs de saisie (partout) :
+﻿///////////////////////////////////////////LANCEMENT PROJET 27/04/2021////////////////////////////
+
+Champs de saisie (partout) :
 --verifier si saisie selon numerique ou alphanumerique
 --empecher la saisie de plus de X caractere (variable selon les champs)
 
 A traiter :
 Gestion des messages d'erreur quand export excel ecrasse document existant avec choix d'annuler par l'utilisateur.
+
+DESKTOP-HJ24NFM\SQLEXPRESS

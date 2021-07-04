@@ -212,13 +212,12 @@ namespace GestionDeStockC.PL
                 frmrap.RPT_Afficher.LocalReport.ReportEmbeddedResource = "GestionDeStockC.RAP.RPT_Commande.rdlc";
                 frmrap.RPT_Afficher.LocalReport.DataSources.Add(new ReportDataSource("dataCommande", listedetail));
                 ReportParameter NomPrenom = new ReportParameter("NomPrenom", ClientCommande.Nom_Client + " " + ClientCommande.Prenom_Client);
+
                 ReportParameter Adresse = new ReportParameter("Adresse", ClientCommande.Adresse_Client);
                 ReportParameter Telephone = new ReportParameter("Telephone", ClientCommande.Telephone_Client);
                 ReportParameter Mail = new ReportParameter("Email", ClientCommande.Email_Client);
-
                 ReportParameter NumeroCommande = new ReportParameter("IDCommande", IdCommande.ToString());
                 ReportParameter DateCommande = new ReportParameter("DateCommande", Commande.DATE_Commande.ToString());
-
                 ReportParameter TotalHt = new ReportParameter("TotalHT", Commande.Total_HT);
                 ReportParameter TVA = new ReportParameter("TVA", Commande.TVA);
                 ReportParameter TotalTtc = new ReportParameter("TotalTTC", Commande.Total_TTC);

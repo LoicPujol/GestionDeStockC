@@ -421,7 +421,9 @@
                     <TextRuns>
                       <TextRun>
                         <Value>=Parameters!DateCommande.Value</Value>
-                        <Style />
+                        <Style>
+                          <Format>dd/MM/yyyy</Format>
+                        </Style>
                       </TextRun>
                     </TextRuns>
                     <Style />
@@ -460,16 +462,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.76431cm</Width>
+                  <Width>1.38098cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>7.02952cm</Width>
+                  <Width>6.81785cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.31326cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.27cm</Width>
+                  <Width>1.865cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.5475cm</Width>
@@ -491,7 +493,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Id Detail</Value>
+                                  <Value>Ligne</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -1133,14 +1135,17 @@
     </ReportParameter>
     <ReportParameter Name="Adresse">
       <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="Telephone">
       <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="Email">
       <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="IDCommande">
@@ -1153,14 +1158,17 @@
     </ReportParameter>
     <ReportParameter Name="TotalHT">
       <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="TVA">
       <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="TotalTTC">
       <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>

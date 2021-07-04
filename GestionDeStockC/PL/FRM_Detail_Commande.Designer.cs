@@ -55,20 +55,6 @@ namespace GestionDeStockC.PL
             this.btnSupCombo = new System.Windows.Forms.Button();
             this.txtIdExp = new System.Windows.Forms.TextBox();
             this.dvgProduit = new System.Windows.Forms.DataGridView();
-            this.txtrechercheNom = new System.Windows.Forms.TextBox();
-            this.combotype = new System.Windows.Forms.ComboBox();
-            this.combocategorie = new System.Windows.Forms.ComboBox();
-            this.txtrechercheInvProd = new System.Windows.Forms.TextBox();
-            this.commandedate = new System.Windows.Forms.DateTimePicker();
-            this.grpDetail = new System.Windows.Forms.GroupBox();
-            this.dvgDetailCommande = new System.Windows.Forms.DataGridView();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnExp = new System.Windows.Forms.Button();
-            this.txtNomExp = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtRemise = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,12 +64,26 @@ namespace GestionDeStockC.PL
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtrechercheNom = new System.Windows.Forms.TextBox();
+            this.combotype = new System.Windows.Forms.ComboBox();
+            this.combocategorie = new System.Windows.Forms.ComboBox();
+            this.txtrechercheInvProd = new System.Windows.Forms.TextBox();
+            this.commandedate = new System.Windows.Forms.DateTimePicker();
+            this.grpDetail = new System.Windows.Forms.GroupBox();
+            this.dvgDetailCommande = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnExp = new System.Windows.Forms.Button();
+            this.txtNomExp = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRemise = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.grpPoduit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgProduit)).BeginInit();
@@ -384,6 +384,73 @@ namespace GestionDeStockC.PL
             this.dvgProduit.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
             this.dvgProduit.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProduit_CellDoubleClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "IdExp";
+            this.Column1.Name = "Column1";
+            this.Column1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "IdProduit";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Catégorie";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 135;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn7.FillWeight = 358.0645F;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 135;
+            // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column10.FillWeight = 48.3871F;
+            this.Column10.HeaderText = "Inventaire";
+            this.Column10.Name = "Column10";
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 48.3871F;
+            this.Column2.HeaderText = "Désignation";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn8.FillWeight = 48.3871F;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Quantitée";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn10.FillWeight = 48.3871F;
+            this.dataGridViewTextBoxColumn10.HeaderText = "Prix";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn11.FillWeight = 48.3871F;
+            this.dataGridViewTextBoxColumn11.HeaderText = "Contrôle";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
             // txtrechercheNom
             // 
             this.txtrechercheNom.BackColor = System.Drawing.SystemColors.Control;
@@ -434,12 +501,14 @@ namespace GestionDeStockC.PL
             // 
             // commandedate
             // 
+            this.commandedate.CustomFormat = "dd/MM/yyyy";
             this.commandedate.Enabled = false;
+            this.commandedate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.commandedate.Location = new System.Drawing.Point(20, 34);
             this.commandedate.Name = "commandedate";
-            this.commandedate.Size = new System.Drawing.Size(200, 20);
+            this.commandedate.Size = new System.Drawing.Size(85, 20);
             this.commandedate.TabIndex = 72;
-            this.commandedate.Value = new System.DateTime(2021, 5, 22, 0, 0, 0, 0);
+            this.commandedate.Value = new System.DateTime(2021, 7, 2, 0, 0, 0, 0);
             // 
             // grpDetail
             // 
@@ -516,6 +585,41 @@ namespace GestionDeStockC.PL
             this.dvgDetailCommande.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvgDetailCommande.Size = new System.Drawing.Size(526, 637);
             this.dvgDetailCommande.TabIndex = 66;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "Désignation";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Quantitée";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Prix";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Remise";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Total";
+            this.Column4.Name = "Column4";
             // 
             // btnExp
             // 
@@ -598,108 +702,6 @@ namespace GestionDeStockC.PL
             this.txtRemise.Size = new System.Drawing.Size(60, 32);
             this.txtRemise.TabIndex = 61;
             this.txtRemise.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "IdExp";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "IdProduit";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Catégorie";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 135;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn7.FillWeight = 358.0645F;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 135;
-            // 
-            // Column10
-            // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column10.FillWeight = 48.3871F;
-            this.Column10.HeaderText = "Inventaire";
-            this.Column10.Name = "Column10";
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 48.3871F;
-            this.Column2.HeaderText = "Désignation";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn8.FillWeight = 48.3871F;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Quantitée";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn10.FillWeight = 48.3871F;
-            this.dataGridViewTextBoxColumn10.HeaderText = "Prix";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn11.FillWeight = 48.3871F;
-            this.dataGridViewTextBoxColumn11.HeaderText = "Contrôle";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "Désignation";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Quantitée";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "Prix";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "Remise";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Total";
-            this.Column4.Name = "Column4";
             // 
             // FRM_Detail_Commande
             // 
